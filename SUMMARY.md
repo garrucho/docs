@@ -1,7 +1,6 @@
 # Summary
 
-This is the summary of my book.
-
+* [Portal Wiki](README.md)
 * [Fundação](fundacao/README.md)
   * [Workspace](fundacao/workspace.md)
   * [Sandbox](fundacao/sandbox.md)
@@ -20,15 +19,15 @@ This is the summary of my book.
   * [routes.json](recursos/routes.json.md)
   * [rules.json](recursos/rules.json.md)
 * [Apps](apps/README.md)
-  * [O que é](apps/o-que-é.md)
-  * [Usando](apps/usando.md)
-  * [Desenvolvendo](apps/desenvolvendo/README.md)
+   * [O que é](apps/o-que-é.md)
+   * [Usando](apps/usando.md)
+   * [Desenvolvendo](apps/desenvolvendo/README.md)
     * [Estrutura de pastas](apps/desenvolvendo/estrutura-de-pastas.md)
     * [meta.json](apps/desenvolvendo/meta.json.md)
     * [Publicando](apps/desenvolvendo/publicando.md)
 * [Referências](referencias/README.md)
-  * [Provedores de Contexto](referencias/provedores-de-contexto.md)
-  * [Liquid](referencias/liquid/README.md)
+   * [Provedores de Contexto](referencias/provedores-de-contexto.md)
+   * [Liquid](referencias/liquid/README.md)
     * [Guia básico de Liquid](referencias/liquid/basico/README.md)
       * [Filtros](referencias/liquid/basico/filtros.md)
       * [Tags](referencias/liquid/basico/tags.md)
