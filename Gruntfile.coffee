@@ -19,3 +19,4 @@ module.exports = (grunt) ->
   
   # Load grunt tasks automatically
   require('load-grunt-tasks') grunt
+  grunt.registerTask taskName, taskArray for taskName, taskArray of tasks
