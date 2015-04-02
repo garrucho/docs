@@ -1,0 +1,11 @@
+{
+  "name": "portal-wiki",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-gh-pages": "^0.9.1",
+    "grunt-shell": "^1.1.1",
+    "load-grunt-tasks": "^3.1.0",
+    "gitbook": "2.0.0"
+  }
+}
