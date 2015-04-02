@@ -1,9 +1,8 @@
 # Apps
 
-* [O que é](O-que-é-uma-app.html)
-* [Usando](Usando-uma-app.html)
-* [Desenvolvendo](Desenvolvendo-uma-app.html)
-  * [Estrutura de pastas](Estrutura-de-pastas.html)
-  * [meta.json](meta.json.html)
-  * [Publicando](Publicando-uma-app.html)
-
+* [O que é](o-que-é.html)
+* [Usando](usando.html)
+* [Desenvolvendo](desenvolvendo/index.html)
+  * [Estrutura de pastas](desenvolvendo/estrutura-de-pastas.html)
+  * [meta.json](desenvolvendo/meta.json.html)
+  * [Publicando](desenvolvendo/publicando.html)
