@@ -1,3 +1,2 @@
-# Portal Wiki
+# VTEX Lab Docs
 
-Essa é a Wiki do novo Portal da VTEX.
