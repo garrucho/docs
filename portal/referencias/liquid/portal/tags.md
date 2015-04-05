@@ -106,3 +106,19 @@ Aqui eu posso usar {{ variable }}!
 >### parâmetros
 >
 >É obrigatório fazer a atribuição para uma várivel
+
+## widget
+
+Adiciona um widget na página.
+
+{% raw %}<pre>
+{% widget 'nome-do-widget' id:'id-do-widget' %}
+</pre>{% endraw %}
+
+>### parâmetros
+>
+>String literal com o nome do widget
+>
+>id: identificador único do widget na página
+
+[Ler mais sobre a tag `widget`](../../../recursos/widgets/usando.html)
