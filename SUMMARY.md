@@ -11,7 +11,6 @@
       * [Partials](portal/recursos/templates/partials.md)
     * [Widgets](portal/recursos/widgets/README.md)
       * [Como usar](portal/recursos/widgets/como-usar.md)
-      * [Configurando](portal/recursos/widgets/configurando.md)
       * [Desenvolvendo](portal/recursos/widgets/desenvolvendo.md)
     * [Models](portal/recursos/models.md)
     * [Assets](portal/recursos/assets.md)
