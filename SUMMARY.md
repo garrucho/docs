@@ -25,6 +25,7 @@
       * [Publicando](portal/apps/desenvolvendo/publicando.md)
   * [Referências](portal/referencias/README.md)
     * [Provedores de Contexto](portal/referencias/provedores-de-contexto.md)
+    * [VTEX Toolbelt](portal/referencias/toolbelt.md)
     * [Liquid](portal/referencias/liquid/README.md)
       * [Guia básico de Liquid](portal/referencias/liquid/basico/README.md)
         * [Filtros](portal/referencias/liquid/basico/filtros.md)
