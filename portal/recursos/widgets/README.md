@@ -6,8 +6,8 @@ Um widget é composto de três arquivos: `body.html`, `schema.json` e `settings.
 
 ```
 widgets/
- nome-do-widget/
-   body.html
-   schema.json
-   settings.json
+└── nome-do-widget/
+    ├── body.html
+    ├── schema.json
+    └── settings.json
 ```
