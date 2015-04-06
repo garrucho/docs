@@ -32,10 +32,10 @@ A versão deve respeitar o [semver](http://semver.org/).
 ## owner
 > As propriedades `name`, `version` e `owner` são as mais importantes de sua app. Elas são obrigatórias e sem elas, sua app não irá funcionar. Juntas elas geram um identificador único.
 
-O owner de sua app é a conta no qual seu usuário na VTEX está, podendo este ser uma loja, uma conta de agência, etc.
+O owner de sua app é a conta no qual o seu usuário na VTEX está, podendo esta ser uma conta de uma loja, de agência, empresa, etc.
 
 ## dependencies
-A sua app pode depender de outras apps. O valor dessa propriedade é definido por um objeto com chave e valor, sendo a chave o owner e o nome da app concatenado com `.` e o valor sendo a versão da app.
+Sua app pode usar recursos de outras apps se você as definir como uma dependência. Para isso, você deve escrever o nome da app e sua versão no objeto `dependencies`. A chave sendo o owner e o nome da app concatenado com `.` e o valor sendo a versão da app, como mostra o exemplo acima.
 
 ## schemas
-Define quais schemas estão sendo utilizados.
+Define quais schemas estão sendo utilizados. Se for uma app do Portal (também chamado de Storefront), deixe como mostra o exemplo.

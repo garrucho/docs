@@ -1,4 +1,4 @@
-# O que é um widget
+# Widgets
 
 Um widget é uma forma fácil de fazer com que partes do seu site seja alterado através da interface administrativa.
 
