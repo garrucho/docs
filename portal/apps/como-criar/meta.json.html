@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Desenvolvendo | VTEX Lab Docs</title>
+        <title>meta.json | VTEX Lab Docs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.0">
@@ -20,10 +20,10 @@
         
     
     
-    <link rel="next" href="../../../portal/apps/desenvolvendo/meta.json.html" />
+    <link rel="next" href="../../../portal/apps/como-criar/publicando.html" />
     
     
-    <link rel="prev" href="../../../portal/recursos/routes.json.html" />
+    <link rel="prev" href="../../../portal/apps/como-criar/index.html" />
     
 
         
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="1.3.2" data-basepath="../../.." data-revision="Mon Apr 06 2015 13:21:55 GMT-0300 (BRT)">
+    <div class="book" data-level="1.3.3.1" data-basepath="../../.." data-revision="Mon Apr 06 2015 19:28:12 GMT-0300 (BRT)">
     
 
 <div class="book-summary">
@@ -335,22 +335,37 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="portal/apps/como-usar.html">
+        <li class="chapter " data-level="1.3.1" data-path="portal/apps/como-instalar.html">
             
-            <span><b>1.3.1.</b> Como usar</span>
+                
+                    <a href="../../../portal/apps/como-instalar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.1.</b>
+                        
+                        Como instalar
+                    </a>
+                
             
             
         </li>
     
-        <li class="chapter active" data-level="1.3.2" data-path="portal/apps/desenvolvendo/index.html">
+        <li class="chapter " data-level="1.3.2" data-path="portal/apps/como-usar.html">
+            
+            <span><b>1.3.2.</b> Como usar</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="portal/apps/como-criar/index.html">
             
                 
-                    <a href="../../../portal/apps/desenvolvendo/index.html">
+                    <a href="../../../portal/apps/como-criar/index.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>1.3.2.</b>
+                            <b>1.3.3.</b>
                         
-                        Desenvolvendo
+                        Como criar
                     </a>
                 
             
@@ -358,13 +373,13 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.2.1" data-path="portal/apps/desenvolvendo/meta.json.html">
+        <li class="chapter active" data-level="1.3.3.1" data-path="portal/apps/como-criar/meta.json.html">
             
                 
-                    <a href="../../../portal/apps/desenvolvendo/meta.json.html">
+                    <a href="../../../portal/apps/como-criar/meta.json.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>1.3.2.1.</b>
+                            <b>1.3.3.1.</b>
                         
                         meta.json
                     </a>
@@ -373,13 +388,13 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2.2" data-path="portal/apps/desenvolvendo/publicando.html">
+        <li class="chapter " data-level="1.3.3.2" data-path="portal/apps/como-criar/publicando.html">
             
                 
-                    <a href="../../../portal/apps/desenvolvendo/publicando.html">
+                    <a href="../../../portal/apps/como-criar/publicando.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>1.3.2.2.</b>
+                            <b>1.3.3.2.</b>
                         
                         Publicando
                     </a>
@@ -683,40 +698,44 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="desenvolvendo-uma-app"><a name="desenvolvendo-uma-app" class="plugin-anchor" href="#desenvolvendo-uma-app"><span class="fa fa-link"></span></a>Desenvolvendo uma app</h1>
-<h2 id="vtex-toolbelt"><a name="vtex-toolbelt" class="plugin-anchor" href="#vtex-toolbelt"><span class="fa fa-link"></span></a>VTEX Toolbelt</h2>
-<p>Para desenvolver uma app &#xE9; essencial que voc&#xEA; use o <a href="https://github.com/vtex/toolbelt" target="_blank">VTEX Toolbet</a>.</p>
-<p>Primeiro instale o node e o npm (<a href="https://gist.github.com/isaacs/579814" target="_blank">Linux</a>, <a href="https://nodejs.org/download/" target="_blank">Mac e Windows</a>).</p>
-<p>Agora instale o VTEX Toolbelt, digite no terminal (n&#xE3;o importa onde):</p>
-<pre><code>npm install -g vtex
-</code></pre><p><a href="../referencias/toolbelt.html">Leia mais sobre como usar o VTEX Toolbelt!</a></p>
-<h2 id="generator-vtex"><a name="generator-vtex" class="plugin-anchor" href="#generator-vtex"><span class="fa fa-link"></span></a>generator-vtex</h2>
-<p>Uma ferramenta n&#xE3;o essencial, mas que ir&#xE1; lhe auxiliar &#xE9; o <a href="https://github.com/vtex/generator-vtex" target="_blank">generator-vtex</a>. Com ela voc&#xEA; pode criar a estrutura de pastas b&#xE1;sica de uma app nova.</p>
-<p>Para isso, instale o Yeoman e o generator-vtex, digite no terminal (n&#xE3;o importa onde):</p>
-<pre><code>npm install -g yo
-npm install -g generator-vtex
-</code></pre><p>Ap&#xF3;s instalado, basta chamar o gerador na pasta onde voc&#xEA; deseja desenvolver a nova app. O comando abaixo ir&#xE1; criar toda a estrutura de pastas necess&#xE1;ria para que voc&#xEA; come&#xE7;e a desenvolver uma app do zero.</p>
-<pre><code>yo vtex
-</code></pre><hr>
-
-
-<p>Caso voc&#xEA; prefira seguir sem o <code>generator-vtex</code>, voc&#xEA; pode criar a estrutura de pastas na m&#xE3;o.</p>
-<p>A estrutura de pasta de uma app &#xE9;:</p>
-<pre><code>.
-&#x251C;&#x2500;&#x2500; storefront
-&#x2502;   &#x251C;&#x2500;&#x2500; assets
-&#x2502;   &#x251C;&#x2500;&#x2500; models
-&#x2502;   &#x251C;&#x2500;&#x2500; pages
-&#x2502;   &#x251C;&#x2500;&#x2500; partials
-&#x2502;   &#x251C;&#x2500;&#x2500; widgets
-&#x2502;   &#x251C;&#x2500;&#x2500; libs.json
-&#x2502;   &#x251C;&#x2500;&#x2500; routes.json
-&#x2502;   &#x2514;&#x2500;&#x2500; rules.json
-&#x2514;&#x2500;&#x2500; meta.json
-</code></pre><p>Para mais informa&#xE7;&#xF5;es sobre cada arquivo e pasta, leia o cap&#xED;tulo <a href="../../recursos">Recursos</a>.</p>
+                        <h4 id="aten%C3%A7%C3%A3o-essa-documenta%C3%A7%C3%A3o-se-refere-ao-novo-portal-que-est%C3%A1-em-fase-de-desenvolvimento-um-preview-t%C3%A9cnico-ser%C3%A1-apresentado-no-developer-day-2015"><a name="aten%C3%A7%C3%A3o-essa-documenta%C3%A7%C3%A3o-se-refere-ao-novo-portal-que-est%C3%A1-em-fase-de-desenvolvimento-um-preview-t%C3%A9cnico-ser%C3%A1-apresentado-no-developer-day-2015" class="plugin-anchor" href="#aten%C3%A7%C3%A3o-essa-documenta%C3%A7%C3%A3o-se-refere-ao-novo-portal-que-est%C3%A1-em-fase-de-desenvolvimento-um-preview-t%C3%A9cnico-ser%C3%A1-apresentado-no-developer-day-2015"><span class="fa fa-link"></span></a>Aten&#xE7;&#xE3;o! Essa documenta&#xE7;&#xE3;o se refere ao novo Portal que est&#xE1; em fase de desenvolvimento. Um preview t&#xE9;cnico ser&#xE1; apresentado no Developer Day 2015.</h4>
 <hr>
 
-<p>Agora temos todas as ferramentas e estruturas necess&#xE1;rias para come&#xE7;ar a desenvolver uma app!</p>
+<h1 id="meta-json"><a name="meta-json" class="plugin-anchor" href="#meta-json"><span class="fa fa-link"></span></a>meta.json</h1>
+<p>Toda app deve ter em sua pasta ra&#xED;z o arquivo <code>meta.json</code>. Exemplo:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;dreamstore-theme&quot;</span>,
+  <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;0.1.0&quot;</span>,
+  <span class="hljs-string">&quot;owner&quot;</span>: <span class="hljs-string">&quot;vtex&quot;</span>,
+  <span class="hljs-string">&quot;dependencies&quot;</span>: {
+    <span class="hljs-string">&quot;vtex.dreamstore-breadcrumb&quot;</span>: <span class="hljs-string">&quot;0.1.0&quot;</span>,
+    <span class="hljs-string">&quot;vtex.dreamstore-menu&quot;</span>: <span class="hljs-string">&quot;0.1.0&quot;</span>,
+    <span class="hljs-string">&quot;vtex.dreamstore-search&quot;</span>: <span class="hljs-string">&quot;0.1.0&quot;</span>
+  },
+  <span class="hljs-string">&quot;schemas&quot;</span>: {
+    <span class="hljs-string">&quot;storefront&quot;</span>: <span class="hljs-number">1</span>
+  }
+}
+</code></pre>
+<h2 id="name"><a name="name" class="plugin-anchor" href="#name"><span class="fa fa-link"></span></a>name</h2>
+<blockquote>
+<p>As propriedades <code>name</code>, <code>version</code> e <code>owner</code> s&#xE3;o as mais importantes de sua app. Elas s&#xE3;o obrigat&#xF3;rias e sem elas, sua app n&#xE3;o ir&#xE1; funcionar. Juntas elas geram um identificador &#xFA;nico.</p>
+</blockquote>
+<p>Lembre-se que o nome da sua app ser&#xE1; passado como par&#xE2;metro para o uso de algum recurso, ent&#xE3;o tente escolher um pequeno, mas que tamb&#xE9;m seja descritivo. Ap&#xF3;s publicada, o nome n&#xE3;o pode ser alterado.</p>
+<h2 id="version"><a name="version" class="plugin-anchor" href="#version"><span class="fa fa-link"></span></a>version</h2>
+<blockquote>
+<p>As propriedades <code>name</code>, <code>version</code> e <code>owner</code> s&#xE3;o as mais importantes de sua app. Elas s&#xE3;o obrigat&#xF3;rias e sem elas, sua app n&#xE3;o ir&#xE1; funcionar. Juntas elas geram um identificador &#xFA;nico.</p>
+</blockquote>
+<p>A vers&#xE3;o deve respeitar o <a href="http://semver.org/" target="_blank">semver</a>.</p>
+<h2 id="owner"><a name="owner" class="plugin-anchor" href="#owner"><span class="fa fa-link"></span></a>owner</h2>
+<blockquote>
+<p>As propriedades <code>name</code>, <code>version</code> e <code>owner</code> s&#xE3;o as mais importantes de sua app. Elas s&#xE3;o obrigat&#xF3;rias e sem elas, sua app n&#xE3;o ir&#xE1; funcionar. Juntas elas geram um identificador &#xFA;nico.</p>
+</blockquote>
+<p>O owner de sua app &#xE9; a conta no qual o seu usu&#xE1;rio na VTEX est&#xE1;, podendo esta ser uma conta de uma loja, de ag&#xEA;ncia, empresa, etc.</p>
+<h2 id="dependencies"><a name="dependencies" class="plugin-anchor" href="#dependencies"><span class="fa fa-link"></span></a>dependencies</h2>
+<p>Sua app pode usar recursos de outras apps se voc&#xEA; as definir como uma depend&#xEA;ncia. Para isso, voc&#xEA; deve escrever o nome da app e sua vers&#xE3;o no objeto <code>dependencies</code>. A chave sendo o owner e o nome da app concatenado com <code>.</code> e o valor sendo a vers&#xE3;o da app, como mostra o exemplo acima.</p>
+<h2 id="schemas"><a name="schemas" class="plugin-anchor" href="#schemas"><span class="fa fa-link"></span></a>schemas</h2>
+<p>Define quais schemas est&#xE3;o sendo utilizados. Se for uma app do Portal (tamb&#xE9;m chamado de Storefront), deixe como mostra o exemplo.</p>
 
                     
                     </section>
@@ -727,10 +746,10 @@ npm install -g generator-vtex
         </div>
 
         
-        <a href="../../../portal/recursos/routes.json.html" class="navigation navigation-prev " aria-label="Previous page: routes.json"><i class="fa fa-angle-left"></i></a>
+        <a href="../../../portal/apps/como-criar/index.html" class="navigation navigation-prev " aria-label="Previous page: Como criar"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../../portal/apps/desenvolvendo/meta.json.html" class="navigation navigation-next " aria-label="Next page: meta.json"><i class="fa fa-angle-right"></i></a>
+        <a href="../../../portal/apps/como-criar/publicando.html" class="navigation navigation-next " aria-label="Next page: Publicando"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
