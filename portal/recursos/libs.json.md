@@ -11,4 +11,10 @@ Exemplo:
 }
 ```
 
-Ao chamar a tag Liquid `lib` ([ler referência](../referencias/liquid/portal/tags.html#lib)) a versão específicada neste arquivo será usada.
+Ao chamar a tag Liquid [`lib`](../referencias/liquid/portal/tags.html#lib) a versão específicada neste arquivo será usada.
+
+Exemplo de um template qualquer usando uma lib:
+
+```html
+{% lib 'twitter-bootstrap' 'css/bootstrap.css' %}
+```
