@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="1.2.2.2" data-basepath="../../.." data-revision="Sun Apr 05 2015 23:45:30 GMT-0300 (BRT)">
+    <div class="book" data-level="1.2.2.2" data-basepath="../../.." data-revision="Mon Apr 06 2015 10:50:05 GMT-0300 (BRT)">
     
 
 <div class="book-summary">
@@ -139,7 +139,15 @@
     
         <li class="chapter " data-level="1.2.1" data-path="portal/recursos/templates/index.html">
             
-            <span><b>1.2.1.</b> Templates</span>
+                
+                    <a href="../../../portal/recursos/templates/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.1.</b>
+                        
+                        Templates
+                    </a>
+                
             
             
             <ul class="articles">
@@ -147,14 +155,30 @@
     
         <li class="chapter " data-level="1.2.1.1" data-path="portal/recursos/templates/pages.html">
             
-            <span><b>1.2.1.1.</b> Pages</span>
+                
+                    <a href="../../../portal/recursos/templates/pages.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.1.1.</b>
+                        
+                        Pages
+                    </a>
+                
             
             
         </li>
     
         <li class="chapter " data-level="1.2.1.2" data-path="portal/recursos/templates/partials.html">
             
-            <span><b>1.2.1.2.</b> Partials</span>
+                
+                    <a href="../../../portal/recursos/templates/partials.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.1.2.</b>
+                        
+                        Partials
+                    </a>
+                
             
             
         </li>
@@ -632,6 +656,7 @@
 <ul>
 <li><a href="#-schema-json"><code>schema.json</code></a></li>
 <li><a href="#-settings-json"><code>settings.json</code></a></li>
+<li><a href="#-contents-json"><code>contents.json</code></a></li>
 <li><a href="#-body-html"><code>body.html</code></a></li>
 </ul>
 <h2 id="-schema-json"><a name="-schema-json" class="plugin-anchor" href="#-schema-json"><span class="fa fa-link"></span></a><code>schema.json</code></h2>
@@ -647,16 +672,34 @@
       <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;description&quot;</span>,
       <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
+  ],
+  <span class="hljs-string">&quot;contents&quot;</span>: [
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;size&quot;</span>,
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>
+    }
   ]
 }
 </code></pre>
-<p>Cada configura&#xE7;&#xE3;o &#xE9; um objeto composto de duas propriedades: <code>name</code> e <code>type</code>, que define o nome e o tipo respectivamente. O nome ser&#xE1; usado no template (leia sobre o <code>body.html</code> abaixo), enquanto o tipo restringe os valores do campo. Os tipos suportados s&#xE3;o: &quot;string&quot; e &quot;number&quot;.</p>
+<p>Cada configura&#xE7;&#xE3;o &#xE9; definida no objeto <code>settings</code> composto de duas propriedades: <code>name</code> e <code>type</code>, que define o nome e o tipo respectivamente. O nome ser&#xE1; usado no template (leia sobre o <code>body.html</code> abaixo), enquanto o tipo restringe os valores do campo. Os tipos suportados s&#xE3;o: &quot;string&quot; e &quot;int&quot;.</p>
+<p>O objeto <code>contents</code> define o nome e o tipo dos valores que ser&#xE3;o determinados pelo arquivo <a href="../rules.json.html"><code>rules.json</code></a></p>
 <h2 id="-settings-json"><a name="-settings-json" class="plugin-anchor" href="#-settings-json"><span class="fa fa-link"></span></a><code>settings.json</code></h2>
-<p>Esse arquivo determina os valores default do arquivo de configura&#xE7;&#xE3;o, ele deve respeitar o schema definido no arquivo <code>schema.json</code>.</p>
+<p>Este arquivo determina os valores padr&#xF5;es da configura&#xE7;&#xE3;o do widget. Ele deve respeitar o schema definido no arquivo <code>schema.json</code>.</p>
 <p>Exemplo:</p>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Some image&quot;</span>,
   <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Non descriptive description.&quot;</span>
+}
+</code></pre>
+<h2 id="-contents-json"><a name="-contents-json" class="plugin-anchor" href="#-contents-json"><span class="fa fa-link"></span></a><code>contents.json</code></h2>
+<p>Define os valores padr&#xF5;es do conte&#xFA;do do widget. Ele deve respeitar o schema definido no arquivo <code>schema.json</code>.</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;google&quot;</span>: {
+    <span class="hljs-string">&quot;size&quot;</span>: <span class="hljs-number">3</span>
+  },
+  <span class="hljs-string">&quot;default&quot;</span>: {
+    <span class="hljs-string">&quot;size&quot;</span>: <span class="hljs-number">2</span>
+  }
 }
 </code></pre>
 <h2 id="-body-html"><a name="-body-html" class="plugin-anchor" href="#-body-html"><span class="fa fa-link"></span></a><code>body.html</code></h2>
@@ -665,7 +708,14 @@
 <p>Exemplo:</p>
 <pre><code>&lt;h1&gt;{{ widget.settings.title }}&lt;/h1&gt;
 &lt;small&gt;{{ widget.settings.description }}&lt;/small&gt;
-</code></pre>
+</code></pre><p>Ela tamb&#xE9;m possui o objeto contents com as chaves das regras aplicadas (regras que foram determinadas pelo arquivo <a href="../rules.json.html"><code>rules.json</code></a>).</p>
+<p>Exemplo:</p>
+<pre>
+{% assign rules = activeRules | append: &quot;default&quot; %}
+{% with content = widget.contents[rules[0]] %}
+Em at&#xE9; {{ content.size }}x sem juros!
+{% endwith %}
+</pre>
                     
                     </section>
                 
