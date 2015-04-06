@@ -36,16 +36,16 @@ A estrutura de pasta de uma app é:
 
 ```
 .
-├── meta.json
-└── storefront
-    ├── assets/
-    ├── models/
-    ├── pages/
-    ├── partials/
-    ├── widgets/
-    ├── libs.json
-    ├── routes.json
-    └── rules.json
+├── storefront
+│   ├── assets
+│   ├── models
+│   ├── pages
+│   ├── partials
+│   ├── widgets
+│   ├── libs.json
+│   ├── routes.json
+│   └── rules.json
+└── meta.json
 ```
 
 Para mais informações sobre cada arquivo e pasta, leia o capítulo [Recursos](../../recursos/).
