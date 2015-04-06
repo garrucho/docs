@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # libs.json
 
 O arquivo `libs.json` é um arquivo em JSON que define quais as versões das bibliotecas front end estão sendo usadas.

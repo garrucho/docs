@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # VTEX Toolbelt
 
 Para desenvolver uma app é essencial que você use o [VTEX Toolbet](https://github.com/vtex/toolbelt).

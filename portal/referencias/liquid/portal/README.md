@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Liquid no Portal
 
 * [Variáveis](variaveis.html)

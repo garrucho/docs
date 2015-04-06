@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Liquid
 
 * [Guia básico de Liquid](basico/index.html)

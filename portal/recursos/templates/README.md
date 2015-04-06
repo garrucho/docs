@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Templates
 
 > Um sistema de template usa um processador de template para combinar templates e formar páginas web acabadas, possibilitando usar algumas fontes de dados para customizar as páginas ou apresentar uma grande quantidade de conteúdo em páginas de aparência parecida. É uma ferramenta de publicação web presente em CMS, frameworks web e editores HTML.

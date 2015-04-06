@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Recursos
 
 Uma loja e uma app tem a mesma e a seguinte estrutura de pastas:

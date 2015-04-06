@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Variáveis
 
 Uma variável é declarada da seguinte forma: `{{ name }}`.

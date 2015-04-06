@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Partials
 
 Uma `partial` é um trecho de template que pode ser reutilizado.

@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Pages
 
 As `pages` são templates mestres, ou seja, as rotas definidas no arquivo [`routes.json`](../routes.json.html) devem referenciar uma página.

@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Provedores de Contexto
 
 ## Formato do provedor

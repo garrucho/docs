@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Assets
 
 É a pasta onde ficam todos os arquivos estáticos: imagens, CSS, Javascript, etc.

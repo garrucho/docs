@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Filtros
 
 * `append` - anexa uma string a outra ou um elemento a um array

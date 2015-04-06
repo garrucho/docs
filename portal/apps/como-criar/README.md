@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Como criar uma app
 
 ## VTEX Toolbelt

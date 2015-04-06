@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # meta.json
 
 Toda app deve ter em sua pasta raíz o arquivo `meta.json`. Exemplo:

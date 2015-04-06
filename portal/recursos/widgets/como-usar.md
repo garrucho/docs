@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Como usar um widget
 
 Para inserir em um widget basta usar a seguinte tag Liquid dentro de um template:

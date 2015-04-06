@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Workspace
 
 Um Workspace é um espaço de trabalho isolado para desenvolvimento e testes. As configurações do workspace são versionadas, isso signifca que caso algo quebre a loja, ela irá voltar para um ponto de restauração automaticamente.

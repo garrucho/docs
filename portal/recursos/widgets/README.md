@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Widgets
 
 Um widget é uma forma fácil de fazer com que partes do seu site seja alterado através da interface administrativa.

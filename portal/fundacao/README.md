@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Fundação
 
 O novo Portal da VTEX é totalmente diferente do antigo. A começar pelo método de desenvolvimento. Agora a URL de desenvolvimento no Portal segue o seguinte modelo:

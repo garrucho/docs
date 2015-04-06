@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Sandbox
 
 A sandbox é usada para testar apps que não estão publicadas. Você irá usar uma sandbox apenas se você é um desenvolvedor de apps VTEX.

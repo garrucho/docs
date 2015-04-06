@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Referências
 
 ### Leia sobre [Provedores de Contexto](provedores-de-contexto.html).

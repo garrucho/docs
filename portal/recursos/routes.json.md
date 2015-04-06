@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # routes.json
 
 Este arquivo define para quais [pages](templates/pages.html) as URLs serão apontadas e fornece modelos, que utilizam a URL para serem gerados, para elas.

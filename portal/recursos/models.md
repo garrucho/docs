@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Models
 
 Um model é um arquivo JSON que define uma chamada a uma API.

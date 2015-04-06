@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Tags
 
 Tags are used for the logic in your template. New tags are very easy to code,

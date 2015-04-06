@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Guia básico de Liquid
 
 There are two types of markup in Liquid: Output and Tag.

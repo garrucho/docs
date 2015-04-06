@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Filtros
 
 ### Advanced output: Filters
