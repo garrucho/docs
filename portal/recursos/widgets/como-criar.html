@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Desenvolvendo | VTEX Lab Docs</title>
+        <title>Como criar | VTEX Lab Docs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.0">
@@ -23,7 +23,7 @@
     <link rel="next" href="../../../portal/recursos/models.html" />
     
     
-    <link rel="prev" href="../../../portal/recursos/widgets/configurando.html" />
+    <link rel="prev" href="../../../portal/recursos/widgets/como-usar.html" />
     
 
         
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="1.2.2.3" data-basepath="../../.." data-revision="Sun Apr 05 2015 23:13:50 GMT-0300 (BRT)">
+    <div class="book" data-level="1.2.2.2" data-basepath="../../.." data-revision="Sun Apr 05 2015 23:45:30 GMT-0300 (BRT)">
     
 
 <div class="book-summary">
@@ -195,30 +195,15 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.2" data-path="portal/recursos/widgets/configurando.html">
+        <li class="chapter active" data-level="1.2.2.2" data-path="portal/recursos/widgets/como-criar.html">
             
                 
-                    <a href="../../../portal/recursos/widgets/configurando.html">
+                    <a href="../../../portal/recursos/widgets/como-criar.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.2.2.2.</b>
                         
-                        Configurando
-                    </a>
-                
-            
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.2.2.3" data-path="portal/recursos/widgets/desenvolvendo.html">
-            
-                
-                    <a href="../../../portal/recursos/widgets/desenvolvendo.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.2.2.3.</b>
-                        
-                        Desenvolvendo
+                        Como criar
                     </a>
                 
             
@@ -642,14 +627,45 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="desenvolvendo-um-widget"><a name="desenvolvendo-um-widget" class="plugin-anchor" href="#desenvolvendo-um-widget"><span class="fa fa-link"></span></a>Desenvolvendo um widget</h1>
-<p>Para criar um novo widget, basta criar uma nova pasta dentro da pasta <code>widgets</code> com o seu nome. Em seguida, crie os tr&#xEA;s arquivos necess&#xE1;rios: </p>
+                        <h1 id="como-criar-um-widget"><a name="como-criar-um-widget" class="plugin-anchor" href="#como-criar-um-widget"><span class="fa fa-link"></span></a>Como criar um widget</h1>
+<p>Basta criar uma nova pasta dentro da pasta <code>widgets</code> com o seu nome. Em seguida, crie os tr&#xEA;s arquivos necess&#xE1;rios: </p>
 <ul>
-<li><code>body.html</code>: &#xE9; a partial que ser&#xE1; inserida no lugar da tag</li>
-<li><code>schema.json</code>: determina como o formul&#xE1;rio de configura&#xE7;&#xE3;o ser&#xE1; exibido</li>
-<li><code>settings.json</code>: determina as configura&#xE7;&#xF5;es padr&#xE3;o do widget</li>
+<li><a href="#-schema-json"><code>schema.json</code></a></li>
+<li><a href="#-settings-json"><code>settings.json</code></a></li>
+<li><a href="#-body-html"><code>body.html</code></a></li>
 </ul>
-
+<h2 id="-schema-json"><a name="-schema-json" class="plugin-anchor" href="#-schema-json"><span class="fa fa-link"></span></a><code>schema.json</code></h2>
+<p>Define o schema das configura&#xE7;&#xF5;es que o widget recebe.</p>
+<p>Exemplo:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;settings&quot;</span>: [
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;title&quot;</span>,
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;description&quot;</span>,
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ]
+}
+</code></pre>
+<p>Cada configura&#xE7;&#xE3;o &#xE9; um objeto composto de duas propriedades: <code>name</code> e <code>type</code>, que define o nome e o tipo respectivamente. O nome ser&#xE1; usado no template (leia sobre o <code>body.html</code> abaixo), enquanto o tipo restringe os valores do campo. Os tipos suportados s&#xE3;o: &quot;string&quot; e &quot;number&quot;.</p>
+<h2 id="-settings-json"><a name="-settings-json" class="plugin-anchor" href="#-settings-json"><span class="fa fa-link"></span></a><code>settings.json</code></h2>
+<p>Esse arquivo determina os valores default do arquivo de configura&#xE7;&#xE3;o, ele deve respeitar o schema definido no arquivo <code>schema.json</code>.</p>
+<p>Exemplo:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Some image&quot;</span>,
+  <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Non descriptive description.&quot;</span>
+}
+</code></pre>
+<h2 id="-body-html"><a name="-body-html" class="plugin-anchor" href="#-body-html"><span class="fa fa-link"></span></a><code>body.html</code></h2>
+<p>Este arquivo de template ser&#xE1; inserido no lugar da tag, como se fosse chamado atrav&#xE9;s da tag <a href="../../referencias/liquid/basic/tags.html"><code>include</code></a>. Por&#xE9;m, esse template tem acesso a uma vari&#xE1;vel nova, chamada <code>widget</code>.</p>
+<p>A vari&#xE1;vel <code>widget</code> possui o objeto <code>settings</code> que tem os valores das configura&#xE7;&#xF5;es do widget.</p>
+<p>Exemplo:</p>
+<pre><code>&lt;h1&gt;{{ widget.settings.title }}&lt;/h1&gt;
+&lt;small&gt;{{ widget.settings.description }}&lt;/small&gt;
+</code></pre>
                     
                     </section>
                 
@@ -659,7 +675,7 @@
         </div>
 
         
-        <a href="../../../portal/recursos/widgets/configurando.html" class="navigation navigation-prev " aria-label="Previous page: Configurando"><i class="fa fa-angle-left"></i></a>
+        <a href="../../../portal/recursos/widgets/como-usar.html" class="navigation navigation-prev " aria-label="Previous page: Como usar"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../../../portal/recursos/models.html" class="navigation navigation-next " aria-label="Next page: Models"><i class="fa fa-angle-right"></i></a>
