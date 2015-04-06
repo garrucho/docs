@@ -47,6 +47,8 @@ O arquivo `libs.json` é um arquivo em JSON que define quais as versões das bib
 [Leia mais sobre `libs.json`](libs.json.html)
 
 ## `routes.json`
+Este arquivo define para quais [pages](templates/pages.html) as URLs serão apontadas e fornece modelos, que utilizam a URL para serem gerados, para elas.
+
 [Leia mais sobre `routes.json`](routes.json.html)
 
 ## `rules.json`
