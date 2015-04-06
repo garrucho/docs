@@ -1,4 +1,4 @@
-# Desenvolvendo uma app
+# Como criar uma app
 
 ## VTEX Toolbelt
 Para desenvolver uma app é essencial que você use o [VTEX Toolbet](https://github.com/vtex/toolbelt).
