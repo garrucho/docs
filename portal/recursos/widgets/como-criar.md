@@ -17,7 +17,7 @@ Exemplo:
 {
   "settings": [
     {
-      "name": "title",
+      "name": "caption",
       "type": "string"
     },
     {
@@ -44,7 +44,7 @@ Este arquivo determina os valores padrões da configuração do widget. Ele deve
 Exemplo:
 ```json
 {
-  "title": "Some image",
+  "caption": "Some image",
   "description": "Non descriptive description."
 }
 ```
@@ -68,18 +68,29 @@ Este arquivo de template será inserido no lugar da tag, como se fosse chamado a
 
 A variável `widget` possui o objeto `settings` que tem os valores das configurações do widget.
 
-Exemplo:
+Exemplo do arquivo `body.html`:
 ```
-<h1>{{ widget.settings.title }}</h1>
+<h1>{{ widget.settings.caption }}</h1>
 <small>{{ widget.settings.description }}</small>
 ```
 
 Ela também possui o objeto contents com as chaves das regras aplicadas (regras que foram determinadas pelo arquivo [`rules.json`](../rules.json.html)).
 
-Exemplo:
+Exemplo do arquivo `body.html`:
 {% raw %}<pre>
 {% assign rules = activeRules | append: "default" %}
 {% with content = widget.contents[rules[0]] %}
 Em até {{ content.size }}x sem juros!
 {% endwith %}
 </pre>{% endraw %}
+
+É importante definir um `title` ao widget, ele será usado como um nome amigável na interface administrativa. Para isso, basta inserir um [front matter](../templates/front-matter.html) com a propriedade `title`.
+
+Exemplo do arquivo `body.html`:
+```
+---
+title: Legenda de imagem
+---
+<h1>{{ widget.settings.caption }}</h1>
+<small>{{ widget.settings.description }}</small>
+```
