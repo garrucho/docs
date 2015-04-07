@@ -9,6 +9,7 @@
     * [Templates](portal/recursos/templates/README.md)
       * [Pages](portal/recursos/templates/pages.md)
       * [Partials](portal/recursos/templates/partials.md)
+      * [Front matter](portal/recursos/templates/front-matter.md)
     * [Widgets](portal/recursos/widgets/README.md)
       * [Como usar](portal/recursos/widgets/como-usar.md)
       * [Como criar](portal/recursos/widgets/como-criar.md)
