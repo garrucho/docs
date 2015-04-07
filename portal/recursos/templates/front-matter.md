@@ -14,7 +14,7 @@ restante do conteúdo
 ## Metadados
 
 ### title
-Define o nome amigável da página na interface administrativa.
+Define um nome amigável da página para ser usado na interface administrativa. Isso é importante para que pessoas sem conhecimento técnico possam usar sua app.
 
 ### require
 Algumas páginas exigem que sejam https ou que o usuário esteja autenticado.
