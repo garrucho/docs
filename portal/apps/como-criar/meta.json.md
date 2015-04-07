@@ -7,6 +7,7 @@ Toda app deve ter em sua pasta raíz o arquivo `meta.json`. Exemplo:
 ```json
 {
   "name": "dreamstore-theme",
+  "title": "Tema",
   "version": "0.1.0",
   "owner": "vtex",
   "dependencies": {
@@ -25,6 +26,8 @@ Toda app deve ter em sua pasta raíz o arquivo `meta.json`. Exemplo:
 
 Lembre-se que o nome da sua app será passado como parâmetro para o uso de algum recurso, então tente escolher um pequeno, mas que também seja descritivo. Após publicada, o nome não pode ser alterado.
 
+## title
+A propriedade `title` é análoga ao [front matter title](../../recursos/templates/front-matter.html#title), ou seja, ela define o nome que será exibido na interface administrativa. Isso é importante para que pessoas sem conhecimento técnico possam usar sua app.
 
 ## version
 > As propriedades `name`, `version` e `owner` são as mais importantes de sua app. Elas são obrigatórias e sem elas, sua app não irá funcionar. Juntas elas geram um identificador único.
