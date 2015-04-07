@@ -2,4 +2,8 @@
 
 # Como instalar uma app
 
-Para instalar uma app basta acessar a interface administrativa do novo Portal, procurar a app desejada e clicar em instalar.
+Para instalar uma app basta acessar o admin da Gallery.
+
+> https://ACCOUNTNAME.vtexcommercebeta.com.br/admin/gallery/
+
+Substitua `ACCOUNTNAME` pelo account name da loja que está desenvolvendo.
