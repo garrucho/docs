@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # Front matter
 
 O front matter define metadados de um template. Ele deve ser a primeira coisa no arquivo e deve ser escrito em [YAML](http://yaml.org/) válido entre linhas com três traços (`---`). 

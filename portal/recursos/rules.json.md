@@ -1,3 +1,5 @@
+{% include 'portal/aviso.md' %}
+
 # rules.json
 
 O arquivo rules.json define regras que afetam o conteúdo do site.
