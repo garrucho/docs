@@ -54,4 +54,6 @@ Este arquivo define para quais [pages](templates/pages.html) as URLs serão apon
 [Leia mais sobre `routes.json`.](routes.json.html)
 
 ## `rules.json`
+O arquivo rules.json define regras que afetam o conteúdo do site.
+
 [Leia mais sobre `rules.json`.](rules.json.html)
