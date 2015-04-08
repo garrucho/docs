@@ -50,7 +50,7 @@ Exemplo:
 ```
 
 ## `contents.json`
-Define os valores padrões do conteúdo do widget. Ele deve respeitar o schema definido no arquivo `schema.json`.
+Define os valores padrões do conteúdo do widget. Ele deve respeitar o schema definido no arquivo `schema.json`. O conteúdo do widget pode variar de acordo com as regras e condições que foram definidas no arquivo [`rules.json`](../rules.json.html).
 
 ```json
 {
