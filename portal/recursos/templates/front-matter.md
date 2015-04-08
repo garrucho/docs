@@ -25,3 +25,6 @@ Exemplo:
 require: [ https, login ]
 ---
 ```
+
+### category
+Determina a categoria que o template pertence, muito útil para facilitar o desenvolvimento de apps plug-and-play. [Leia como usar uma app.](../../apps/como-usar.html#category)
