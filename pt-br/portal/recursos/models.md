@@ -29,7 +29,7 @@ A principal utilidade do model é a possibilidade de utiliza-lo em um template. 
 {% model facets = 'facet' category:search.category brand:search.brand search:search.searchTerm facets:search.facets %}
 </pre>{% endraw %}
 
-Leia mais sobre a [tag Liquid `model`](./referencias/liquid/portal/tags.html#model).
+Leia mais sobre a [tag Liquid `model`](../referencias/liquid/portal/tags.html#model).
 
 ## Formato
 

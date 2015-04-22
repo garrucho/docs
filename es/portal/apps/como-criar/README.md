@@ -12,7 +12,7 @@ Agora instale o VTEX Toolbelt, digite no terminal (não importa onde):
 npm install -g vtex
 ```
 
-[Leia mais sobre como usar o VTEX Toolbelt!](../referencias/toolbelt.html)
+[Leia mais sobre como usar o VTEX Toolbelt!](../../referencias/toolbelt.html)
 
 ## generator-vtex
 Uma ferramenta não essencial, mas que irá lhe auxiliar é o [generator-vtex](https://github.com/vtex/generator-vtex). Com ela você pode criar a estrutura de pastas básica de uma app nova.
