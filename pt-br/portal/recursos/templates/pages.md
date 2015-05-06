@@ -19,7 +19,7 @@ Página `home.html`:
 ```html
 <html>
   <head>
-    <title>{{ accountName }}</title>
+    <title>{{ account.name }}</title>
   </head>
   <body>
     Olá, mundo!
