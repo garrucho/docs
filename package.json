@@ -9,6 +9,8 @@
     "gitbook": "2.0.1"
   },
   "dependencies": {
-    "gitbook-plugin-anchors": "^0.4.0"
+    "gitbook-plugin-anchors": "^0.4.0",
+    "gitbook-plugin-ga": "^0.2.1",
+    "gitbook-plugin-toggle-chapters": "0.0.3"
   }
 }

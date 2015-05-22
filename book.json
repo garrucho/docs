@@ -1,6 +1,6 @@
 {
   "gitbook": "2.x.x",
-  "plugins": ["anchors", "ga"],
+  "plugins": ["anchors", "ga", "toggle-chapters"],
   "pluginsConfig": {
     "ga": {
       "token": "UA-43760863-11"
