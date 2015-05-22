@@ -30,7 +30,7 @@ Por exemplo, você está desenvolvendo a app `minhaloja-theme`. Para ver as alte
 vtex watch minhasandbox
 ```
 
-Todos os arquivos que estão na pasta da app serão enviados para os servidores VTEX e com isso você consiguirá ver as alterações na URL: http://NOMEDALOJA.myvtex.com.br. Lembre-se que você tem que estar com o cookie da sandbox configurado corretamente ([leia mais sobre sandbox](../fundacao/sandbox.md)).
+Todos os arquivos que estão na pasta da app serão enviados para os servidores VTEX e com isso você consiguirá ver as alterações na URL: http://NOMEDALOJA.myvtex.com. Lembre-se que você tem que estar com o cookie da sandbox configurado corretamente ([leia mais sobre sandbox](../fundacao/sandbox.md)).
 
 Toda alteração que você fizer na pasta da app, será ouvida pelo Toolbelt e ele irá enviar os arquivos alterados automáticamente para os servidores VTEX.
 
