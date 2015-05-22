@@ -2,7 +2,7 @@
 
 # Como criar um widget
 
-Basta criar uma nova pasta dentro da pasta `widgets` com o seu nome. Em seguida, crie os três arquivos necessários: 
+Basta criar uma nova pasta dentro da pasta `widgets` com o seu nome. Em seguida, crie os quatro arquivos necessários:
 
 - [`schema.json`](#-schema-json)
 - [`settings.json`](#-settings-json)
