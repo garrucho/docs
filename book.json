@@ -1,5 +1,8 @@
 {
   "gitbook": "2.x.x",
+  "structure": {
+    "readme": "intro.md"
+  },
   "plugins": ["anchors", "ga", "toggle-chapters"],
   "pluginsConfig": {
     "ga": {
