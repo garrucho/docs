@@ -22,8 +22,8 @@ Geralmente, os produtos são organizados dentro da loja em estruturas mercadoló
 2. **Categoria** - categoria cujo id de categoria pai é um **departamento**,
 3. **SubCategoria**. categoria cujo id de categoria pai é um **categoria**
 
-*Exemplo:*  
-*Departamento/Categoria/SubCategoria/Produto*  
+*Exemplo:*
+*Departamento/Categoria/SubCategoria/Produto*
 *Ferramentas/Eletricas/Furradeiras/Super Drill*
 
 ###Departamento
@@ -31,7 +31,7 @@ Geralmente, os produtos são organizados dentro da loja em estruturas mercadoló
 
 Abaixo exemplos de chamada e resposta de inseção de Departamentos e as Categorias através do metodo "CategoryInsertUpdate":
 
-_request:_  
+_request:_
 
 ````xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
@@ -55,7 +55,7 @@ _request:_
 </soapenv:Envelope>
 ````
 
-_response:_  
+_response:_
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -80,7 +80,7 @@ _response:_
 
 ###Categoria
 
-_request:_  
+_request:_
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
@@ -106,7 +106,7 @@ _request:_
 </soapenv:Envelope>
 ```
 
-_response_:  
+_response_:
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -131,7 +131,7 @@ _response_:
 
 ###Sub Categoria
 
-_request:_  
+_request:_
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
@@ -157,7 +157,7 @@ _request:_
 </soapenv:Envelope>
 ```
 
-_response:_  
+_response:_
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -185,7 +185,7 @@ _response:_
 
 Abaixo exemplo de chamada e resposta de inseção de Marca através do metodo "BrandInsertUpdate":
 
-_request:_  
+_request:_
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
@@ -209,7 +209,7 @@ _request:_
 </soapenv:Envelope>
 ```
 
-_response:_  
+_response:_
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -228,14 +228,14 @@ _response:_
          </BrandInsertUpdateResult>
       </BrandInsertUpdateResponse>
    </s:Body>
-</s:Envelope>
+</s:Envelope
 ```
 
 
 ### Produtos e SKUs
 
 
-[[Developer] - Ver Guia de Integração De Catalogo Expresso](../catalogo-expresso/index.html#produtos-e-skus)
+[[Developer] - Ver Guia de Integração De Catalogo Expresso](http://lab.vtex.com/docs/integracao/guide/erp/catalogo-expresso/index.html#produtos-e-skus)
 
 ###Fields (Campos de Especificão) de Produto ou SKU
 
@@ -248,9 +248,9 @@ Enquanto não temos a API stable, a melhor maneira de inserir o campos é usando
 
 ###Valores dos Campos
 
-Adicionado os campos de produto ou SKU, é necessário preenche-los com valores. Abaixo exemplo de chamada e resposta de inseção de valores de campo através do metodo "ProductEspecificationInsert":  
+Adicionado os campos de produto ou SKU, é necessário preenche-los com valores. Abaixo exemplo de chamada e resposta de inseção de valores de campo através do metodo "ProductEspecificationInsert":
 
-_request:_  
+_request:_
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -268,7 +268,7 @@ _request:_
          </tem:fieldValues>
       </tem:ProductEspecificationInsert>
    </soapenv:Body>
-</soapenv:Envelope>  
+</soapenv:Envelope>
 ```
 
 _response:_
@@ -281,9 +281,9 @@ _response:_
 </s:Envelope>
 ```
 
-Caso queira inserir um valor de campo que foi definido como campo de SKU somente, usar o metodo "StockKeepingUnitEspecificationInsert":  
+Caso queira inserir um valor de campo que foi definido como campo de SKU somente, usar o metodo "StockKeepingUnitEspecificationInsert":
 
-_request:_  
+_request:_
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -319,7 +319,7 @@ _response:_
 
 Exemplo de request para inserir Imagens para uma SKU no webservice. Lembrando que os metodo de remover imagens estão depreciados, por isso ao inserir as imagens, procure inserir as imagens o mais perto da imagem real possível.
 
-_request:_  
+_request:_
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
 <soapenv:Header/>
@@ -336,7 +336,7 @@ _request:_
 </soapenv:Envelope>
 ```
 
-_response:_  
+_response:_
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -346,7 +346,7 @@ _response:_
 </s:Envelope>
 ```
 
-_request 2:_  
+_request 2:_
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
@@ -362,9 +362,9 @@ _request 2:_
 </soapenv:Envelope>
 ```
 
-_response 2:_  
+_response 2:_
 
-```xml  
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <ImageServiceInsertUpdateResponse xmlns="http://tempuri.org/"/>
@@ -406,7 +406,7 @@ A documentação completa sobre a API de **Logistics** se encontra em: [http://l
 
 Após as SKUs estarem inseridas debaixo de seus produtos agrupadores ou não, e com todos os pre requistos de ativação preenchidos (imagem, estoque, preço, especificações, se tiver) basta ativá-las. Exempos de chamadas de ativação de SKU.
 
-_request:_  
+_request:_
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
@@ -420,7 +420,7 @@ _request:_
 </soapenv:Envelope>
 ```
 
-_response:_  
+_response:_
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -430,7 +430,7 @@ _response:_
 </s:Envelope>
 ```
 
-_request 2:_  
+_request 2:_
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
@@ -443,7 +443,7 @@ _request 2:_
 </soapenv:Envelope>
 ```
 
-_response 2:_  
+_response 2:_
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -458,10 +458,10 @@ _response 2:_
 
 Após uma SKU ser inserida com sucesso, caso haja alguma necessidade de alguma alteração, deve se invocar o mesmo método de inserçao passando o id de SKU que se deseja alterar. Alterações de preço **NÃO** devem ser feitas pelo metodo de insert/update de SKU.
 
-As alterações de preço devem ser feitas diretamente na API REST de **Pricing**:  
+As alterações de preço devem ser feitas diretamente na API REST de **Pricing**:
 <a title="inserir ou atualizar preço na SKUs" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/PRICING/PRICING_Set" target="_blank">[Developer] - Exemplo de chamada para inserir ou atualizar preço nas SKUs</a>
 
-_request:_  
+_request:_
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
@@ -527,7 +527,7 @@ _request:_
 
 **Caso enviado um preço nulo no update, o preço não será afetado.
 
-_response:_  
+_response:_
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -579,9 +579,9 @@ _response:_
 ###Pedidos e Tracking
 
 
-Para a integração de pedidos consulte o tópico [[Guide] Integração de Pedido, Nota Fiscal e Tracking](../pedido-e-tracking/index.html#produtos-e-skus).
+Para a integração de pedidos consulte o tópico [[Guide] Integração de Pedido, Nota Fiscal e Tracking](http://lab.vtex.com/docs/integracao/guide/erp/pedido-e-tracking/index.html).
 
 ---
 
-autor: _Jonas Bolognim_  
+autor: _Jonas Bolognim_
 propriedade: _VTEX_
