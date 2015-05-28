@@ -1,10 +1,3 @@
----
-layout: docs
-title: Integração Rápida de Catálogo e Preço e Estoque
-application: erp
-docType: guide
----
-
 # Integração Rápida de Catálogo e Preço e Estoque
 
 Este documento tem por objetivo auxiliar na integração de catálogo,preço e estoque do ERP para a uma loja hospedada na versão smartcheckout da VTEX, de uma maneira rápida.
@@ -12,7 +5,7 @@ Este documento tem por objetivo auxiliar na integração de catálogo,preço e e
 Nesse tipo de integração a adminstração da loja está no admin da VTEX, sendo o ERP apenas uma fonte de onde nascem os produstos e SKUs.
 
 ### Catalogo Fluxo Básico (Express)
-{: #1 .slug-text}
+
 
 Nesse cenário de fluxo básico, apenas os dados básicos de produtos e SKUs são manipulados pelo ERP, e todo o enriquecimento (marca, fornecedor, imagens, categoria, ativação, etc.) será feito pelo admin da loja na plataforma VTEX.
 
@@ -21,7 +14,7 @@ Para o ERP integrar se ao catálogo da loja na VTEX, deverá usar o webservice d
 Futuramente além do serviço SOAP (webservice) estaremos também oferecendo integração de catálogo por APIs REST (JSON) bem definidas e de alta performance.
 
 ### Organização dos Produtos Dentro da Loja
-{: #2 .slug-text}
+
 
 Geralmente, os produtos são organizados dentro da loja em estruturas mercadológicas formadas por:
 
@@ -40,7 +33,7 @@ O cadastro da estrutura mercadologica deve ser feito diretamente no admin da pr�
 A criação das marcas também deve ser feita pelo admin da VTEX. Para descida de produto do ERP, criar uma marca padrão, e depois no momento do enriquecimento, dentro do admin da VTEX, coloca na marca correta.
 
 ###Produtos e SKUs
-{: #3 .slug-text}
+
 
 > Qual é a diferença entre produto e SKU?
 
@@ -51,7 +44,7 @@ A criação das marcas também deve ser feita pelo admin da VTEX. Para descida d
   No modelo de cadastro de Produtos e SKUs da VTEX, um SKU sempre será filha de um Produto (não existe SKU sem produto), mesmo que esse produto não tenha variçãoes, e nesse caso será 1 SKU para 1 produto, por exemplo, produto *Bola Jabulani* com a *SKU Bola Jabulani*.
 
 ###Integração de Produtos e SKUs
-{: #4 .slug-text}
+
 
 Após definida as variações e a estrutura mecadológica da loja, o próximo passo é enviar os produtos e as SKUs do ERP para a loja VTEX.
 
@@ -60,13 +53,13 @@ _Fluxo:_
 ![alt text](ERP-catalogo-expresso.PNG "Fluxo Básico")
 
 ###Produto
-{: #5 .slug-text}
+
 
 Abaixo exemplo de chamada e resposta de uma inserção de produto usando o metodo "ProductInsertUpdate":  
 
 _request:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
 <soapenv:Header/>
 	<soapenv:Body>
@@ -107,11 +100,11 @@ _request:_
 		</tem:ProductInsertUpdate>
 	</soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response:_  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <ProductInsertUpdateResponse xmlns="http://tempuri.org/">
@@ -144,18 +137,18 @@ _response:_
       </ProductInsertUpdateResponse>
    </s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 
 ###SKU
-{: #6 .slug-text}
+
 
 Uma vez inseridos todos os produtos, que teoricamente são os pais das SKUs, chegou o momento de enviar as SKUs filhas dos produtos. 
 Abaixo exemplo de chamada e resposta de uma inserção de SKU usando o metodo "StockKeepingUnitInsertUpdate": 
 
 _request:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
 <soapenv:Header/>
 	<soapenv:Body>
@@ -215,11 +208,11 @@ _request:_
 		</tem:StockKeepingUnitInsertUpdate>
 	</soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response:_  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <StockKeepingUnitInsertUpdateResponse xmlns="http://tempuri.org/">
@@ -264,19 +257,19 @@ _response:_
       </StockKeepingUnitInsertUpdateResponse>
    </s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 **Obersevação:**  
 O preço da SKU pode NÂO ser enviado no momento da inserção da SKU. Quando um preço não é enviado no momento da criação de uma SKU, na tabela de SKU por obrigatoriedade é criado um preço fictício de 99999.00, e no sistema de "Pricing" da VTEX não é inserido o preço.
 
 ###Preço e Estoque
-{: #7 .slug-text}
+
 
 Uma vez cadastradas os produtos e as SKUs na loja da VTEX, é necessário alimentar o estoque e acertar o preço na tabela de preço (se no momento de inserir a SKU não enviou o preço).
 
 
 ###Preço
-{: #8 .slug-text}
+
 
 Se no momento sa inserção da SKU não foi enviado um preço válido para a SKU é necessário inserir o preço da mesma. Isso pode ser feito direto no admin da loja na VTEX (_urldaloja/admin/Site/SkuTabelaValor.aspx_), ou usando a API REST do sistema de **Pricing**.
 
@@ -289,7 +282,6 @@ Através da API do Pricing, inserir ou atualizar preço na SKUs:
 A documentação completa sobre a API de **Pricing** se encontra em: [http://lab.vtex.com/docs/pricing/api/latest/pricing/index.html](http://lab.vtex.com/docs/pricing/api/latest/pricing/index.html)
 
 ###Estoque
-{: #9 .slug-text}
 
 Isso pode ser feito direto no admin da loja na VTEX (_urldaloja/admin/logistics/#/dashboard_), maneira rápida:
  

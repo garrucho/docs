@@ -1,9 +1,3 @@
----
-layout: docs
-title: Marketplace Não VTEX vendendo para Sellers VTEX
-application: marketplace
-docType: guide
----
 ##Marketplace Não VTEX vendendo para Sellers VTEX
 
 Este documento tem por objetivo auxiliar na troca de catalogo, atualização de condição comercial (preço, estoque, frete, SLAs de entrega) de um SKU* entre uma loja hospedada na versão smartcheckout da VTEX e um Marketplace (Afiliado) Não VTEX e também auxiliar na descida de pedido, e envio de autorização de despacho para o Seller VTEX. Neste modelo o pagamento é processado todo do lado do Marketplace.
@@ -11,14 +5,12 @@ Este documento tem por objetivo auxiliar na troca de catalogo, atualização de 
 - - -
 
 ###Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU
-{: #0 .slug-text}
 
 <a href="http://lab.vtex.com/docs/integracao/guide/marketplace/canal-de-vendas-nao-vtex-com-pgto/index.html#troca-de-catalogo-de-sku-e-atualizao-de-condio-comercial-de-sku" target="_blank">[[Guide] Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU Marketplace Não VTEX e Sellers VTEX]</a>   
 
 - - -
 
 ###Simulação de Carrinho
-{: #4 .slug-text} 
 
 Este tópico tem por objetivo auxiliar o na simulação de carrinho entre um canal de vendas não VTEX com uma loja  VTEX. Simular um pedido no carrinho e na página de pagamento.
 
@@ -36,7 +28,7 @@ Parametro: **affiliateId=MGZ** // affiliateId é o id do afialiado cadastrado na
 
 _request:_  
 
-{% highlight json %}  
+```json  
 {
     "postalCode":"22251-030",            //obrigatório se country estiver preenchido, string
     "country":"BRA",                     //obrigatório se postalCode estiver preenchido, string      
@@ -53,11 +45,11 @@ _request:_
         }
     ]
 }  
-{% endhighlight %} 
+```
 
 _response:_  
 
-{% highlight json %}  
+```json  
 {
     "items": [                                                     //pode vir um array vazio
         {
@@ -141,12 +133,11 @@ _response:_
     "country":"BRA",                                           //string, nulo se não enviado
     "postalCode":"22251-030"                                   //string, nulo se não enviado    
 }  
-{% endhighlight %} 
+```
 
 - - -
 
 ###Enviar Pedido e Autorizar Despacho  
-{: #4 .slug-text}  
 
 Este tópico tem por objetivo auxiliar um canal de vendas não VTEX a enviar um pedido, e enviar autorização para despacho (proceder com o fulfillment do pedido).
 
@@ -168,7 +159,7 @@ Parametro: **affiliateId=MGZ** // affiliateId é o id do afiliado cadastrado n l
 
 _request:_    
 
-{% highlight json %} 
+```json 
 [
   {
     "marketplaceOrderId": "959311095",
@@ -243,11 +234,11 @@ _request:_
     "paymentData":null
   }
 ]  
-{% endhighlight %} 
+```
 
 _response:_  
 
-{% highlight json %} 
+```json
 [
   {
     "marketplaceOrderId": "959311095",
@@ -315,11 +306,11 @@ _response:_
    "paymentData":null
   }
 ]
-{% endhighlight %} 
+```
 
 _retorno de erro:_
 
-{% highlight json %} 
+```json 
 {
 	"error": {
 	"code": "1",
@@ -327,7 +318,7 @@ _retorno de erro:_
 	"exception": null
 	}
 }  
-{% endhighlight %} 
+```
 
 ###Enviar Autoriação Para Despachar
 Quando o pagamento do pedido é concluído no canal de vendas não VTEX, um POST deverá ser feito na loja VTEX, para que o pedido possa prosseguir para tratamento - Endpoint da VTEX
@@ -340,25 +331,24 @@ Parametro: **sc=5** // sc é o canal de vendas cadastrado na VTEX.
 
 _request:_    
 
-{% highlight json %} 
+```json 
 {
 	"marketplaceOrderId": "959311095" //id do pedido originado no canal de vendas
 }
-{% endhighlight %} 
+```
 
 _response:_  
 
-{% highlight json %} 
+```json 
 {
 	"date": "2014-10-06 18:52:00",
 	"marketplaceOrderId": "111",
 	"orderId": "123543123",
 	"receipt": "e39d05f9-0c54-4469-a626-8bb5cff169f8",
 }
-{% endhighlight %} 
+``` 
 
 ### Implementando Marketplace Services Endpoint Actions
-{: #6 .slug-text}  
 
 
 O MarketplaceServicesEndpoint serve para a loja VTEX informar ao canal de vendas a nota fiscal e tracking de pedido. O envio de notas fiscais pode ser parcial, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial - Endpoint do Marketplace
@@ -370,7 +360,7 @@ Accept: **application/json**
 
 _request:_    
 
-{% highlight json %} 
+```json 
 {
     "type": "Output", //hard code
     "invoiceNumber": "NFe-00001", //numero da nota fiscal
@@ -395,7 +385,7 @@ _response:_
 	"orderId": "123543123",
 	"receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
 }
-{% endhighlight %} 
+```
 
 ###Informar Tracking 
 Quando o pedido for entregue a transportadora, informções de tracking são enviadas ao Marketplace - Endpoint do Canal de Vendas
@@ -407,7 +397,7 @@ Accept: **application/json**
 
 _request:_    
 
-{% highlight json %}
+```json
 {
     "type": "Output",
     "invoiceNumber": "NFe-00001",
@@ -424,17 +414,17 @@ _request:_
     "issuanceDate": "2013-11-21T00:00:00",
     "invoiceValue": 9508
 }
-{% endhighlight %} 
+```
 
 _response:_  
 
-{% highlight json %}  
+```json  
 {
 	"date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
 	"orderId": "123543123",
 	"receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
 }
-{% endhighlight %} 
+```
 
 ###Enviar Solicitação de Cancelamento
 Uma solicitação de cancelamento pode ser enviada para o Canal de Vendas não VTEX - Endpoint do Canal de Vendas

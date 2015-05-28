@@ -1,17 +1,9 @@
----
-layout: docs
-title: Integração de Listas (aniversário, casamento, etc...)
-application: erp
-docType: guide
----
-
 ##Integração de Listas (aniversário, casamento, chás, etc...)
 
 Este documento tem por objetivo auxiliar na integração de uma lista entre o ERP e uma loja hospedada na palataforma da VTEX. As listas na maioria do cenários são criadas pelo próprio cliente final no e-commerce da loja, mas existem cenários onde a lista é criada em outro ambiente, loja fisica, por exemplo, então deve se usar a sequenca de metodos abaixo para fianalizar esse tarefa:
 
 
 ###Inserir Cliente
-{: #1 .slug-text}
 
 Para iniciar o processo de criação de listas, o primeito passo é inserir o dono da lista, aqui nomeado de cliente.
 
@@ -19,7 +11,7 @@ Abaixo exemplos de chamada e resposta de inserção do cliente dono da lista atr
 
 _request:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
    <soapenv:Header/>
    <soapenv:Body>
@@ -35,11 +27,11 @@ _request:_
       </tem:ClientInsertUpdateV3>
    </soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response:_  
 
-{% highlight xml %}	
+```xml	
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <ClientInsertUpdateV3Response xmlns="http://tempuri.org/">
@@ -76,10 +68,9 @@ _response:_
       </ClientInsertUpdateV3Response>
    </s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 ###Criar o Endereço do Cliente  
-{: #2 .slug-text}
 
 Após inserir o cliente, é necessário inserir o endereço do cliente dono da lista.
 
@@ -87,7 +78,7 @@ Abaixo exemplos de chamada e resposta de inserção de endereço do dono da list
 
 _request:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
    <soapenv:Header/>
    <soapenv:Body>
@@ -108,11 +99,11 @@ _request:_
       </tem:AddressInsertUpdateV3>
    </soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response_:  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <AddressInsertUpdateV3Response xmlns="http://tempuri.org/">
@@ -136,10 +127,9 @@ _response_:
       </AddressInsertUpdateV3Response>
    </s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 ###Criar a Lista
-{: #3 .slug-text}
 
 Após inserir o cliente e o endereço do dono da lista, este é o momento de criar a lista.
 
@@ -147,7 +137,7 @@ Abaixo exemplos de chamada e resposta de criação de lista através do metodo "
 
 _request:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
    <soapenv:Header/>
    <soapenv:Body>
@@ -194,11 +184,11 @@ _request:_
       </tem:GiftListInsertUpdate>
    </soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response_:  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <GiftListInsertUpdateResponse xmlns="http://tempuri.org/">
@@ -258,10 +248,10 @@ _response_:
       </GiftListInsertUpdateResponse>
    </s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 ###Inserir SKUS na Lista
-{: #4 .slug-text}
+
 
 Após criar a lista, agora é o momento de inserir a SKUs que formarão a lista.
 
@@ -269,7 +259,7 @@ Abaixo exemplos de chamada e resposta de inserção de SKU numa lista através d
 
 _request1:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
    <soapenv:Header/>
    <soapenv:Body>
@@ -283,11 +273,11 @@ _request1:_
       </tem:GiftListSkuInsert>
    </soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response1_:  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <GiftListSkuInsertResponse xmlns="http://tempuri.org/">
@@ -314,11 +304,11 @@ _response1_:
       </GiftListSkuInsertResponse>
    </s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 _request2:_ 
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
    <soapenv:Header/>
    <soapenv:Body>
@@ -332,11 +322,11 @@ _request2:_
       </tem:GiftListSkuInsert>
    </soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response_:  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <GiftListSkuInsertResponse xmlns="http://tempuri.org/">
@@ -363,7 +353,7 @@ _response_:
       </GiftListSkuInsertResponse>
    </s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 ---
 

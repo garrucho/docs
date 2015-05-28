@@ -1,10 +1,3 @@
----
-layout: docs
-title: Integração Completa de Catálogo, Preço e Estoque
-application: erp
-docType: guide
----
-
 #Integração Completa de Catálogo, Preço e Estoque
 
 Este documento tem por objetivo auxiliar na integração de catálogo (departamento, categoria, marca, imagens, campos, valores de campos, ativação de SKUs), preço e estoque do ERP para a uma loja hospedada na versão smartcheckout da VTEX. Nesse tipo de integração a maioria da adminstração da loja está ERP.
@@ -12,7 +5,7 @@ Este documento tem por objetivo auxiliar na integração de catálogo (departame
 ![alt text](erp-catalogo-completo.PNG "Fluxo de catalogo completo") 
 
 ###Catalogo Fluxo Completo
-{: #1 .slug-text}
+
 
 Nesse cenário de fluxo completo, a maioria dos dados de produtos e SKUs são manipulados pelo ERP (marca, imagens, categoria, ativação, etc...). A manipulação de campos de especificação nesse modelo é possivel ser feita por API REST, mais a melhor prática seria pelo admin da VTEX.
 
@@ -21,7 +14,7 @@ Para o ERP integrar o catálogo com um da loja na VTEX, deverá usar o webservic
 Futuramente além do serviço SOAP (webservice) estaremos também oferecendo integração de catálogo por APIs REST (JSON) bem definidas e de alta performance.
 
 ###Organização dos Produtos Dentro da Loja
-{: #2 .slug-text}
+
 
 Geralmente, os produtos são organizados dentro da loja em estruturas mercadológicas formadas por:
 
@@ -34,13 +27,13 @@ Geralmente, os produtos são organizados dentro da loja em estruturas mercadoló
 *Ferramentas/Eletricas/Furradeiras/Super Drill*
 
 ###Departamento
-{: #3 .slug-text}
+
 
 Abaixo exemplos de chamada e resposta de inseção de Departamentos e as Categorias através do metodo "CategoryInsertUpdate":
 
 _request:_  
 
-{% highlight xml %}
+````xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
 <soapenv:Header/>
 	<soapenv:Body>
@@ -60,11 +53,11 @@ _request:_
 		</tem:CategoryInsertUpdate>
 	</soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+````
 
 _response:_  
 
-{% highlight xml %}	
+```xml	
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
 	<s:Body>
 		<CategoryInsertUpdateResponse xmlns="http://tempuri.org/">
@@ -83,13 +76,13 @@ _response:_
 		</CategoryInsertUpdateResponse>
 	</s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 ###Categoria
 
 _request:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
 <soapenv:Header/>
 	<soapenv:Body>
@@ -111,11 +104,11 @@ _request:_
 		</tem:CategoryInsertUpdate>
 	</soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response_:  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
 	<s:Body>
 		<CategoryInsertUpdateResponse xmlns="http://tempuri.org/">
@@ -134,13 +127,13 @@ _response_:
 		</CategoryInsertUpdateResponse>
 	</s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 ###Sub Categoria
 
 _request:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
 <soapenv:Header/>
 	<soapenv:Body>
@@ -162,11 +155,11 @@ _request:_
 		</tem:CategoryInsertUpdate>
 	</soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response:_  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
 	<s:Body>
 		<CategoryInsertUpdateResponse xmlns="http://tempuri.org/">
@@ -185,16 +178,16 @@ _response:_
 		</CategoryInsertUpdateResponse>
 	</s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 ###Marca
-{: #5 .slug-text}
+
 
 Abaixo exemplo de chamada e resposta de inseção de Marca através do metodo "BrandInsertUpdate":
 
 _request:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
 <soapenv:Header/>
 	<soapenv:Body>
@@ -214,11 +207,11 @@ _request:_
 		</tem:BrandInsertUpdate>
 	</soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response:_  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <BrandInsertUpdateResponse xmlns="http://tempuri.org/">
@@ -236,16 +229,16 @@ _response:_
       </BrandInsertUpdateResponse>
    </s:Body>
 </s:Envelope
-{% endhighlight %}
+```
 
 
 ### Produtos e SKUs
-{: #6 .slug-text}
+
 
 [[Developer] - Ver Guia de Integração De Catalogo Expresso](http://lab.vtex.com/docs/integracao/guide/erp/catalogo-expresso/index.html#produtos-e-skus)
 
 ###Fields (Campos de Especificão) de Produto ou SKU
-{: #6 .slug-text}
+
 
 Os campos de especificão genéricos dos produtos devem ser adicionado a categoria direta do produto e indicados com IsStockKeepingUnit = false, e os campos de especificação específicos de SKUs devem ser inseridos na categoria direta da SKU e indicados com IsStockKeepingUnit = true. Não temos metodos no webservice para inserir Fields (campos), uma API REST beta deve ser usada para isso. Ex. Prdouto camisa tem especificação obrigatória **cor** e **tamanho**, então insere o campo na categoria de camisas dizendo que toda produto que estiver em baixo dessa categoria, tem por obrigatoriedade de preencher os valores de **cor** e **tamanho**
 
@@ -259,7 +252,7 @@ Adicionado os campos de produto ou SKU, é necessário preenche-los com valores.
 
 _request:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
    <soapenv:Header/>
    <soapenv:Body>
@@ -276,23 +269,23 @@ _request:_
       </tem:ProductEspecificationInsert>
    </soapenv:Body>
 </soapenv:Envelope>  
-{% endhighlight %}
+```
 
 _response:_
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <ProductEspecificationInsertResponse xmlns="http://tempuri.org/"/>
    </s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 Caso queira inserir um valor de campo que foi definido como campo de SKU somente, usar o metodo "StockKeepingUnitEspecificationInsert":  
 
 _request:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
    <soapenv:Header/>
    <soapenv:Body>
@@ -309,25 +302,25 @@ _request:_
       </tem:StockKeepingUnitEspecificationInsert>
    </soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response:_
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <StockKeepingUnitEspecificationInsertResponse xmlns="http://tempuri.org/"/>
    </s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 ###Imagens das SKUs
-{: #7 .slug-text}
+
 
 Exemplo de request para inserir Imagens para uma SKU no webservice. Lembrando que os metodo de remover imagens estão depreciados, por isso ao inserir as imagens, procure inserir as imagens o mais perto da imagem real possível.
 
 _request:_  
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
 <soapenv:Header/>
 	<soapenv:Body>
@@ -341,21 +334,21 @@ _request:_
 		</tem:ImageServiceInsertUpdate>
 	</soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response:_  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
 	<s:Body>
 	  <ImageServiceInsertUpdateResponse xmlns="http://tempuri.org/"/>
 	</s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 _request 2:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
 <soapenv:Header/>
 	<soapenv:Body>
@@ -367,26 +360,26 @@ _request 2:_
 		</tem:ImageServiceInsertUpdate>
 	</soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response 2:_  
 
-{% highlight xml %}  
+```xml  
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <ImageServiceInsertUpdateResponse xmlns="http://tempuri.org/"/>
    </s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 ###Preço e Estoque
-{: #8 .slug-text}
+
 
 Uma vez cadastradas os produtos e as SKUs na loja da VTEX, é necessário alimentar o estoque e acertar o preço na tabela de preço (se no momento de inserir a SKU não enviou o preço).
 
 
 ###Preço
-{: #9 .slug-text}
+
 
 Se no momento sa inserção da SKU não foi enviado um preço válido para a SKU é necessário inserir o preço da mesma. Isso pode ser feito direto no admin da loja na VTEX (_urldaloja/admin/Site/SkuTabelaValor.aspx_), ou usando a API REST do sistema de **Pricing**.
 
@@ -399,7 +392,7 @@ Através da API do Pricing, inserir ou atualizar preço na SKUs:
 A documentação completa sobre a API de **Pricing** se encontra em: [http://lab.vtex.com/docs/pricing/api/latest/pricing/index.html](http://lab.vtex.com/docs/pricing/api/latest/pricing/index.html)
 
 ###Estoque
-{: #10 .slug-text}
+
 
 Através da API do Logistics, inserir ou atualizar os estoques na SKUs:
 
@@ -409,13 +402,13 @@ A documentação completa sobre a API de **Logistics** se encontra em: [http://l
 
 
 ###Ativa SKUs
-{: #11 .slug-text}
+
 
 Após as SKUs estarem inseridas debaixo de seus produtos agrupadores ou não, e com todos os pre requistos de ativação preenchidos (imagem, estoque, preço, especificações, se tiver) basta ativá-las. Exempos de chamadas de ativação de SKU.
 
 _request:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
 <soapenv:Header/>
 	<soapenv:Body>
@@ -425,21 +418,21 @@ _request:_
 		</tem:StockKeepingUnitActive>
 	</soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response:_  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <StockKeepingUnitActiveResponse xmlns="http://tempuri.org/"/>
    </s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 _request 2:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
 <soapenv:Header/>
 	<soapenv:Body>
@@ -448,20 +441,20 @@ _request 2:_
 		</tem:StockKeepingUnitActive>
 	</soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 _response 2:_  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
       <StockKeepingUnitActiveResponse xmlns="http://tempuri.org/"/>
    </s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 ###Alteração de SKUs
-{: #13 .slug-text}
+
 
 Após uma SKU ser inserida com sucesso, caso haja alguma necessidade de alguma alteração, deve se invocar o mesmo método de inserçao passando o id de SKU que se deseja alterar. Alterações de preço **NÃO** devem ser feitas pelo metodo de insert/update de SKU. 
 
@@ -470,7 +463,7 @@ As alterações de preço devem ser feitas diretamente na API REST de **Pricing*
 
 _request:_  
 
-{% highlight xml %}
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
 <soapenv:Header/>
 	<soapenv:Body>
@@ -528,7 +521,7 @@ _request:_
 		</tem:StockKeepingUnitInsertUpdate>
 	</soapenv:Body>
 </soapenv:Envelope>
-{% endhighlight %}
+```
 
 *Os campos Id ou RefId definem se será um insert ou um update, caso o id de SKU enviado ou o RefId enviado já existirem, será um update.
 
@@ -536,7 +529,7 @@ _request:_
 
 _response:_  
 
-{% highlight xml %}
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
 	<s:Body>
 	<StockKeepingUnitInsertUpdateResponse xmlns="http://tempuri.org/">
@@ -580,11 +573,11 @@ _response:_
 	</StockKeepingUnitInsertUpdateResponse>
 	</s:Body>
 </s:Envelope>
-{% endhighlight %}
+```
 
 
 ###Pedidos e Tracking
-{: #14 .slug-text}
+
 
 Para a integração de pedidos consulte o tópico [[Guide] Integração de Pedido, Nota Fiscal e Tracking](http://lab.vtex.com/docs/integracao/guide/erp/pedido-e-tracking/index.html).
 

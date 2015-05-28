@@ -1,16 +1,10 @@
----
-layout: docs
-title: Seller Não VTEX Vendendo em Marketplace VTEX Recebendo Pagamento
-application: marketplace
-docType: guide
----
 
 ##Seller Não VTEX Vendendo em Marketplace VTEX Recebendo Pagamento
  
 Este documento tem por objetivo auxiliar na integração e atualização de condição comercial (preço, estoque, frete, SLAs de entrega) de um SKU* entre um Seller não VTEX  para uma loja hospedada na versão smartcheckout da VTEX e também auxiliar na descida de pedido, dados de pagamento e envio de autorização de despacho para o Seller não VTEX.
 
 ###Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU  
-{: #1 .slug-text}
+
 
 Troca de catalogo (sugestão de SKU) entre o Seller não VTEX com um Marketplace hospedado na VTEX.  
 
@@ -19,7 +13,7 @@ Troca de catalogo (sugestão de SKU) entre o Seller não VTEX com um Marketplace
 ---
 
 ###Simulação de Carrinho e Consulta Parcelamento  
-{: #2 .slug-text}
+
 
 Este tópico tem por objetivo auxiliar o integrador na simulação de carrinho, consultar parcelamento entre o marketplace VTEX com uma loja não VTEX. Simular um pedido e consultar as formas de parcelamento.
 
@@ -31,7 +25,7 @@ Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma 
 ![alt text](fechamento-fluxo.png "Title")  
 
 ###Simulação de Carrinho  
-{: #2 .slug-text}  
+ 
 
 Quando ocorre uma edição no carrinho, uma chamada será feita no Seller não VTEX para checar a disponibilidade do item. Quando o CEP não for enviado, retornar sem as informações de logistica - Endpoint do Seller  
 
@@ -44,7 +38,7 @@ Parametro: **sc=5** // sc é o id do canal de vendas
 
 
 _request:_  
-{% highlight json %}  
+```json  
 {
     "postalCode":"22251-030",            //obrigatório se country estiver preenchido, string
     "country":"BRA",                     //obrigatório se postalCode estiver preenchido, string      
@@ -61,11 +55,11 @@ _request:_
         }
     ]
 }
-{% endhighlight %}  
+``` 
 
 _response:_  
 
-{% highlight json %}  
+```json  
 {
 	"items": [                                                     //pode vir um array vazio
 	    {
@@ -151,11 +145,11 @@ _response:_
 	"country":"BRA",                                           //string, nulo se não enviado
 	"postalCode":"22251-030"                                   //string, nulo se não enviado    
 }
-{% endhighlight %}  
+```  
 
 
 ###Consulta de Opções de Parcelamento.  
-{: #2 .slug-text}  
+ 
 
 Quando cliente for para a página de pagamento, uma chamada será feita no Seller para buscar as formas de parcelamento das formas de pagamento. O Seller não VTEX deverá conhcer préviamente os ids das formas de pagamento do marketplace VTEX (1-American Express, 2-Visa, 3-Diners, 8-Hipercard, 4-Mastercard) - Endpoint do Seller  
  
@@ -171,7 +165,7 @@ Parametro: **an=nomedaloja**
 
 _request:_  
 
-{% highlight json %}  
+```json 
 {
   "PaymentSystemsIds":[1,2], //ids das formas de pagamento
   "SubtotalAsInt":27280, //total que deseja parcelar
@@ -186,11 +180,11 @@ _request:_
   ],
   "postalCode":"22051030" //CEP
 }
-{% endhighlight %}  
+``` 
 
 _response:_
 
-{% highlight json %} 
+```json 
 [
     {
         "paymentSystem": 2,
@@ -267,12 +261,12 @@ _response:_
         ]
     }
 ]
-{% endhighlight %} 
+```
 
 ---
 
 ###Enviar Pedido e Informar Pagamento  
-{: #4 .slug-text}  
+
 
 Este tópico tem por objetivo auxiliar o Seller não VTEX a receber um pedido, receber o respectivo pagamento do pedido, e comunicar a atualização de status de pagamento.
 
@@ -282,7 +276,7 @@ Este tópico tem por objetivo auxiliar o Seller não VTEX a receber um pedido, r
 ![alt text](pedido-pagamento-fluxo.png "Title") 
 
 ###Enviar Pedido  
-{: #5 .slug-text}  
+ 
 
 Quando o pedido é fechado no ambiente VTEX, um POST é feito no Seller não VTEX, para que este possa receber a ordem de pedido - Endpoint do Seller
 
@@ -295,7 +289,7 @@ Parametro: **affiliateId** // afiliado que esta colocando o pedido
 
 _request:_  
 
-{% highlight json %}  
+```json  
 [
   {
     "marketplaceOrderId": "959311095", //identificador do pedido no market place
@@ -376,7 +370,7 @@ _request:_
 
 _response:_  
 
-{% highlight json %}  
+```json  
 [
   {
     "marketplaceOrderId": "959311095",
@@ -447,12 +441,12 @@ _response:_
 	}
   }
 ]  
-{% endhighlight %} 
+
 
 
 _retorno de erro:_  
 
-{% highlight json %} 
+```json 
 {
 	"error": {
 	"code": "1",
@@ -460,11 +454,11 @@ _retorno de erro:_
 	"exception": null
 	}
 }
-{% endhighlight %}  
+```  
 
 
 ###Enviar Pagamento
-{: #5 .slug-text}  
+
 
 Quando o pagamento do pedido é informado no ambiente VTEX, um POST é feito no Seller não VTEX, para que este possa receber os dados referente ao pagamento do respectivo pedido - Endpoint do Seller
 
@@ -477,7 +471,7 @@ Parametro: **an=shopfacilfastshop** // an é o nome do gateway da loja que ta en
 
 _request:_    
 
-{% highlight json %} 
+```json 
 {
 	"referenceId": "123543123", //merchantPaymentReferenceId retornado no request do place order
 	"transactionId": "D3AA1FC8372E430E8236649DB5EBD08E", //identificador da transação
@@ -558,25 +552,25 @@ _request:_
 	    "shippingestimated": "6bd" //dias estimados para entrega
 	  }
 }
-{% endhighlight %}
+```
 
 
 _Exemplo do Response e do POST Feito na CallbackUrl de Pagamento :_
 
-{% highlight json %} 
+```json 
 {
   	"paymentId" : "F5C1A4E20D3B4E07B7E871F5B5BC9F91",   // string, not null, Payment identifier sent on authorization request
 	"status" : "",    // string, not null, [approved | denied | undefined]
   	"authorizationId": "", //id da autorização quando aprovado
   	"bankIssueInvoiceUrl":"urldoboleto" //url do boleto bancario
 }
-{% endhighlight %}
+```
 
 **O response de pagamento pode ser respondido como "undefined" enquanto o Seller não tem a informação sobre o pagamento. Em caso de marketplace e seller aceitarem boleto, quando recebido um post de pagamento com o paymentSystem igual a boleto, o seller deve gerar o boleto e responder imediatamente com a url de boleto preenchida.
 	    
 
 ###Enviar Autorização Para Despachar
-{: #8 .slug-text}
+
 
 Quando o pagamento do pedido é concluído no Seller (pagamento válido), um POST deverá ser feito na "callbackUrl" do pagamento, informando sucesso do pagamento ("status":"approved"), nesse momento o marketplace VTEX envia autorização para despachar o respectivo pedido no Seller - Endpoint da Seller
 
@@ -589,30 +583,30 @@ Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace, serve pa
 
 _request:_  
   
-{% highlight json %}
+```json
 {
 	"marketplaceOrderId": "959311095" //id do pedido originado no canal de vendas
 }
-{% endhighlight %}  
+```
 
 _response:_  
 
-{% highlight json %}
+```json
 {
 	"date": "2014-10-06 18:52:00",
 	"marketplaceOrderId": "959311095",
 	"orderId": "123543123",
 	"receipt": "e39d05f9-0c54-4469-a626-8bb5cff169f8",
 }
-{% endhighlight %}  
+```
 
 ##Invocando Marketplace Services Endpoint Actions
-{: #9 .slug-text}
+
 
 O MarketplaceServicesEndpoint serve para receber informações do Seller referentes a nota fiscal e tracking de pedido. É permitido o envio de notas fiscais parciais, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial. O pedido na VTEX só andará pra o status FATURADO quando o valor total de todas as notas fiscais de um pedido forem enviadas.
 
 ###Informar Nota Fiscal 
-{: #10 .slug-text}
+
 
 Quando o Seller não VTEX emitir a Nota Fiscal, deve informar as informações da Nota Fiscal - Endpoint VTEX
 
@@ -625,7 +619,7 @@ Parametro: **orderId** // id do pedido na VTEX
 
 _request:_  
 
-{% highlight json %}  
+```json  
 {
     "type": "Output", //Output|Input (venda|devolução)
     "invoiceNumber": "NFe-00001", //numero da nota fiscal
@@ -646,16 +640,16 @@ _request:_
 
 _response:_  
 
-{% highlight json %} 
+```json
 {
     "date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
     "orderId": "123543123",
     "receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
 }
-{% endhighlight %} 
+```
 
 ###Informar Tracking 
-{: #10 .slug-text}  
+
 
 Quando o Seller não VTEX entregar o pedido para a transportadora, deve informar as informações de Tracking - Endpoint VTEX
 
@@ -666,7 +660,7 @@ Accept: **application/json**
 
 _request:_  
 
-{% highlight json %} 
+```json 
 {
     "type": "Output",
     "invoiceNumber": "NFe-00001",
@@ -683,22 +677,22 @@ _request:_
     "issuanceDate": "2013-11-21T00:00:00",
     "invoiceValue": 9508
 }  
-{% endhighlight %}  
+```
 
 _response:_  
 
-{% highlight json %} 
+```json 
 {
     "date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
     "orderId": "123543123",
     "receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
 }
-{% endhighlight %}  
+```
 
 **A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.
 
 ###Enviar Solicitação de Cancelamento
-{: #10 .slug-text}  
+ 
 
 Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em um estado que se possa cancelar, o pedido será cancelado - Endpoint VTEX
 

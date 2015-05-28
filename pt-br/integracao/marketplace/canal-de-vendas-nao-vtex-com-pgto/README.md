@@ -1,9 +1,3 @@
----
-layout: docs
-title: Marketplace Não VTEX vendendo para Sellers VTEX com Pagamento
-application: marketplace
-docType: guide
----
 ##Marketplace Não VTEX vendendo para Sellers VTEX com Pagamento
 
 Este documento tem por objetivo auxiliar na troca de catalogo, atualização de condição comercial (preço, estoque, frete, SLAs de entrega) de um SKU* entre uma loja hospedada na versão smartcheckout da VTEX e um Marketplace (Afiliado) Não VTEX e também auxiliar na descida de pedido, transação de pagamento e envio de autorização de despacho para o Seller VTEX.
@@ -11,7 +5,6 @@ Este documento tem por objetivo auxiliar na troca de catalogo, atualização de 
 - - -
 
 ###Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU
-{: #1 .slug-text}
 
 Fluxo de troca de catalogo de SKU e atualização de preço, estoque, frete, SLAs de entrega:
  
@@ -45,7 +38,7 @@ Accept: **application/json**
 
 _request:_  
 
-{% highlight json %}  
+```json  
 { 
 	"IdSku" : "1634", //id da sku da VTEX
 	"An" : "sandboxintegracao", //loja vtex
@@ -53,10 +46,9 @@ _request:_
 	"StockModified": true, //mudou estoque?
 	"PriceModified": true //mudou preço?
 }
-{% endhighlight %}  
+``` 
 
-###Busca de Condições Comerciais
-{: #2 .slug-text}  
+###Busca de Condições Comerciais 
 
 Acessa a loja VTEX pegando as condições comerciais (preço, estoque, SLAs de entrega) de uma SKU  - Endpoint da Loja VTEX
 
@@ -69,7 +61,7 @@ Parametro: **affiliateId** // o id do afiliado cadastrado na loja VTEX
 
 _request:_  
 
-{% highlight json %}  
+```json  
 {
     "postalCode":"22251-030",            //obrigatório se country estiver preenchido
     "country":"BRA",                     //obrigatório se postalCode estiver preenchido    
@@ -86,11 +78,11 @@ _request:_
         }
     ]
 }
-{% endhighlight %}  
+```
 
 _response:_
 
-{% highlight json %}  
+```json  
 {
     "items": [                                                     //pode vir um array vazio, caso item indisponivel
         {
@@ -176,10 +168,9 @@ _response:_
     "country":"BRA",                                           //string, nulo se não enviado
     "postalCode":"22251-030"                                   //string, nulo se não enviado    
 }
-{% endhighlight %}  
+``` 
 
 ###Busca Informações de uma SKU
-{: #3 .slug-text}  
 
 Acessa uma loja VTEX e busca dados de uma SKU - Endpoint da Loja VTEX
 
@@ -191,7 +182,7 @@ Parametro: **idSku** identificador do SKU
 
 _response:_  
 
-{% highlight json %} 
+```json 
 {
     "Id": 1634, //id da sku
     "ProductId": 1634, //id do produto pai da sku
@@ -316,12 +307,11 @@ _response:_
     "InformationSource": "Indexer",
     "ModalType": null
 }
-{% endhighlight %}  
+```
 
 - - -
 
 ###Simulação de Carrinho e Página de Pagamento
-{: #5 .slug-text} 
 
 Este tópico tem por objetivo auxiliar o na simulação de carrinho, e consulta de formas de pagamento e  parcelamentos entre um Marketplace não VTEX com uma loja VTEX.
 
@@ -346,7 +336,7 @@ Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado na loja
 
 _request:_  
 
-{% highlight json %} 
+```json 
 {
     "postalCode":"22251-030",            //obrigatório se country estiver preenchido, string
     "country":"BRA",                     //obrigatório se postalCode estiver preenchido, string      
@@ -363,11 +353,11 @@ _request:_
         }
     ]
 }
-{% endhighlight %}  
+```
 
 _response:_  
 
-{% highlight json %} 
+```json 
 {
     "items": [                                                     //pode vir um array vazio
         {
@@ -453,12 +443,11 @@ _response:_
     "country":"BRA",                                           //string, nulo se não enviado
     "postalCode":"22251-030"                                   //string, nulo se não enviado    
 }
-{% endhighlight %}  
+``` 
 
 **Caso o CEP e Pais não for enviado, não será retornado informações de SLA de entrega
 
 ###Consulta as Formas de Pagamento Disponíveis no Seller
-{: #6 .slug-text} 
 
 Acessa a loja VTEX para consultar a formas de pagamento disponíveis - Endpoint loja VTEX
 
@@ -469,7 +458,7 @@ Accept: **application/json**
 
 _response:_  
 
-{% highlight json %} 
+```json 
 [
     {
         "id": 6, //identificador da forma de pagamento
@@ -553,10 +542,9 @@ _response:_
         "dueDate": "2015-01-17T14:49:14.4767186Z"
     }
 ]
-{% endhighlight %}  
+``` 
 
 ###Consulta os Parcelamentos no Seller
-{: #7 .slug-text} 
 
 Consulta a loja VTEX para buscar os parcelamentos por forma de pagamento e promoções de SKU - Endpoint loja VTEX
 
@@ -567,7 +555,7 @@ Accept: **application/json**
 
 _request:_  
 
-{% highlight json %} 
+```json
 {
   "PaymentSystemsIds":[2,4], //ids das formas de pagamento
   "SubtotalAsInt":81200, // valor que se deseja parcelar
@@ -581,11 +569,11 @@ _request:_
     }
   ]
 }
-{% endhighlight %}  
+``` 
 
 _response:_  
 
-{% highlight json %} 
+```json 
 [
     {
         "paymentSystem": 2, //identificador da forma de pagamento
@@ -640,12 +628,11 @@ _response:_
         ]
     }
 ]
-{% endhighlight %}  
+``` 
 
 - - -
 
 ###Enviar Pedido, Enviar Pagamento e Autorizar Despacho
-{: #7 .slug-text} 
 
 Este tópico tem por objetivo auxiliar um Marketplace não VTEX enviar um pedido, enviar uma transação de pagamento, e enviar autorização para despacho (proceder com o fulfillment do pedido).
 
@@ -668,7 +655,7 @@ Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado n loja 
 
 _request:_  
 
-{% highlight json %} 
+```json 
 {
 	"marketplaceOrderId": "959311095", //identificador do pedido no marketplace
 	"marketplaceServicesEndpoint": "https://urlmarketplace/", //leia o tópico implementando MarketplaceServicesEndpoint Actions
@@ -744,11 +731,11 @@ _request:_
 	"marketingData": null,
 	"paymentData":null
 }
-{% endhighlight %}  		
+``` 		
 
 _response:_
 
-{% highlight json %} 	    
+```json 	    
 {
 	"marketplaceOrderId": "959311095",
 	"orderId": "123543123", //id do pedido que foi gerado na loja VTEX
@@ -817,11 +804,11 @@ _response:_
 		"merchantPaymentReferenceId":"500225" //inteiro, id do pagamento, número que será enviado junto com o pagamento para conciliação.
 	}
 }
-{% endhighlight %}  		
+``` 		
 
 _retorno de erro:_  
 
-{% highlight json %} 
+```json 
 {
 	"error": {
 	"code": "1",
@@ -829,7 +816,7 @@ _retorno de erro:_
 	"exception": null
 	}
 }
-{% endhighlight %}  
+```
 
 ###Enviar Pagamento - Iniciar Transação, Enviar Dados de Pagamento, Enviar Dados de Anti-Fraude e Autorização de Pagamento
 
@@ -837,7 +824,6 @@ Após enviar o pedido e receber o response com o paymentData.merchantPaymentRefe
 
 
 ###Iniciar Transação
-{: #8 .slug-text} 
 
 Inicia uma transação de pagamento usando o paymentData.merchantPaymentReferenceId recebi no retorno de inserção de pedido - Endpoint Loja VTEX
 
@@ -848,18 +834,18 @@ Accept: **application/json**
 
 _request:_  
 
-{% highlight json %} 
+```json 
 {
   "value":3190, //valor do pagamento
   "referenceId":"500225", //paymentData.merchantPaymentReferenceId retornado no momento que inseriu o pedido
   "channel":"sandboxintegracao", //nome do gateway de pagamento
   "urn":""
 }
-{% endhighlight %} 
+``` 
 
 _response:_  
 
-{% highlight json %} 
+```json 
 {
     "id": "BB55ED929FF749E6BE5A835E4C811B77",
     "transactionId": "BB55ED929FF749E6BE5A835E4C811B77", // identificador da transação criada
@@ -904,10 +890,9 @@ _response:_
     "urn": null,
     "softDescriptor": null
 }
-{% endhighlight %} 
+```
 
 ###Enviar Dados de Pagamento
-{: #9 .slug-text} 
 
 Envia os dados referentes ao pagamento, debaixo da transação iniciada - Endpoint Loja VTEX
 
@@ -918,7 +903,7 @@ Accept: **application/json**
 
 _request:_  
 
-{% highlight json %} 
+```json 
 {
   "callbackUrl": "",
   "paymentsArray": "[
@@ -949,16 +934,16 @@ _request:_
     }
   ]"
 }
-{% endhighlight %} 
+``` 
 
 _response:_  
 
-{% highlight json %} 
+```json 
 200
-{% endhighlight %} 
+```
 
 ###Enviar Dados Adicional
-{: #10 .slug-text} 
+
 
 Envia dados adicionais que serão usados pelo sistema de anti-fraude - Endpoint Loja VTEX
 
@@ -970,7 +955,7 @@ Parametro: **transactionid** // identificador da transação  Ex: BB55ED929FF749
 
 _request:_  
 
-{% highlight json %} 
+```json 
 [
 	{
 	    "name": "cart",
@@ -996,17 +981,17 @@ _request:_
 	    "value": "{\"receiverName\":\"ELLEN\",\"postalCode\":\"65035430\",\"city\":\"SAO LUIS\",\"state\":\"MA\",\"country\":\"BRA\",\"street\":\"AV NEWTON BELLO \",\"number\":\"777\",\"neighborhood\":\"MONTE CATELO\",\"complement\":\"APTO 302\",\"reference\":null}"
 	}
 ]
-{% endhighlight %} 
+```
 
 
 _response:_  
 
-{% highlight json %} 
+```json 
 
-{% endhighlight %} 
+```
 
 ###Autorização de Pagamento  
-{: #11 .slug-text} 
+
 
 Envia uma autorização confirmando a autorização do pagamento enviado - Endpoint Loja VTEX
 
@@ -1018,7 +1003,7 @@ Parametro: **transactionid** // identificador da transação
 
 _request:_  
 
-{% highlight json %} 
+```json 
 {
     "transactionId": "BB55ED929FF749E6BE5A835E4C811B77",
     "softDescriptor": "sandboxintegracao",
@@ -1031,20 +1016,20 @@ _request:_
         }
     ]
 }
-{% endhighlight %} 
+```
 
 
 _response:_  
 
-{% highlight json %} 
+```json 
 
-{% endhighlight %} 
+
 
 
 - - -
 
 ###Implementando Marketplace Services Endpoint Actions
-{: #12 .slug-text} 
+
 
 O MarketplaceServicesEndpoint serve para a loja VTEX informar ao canal de vendas a nota fiscal e tracking de pedido. O envio de notas fiscais pode ser parcial, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial.
 
@@ -1059,7 +1044,7 @@ Accept: **application/json**
 
 _request:_   
 
-{% highlight json %} 
+```json 
 {
 	"type": "Output", //Output(venda)|Input(devolução)
 	"invoiceNumber": "NFe-00001", //numero da nota fiscal
@@ -1076,17 +1061,17 @@ _request:_
 	"issuanceDate": "2013-11-21T00:00:00", //data da nota
 	"invoiceValue": 9508 //valor da nota
 }
-{% endhighlight %}  
+```  
 
 _response:_  
 
-{% highlight json %} 
+```json 
 {
 	"date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
 	"orderId": "123543123",
 	"receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
 }
-{% endhighlight %}  
+``` 
 
 ###Informar Tracking de Transportadora
 
@@ -1100,7 +1085,7 @@ Accept: **application/json**
 
 _request:_  
 
-{% highlight json %} 
+```json 
 {
 	"type": "Output",
 	"invoiceNumber": "NFe-00001",
@@ -1117,17 +1102,17 @@ _request:_
 	"issuanceDate": "2013-11-21T00:00:00",
 	"invoiceValue": 9508
 }
-{% endhighlight %}  
+``` 
 
 _response:_  
 
-{% highlight json %} 
+```json 
 {
 	"date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
 	"orderId": "123543123",
 	"receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
 }
-{% endhighlight %}  
+```
 
 ###Enviar Solicitação de Cancelamento
 
