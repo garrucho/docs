@@ -23,11 +23,15 @@ Partial `footer.html`:
 
 Página `home.html`:
 ```html
+{% raw %}
 {% include 'header' %}
+{% endraw %}
 
 Olá, mundo!
 
+{% raw %}
 {% include 'footer' %}
+{% endraw %}
 ```
 
 Note que ao usar a tag Liquid `include` omitimos a extensão do arquivo (.html) ([leia mais sobre Liquid](../../referencias/liquid/index.html)).
