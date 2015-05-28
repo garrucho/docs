@@ -35,3 +35,7 @@
         * [Variáveis](portal/referencias/liquid/portal/variaveis.md)
         * [Filtros](portal/referencias/liquid/portal/filtros.md)
         * [Tags](portal/referencias/liquid/portal/tags.md)
+* [vtex.js](vtex.js/latest/README.md)
+  * [Checkout](vtex.js/latest/checkout/README.md)
+    * [OrderForm](vtex.js/latest/checkout/order-form.md)
+  * [Catálogo](vtex.js/latest/catalog/README.md)
