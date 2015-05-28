@@ -1,0 +1,1 @@
+# Seller não VTEX

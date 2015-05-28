@@ -22,7 +22,7 @@ Geralmente, os produtos são organizados dentro da loja em estruturas mercadoló
 2. **Categoria** - categoria cujo id de categoria pai é um **departamento**,
 3. **SubCategoria**. categoria cujo id de categoria pai é um **categoria**
 
-_Exemplo:_  
+_Exemplo:_
 
 * Departamento/Categoria/SubCategoria/Produto
 * Ferramentas/Eletricas/Furradeiras/Super Drill
@@ -55,9 +55,9 @@ _Fluxo:_
 ###Produto
 
 
-Abaixo exemplo de chamada e resposta de uma inserção de produto usando o metodo "ProductInsertUpdate":  
+Abaixo exemplo de chamada e resposta de uma inserção de produto usando o metodo "ProductInsertUpdate":
 
-_request:_  
+_request:_
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -79,7 +79,7 @@ _request:_
             <vtex:Id>1234567</vtex:Id>
 			<!--bool, se não atender requisitos de ativação(ter SKUs ativas), não será ativado-->
 			<vtex:IsActive>true</vtex:IsActive>
-			<!--bool, vai ser visível no site--> 
+			<!--bool, vai ser visível no site-->
 			<vtex:IsVisible>true</vtex:IsVisible>
 			<!--string, palavras chaves relevantes para a busca-->
 			<vtex:KeyWords> Barro, vaso, vermelho</vtex:KeyWords>
@@ -102,7 +102,7 @@ _request:_
 </soapenv:Envelope>
 ```
 
-_response:_  
+_response:_
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -143,10 +143,10 @@ _response:_
 ###SKU
 
 
-Uma vez inseridos todos os produtos, que teoricamente são os pais das SKUs, chegou o momento de enviar as SKUs filhas dos produtos. 
-Abaixo exemplo de chamada e resposta de uma inserção de SKU usando o metodo "StockKeepingUnitInsertUpdate": 
+Uma vez inseridos todos os produtos, que teoricamente são os pais das SKUs, chegou o momento de enviar as SKUs filhas dos produtos.
+Abaixo exemplo de chamada e resposta de uma inserção de SKU usando o metodo "StockKeepingUnitInsertUpdate":
 
-_request:_  
+_request:_
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
@@ -168,7 +168,7 @@ _request:_
 			<vtex:IsKit>false</vtex:IsKit>
 			<!--decimal, comprimento com embalagem em metros -->
 			<vtex:Length>1.52</vtex:Length>
-			<!--decimal, ** ler obs --> 
+			<!--decimal, ** ler obs -->
 			<vtex:ListPrice>150.0</vtex:ListPrice>
 			<!--number, prefixo do estoque (id estoque = 1_1, mandar 1) -->
 			<vtex:ModalId>1</vtex:ModalId>
@@ -210,7 +210,7 @@ _request:_
 </soapenv:Envelope>
 ```
 
-_response:_  
+_response:_
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -259,7 +259,7 @@ _response:_
 </s:Envelope>
 ```
 
-**Obersevação:**  
+**Obersevação:**
 O preço da SKU pode NÂO ser enviado no momento da inserção da SKU. Quando um preço não é enviado no momento da criação de uma SKU, na tabela de SKU por obrigatoriedade é criado um preço fictício de 99999.00, e no sistema de "Pricing" da VTEX não é inserido o preço.
 
 ###Preço e Estoque
@@ -284,11 +284,11 @@ A documentação completa sobre a API de **Pricing** se encontra em: [http://lab
 ###Estoque
 
 Isso pode ser feito direto no admin da loja na VTEX (_urldaloja/admin/logistics/#/dashboard_), maneira rápida:
- 
-1. Criar a transpotadora - <a title="criar a transpotadora" href="http://www.youtube.com/watch?v=IkIM53OXvVo" target="_blank">[Video]</a>, 
-2. Criar a doca <a title="criar a doca" href="https://www.youtube.com/watch?v=fNJ3JBoEoW0" target="_blank">[Video]</a>, 
-3. Criar o estoque - <a title="criar o estoque" href="http://www.youtube.com/watch?v=FijZQoaWiDM" target="_blank">[Video]</a>.  
-   
+
+1. Criar a transpotadora - <a title="criar a transpotadora" href="http://www.youtube.com/watch?v=IkIM53OXvVo" target="_blank">[Video]</a>,
+2. Criar a doca <a title="criar a doca" href="https://www.youtube.com/watch?v=fNJ3JBoEoW0" target="_blank">[Video]</a>,
+3. Criar o estoque - <a title="criar o estoque" href="http://www.youtube.com/watch?v=FijZQoaWiDM" target="_blank">[Video]</a>.
+
 
 Criar o estoque, criar a transpotadora e criar a doca no admin da VTEX, e depois usar a API REST do **Logistics** para manipular o estoque.
 
@@ -304,5 +304,5 @@ Para a integraão de pedidos consulte o tópico [[Guide] Integração de Pedido,
 
 ---
 
-autor:_Jonas Bolognim_  
-propriedade: _VTEX_  
+autor:_Jonas Bolognim_
+propriedade: _VTEX_

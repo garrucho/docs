@@ -7,64 +7,64 @@ Este documento tem por objetivo auxiliar na troca de catalogo, atualização de 
 ###Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU
 
 Fluxo de troca de catalogo de SKU e atualização de preço, estoque, frete, SLAs de entrega:
- 
+
 ![alt text](sku-sugestion-canal-nao-vtex.png "Title")
 
 ###Inserção e Atualização de SKU - Fluxo
 
-* Caso se queira uma condição comercial diferenciada para o Marketplace, na *loja VTEX deverá ser criado um novo canal de vendas, podendo assim criar sortimento e promoções diferenciadas da loja principal.  
+* Caso se queira uma condição comercial diferenciada para o Marketplace, na *loja VTEX deverá ser criado um novo canal de vendas, podendo assim criar sortimento e promoções diferenciadas da loja principal.
 
-* Dentro da loja hospedada na VTEX, será criado um *afiliado, que é o interessado em receber o catálogo e as atualizações de condições comerciais.  
+* Dentro da loja hospedada na VTEX, será criado um *afiliado, que é o interessado em receber o catálogo e as atualizações de condições comerciais.
 
-* O afiliado, deverá implementar um endpoint onde receberá informações sobre alterações de condição comercial de SKUs.  
+* O afiliado, deverá implementar um endpoint onde receberá informações sobre alterações de condição comercial de SKUs.
 
-* Na loja VTEX, cada vez que uma SKU comercializado pelo afiliado sofrer uma alteração na condição comercial, ou for reindexado, o endpoint de notificação do afiliado será chamado.  
+* Na loja VTEX, cada vez que uma SKU comercializado pelo afiliado sofrer uma alteração na condição comercial, ou for reindexado, o endpoint de notificação do afiliado será chamado.
 
-* Quando o afiliado recebe uma notificação que um SKU mudou a condição comercial, o afiliado deve checar se já comercializa aquela SKU daquela loja que comunicou.  
+* Quando o afiliado recebe uma notificação que um SKU mudou a condição comercial, o afiliado deve checar se já comercializa aquela SKU daquela loja que comunicou.
 
   * **Caso SIM**: O afiliado consulta a condição comercial na VTEX e se atualiza.
 
   * **Caso NÃO**: O afiliado busca a SKU na loja, insere no seu catalogo, e depois repete o cenário do "Caso SIM".
 
 ###Notificação de Mudança
- 
+
 
 Notifica o Marketplace Não VTEX que houve uma mudança nas condiçoes comerciais (preço, estoque, SLAs de entrega) de uma SKU - Endpoint do Afiliado (Marketplace)
 
-endpoint: **https://endpointdoafiliado/api/notification/**  
-verb: **POST**  
-Content-Type: **application/json**  
+endpoint: **https://endpointdoafiliado/api/notification/**
+verb: **POST**
+Content-Type: **application/json**
 Accept: **application/json**
 
-_request:_  
+_request:_
 
-```json  
-{ 
+```json
+{
 	"IdSku" : "1634", //id da sku da VTEX
 	"An" : "sandboxintegracao", //loja vtex
 	"IdAffiliate":"PRT", // id do afilado cadastrado na loja vtex
 	"StockModified": true, //mudou estoque?
 	"PriceModified": true //mudou preço?
 }
-``` 
+```
 
-###Busca de Condições Comerciais 
+###Busca de Condições Comerciais
 
 Acessa a loja VTEX pegando as condições comerciais (preço, estoque, SLAs de entrega) de uma SKU  - Endpoint da Loja VTEX
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado]**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
-Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace  
-Parametro: **affiliateId** // o id do afiliado cadastrado na loja VTEX 
+endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado]**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
+Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace
+Parametro: **affiliateId** // o id do afiliado cadastrado na loja VTEX
 
-_request:_  
+_request:_
 
-```json  
+```json
 {
     "postalCode":"22251-030",            //obrigatório se country estiver preenchido
-    "country":"BRA",                     //obrigatório se postalCode estiver preenchido    
+    "country":"BRA",                     //obrigatório se postalCode estiver preenchido
     "items": [                           //obrigatório: deve conter pelo menos um objeto item
         {
             "id":"287611",               //obrigatório, string
@@ -82,7 +82,7 @@ _request:_
 
 _response:_
 
-```json  
+```json
 {
     "items": [                                                     //pode vir um array vazio, caso item indisponivel
         {
@@ -105,7 +105,7 @@ _response:_
 				    "type":"Embalagem de Presente",
 				    "id":"6",
 				    "name":"Embalagem de Presente",
-				    "price":250                                       
+				    "price":250
 				}
 			]
         },
@@ -115,7 +115,7 @@ _response:_
 			"price": 890,                                          // Os dois dígitos menos significativos são os centavos
 			"listPrice": 990,                                      // Os dois dígitos menos significativos são os centavos
 			"quantity": 5,
-			"seller": "1",	
+			"seller": "1",
 			"merchantName": "sandboxintegracao",
 			"priceValidUntil": null
         }
@@ -155,7 +155,7 @@ _response:_
             "stockBalance": 1237,
             "quantity": 5,
             "shipsTo": [ "BRA" ],
-            "slas": [ 
+            "slas": [
                 {
                     "id": "Normal",
                     "name": "Entrega Normal",
@@ -166,23 +166,23 @@ _response:_
         }
     ],
     "country":"BRA",                                           //string, nulo se não enviado
-    "postalCode":"22251-030"                                   //string, nulo se não enviado    
+    "postalCode":"22251-030"                                   //string, nulo se não enviado
 }
-``` 
+```
 
 ###Busca Informações de uma SKU
 
 Acessa uma loja VTEX e busca dados de uma SKU - Endpoint da Loja VTEX
 
-endpoint: **http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku]**  
-verb: **GET**   
-Accept: **application/json**  
-Parametro: **idSku** identificador do SKU 
+endpoint: **http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku]**
+verb: **GET**
+Accept: **application/json**
+Parametro: **idSku** identificador do SKU
 
 
-_response:_  
+_response:_
 
-```json 
+```json
 {
     "Id": 1634, //id da sku
     "ProductId": 1634, //id do produto pai da sku
@@ -319,27 +319,27 @@ Este tópico tem por objetivo auxiliar o na simulação de carrinho, e consulta 
 
 Quando um produto é inserido no carrinho no Marketplace Não VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho deverá ser feita na loja VTEX para checar a validade das condiçoes comerciais (preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento, uma consulta as formas de pagamento, aos parcelmentos e uma outra simulçao de carrinho deverá ser realizada.
 
-_Fluxo de chamadas no carrinho e no pagamento:_    
+_Fluxo de chamadas no carrinho e no pagamento:_
 
-![alt text](fechato-canal-nao-vtex-com-pgto.png "fechamento do pedido no marketplace")  
+![alt text](fechato-canal-nao-vtex-com-pgto.png "fechamento do pedido no marketplace")
 
 ###Simulaçao de Carrinho
 
 Acessa a loja VTEX simulando um carrinho, para checar as condiçoes comerciais e as SLAs de entrega - Endpoint loja VTEX
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado]**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
-Parametro: **sc** // sc é o canal de vendas  
+endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado]**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
+Parametro: **sc** // sc é o canal de vendas
 Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado na loja VTEX
 
-_request:_  
+_request:_
 
-```json 
+```json
 {
     "postalCode":"22251-030",            //obrigatório se country estiver preenchido, string
-    "country":"BRA",                     //obrigatório se postalCode estiver preenchido, string      
+    "country":"BRA",                     //obrigatório se postalCode estiver preenchido, string
     "items": [                           //obrigatório: deve conter pelo menos um objeto item
         {
             "id":"287611",               //obrigatório, string
@@ -355,9 +355,9 @@ _request:_
 }
 ```
 
-_response:_  
+_response:_
 
-```json 
+```json
 {
     "items": [                                                     //pode vir um array vazio
         {
@@ -380,7 +380,7 @@ _response:_
                     "type":"Embalagem de Presente",
                     "id":"6",
                     "name":"Embalagem de Presente",
-                    "price":250                                       
+                    "price":250
                 }
             ]
         },
@@ -391,7 +391,7 @@ _response:_
             "listPrice": 990,                                      // Os dois dígitos menos significativos são os centavos
             "quantity": 5,
             "seller": "1",
-			"merchantName": "sandboxintegracao",							   
+			"merchantName": "sandboxintegracao",
             "priceValidUntil": null
         }
     ],
@@ -441,9 +441,9 @@ _response:_
         }
     ],
     "country":"BRA",                                           //string, nulo se não enviado
-    "postalCode":"22251-030"                                   //string, nulo se não enviado    
+    "postalCode":"22251-030"                                   //string, nulo se não enviado
 }
-``` 
+```
 
 **Caso o CEP e Pais não for enviado, não será retornado informações de SLA de entrega
 
@@ -451,14 +451,14 @@ _response:_
 
 Acessa a loja VTEX para consultar a formas de pagamento disponíveis - Endpoint loja VTEX
 
-endpoint: **https://[loja].vtexpayments.com.br/api/pvt/merchants/payment-systems**  
-verb: **GET**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://[loja].vtexpayments.com.br/api/pvt/merchants/payment-systems**
+verb: **GET**
+Content-Type: **application/json**
+Accept: **application/json**
 
-_response:_  
+_response:_
 
-```json 
+```json
 [
     {
         "id": 6, //identificador da forma de pagamento
@@ -542,18 +542,18 @@ _response:_
         "dueDate": "2015-01-17T14:49:14.4767186Z"
     }
 ]
-``` 
+```
 
 ###Consulta os Parcelamentos no Seller
 
 Consulta a loja VTEX para buscar os parcelamentos por forma de pagamento e promoções de SKU - Endpoint loja VTEX
 
-endpoint: **https://[loja].vtexpayments.com.br/api/pvt/installments/options**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://[loja].vtexpayments.com.br/api/pvt/installments/options**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 
-_request:_  
+_request:_
 
 ```json
 {
@@ -569,11 +569,11 @@ _request:_
     }
   ]
 }
-``` 
+```
 
-_response:_  
+_response:_
 
-```json 
+```json
 [
     {
         "paymentSystem": 2, //identificador da forma de pagamento
@@ -628,7 +628,7 @@ _response:_
         ]
     }
 ]
-``` 
+```
 
 - - -
 
@@ -638,24 +638,24 @@ Este tópico tem por objetivo auxiliar um Marketplace não VTEX enviar um pedido
 
 Caso se queira uma condição comercial diferenciada para o Marketplace não VTEX, na loja VTEX deverá ser criado um novo canal de vendas, podendo assim criar promoções diferenciadas (desconto, frete, etc) somente para o canal desejado. Caso não tenha condição comercial diferenciada, deve se usar o canal de vendas da loja principal (sc=1).
 
-_Fluxo de chamadas de descida de pedido, pagamento e autorização para despachar:_    
+_Fluxo de chamadas de descida de pedido, pagamento e autorização para despachar:_
 
-![alt text](order-canal-n-vtex-com-pgto.PNG "Title") 
+![alt text](order-canal-n-vtex-com-pgto.PNG "Title")
 
 ###Enviar Pedido
 
 Quando o pedido é fechado em um Marketplace não VTEX, um POST deve ser feito na loja VTEX, para que essa possa receber a ordem de pedido - Endpoint Loja VTEX
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
-Parametro: **sc** // sc é o canal de vendas cadastrado na VTEX.  
+endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
+Parametro: **sc** // sc é o canal de vendas cadastrado na VTEX.
 Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado n loja VTEX
 
-_request:_  
+_request:_
 
-```json 
+```json
 {
 	"marketplaceOrderId": "959311095", //identificador do pedido no marketplace
 	"marketplaceServicesEndpoint": "https://urlmarketplace/", //leia o tópico implementando MarketplaceServicesEndpoint Actions
@@ -669,7 +669,7 @@ _request:_
 	    "freightCommission": 0,
 	    "price": 9990,
 	    "bundleItems": [], //serviços. Ex: embalagem pra presente.
-	    "itemAttachment": { 
+	    "itemAttachment": {
 	      "name": null,
 	      "content": {}
 	    },
@@ -731,11 +731,11 @@ _request:_
 	"marketingData": null,
 	"paymentData":null
 }
-``` 		
+```
 
 _response:_
 
-```json 	    
+```json
 {
 	"marketplaceOrderId": "959311095",
 	"orderId": "123543123", //id do pedido que foi gerado na loja VTEX
@@ -804,11 +804,11 @@ _response:_
 		"merchantPaymentReferenceId":"500225" //inteiro, id do pagamento, número que será enviado junto com o pagamento para conciliação.
 	}
 }
-``` 		
+```
 
-_retorno de erro:_  
+_retorno de erro:_
 
-```json 
+```json
 {
 	"error": {
 	"code": "1",
@@ -827,25 +827,25 @@ Após enviar o pedido e receber o response com o paymentData.merchantPaymentRefe
 
 Inicia uma transação de pagamento usando o paymentData.merchantPaymentReferenceId recebi no retorno de inserção de pedido - Endpoint Loja VTEX
 
-endpoint: **https://[loja].vtexpayments.com.br/api/pvt/transactions**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://[loja].vtexpayments.com.br/api/pvt/transactions**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 
-_request:_  
+_request:_
 
-```json 
+```json
 {
   "value":3190, //valor do pagamento
   "referenceId":"500225", //paymentData.merchantPaymentReferenceId retornado no momento que inseriu o pedido
   "channel":"sandboxintegracao", //nome do gateway de pagamento
   "urn":""
 }
-``` 
+```
 
-_response:_  
+_response:_
 
-```json 
+```json
 {
     "id": "BB55ED929FF749E6BE5A835E4C811B77",
     "transactionId": "BB55ED929FF749E6BE5A835E4C811B77", // identificador da transação criada
@@ -896,14 +896,14 @@ _response:_
 
 Envia os dados referentes ao pagamento, debaixo da transação iniciada - Endpoint Loja VTEX
 
-endpoint: **https://[loja].vtexpayments.com.br/api/pvt/payments**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://[loja].vtexpayments.com.br/api/pvt/payments**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 
-_request:_  
+_request:_
 
-```json 
+```json
 {
   "callbackUrl": "",
   "paymentsArray": "[
@@ -934,11 +934,11 @@ _request:_
     }
   ]"
 }
-``` 
+```
 
-_response:_  
+_response:_
 
-```json 
+```json
 200
 ```
 
@@ -947,15 +947,15 @@ _response:_
 
 Envia dados adicionais que serão usados pelo sistema de anti-fraude - Endpoint Loja VTEX
 
-endpoint: **https://[loja].vtexpayments.com.br/api/pvt/transactions/[transactionid]/additional-data**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://[loja].vtexpayments.com.br/api/pvt/transactions/[transactionid]/additional-data**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 Parametro: **transactionid** // identificador da transação  Ex: BB55ED929FF749E6BE5A835E4C811B77
 
-_request:_  
+_request:_
 
-```json 
+```json
 [
 	{
 	    "name": "cart",
@@ -971,11 +971,11 @@ _request:_
 		],\"freight\":800,
 		\"tax\":0
 		}"
-	}, 
+	},
 	{
 	    "name": "clientProfileData",
 	    "value": "{\"email\":\"ellen.silva@vtex.com.br\",\"firstName\":\"Ellen\",\"lastName\":\"Silva\",\"document\":\"02647420955\",\"phone\":\"+551433118100\",\"corporateName\":null,\"tradeName\":null,\"corporateDocument\":null,\"stateInscription\":null,\"postalCode\":\"22011-050\",\"address\":{\"receiverName\":\"Ellen\",\"postalCode\":\"22011050\",\"city\":\"RIO DE JANEIRO\",\"state\":\"RJ\",\"country\":\"BRA\",\"street\":\"RUA  GENERAL AZEVEDO PIMENTEL\",\"number\":\"12345\",\"neighborhood\":\"COPACABANA\",\"complement\":\"APTO 302\",\"reference\":null},\"gender\":null,\"birthDate\":null,\"corporatePhone\":null,\"isCorporate\":false}"
-	}, 
+	},
 	{
 	    "name": "shippingData",
 	    "value": "{\"receiverName\":\"ELLEN\",\"postalCode\":\"65035430\",\"city\":\"SAO LUIS\",\"state\":\"MA\",\"country\":\"BRA\",\"street\":\"AV NEWTON BELLO \",\"number\":\"777\",\"neighborhood\":\"MONTE CATELO\",\"complement\":\"APTO 302\",\"reference\":null}"
@@ -984,26 +984,26 @@ _request:_
 ```
 
 
-_response:_  
+_response:_
 
-```json 
+```json
 
 ```
 
-###Autorização de Pagamento  
+###Autorização de Pagamento
 
 
 Envia uma autorização confirmando a autorização do pagamento enviado - Endpoint Loja VTEX
 
-endpoint: **https://[loja].vtexpayments.com.br/api/pvt/transactions/BB55ED929FF749E6BE5A835E4C811B77/authorization-request**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
-Parametro: **transactionid** // identificador da transação  
+endpoint: **https://[loja].vtexpayments.com.br/api/pvt/transactions/BB55ED929FF749E6BE5A835E4C811B77/authorization-request**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
+Parametro: **transactionid** // identificador da transação
 
-_request:_  
+_request:_
 
-```json 
+```json
 {
     "transactionId": "BB55ED929FF749E6BE5A835E4C811B77",
     "softDescriptor": "sandboxintegracao",
@@ -1019,9 +1019,9 @@ _request:_
 ```
 
 
-_response:_  
+_response:_
 
-```json 
+```json
 
 
 
@@ -1033,18 +1033,18 @@ _response:_
 
 O MarketplaceServicesEndpoint serve para a loja VTEX informar ao canal de vendas a nota fiscal e tracking de pedido. O envio de notas fiscais pode ser parcial, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial.
 
-###Informar Nota Fiscal 
+###Informar Nota Fiscal
 
 Quando a Nota Fiscal for emitida pelo Seller VTEX, está será enviada para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 
-_request:_   
+_request:_
 
-```json 
+```json
 {
 	"type": "Output", //Output(venda)|Input(devolução)
 	"invoiceNumber": "NFe-00001", //numero da nota fiscal
@@ -1061,31 +1061,31 @@ _request:_
 	"issuanceDate": "2013-11-21T00:00:00", //data da nota
 	"invoiceValue": 9508 //valor da nota
 }
-```  
+```
 
-_response:_  
+_response:_
 
-```json 
+```json
 {
 	"date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
 	"orderId": "123543123",
 	"receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
 }
-``` 
+```
 
 ###Informar Tracking de Transportadora
 
 Quando o pedido for entegue a uma transportadora, as informaçãoes de tracking serão enviadas para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 
 
-_request:_  
+_request:_
 
-```json 
+```json
 {
 	"type": "Output",
 	"invoiceNumber": "NFe-00001",
@@ -1102,11 +1102,11 @@ _request:_
 	"issuanceDate": "2013-11-21T00:00:00",
 	"invoiceValue": 9508
 }
-``` 
+```
 
-_response:_  
+_response:_
 
-```json 
+```json
 {
 	"date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
 	"orderId": "123543123",
@@ -1119,11 +1119,11 @@ _response:_
 
 Uma solicitação de cancelamento pode ser enviada para o para o Marketplace no marketplaceServicesEndpoint - Endpoint do Marketplace
 
-endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel**  
-verb: **GET**  
+endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel**
+verb: **GET**
 
 **A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.
 
 ---
-Autor: *Jonas Bolognim*  
+Autor: *Jonas Bolognim*
 Propriedade:*VTEX &copy;*

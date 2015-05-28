@@ -6,7 +6,7 @@ Este documento tem por objetivo auxiliar na troca de catalogo, atualização de 
 
 ###Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU
 
-<a href="http://lab.vtex.com/docs/integracao/guide/marketplace/canal-de-vendas-nao-vtex-com-pgto/index.html#troca-de-catalogo-de-sku-e-atualizao-de-condio-comercial-de-sku" target="_blank">[[Guide] Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU Marketplace Não VTEX e Sellers VTEX]</a>   
+<a href="http://lab.vtex.com/docs/integracao/guide/marketplace/canal-de-vendas-nao-vtex-com-pgto/index.html#troca-de-catalogo-de-sku-e-atualizao-de-condio-comercial-de-sku" target="_blank">[[Guide] Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU Marketplace Não VTEX e Sellers VTEX]</a>
 
 - - -
 
@@ -14,24 +14,24 @@ Este documento tem por objetivo auxiliar na troca de catalogo, atualização de 
 
 Este tópico tem por objetivo auxiliar o na simulação de carrinho entre um canal de vendas não VTEX com uma loja  VTEX. Simular um pedido no carrinho e na página de pagamento.
 
-![alt text](fechato-canal-nvtex.png "Title") 
+![alt text](fechato-canal-nvtex.png "Title")
 
 ###No Carrinho e no Pagamento
 Quando um produto é inserido no carrinho no canal de vendas não VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho é feita na loja VTEX para checar a validade das condiçoes comerciais(preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento também pode validar o carrinho - Endpoint loja VTEX
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[iddoafilaido]**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
-Parametro: **sc=5** // sc é o canal de vendas  
+endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[iddoafilaido]**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
+Parametro: **sc=5** // sc é o canal de vendas
 Parametro: **affiliateId=MGZ** // affiliateId é o id do afialiado cadastrado na loja VTEX
 
-_request:_  
+_request:_
 
-```json  
+```json
 {
     "postalCode":"22251-030",            //obrigatório se country estiver preenchido, string
-    "country":"BRA",                     //obrigatório se postalCode estiver preenchido, string      
+    "country":"BRA",                     //obrigatório se postalCode estiver preenchido, string
     "items": [                           //obrigatório: deve conter pelo menos um objeto item
         {
             "id":"287611",               //obrigatório, string
@@ -44,12 +44,12 @@ _request:_
             "seller":"1"
         }
     ]
-}  
+}
 ```
 
-_response:_  
+_response:_
 
-```json  
+```json
 {
     "items": [                                                     //pode vir um array vazio
         {
@@ -71,7 +71,7 @@ _response:_
                     "type":"Embalagem de Presente",
                     "id":"6",
                     "name":"Embalagem de Presente",
-                    "price":250                                       
+                    "price":250
                 }
             ]
         },
@@ -81,11 +81,11 @@ _response:_
             "price": 890,                                          // Os dois dígitos menos significativos são os centavos
             "listPrice": 990,                                      // Os dois dígitos menos significativos são os centavos
             "quantity": 5,
-            "seller": "1",	
+            "seller": "1",
             "priceValidUntil": null
         }
     ],
-    "logisticsInfo": [                                            //obrigatório (se vier vazio é considerado que o item não está disponível) 
+    "logisticsInfo": [                                            //obrigatório (se vier vazio é considerado que o item não está disponível)
         {
             "itemIndex": 0,                                       //obrigatório, int - index do array de item acima
             "stockBalance": 99,                                   //obrigatório, estoque, int
@@ -131,35 +131,35 @@ _response:_
         }
     ],
     "country":"BRA",                                           //string, nulo se não enviado
-    "postalCode":"22251-030"                                   //string, nulo se não enviado    
-}  
+    "postalCode":"22251-030"                                   //string, nulo se não enviado
+}
 ```
 
 - - -
 
-###Enviar Pedido e Autorizar Despacho  
+###Enviar Pedido e Autorizar Despacho
 
 Este tópico tem por objetivo auxiliar um canal de vendas não VTEX a enviar um pedido, e enviar autorização para despacho (proceder com o fulfillment do pedido).
 
 Caso se queira uma condição comercial diferenciada para o canal de vendas não VTEX, na loja VTEX deverá ser criado um novo canal de vendas, podendo assim criar promoções diferenciadas (desconto, frete, etc) somente para o canal desejado. Caso não tenha condição comercial diferenciada, deve se usar o canal de vendas da loja principal (sc=1).
 
-*Exemplo do fuxo de chamadas de descida de pedido, e autorização para despachar:*  
+*Exemplo do fuxo de chamadas de descida de pedido, e autorização para despachar:*
 
-![alt text](order-canal-naum-vtex.png "Title") 
+![alt text](order-canal-naum-vtex.png "Title")
 
 ###Enviar Pedido
 Quando o pedido é fechado em um canal de vendas não VTEX, um POST deve ser feito na loja VTEX, para que essa possa receber a ordem de pedido - Endpoint Loja Vtex
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
-Parametro: **sc=5** // sc é o canal de vendas cadastrado na VTEX.  
+endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
+Parametro: **sc=5** // sc é o canal de vendas cadastrado na VTEX.
 Parametro: **affiliateId=MGZ** // affiliateId é o id do afiliado cadastrado n loja VTEX
 
-_request:_    
+_request:_
 
-```json 
+```json
 [
   {
     "marketplaceOrderId": "959311095",
@@ -174,7 +174,7 @@ _request:_
         "freightCommission": 0,
         "price": 9990,
         "bundleItems": [], //serviços. Ex: embalagem pra presente.
-        "itemAttachment": { 
+        "itemAttachment": {
           "name": null,
           "content": {}
         },
@@ -233,10 +233,10 @@ _request:_
     "marketingData": null,
     "paymentData":null
   }
-]  
+]
 ```
 
-_response:_  
+_response:_
 
 ```json
 [
@@ -310,57 +310,57 @@ _response:_
 
 _retorno de erro:_
 
-```json 
+```json
 {
 	"error": {
 	"code": "1",
 	"message": "O verbo 'GET' não é compatível com a rota '/api/fulfillment/pvt/orders'",
 	"exception": null
 	}
-}  
+}
 ```
 
 ###Enviar Autoriação Para Despachar
 Quando o pagamento do pedido é concluído no canal de vendas não VTEX, um POST deverá ser feito na loja VTEX, para que o pedido possa prosseguir para tratamento - Endpoint da VTEX
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=[idcanal]**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=[idcanal]**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 Parametro: **sc=5** // sc é o canal de vendas cadastrado na VTEX.
 
-_request:_    
+_request:_
 
-```json 
+```json
 {
 	"marketplaceOrderId": "959311095" //id do pedido originado no canal de vendas
 }
 ```
 
-_response:_  
+_response:_
 
-```json 
+```json
 {
 	"date": "2014-10-06 18:52:00",
 	"marketplaceOrderId": "111",
 	"orderId": "123543123",
 	"receipt": "e39d05f9-0c54-4469-a626-8bb5cff169f8",
 }
-``` 
+```
 
 ### Implementando Marketplace Services Endpoint Actions
 
 
 O MarketplaceServicesEndpoint serve para a loja VTEX informar ao canal de vendas a nota fiscal e tracking de pedido. O envio de notas fiscais pode ser parcial, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial - Endpoint do Marketplace
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 
-_request:_    
+_request:_
 
-```json 
+```json
 {
     "type": "Output", //hard code
     "invoiceNumber": "NFe-00001", //numero da nota fiscal
@@ -378,7 +378,7 @@ _request:_
     "invoiceValue": 9508 //valor da nota
 }
 
-_response:_  
+_response:_
 
 {
 	"date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
@@ -387,15 +387,15 @@ _response:_
 }
 ```
 
-###Informar Tracking 
+###Informar Tracking
 Quando o pedido for entregue a transportadora, informções de tracking são enviadas ao Marketplace - Endpoint do Canal de Vendas
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 
-_request:_    
+_request:_
 
 ```json
 {
@@ -416,9 +416,9 @@ _request:_
 }
 ```
 
-_response:_  
+_response:_
 
-```json  
+```json
 {
 	"date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
 	"orderId": "123543123",
@@ -429,13 +429,13 @@ _response:_
 ###Enviar Solicitação de Cancelamento
 Uma solicitação de cancelamento pode ser enviada para o Canal de Vendas não VTEX - Endpoint do Canal de Vendas
 
-endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel**  
-verb: **GET**  
+endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel**
+verb: **GET**
 
 **A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, neste caso serão preenchidos com todos os dados do POST.
 
 
 - - -
 
-Autor: *Jonas Bolognim*  
+Autor: *Jonas Bolognim*
 Propriedade:*VTEX &copy;*

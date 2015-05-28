@@ -21,7 +21,7 @@ Conjunto de instruções e exemplos que permitem um Seller Não VTEX expor e ven
 
 - - -
 
-###Marketplace Não VTEX vendendo para Sellers VTEX 
+###Marketplace Não VTEX vendendo para Sellers VTEX
 
 
 Conjunto de instruções e exemplos que permitem um Marketplace Não VTEX expor e vender os produtos (SKUs) de Sellers hospedados na VTEX, através de chamadas e exposição de APIs seguindo o protocolo VTEX. Neste modelo o Marketplace controla toda a transação de pagamento.
@@ -30,7 +30,7 @@ Conjunto de instruções e exemplos que permitem um Marketplace Não VTEX expor 
 
 - - -
 
-###Marketplace Não VTEX vendendo para Sellers VTEX Com Pagamento 
+###Marketplace Não VTEX vendendo para Sellers VTEX Com Pagamento
 
 
 Conjunto de instruções e exemplos que permitem um Marketplace Não VTEX expor e vender os produtos (SKUs) de Sellers hospedados na VTEX, através de chamadas e exposição de APIs seguindo o protocolo VTEX. Neste modelo o Marketplace cria a transação de pagamento no Seller.
@@ -52,11 +52,11 @@ Conjunto de instruções que permitem um Seller VTEX expor e vender os seu produ
 
 ####POSTMAN
 
-Extensão do navegador chrome, nesta ferramente pode se testar, armazenar histórico, salvar coleções de requests do acesso de todas as APIs dos modulos VTEX (OMS, Logistics, Pricing, GCS, Catalog, PCI Gateway etc), além de permitir exportar e importar requests de outros desenvolvedores. 
+Extensão do navegador chrome, nesta ferramente pode se testar, armazenar histórico, salvar coleções de requests do acesso de todas as APIs dos modulos VTEX (OMS, Logistics, Pricing, GCS, Catalog, PCI Gateway etc), além de permitir exportar e importar requests de outros desenvolvedores.
 
 ####VTEX Bridge
 
-Essa ferramenta permite simular todos os metodos solicitados nas documentações do VTEX Lab, simulando request em uma loja real.  
+Essa ferramenta permite simular todos os metodos solicitados nas documentações do VTEX Lab, simulando request em uma loja real.
 [sandboxintegracao](https://sandboxintegracao.vtexcommercestable.com.br).
 
 <a title="VTEX Bridge" href="http://bridge.vtexlab.com.br/" target="_blank">[Developer] - VTEX Bridge</a>
@@ -65,7 +65,7 @@ Essa ferramenta permite simular todos os metodos solicitados nas documentações
 
 - - -
 
-###Credenciais Para Acesso  as API REST  
+###Credenciais Para Acesso  as API REST
 
 
 Toda chamada feita as APIs REST da VTEX devem ser feitas em "https" e devem conter em seu header as chaves de autenticação .As chaves de asutenticação do header(para acessar as APIs REST) devem ser solicitados ao administrador da loja, ou ao time de operaçãoes que está implantando a loja.
@@ -74,10 +74,10 @@ Toda chamada feita as APIs REST da VTEX devem ser feitas em "https" e devem cont
 
 ###Glossário
 
-Seller* - Responsável por fazer a entrega do pedido.  
-SKU* - Define uma variação de um produto, Ex. geladeira branca 110V.  
-Marketplace* - Vitrine onde se expõe os SKUs (produtos).  
-SLA* - Acordo de serviço, Ex. prazo e custo de entrega.  
+Seller* - Responsável por fazer a entrega do pedido.
+SKU* - Define uma variação de um produto, Ex. geladeira branca 110V.
+Marketplace* - Vitrine onde se expõe os SKUs (produtos).
+SLA* - Acordo de serviço, Ex. prazo e custo de entrega.
 API* - Interfaces de serviço para comunicação entre sistemas de computador.
 
 - - -
@@ -87,5 +87,5 @@ Essa versão de documentação suporta a integração na versão da plataforma V
 
 ---
 
-Autor: _Jonas Bolognim_  
+Autor: _Jonas Bolognim_
 Propriedade: _VTEX_ &copy;
