@@ -2,7 +2,7 @@
 
 Este documento tem por objetivo auxiliar na integração de catálogo (departamento, categoria, marca, imagens, campos, valores de campos, ativação de SKUs), preço e estoque do ERP para a uma loja hospedada na versão smartcheckout da VTEX. Nesse tipo de integração a maioria da adminstração da loja está ERP.
 
-![alt text](erp-catalogo-completo.PNG "Fluxo de catalogo completo") 
+![alt text](erp-catalogo-completo.PNG "Fluxo de catalogo completo")
 
 ###Catalogo Fluxo Completo
 
@@ -18,7 +18,7 @@ Futuramente além do serviço SOAP (webservice) estaremos também oferecendo int
 
 Geralmente, os produtos são organizados dentro da loja em estruturas mercadológicas formadas por:
 
-1. **Departamento** - categoria cujo id de categoria pai é **nulo**, 
+1. **Departamento** - categoria cujo id de categoria pai é **nulo**,
 2. **Categoria** - categoria cujo id de categoria pai é um **departamento**,
 3. **SubCategoria**. categoria cujo id de categoria pai é um **categoria**
 
@@ -57,7 +57,7 @@ _request:_
 
 _response:_  
 
-```xml	
+```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
 	<s:Body>
 		<CategoryInsertUpdateResponse xmlns="http://tempuri.org/">
@@ -228,14 +228,14 @@ _response:_
          </BrandInsertUpdateResult>
       </BrandInsertUpdateResponse>
    </s:Body>
-</s:Envelope
+</s:Envelope>
 ```
 
 
 ### Produtos e SKUs
 
 
-[[Developer] - Ver Guia de Integração De Catalogo Expresso](http://lab.vtex.com/docs/integracao/guide/erp/catalogo-expresso/index.html#produtos-e-skus)
+[[Developer] - Ver Guia de Integração De Catalogo Expresso](../catalogo-expresso/index.html#produtos-e-skus)
 
 ###Fields (Campos de Especificão) de Produto ou SKU
 
@@ -456,7 +456,7 @@ _response 2:_
 ###Alteração de SKUs
 
 
-Após uma SKU ser inserida com sucesso, caso haja alguma necessidade de alguma alteração, deve se invocar o mesmo método de inserçao passando o id de SKU que se deseja alterar. Alterações de preço **NÃO** devem ser feitas pelo metodo de insert/update de SKU. 
+Após uma SKU ser inserida com sucesso, caso haja alguma necessidade de alguma alteração, deve se invocar o mesmo método de inserçao passando o id de SKU que se deseja alterar. Alterações de preço **NÃO** devem ser feitas pelo metodo de insert/update de SKU.
 
 As alterações de preço devem ser feitas diretamente na API REST de **Pricing**:  
 <a title="inserir ou atualizar preço na SKUs" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/PRICING/PRICING_Set" target="_blank">[Developer] - Exemplo de chamada para inserir ou atualizar preço nas SKUs</a>
@@ -481,7 +481,7 @@ _request:_
 				<vtex:IsKit>false</vtex:IsKit>
 				<!--number, comprimento com embalagem em metros -->
 				<vtex:Length>1.52</vtex:Length>
-				<!--decimal, ** ler obs --> 
+				<!--decimal, ** ler obs -->
 				<vtex:ListPrice>150.0</vtex:ListPrice>
 				<!--prefixo do estoque (id estoque = 1_1, mandar 1) -->
 				<vtex:ModalId>1</vtex:ModalId>
