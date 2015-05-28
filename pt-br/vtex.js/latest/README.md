@@ -60,13 +60,13 @@ Naturalmente, o Checkout agrega os mais diversos dados necessários para o fecha
 
 O OrderForm é a estrutura responsável por esse aglomerado de dados.
 Ele é composto de diversas seções, cada uma com informações úteis que podem ser acessadas, manipuladas e (possivelmente) alteradas.
-Se tiver qualquer dúvida quanto a suas seções, consulte a [documentação do OrderForm](../checkout/order-form.html).
+Se tiver qualquer dúvida quanto a suas seções, consulte a [documentação do OrderForm](checkout/order-form.html).
 
-Veja a documentação completa de todos os métodos desse módulo [aqui](checkout.md).
+Veja a documentação completa de todos os métodos desse módulo [aqui](checkout/).
 
 
 ### Módulo Catalog - vtexjs.catalog
 
 O módulo Catalog obtém dados referentes aos produtos da loja.
 
-Veja a documentação completa de todos os métodos desse módulo [aqui](../catalog/index.html).
+Veja a documentação completa de todos os métodos desse módulo [aqui](catalog/).
