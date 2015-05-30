@@ -29,7 +29,15 @@ As variáveis abaixo estão disponíveis para usar em qualquer código HTML:
     * `code` - código da cultura (ex. pt-BR)
     * `language` - prefixo da língua (ex. pt)
     * `country` - sigla do país (ex. BR)
-    * `currency` - símbolo da moeda. (ex. R$)
+	* `currency`
+  		* `decimalDigits` - digitos decimais (ex. 2)
+  		* `decimalSeparator` - separador decimal (ex.",")
+  		* `groupSeparator` - separador de grupo (ex. ".")
+	  	* `groupSize` - tamanho do grupo (ex. 3)
+  		* `startsWithCurrencySymbol` - se incia com o símbolo (ex. true)
+  		* `symbol`- simbolo da moeda (ex. R$)
+  		* `code` - código da moeda (ex. BRL)
+
 * `date` - data levando em consideração a cultura
     * `day` - dia
     * `month` - mês
