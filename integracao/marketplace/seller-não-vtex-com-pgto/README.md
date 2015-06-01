@@ -63,20 +63,20 @@ _response:_
 {
 	"items": [                                                     //pode vir um array vazio
 	    {
-	        "id": "287611",                                        //obrigatório, string
+	        "id": "287611",                                        //obrigatório, string - identificador so SKU
 	        "requestIndex": 0,                                     //obrigatório, int - representa a posição desse item no array original (request)
-	        "price": 7390,                                         //Os dois dígitos menos significativos são os centavos //obrigatório, int
-	        "listPrice": 7490,                                     //Os dois dígitos menos significativos são os centavos //obrigatório, int
-	        "quantity": 1,                                         //obrigatório, int
-	        "seller": "1",                                         //Id do seller cadastrado na loja // obrigatório, string,
-	    	"merchantName": "shopfacilfastshop",				   //nome do gateway (enviador do pagamento) criado na VTEX para o Seller.
-	        "priceValidUntil": "2014-03-01T22:58:28.143"           //data, pode ser nulo
-	        "offerings":[                                          //Array opcional, porém não pode ser nulo: enviar array vazio ou não enviar a propriedade
+	        "price": 7390,                                         //obrigatório, int - preço por, os dois dígitos menos significativos são os centavos
+	        "listPrice": 7490,                                     //obrigatório, int - preço de, os dois dígitos menos significativos são os centavos
+	        "quantity": 1,                                         //obrigatório, int - retornar a quantidade solicitada ou a quantidade que consegue atender
+	        "seller": "1",                                         //obrigatório, string - retonar o que foi passado no request
+	    	"merchantName": "shopfacilfastshop",				   //nome do gateway (enviador do pagamento) criado na VTEX para o Seller
+	        "priceValidUntil": "2014-03-01T22:58:28.143"           //pode ser nulo, string - data de validade do preço.
+	        "offerings":[                                          //array opcional de ofertas, porém não pode ser nulo: enviar array vazio ou não enviar
 	            {
-	                "type":"Garantia",                             //obrigatório, string
-	                "id":"5",                                      //obrigatório, string
-	                "name":"Garantia de 1 ano",                    //obrigatório, string
-	                "price":10000                                  //Os dois dígitos menos significativos são os centavos //obrigatório, int
+	                "type":"Garantia",                             //obrigatório, string - tipo do serviço
+	                "id":"5",                                      //obrigatório, string - identificador do serviço
+	                "name":"Garantia de 1 ano",                    //obrigatório, string - nome do serviço
+	                "price":10000                                  //obrigatório, int - preço do serviço, os dois dígitos menos significativos são os centavos
 	            },
 	            {
 	                "type":"Embalagem de Presente",
@@ -89,27 +89,27 @@ _response:_
 	    {
 	        "id": "5837",
 	        "requestIndex": 1,
-	        "price": 890,                                          //Os dois dígitos menos significativos são os centavos
-	        "listPrice": 990,                                      //Os dois dígitos menos significativos são os centavos
+	        "price": 890,                                          
+	        "listPrice": 990,                                      
 	        "quantity": 5,
 	        "seller": "1",
 			"merchantName": "shopfacilfastshop",	
 	        "priceValidUntil": null
 	    }
 	],
-	"logisticsInfo": [                                            //obrigatório (se vier vazio é considerado que o item não está disponível) -  todos os itens devem ter os mesmos SLAs
+	"logisticsInfo": [                                            //array de informações, quando produtos indisponíveis enviar vazio []
 	    {
-	        "itemIndex": 0,                                       //obrigatório, int - representa os dados de sla do item de resposta (response)
-	        "stockBalance": 99,                                   //obrigatório  quando o CEP foi passado no request, estoque, int
-	        "quantity": 1,                                        //obrigatório quando o CEP foi passado no request, qauntidade pasada no request, int
+	        "itemIndex": 0,                                       //obrigatório, int - index do array de items
+	        "stockBalance": 99,                                   //obrigatório, int - estoque que atende
+	        "quantity": 1,                                        //obrigatório, int - retornar a quantidade solicitada ou a quantidade que consegue atender
 	        "shipsTo": [ "BRA", "USA" ],                          //obrigatório, array de string com as siglas dos países de entrega
-	        "slas": [                                             //obrigatório quando o CEP foi passado no request. Pode ser um array vazio
+	        "slas": [                                             //obrigatório quando o CEP e país forem passados no request. Pode ser um array vazio
 	            {
-	                "id": "Expressa",                             //obrigatório, id tipo entrega, string
-	                "name": "Entrega Expressa",                   //obrigatório, nome do tipo entrega, string
-	                "shippingEstimate": "2bd",                    //bd == "business days" //obrigatório, string
-	                "price": 1000                                 //Os dois dígitos menos significativos são os centavos, obrigatório, int
-	                "availableDeliveryWindows": [                 //opcional, podendo ser um array vazio
+	                "id": "Expressa",                             //obrigatório, string - identificador tipo entrega
+	                "name": "Entrega Expressa",                   //obrigatório, string - nome do tipo entrega
+	                "shippingEstimate": "2bd",                    //obrigatório, string - doas estimados para a entrega, bd == "business days" 
+	                "price": 1000                                 //obrigatório, int - custo da entrega, os dois dígitos menos significativos são os centavos
+	                "availableDeliveryWindows": [                 //opcional, janelas de entrega,  podendo ser um array vazio
 	                ]
 	            },
 	            {
@@ -121,7 +121,7 @@ _response:_
 	                     {
 	                        "startDateUtc": "2013-02-04T08:00:00+00:00",       //date, obrigatório se for enviado delivery window
 	                        "endDateUtc": "2013-02-04T13:00:00+00:00",         //date, obrigatório se for enviado delivery window
-	                        "price": 0        //int, obrigatório se for enviado delivery window - o valor total da entrega agendada é o valor base mais o valor desse campo
+	                        "price": 0        //int, obrigatório se for enviado delivery window - o valor adicional da entrega agendada
 	                    },
 	                ]
 	            }
@@ -147,6 +147,7 @@ _response:_
 }
 ```  
 
+**obs= enviar o valor do frete para cada item.
 
 ###Consulta de Opções de Parcelamento.  
  
@@ -167,15 +168,15 @@ _request:_
 
 ```json 
 {
-  "PaymentSystemsIds":[1,2], //ids das formas de pagamento
-  "SubtotalAsInt":27280, //total que deseja parcelar
+  "PaymentSystemsIds":[1,2], //ids das formas de pagamento na loja VTEX
+  "SubtotalAsInt":27280, //total que se deseja parcelar
   "Items":[
     {
       	"PriceAsInt":24800, //preço do SKU
      	"Quantity":1, //quantidade do SKU
      	"Id":1940388, //id do SKU
-     	"SellerId":"seller1",
-    	"SalesChannel":2 //id do canal de vendas criado para o seller
+     	"SellerId":"1",
+    	"SalesChannel":5 //id do canal de vendas criadopelo seller
     }
   ],
   "postalCode":"22051030" //CEP
@@ -187,15 +188,15 @@ _response:_
 ```json 
 [
     {
-        "paymentSystem": 2,
+        "paymentSystem": 2, //int -identificador da forma de pagamento
         "name": "",
-        "value": 27280,
+        "value": 27280, //int, valor solicitado para parcelar
         "installments": [
             {
-                "count": 1,
-                "value": 27280,
-                "interestRate": 0,
-                "hasInterestRate": false
+                "count": 1, //int, numero de parcelas
+                "value": 27280, //int, valor da parecela
+                "interestRate": 0, //int, taxa de juros
+                "hasInterestRate": false // booleana - tem juros?
             },
             {
                 "count": 2,
