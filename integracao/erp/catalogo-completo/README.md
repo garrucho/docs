@@ -579,7 +579,7 @@ _response:_
 ###Pedidos e Tracking
 
 
-Para a integração de pedidos consulte o tópico [[Guide] Integração de Pedido, Nota Fiscal e Tracking](http://lab.vtex.com/docs/integracao/guide/erp/pedido-e-tracking/index.html).
+Para a integração de pedidos consulte o tópico [[Guide] Integração de Pedido, Nota Fiscal e Tracking](../pedido-e-tracking/index.html).
 
 ---
 
