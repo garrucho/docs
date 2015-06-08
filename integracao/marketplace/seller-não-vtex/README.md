@@ -62,7 +62,7 @@ _Exemplo do POST de dados:_
   "ListPrice": 39900,
   "ModalId": null,
   "Price": 39900,
-  "ProductDescription": "Oculos de sol feito de material de primira qualidae, com lentes anti reflexo e astes confortáveis",
+  "ProductDescription": "Oculos de sol feito de material de primira qualidade, com lentes anti reflexo e astes confortáveis",
   "ProductId": null,
   "ProductName": "Oculos de Sol RAY BAN",
   "ProductSpecifications": [
@@ -84,7 +84,7 @@ _Exemplo do POST de dados:_
     }
   ],
   "ProductSupplementaryFields": null,
-  "RefId": null,
+  "RefId": null, //obrigatório quando o EAN não for enviado
   "SellerId": "Cristalli",
   "SellerModifiedDate": null,
   "SellerStockKeepingUnitId": "cristalli00011", // tem que trocar esse id para os testes
