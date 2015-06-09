@@ -14,12 +14,10 @@
        * [Seller não VTEX](integracao/marketplace/seller-não-vtex/README.md)
        * [Seller não VTEX com pagamento](integracao/marketplace/seller-não-vtex-com-pgto/README.md)
        * [Catalog](integracao/marketplace/catalog/README.md)
+* [Master Data](master-data/README.md)
 * [Plugins](plugins/lib/latest/expiration/README.md)
 * [Search](search/api/beta/search/README.md)
 * [Vtex.js](vtex.js/latest/README.md)
    * [Checkout](vtex.js/latest/checkout/README.md)
        * [OrderForm](vtex.js/latest/checkout/order-form.md)
    * [Catálogo](vtex.js/latest/catalog/README.md)
-
-
-
