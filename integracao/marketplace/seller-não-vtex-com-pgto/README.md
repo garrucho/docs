@@ -4,8 +4,11 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
 
 
 > _Seller_ = Dono do produto, responsável por fazer a entrega.
+
 > _Marketplace_ = Dono da vitrine, responsável por expor e vender o SKU.
+
 > _SKU_ = Item a ser trocado e vendido entre Seller e Marketplace.
+
 
 ####Acões que deverão ser tomadas pelo Seller não hospedado na VTEX para implementção da integração:
 
