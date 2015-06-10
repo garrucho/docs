@@ -18,7 +18,7 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
     exemplo da chamada:
     http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller]
 
-    [link text] (#enviar-notificao-de-mudana-de-preo-e-estoque-de-sku [Guia Detalhado])
+    [Guia Detalhado] (#enviar-notificao-de-mudana-de-preo-e-estoque-de-sku)
 
 
 2. Implementar chamada de inserção de de sugestão de SKU -  Seller vai chamar endpoint da VTEX.
@@ -54,7 +54,7 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
     http://lab.vtex.com/docs/integracao/guide/marketplace/seller-n%C3%A3o-vtex-com-pgto/index.html#enviar-pedido
 
     exemplo da chamda:
-    https://[Seller].com.br/pvt/orders?an=shopfacilSeller
+    https://[seller].com.br/pvt/orders?an=shopfacilSeller
 
 
 6. Implementar endpoint para receber o pagamento - VTEX chama endpoint do Seller
