@@ -89,7 +89,7 @@ _Exemplo do fluxo:_
 
 ![alt text](sku-sugestion-Seller-nao-vtex.png "Fluxo de troca de catalogo")
 
-###Enviar Notificação de Mudança de Preço e Estoque de SKU
+<a name="enviar-notificao-de-mudana-de-preo-e-estoque-de-sku">###Enviar Notificação de Mudança de Preço e Estoque de SKU</a>
 
 
 Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o Seller deve enviar uma notificação de mudança de SKU para a loja hospeada na VTEX.
