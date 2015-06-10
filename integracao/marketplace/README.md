@@ -49,7 +49,6 @@ Nativamente a plataforma Vtex oferece essa possibiidade, através de simples con
 ###Ferramentas de Apoio ao Integrador
 
 
-
 ####POSTMAN
 
 Extensão do navegador chrome, nesta ferramente pode se testar, armazenar histórico, salvar coleções de requests do acesso de todas as APIs dos modulos VTEX (OMS, Logistics, Pricing, GCS, Catalog, PCI Gateway etc), além de permitir exportar e importar requests de outros desenvolvedores.
