@@ -18,7 +18,7 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
     exemplo da chamada:
     http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller]
 
-   [Guia Detalhado] (https://github.com/vtex/docs/blob/master/integracao/marketplace/seller-n%C3%A3o-vtex-com-pgto/README.md#enviar-notificao-de-mudana-de-preo-e-estoque-de-sku)
+   [Enviar Notificação de Mudança de Preço e Estoque de SKU][]
 
 
 2. Implementar chamada de inserção de de sugestão de SKU -  Seller vai chamar endpoint da VTEX.
@@ -89,7 +89,7 @@ _Exemplo do fluxo:_
 
 ![alt text](sku-sugestion-seller-nao-vtex.png "Fluxo de troca de catalogo")
 
-### <a name="enviar-notificao-de-mudana-de-preo-e-estoque-de-sku"></a> Enviar Notificação de Mudança de Preço e Estoque de SKU
+###Enviar Notificação de Mudança de Preço e Estoque de SKU
 
 
 Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o Seller deve enviar uma notificação de mudança de SKU para a loja hospeada na VTEX.
