@@ -4,7 +4,7 @@ Modelo de e-commerce entre Marketplaces* e Sellers* podendo estar as lojas hospe
 
 - - -
 
-###Seller Vendendo em Marketplace Hospedado na Plataforma VTEX
+####Seller Vendendo em Marketplace Hospedado na Plataforma VTEX
 
 
 Este modelo permite que um Seller NÂO hospedado na plataforma VTEX expor e vender os seus produtos (SKUs*) em Marketplaces hospedados na plataforma VTEX. Para implementar esse modelo o Seller deverá expor alguns endpoints que serão chamados pelo Marketplace e chamar alguns endpoints expostos pelo marketplace, seguindo o protocolo VTEX. Neste modelo o Marketplace controla todo processo de pagamento. Segue abaixo instruções para realizar essa integração.
@@ -13,7 +13,7 @@ Este modelo permite que um Seller NÂO hospedado na plataforma VTEX expor e vend
 
 - - -
 
-###Seller Vendendo em Marketplace Hospedado na Plataforma VTEX e Processando o Pagamento
+####Seller Vendendo em Marketplace Hospedado na Plataforma VTEX e Processando o Pagamento
 
 
 Este modelo permite que um Seller NÂO hospedado na plataforma VTEX expor e vender os seus produtos (SKUs*) em Marketplaces hospedados na plataforma VTEX. Para implementar esse modelo o Seller deverá expor alguns endpoints que serão chamados pelo Marketplace e chamar alguns endpoints expostos pelo marketplace, seguindo o protocolo VTEX. Neste modelo o Marketplace envia os dados de pagamento para ser processado no Seller. Segue abaixo instruções para realizar essa integração.
@@ -22,7 +22,7 @@ Este modelo permite que um Seller NÂO hospedado na plataforma VTEX expor e vend
 
 - - -
 
-###Marketplace Vendendo para Seller Hospedado na Plataforma VTEX
+####Marketplace Vendendo para Seller Hospedado na Plataforma VTEX
 
 
 Este modelo permite um Marketplace Não VTEX expor e vender os produtos (SKUs) de Sellers hospedados na plataforma VTEX. Para implementar esse modelo o Marketplace deverá expor alguns endpoints que serão chamados pelo Seller e chamar alguns endpoints expostos pelo Seller, seguindo o protocolo VTEX. Neste modelo o Marketplace controla toda a transação de pagamento. Segue abaixo instruções para realizar essa integração.
@@ -31,7 +31,7 @@ Este modelo permite um Marketplace Não VTEX expor e vender os produtos (SKUs) d
 
 - - -
 
-###Marketplace Vendendo para Seller Hospedado na Plataforma VTEX Enviando o Pagamento
+####Marketplace Vendendo para Seller Hospedado na Plataforma VTEX Enviando o Pagamento
 
 Este modelo permite um Marketplace Não VTEX expor e vender os produtos (SKUs) de Sellers hospedados na plataforma VTEX. Para implementar esse modelo o Marketplace deverá expor alguns endpoints que serão chamados pelo Seller e chamar alguns endpoints expostos pelo Seller, seguindo o protocolo VTEX. Neste modelo o Marketplace cria a transação de pagamento no Seller. Segue abaixo instruções para realizar essa integração.
 
@@ -39,7 +39,7 @@ Este modelo permite um Marketplace Não VTEX expor e vender os produtos (SKUs) d
 
 - - -
 
-###Marketplace hospedado na VTEX vendendo para Sellers hospedado na VTEX e Vice Versa
+####Marketplace hospedado na VTEX vendendo para Sellers hospedado na VTEX e Vice Versa
 
 
 Nativamente a plataforma Vtex oferece essa possibiidade, através de simples configuração no Seller, (criação do afiliado relacionado o a uma política comercial) e uma configuração no Marketplace (criação do Seller).
@@ -71,7 +71,7 @@ Toda chamada feita as APIs REST da VTEX devem ser feitas em "https" e devem cont
 
 - - -
 
-###Glossário
+##Glossário
 
 Seller* - Responsável por fazer a entrega do pedido.</br>
 SKU* - Define uma variação de um produto, Ex. geladeira branca 110V.</br>
@@ -81,7 +81,7 @@ API* - Interfaces de serviço para comunicação entre sistemas de computador.</
 
 - - -
 
-###Versão Beta
+##Versão Beta
 Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integrador. A idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas na comunidade, para chegarmos a um documento rico e funcional.
 
 ---
