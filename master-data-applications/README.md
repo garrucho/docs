@@ -6,4 +6,4 @@ Através dele, podemos criar visões diferentes para cada tipo de usuário atend
 Possui uma interface amigável para criação de aplicações e formulários de forma fácil e rápida.
 Adicione, remova ou customize seus formulários e aplicações conforme sua demanda sem burocracia.
 
-Através deste documento ensinaremos os conceitos e como configurar seu ambiente através de um exemplo real. 
+Através deste documento ensinaremos como configurar seu ambiente através de um exemplo real. 
