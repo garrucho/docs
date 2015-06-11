@@ -14,9 +14,7 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
     > Toda vez que o SKU mudar o preço e ou estoque no Seller o Seller tem que chamar esse endpoint da loja na VTEX.
 
     _exemplo da chamada:_
-    <code>
-    http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller]
-    </code>
+    ``` http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller] ```
 
    [Exemplo Completo: Enviar Notificação de Mudança de Preço e Estoque de SKU](#a1)
 
