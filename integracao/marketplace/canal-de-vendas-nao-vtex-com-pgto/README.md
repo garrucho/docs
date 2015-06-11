@@ -31,10 +31,10 @@ Fluxo de troca de catalogo de SKU e atualização de preço, estoque, frete, SLA
 
 Notifica o Marketplace Não VTEX que houve uma mudança nas condiçoes comerciais (preço, estoque, SLAs de entrega) de uma SKU - Endpoint do Afiliado (Marketplace)
 
-endpoint: **https://endpointdoafiliado/api/notification/**
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
+endpoint: **https://endpointdoafiliado/api/notification/**</br>
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
 
 _request:_
 
