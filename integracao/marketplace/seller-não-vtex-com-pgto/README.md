@@ -375,10 +375,14 @@ _response:_
 ###Consulta de Opções de Parcelamento.
 
 
-Quando cliente for para a página de pagamento, uma chamada será feita no Seller para buscar as formas de parcelamento das formas de pagamento. O Seller não VTEX deverá conhecer préviamente os ids das formas de pagamento do marketplace VTEX. Os mais comuns:(1-American Express, 2-Visa, 3-Diners, 8-Hipercard, 4-Mastercard) - Endpoint do Seller
+Quando cliente for para a página de pagamento, uma chamada será feita no Seller para buscar as formas de parcelamento das formas de pagamento. O Seller não VTEX deverá conhecer préviamente os ids das formas de pagamento do marketplace VTEX - Endpoint do Seller.
 
-Identificadores dos cartões mais comuns no gateway das lojas VTEX:
-
+> Identificadores dos cartões mais comuns no gateway das lojas VTEX:
+>> 1-American Express </br>
+>> 2-Visa </br>
+>> 3-Diners </br>
+>> 8-Hipercard </br>
+>> 4-Mastercard </br>
 
 
 endpoint: **https://Sellerendpoint/installments/options?an=[nomedaloja]**</br>
