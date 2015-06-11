@@ -37,8 +37,8 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
     [Exemplo Completo: Consultar Política Comercial](#a3) </br>
     [Exemplo Completo: Simulação de Carrinho](#a4)
 
-        > NOTA:
-        >> O metodo que consulta preço e estoque e o metodo que simula carrinho são os mesmos, logo, requer somente uma implementação por parte do Seller.
+    > NOTA:
+    >> O metodo que consulta preço e estoque e o metodo que simula carrinho são os mesmos, logo, requer somente uma implementação por parte do Seller.
 
 4. Implementar endpoint para para consultar os parcelamentos - VTEX chama endpoint do Seller.
     > A loja na VTEX irá usar esse endpoint para consultar o parcelamentos no Seller.
