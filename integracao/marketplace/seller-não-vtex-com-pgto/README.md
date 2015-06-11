@@ -23,45 +23,48 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
     > Toda vez que o serviço acima retorna SKU não encontrada(404), o Seller deve inserir a sugestão na loja da VTEX.
 
     _exemplo da chamada:_
-        http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2
+    ``` http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2 ```
 
     [Exemplo Completo: Enviar Sugestão de SKU](#a2)
 
 
 3. Implementar endpoint para consulta de politica comercial - VTEX chama endpoint do Seller.
-    > A loja hospedada na VTEX usará esse metodo para buscar preço e estoque no Seller.
+    > A loja hospedada na VTEX usará esse metodo para buscar preço e estoque no Seller tanto na indexação quanto na simulação de carrinho.
 
     _exemplo da chamada:_
-        https://[seller].com.br/pvt/orderForms/simulation?sc=1&an=shopfacilseller
+    ``` https://[seller].com.br/pvt/orderForms/simulation?sc=1&an=lojaseller ```
 
-    [Exemplo Completo: Consultar política Comercial](#a3)
+    [Exemplo Completo: Consultar Política Comercial](#a3)
+    [Exemplo Completo: Simulação de Carrinho](#a4)
 
+> NOTA:
+>> O metodo que consulta preço e estoque e o metodo que simula carrinha são os mesmos, logo, requer somente uma implementação por parte do Seller.
 
 4. Implementar endpoint para para consultar os parcelamentos - VTEX chama endpoint do Seller.
     > A loja na VTEX irá usar esse endpoint para consultar o parcelamentos no Seller.
 
-    exemplo da chamada:
-    https://[Seller].com.br/installments/options?an=shopfacilseller
+    _exemplo da chamada:_
+    ``` https://[seller].com.br/installments/options?an=lojaseller ```
 
-    http://lab.vtex.com/docs/integracao/guide/marketplace/Seller-n%C3%A3o-vtex-com-pgto/index.html#consulta-de-opes-de-parcelamento
+    [Exemplo Completo: Consultar Formas de Parcelamento no Seller](#a5)
 
 
 5. Implementar endpoint para receber um pedido - VTEX chama endpoint do Seller.
     > A loja na VTEX irá usar esse enpoint para colocar um pedido no Seller.
 
-    http://lab.vtex.com/docs/integracao/guide/marketplace/seller-n%C3%A3o-vtex-com-pgto/index.html#enviar-pedido
+    _exemplo da chamada:_
+    ``` https://[seller].com.br/pvt/orders?sc=1&an=lojaseller ```
 
-    exemplo da chamda:
-    https://[seller].com.br/pvt/orders?an=shopfacilSeller
+    [Exemplo Completo: Colocar um Pedido no Seller](#a6)
 
 
 6. Implementar endpoint para receber o pagamento - VTEX chama endpoint do Seller
     > A loja na VTEX irá usar esse endpoint para enviar o pagamento para o Seller
 
-    exemplo da chamada:
-    https://[Seller].com.br/pvt/payment?an=shopfacilSeller
+    _exemplo da chamada:_
+    ``` https://[Seller].com.br/pvt/payment?an=lojaseller ```
 
-    http://lab.vtex.com/docs/integracao/guide/marketplace/Seller-n%C3%A3o-vtex-com-pgto/index.html#enviar-pagamento
+    [Exemplo Completo: Colocar um Pagamento no Seller](#a7)
 
     >> Nos dados de pagamento vai a url de retorno, onde o Seller irá notificar a loja na VTEX sobre o status do pagamento, ou seja, o Seller deve implementar rotina de informar status de pagamento na loja VTEX
 
@@ -70,10 +73,10 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
     > loja na VTEX irá usar esse endpoint para avisar o Seller que já sabe do pagamento aprovado,
 e que o Seller já pode andar com o pedido.
 
-    exemplo da chamada:
-    https://satelital.com.br/pvt/orders/[orderid]/fulfill?an=shopfacilSeller
+    _exemplo da chamada:_
+    ``` https://satelital.com.br/pvt/orders/[orderid]/fulfill?sc=1&an=lojaseller ```
 
-    http://lab.vtex.com/docs/integracao/guide/marketplace/Seller-n%C3%A3o-vtex-com-pgto/index.html#enviar-autorizao-para-despachar
+    [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
 
 ---
 
@@ -232,6 +235,8 @@ Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma 
 
 ![alt text](fechamento-fluxo.png "Title")
 
+
+<a name="a4"><a/>
 ###Simulação de Carrinho
 
 
@@ -242,26 +247,31 @@ endpoint: **https://Sellerendpoint/pvt/orderForms/simulation?sc=[idcanal]?an=[me
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json** </br>
-Parametro: **sc=5** // sc é o id do canal de vendas
+Parametro: **sc=5** // sc é o id do canal de vendas</br>
 
 
 _request:_
+
 ```json
 {
-    "postalCode":"22251-030",            //obrigatório se country estiver preenchido, string
-    "country":"BRA",                     //obrigatório se postalCode estiver preenchido, string
-    "items": [                           //obrigatório: deve conter pelo menos um objeto item
-        {
-            "id":"287611",               //obrigatório, string
-            "quantity":1,                //obrigatório-quantidade do item a ser simulada, int
-            "Seller":"Seller1"           //sigla do do Seller criado no admin // obrigatório, string
-        },
-        {
-            "id":"5837",
-            "quantity":5,
-            "Seller":"Seller1"
-        }
-    ]
+  "items": [
+    {
+      "id": "2000037",
+      "quantity": 1,
+      "Seller": "1"
+    },
+    {
+      "id": "34562",
+      "quantity": 2,
+      "Seller": "1"
+    }
+  ],
+  "marketingData": null,
+  "postalCode": "22051030", //não obrigatório
+  "country": "BRA", //não obrigatório
+  "selectedSla": null,
+  "clientProfileData": null,
+  "geoCoordinates": []
 }
 ```
 
@@ -269,22 +279,22 @@ _response:_
 
 ```json
 {
-	"items": [                                                     //pode vir um array vazio
+	"items": [ //pode vir um array vazio
 	    {
-	        "id": "287611",                                        //obrigatório, string - identificador so SKU
-	        "requestIndex": 0,                                     //obrigatório, int - representa a posição desse item no array original (request)
-	        "price": 7390,                                         //obrigatório, int - preço por, os dois dígitos menos significativos são os centavos
-	        "listPrice": 7490,                                     //obrigatório, int - preço de, os dois dígitos menos significativos são os centavos
-	        "quantity": 1,                                         //obrigatório, int - retornar a quantidade solicitada ou a quantidade que consegue atender
-	        "Seller": "1",                                         //obrigatório, string - retonar o que foi passado no request
-	    	"merchantName": "shopfacilfastshop",				   //nome do gateway (enviador do pagamento) criado na VTEX para o Seller
-	        "priceValidUntil": "2014-03-01T22:58:28.143"           //pode ser nulo, string - data de validade do preço.
-	        "offerings":[                                          //array opcional de ofertas, porém não pode ser nulo: enviar array vazio ou não enviar
+	        "id": "287611",//obrigatório, string - identificador so SKU
+	        "requestIndex": 0, //obrigatório, int - representa a posição desse item no array original (request)
+	        "price": 7390, //obrigatório, int - preço por, os dois dígitos menos significativos são os centavos
+	        "listPrice": 7490, //obrigatório, int - preço de, os dois dígitos menos significativos são os centavos
+	        "quantity": 1, //obrigatório, int - retornar a quantidade solicitada ou a quantidade que consegue atender
+	        "Seller": "1", //obrigatório, string - retonar o que foi passado no request
+	    	"merchantName": "shopfacilfastshop", //nome do gateway (enviador do pagamento) criado na VTEX para o Seller
+	        "priceValidUntil": "2014-03-01T22:58:28.143"  //pode ser nulo, string - data de validade do preço.
+	        "offerings":[  //array opcional de ofertas, porém não pode ser nulo: enviar array vazio ou não enviar
 	            {
 	                "type":"Garantia",                             //obrigatório, string - tipo do serviço
-	                "id":"5",                                      //obrigatório, string - identificador do serviço
-	                "name":"Garantia de 1 ano",                    //obrigatório, string - nome do serviço
-	                "price":10000                                  //obrigatório, int - preço do serviço, os dois dígitos menos significativos são os centavos
+	                "id":"5",  //obrigatório, string - identificador do serviço
+	                "name":"Garantia de 1 ano", //obrigatório, string - nome do serviço
+	                "price":10000  //obrigatório, int - preço do serviço, os dois dígitos menos significativos são os centavos
 	            },
 	            {
 	                "type":"Embalagem de Presente",
@@ -305,31 +315,31 @@ _response:_
 	        "priceValidUntil": null
 	    }
 	],
-	"logisticsInfo": [                                            //array de informações, quando produtos indisponíveis enviar vazio []
+	"logisticsInfo": [ //array de informações, quando produtos indisponíveis enviar vazio []
 	    {
-	        "itemIndex": 0,                                       //obrigatório, int - index do array de items
-	        "stockBalance": 99,                                   //obrigatório, int - estoque que atende
-	        "quantity": 1,                                        //obrigatório, int - retornar a quantidade solicitada ou a quantidade que consegue atender
-	        "shipsTo": [ "BRA", "USA" ],                          //obrigatório, array de string com as siglas dos países de entrega
-	        "slas": [                                             //obrigatório quando o CEP e país forem passados no request. Pode ser um array vazio
+	        "itemIndex": 0, //obrigatório, int - index do array de items
+	        "stockBalance": 99, //obrigatório, int - estoque que atende
+	        "quantity": 1, //obrigatório, int - retornar a quantidade solicitada ou a quantidade que consegue atender
+	        "shipsTo": [ "BRA", "USA" ],  //obrigatório, array de string com as siglas dos países de entrega
+	        "slas": [  //obrigatório quando o CEP e país forem passados no request. Pode ser um array vazio
 	            {
-	                "id": "Expressa",                             //obrigatório, string - identificador tipo entrega
-	                "name": "Entrega Expressa",                   //obrigatório, string - nome do tipo entrega
-	                "shippingEstimate": "2bd",                    //obrigatório, string - doas estimados para a entrega, bd == "business days"
-	                "price": 1000                                 //obrigatório, int - custo da entrega, os dois dígitos menos significativos são os centavos
-	                "availableDeliveryWindows": [                 //opcional, janelas de entrega,  podendo ser um array vazio
+	                "id": "Expressa",  //obrigatório, string - identificador tipo entrega
+	                "name": "Entrega Expressa",//obrigatório, string - nome do tipo entrega
+	                "shippingEstimate": "2bd", //obrigatório, string - doas estimados para a entrega, bd == "business days"
+	                "price": 1000 //obrigatório, int - custo da entrega, os dois dígitos menos significativos são os centavos
+	                "availableDeliveryWindows": [  //opcional, janelas de entrega,  podendo ser um array vazio
 	                ]
 	            },
 	            {
 	                "id": "Agendada",
 	                "name": "Entrega Agendada",
-	                "shippingEstimate": "5d",                     //d - days, bd -business days
+	                "shippingEstimate": "5d",  //d - days, bd -business days
 	                "price": 800,
 	                "availableDeliveryWindows": [
 	                     {
-	                        "startDateUtc": "2013-02-04T08:00:00+00:00",       //date, obrigatório se for enviado delivery window
-	                        "endDateUtc": "2013-02-04T13:00:00+00:00",         //date, obrigatório se for enviado delivery window
-	                        "price": 0        //int, obrigatório se for enviado delivery window - o valor adicional da entrega agendada
+	                        "startDateUtc": "2013-02-04T08:00:00+00:00",  //date, obrigatório se for enviado delivery window
+	                        "endDateUtc": "2013-02-04T13:00:00+00:00", //date, obrigatório se for enviado delivery window
+	                        "price": 0 //int, obrigatório se for enviado delivery window - o valor adicional da entrega agendada
 	                    },
 	                ]
 	            }
@@ -344,14 +354,14 @@ _response:_
 	            {
 	                "id": "Normal",
 	                "name": "Entrega Normal",
-	                "shippingEstimate": "5bd",                    //bd - business days
+	                "shippingEstimate": "5bd", //bd - business days
 	                "price": 200
 	            }
 	        ]
 	    }
 	],
-	"country":"BRA",                                           //string, nulo se não enviado
-	"postalCode":"22251-030"                                   //string, nulo se não enviado
+	"country":"BRA",   //string, nulo se não enviado
+	"postalCode":"22251-030"   //string, nulo se não enviado
 }
 ```
 
@@ -360,6 +370,8 @@ _response:_
 > > Quando não for passado CEP retorna o array de SLAs vazio []
 > > No campo quantity, retornor o solicitado ou a quantidade que consegue atender.
 
+
+<a name="a5"><a/>
 ###Consulta de Opções de Parcelamento.
 
 
@@ -369,11 +381,11 @@ Identificadores dos cartões mais comuns no gateway das lojas VTEX:
 
 
 
-endpoint: **https://Sellerendpoint/installments/options?an=[nomedaloja]**
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
-Parametro: **an=nomedaloja**
+endpoint: **https://Sellerendpoint/installments/options?an=[nomedaloja]**</br>
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
+Parametro: **an=nomedaloja**</br>
 
 _request:_
 
@@ -387,12 +399,13 @@ _request:_
      	"Quantity":1, //quantidade do SKU
      	"Id":1940388, //id do SKU
      	"SellerId":"1",
-    	"SalesChannel":5 //id do canal de vendas criadopelo Seller
+    	"SalesChannel":5 //id do canal de vendas no Seller, caso exista
     }
   ],
   "postalCode":"22051030" //CEP
 }
 ```
+
 
 _response:_
 
@@ -487,16 +500,17 @@ Este tópico tem por objetivo auxiliar o Seller não VTEX a receber um pedido, r
 
 ![alt text](pedido-pagamento-fluxo.png "Title")
 
+<a name="a6"><a/>
 ###Enviar Pedido
 
 
-Quando o pedido é fechado no ambiente VTEX, um POST é feito no Seller não VTEX, para que este possa receber a ordem de pedido - Endpoint do Seller
+Quando o pedido é fechado no ambiente VTEX, um POST é feito no Seller não VTEX, para que este possa receber a ordem de pedido - Endpoint do Seller.
 
-endpoint: **https://Sellerendpoint/pvt/orders?sc=[idcanal]&affiliateId[idafiliado]**
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
-Parametro: **sc** // sc serve para destacar o canal por onde o pedido entrou
+endpoint: **https://sellerendpoint/pvt/orders?sc=[idcanal]&an=[idafiliado]**</br>
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
+Parametro: **sc** // sc serve para destacar o canal por onde o pedido entrou</br>
 Parametro: **affiliateId** // afiliado que esta colocando o pedido
 
 _request:_
@@ -654,7 +668,7 @@ _response:_
   }
 ]
 
-
+```
 
 _retorno de erro:_
 
@@ -668,17 +682,16 @@ _retorno de erro:_
 }
 ```
 
-
+<a name="a7"><a/>
 ###Enviar Pagamento
 
+Quando o pagamento do pedido é informado no ambiente VTEX, um POST é feito no Seller não VTEX, para que este possa receber os dados referente ao pagamento do respectivo pedido - Endpoint do Seller.
 
-Quando o pagamento do pedido é informado no ambiente VTEX, um POST é feito no Seller não VTEX, para que este possa receber os dados referente ao pagamento do respectivo pedido - Endpoint do Seller
-
-endpoint: **https://Sellerendpoint/pvt/payment?an=shopfacilfastshop**
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
-Parametro: **an=shopfacilfastshop** // an é o nome do gateway da loja que ta enviando o pagamento
+endpoint: **https://Sellerendpoint/pvt/payment?an=shopfacilfastshop**</br>
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
+Parametro: **an=shopfacilfastshop** // an é o nome do gateway da loja que ta enviando o pagamento</br>
 
 
 _request:_
@@ -766,7 +779,7 @@ _request:_
 }
 ```
 
-
+<a name="a8"><a/>
 _Exemplo do Response e do POST Feito na CallbackUrl de Pagamento :_
 
 ```json
@@ -781,17 +794,18 @@ _Exemplo do Response e do POST Feito na CallbackUrl de Pagamento :_
 **O response de pagamento pode ser respondido como "undefined" enquanto o Seller não tem a informação sobre o pagamento. Em caso de marketplace e Seller aceitarem boleto, quando recebido um post de pagamento com o paymentSystem igual a boleto, o Seller deve gerar o boleto e responder imediatamente com a url de boleto preenchida.
 
 
+<a name="a9"><a/>
 ###Enviar Autorização Para Despachar
 
 
 Quando o pagamento do pedido é concluído no Seller (pagamento válido), um POST deverá ser feito na "callbackUrl" do pagamento, informando sucesso do pagamento ("status":"approved"), nesse momento o marketplace VTEX envia autorização para despachar o respectivo pedido no Seller - Endpoint da Seller
 
-endpoint: **https://Sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]**
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
-Parametro: **orderid** // identificador do pedido gerado no Seller
-Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace, serve para destacar o canal por onde o pedido entrou.
+endpoint: **https://Sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]**</br>
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
+Parametro: **orderid** // identificador do pedido gerado no Seller </br>
+Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace, serve para destacar o canal por onde o pedido entrou.</br>
 
 _request:_
 
@@ -817,6 +831,8 @@ _response:_
 
 O MarketplaceServicesEndpoint serve para receber informações do Seller referentes a nota fiscal e tracking de pedido. É permitido o envio de notas fiscais parciais, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial. O pedido na VTEX só andará pra o status FATURADO quando o valor total de todas as notas fiscais de um pedido forem enviadas.
 
+
+<a name="a10"><a/>
 ###Informar Nota Fiscal
 
 
@@ -848,7 +864,7 @@ _request:_
     "issuanceDate": "2013-11-21T00:00:00", //data da nota
     "invoiceValue": 9508 //valor da nota
 }
-{% endhighlight %}
+```
 
 _response:_
 
@@ -859,16 +875,16 @@ _response:_
     "receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
 }
 ```
-
+<a name="a11"><a/>
 ###Informar Tracking
 
 
 Quando o Seller não VTEX entregar o pedido para a transportadora, deve informar as informações de Tracking - Endpoint VTEX
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice**
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
+endpoint: **https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice**</br>
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
 
 _request:_
 
@@ -903,15 +919,17 @@ _response:_
 
 **A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.
 
+
+<a name="a12"><a/>
 ###Enviar Solicitação de Cancelamento
 
 
 Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em um estado que se possa cancelar, o pedido será cancelado - Endpoint VTEX
 
-endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel**
-verb: **GET**
+endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel**</br>
+verb: **GET**</br>
 
-Obs=Para cancelar um pedido com Nota Fiscal Informada, tem quer enviado uma Nota Fiscal do tipo Input.
+Obs=Para cancelar um pedido com Nota Fiscal já Informada, tem quer enviado uma Nota Fiscal do tipo Input.
 
 ---
 
