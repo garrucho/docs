@@ -3,11 +3,9 @@
 Este documento tem por objetivo auxiliar na integração e atualização de condição comercial (preço, estoque) de um _SKU_ entre um Seller não hospedado na plataforma VTEX  para uma loja hospedada na plataforma VTEX e também auxiliar na descida de pedido, dados de pagamento e envio de autorização de despacho para o Seller não hospedado na VTEX.
 
 
-> _Seller_ = Dono do produto, responsável por fazer a entrega.
-
-> _Marketplace_ = Dono da vitrine, responsável por expor e vender o SKU.
-
-> _SKU_ = Item a ser trocado e vendido entre Seller e Marketplace.
+> _Seller_ = Dono do produto, responsável por fazer a entrega.</br>
+> _Marketplace_ = Dono da vitrine, responsável por expor e vender o SKU.</br>
+> _SKU_ = Item a ser trocado e vendido entre Seller e Marketplace.</br>
 
 
 ####Acões que deverão ser tomadas pelo Seller não hospedado na VTEX para implementção da integração:
@@ -15,28 +13,28 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
 1. Implementar chamada de notoficação de mudança de preço e estoque - Seller vai chamar endpoint da VTEX.
     > Toda vez que o SKU mudar o preço e ou estoque no Seller o Seller tem que chamar esse endpoint da loja na VTEX.
 
-    exemplo da chamada:
-    http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller]
+    _exemplo da chamada:_
+        http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller]
 
-   [Enviar Notificação de Mudança de Preço e Estoque de SKU](#a1)
+   [Exemplo Completo: Enviar Notificação de Mudança de Preço e Estoque de SKU](#a1)
 
 
 2. Implementar chamada de inserção de de sugestão de SKU -  Seller vai chamar endpoint da VTEX.
     > Toda vez que o serviço acima retorna SKU não encontrada(404), o Seller deve inserir a sugestão na loja da VTEX.
 
-    exemplo da chamada:
-    http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2
+    _exemplo da chamada:_
+        http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2
 
-    http://lab.vtex.com/docs/integracao/guide/marketplace/Seller-n%C3%A3o-vtex/index.html#enviar-sugesto-de-sku
+    [Exemplo Completo: Enviar Sugestão de SKU](#a2)
 
 
 3. Implementar endpoint para consulta de politica comercial - VTEX chama endpoint do Seller.
     > A loja hospedada na VTEX usará esse metodo para buscar preço e estoque no Seller.
 
-    exeplo da chamada:
-    https://[Seller].com.br/pvt/orderForms/simulation?an=shopfacilseller
+    _exemplo da chamada:_
+        https://[seller].com.br/pvt/orderForms/simulation?sc=1&an=shopfacilseller
 
-    http://lab.vtex.com/docs/integracao/guide/marketplace/Seller-n%C3%A3o-vtex-com-pgto/index.html#simulao-de-carrinho
+    [Exemplo Completo: Consultar política Comercial](#a3)
 
 
 4. Implementar endpoint para para consultar os parcelamentos - VTEX chama endpoint do Seller.
@@ -90,7 +88,6 @@ _Exemplo do fluxo:_
 ![alt text](sku-sugestion-seller-nao-vtex.png "Fluxo de troca de catalogo")
 
 <a name="a1"><a/>
-
 ###Enviar Notificação de Mudança de Preço e Estoque de SKU
 
 
@@ -99,6 +96,7 @@ Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o 
 <a title="notificar mudança de sku no marketplace" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/CATALOG/CATALOG_Notification" target="_blank">[Developer] - Exemplo de Request de Notificação de Mudança - Endpoint da loja hospedada na VTEX</a>
 
 
+<a name="a2"><a/>
 ###Enviar Sugestão de SKU
 
 
@@ -183,7 +181,7 @@ _Exemplo do POST de dados:_
 }
 ```
 
-
+<a name="a3"><a/>
 ###Atualização de Preço e ou Estoque de SKU
 
 
@@ -196,8 +194,6 @@ _Exemplo do POST de dados:_
 
 ```json
 {
-  "postalCode": "22251-030",
-  "country": "BRA",
   "items": [
     {
       "id": "2000037",
@@ -209,9 +205,18 @@ _Exemplo do POST de dados:_
       "quantity": 2,
       "Seller": "1"
     }
-  ]
+  ],
+  "marketingData": null,
+  "postalCode": "22051030", //não obrigatório
+  "country": "BRA", //não obrigatório
+  "selectedSla": null,
+  "clientProfileData": null,
+  "geoCoordinates": []
 }
 ```
+
+> ATENÇÂO
+>> O CEP e o país não são obrigatórios, mais quando enviar 1 deles o outro se trona obrigatório.
 
 ---
 
@@ -233,10 +238,10 @@ Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma 
 Quando ocorre uma edição no carrinho, uma chamada será feita no Seller não VTEX para checar a disponibilidade do item. Quando o CEP não for enviado, retornar sem as informações de logistica - Endpoint do Seller
 
 
-endpoint: **https://Sellerendpoint/pvt/orderForms/simulation?sc=[idcanal]**
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
+endpoint: **https://Sellerendpoint/pvt/orderForms/simulation?sc=[idcanal]?an=[mechantname]**</br>
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json** </br>
 Parametro: **sc=5** // sc é o id do canal de vendas
 
 
@@ -910,5 +915,5 @@ Obs=Para cancelar um pedido com Nota Fiscal Informada, tem quer enviado uma Nota
 
 ---
 
-Autor: _Jonas Bolognim_
-Propriedade: _VTEX_ &copy;
+Autor: _Jonas Bolognim_</br>
+Propriedade: _VTEX_ &copy;</br>

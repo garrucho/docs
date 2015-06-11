@@ -46,7 +46,7 @@ Nativamente a plataforma Vtex oferece essa possibiidade, através de simples con
 
 - - -
 
-###Ferramentas de Apoio ao Integrador
+##Ferramentas de Apoio ao Integrador
 
 
 ####POSTMAN
@@ -64,7 +64,7 @@ Essa ferramenta permite simular todos os metodos solicitados nas documentações
 
 - - -
 
-###Credenciais Para Acesso  as API REST
+##Credenciais Para Acesso  as API REST
 
 
 Toda chamada feita as APIs REST da VTEX devem ser feitas em "https" e devem conter em seu header as chaves de autenticação. As chaves de asutenticação do header(para acessar as APIs REST) devem ser solicitados ao administrador da loja, ou ao time de operaçãoes que está implantando a loja. Deverá ser criada uma chave e token exclusivas para cada integrador, e não se deve usar a chave da própria loja.
@@ -73,11 +73,11 @@ Toda chamada feita as APIs REST da VTEX devem ser feitas em "https" e devem cont
 
 ###Glossário
 
-Seller* - Responsável por fazer a entrega do pedido.
-SKU* - Define uma variação de um produto, Ex. geladeira branca 110V.
-Marketplace* - Vitrine onde se expõe os SKUs (produtos).
-SLA* - Acordo de serviço, Ex. prazo e custo de entrega.
-API* - Interfaces de serviço para comunicação entre sistemas de computador.
+Seller* - Responsável por fazer a entrega do pedido.</br>
+SKU* - Define uma variação de um produto, Ex. geladeira branca 110V.</br>
+Marketplace* - Vitrine onde se expõe os SKUs (produtos).</br>
+SLA* - Acordo de serviço, Ex. prazo e custo de entrega.</br>
+API* - Interfaces de serviço para comunicação entre sistemas de computador.</br>
 
 - - -
 
@@ -86,5 +86,5 @@ Essa versão de documentação suporta a integração na versão da plataforma V
 
 ---
 
-Autor: _Jonas Bolognim_
-Propriedade: _VTEX_ &copy;
+Autor: _Jonas Bolognim_</br>
+Propriedade: _VTEX_ &copy;</br>
