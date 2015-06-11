@@ -11,7 +11,6 @@
        * [Canal de vendas não VTEX com pagamento](integracao/marketplace/canal-de-vendas-nao-vtex-com-pgto/README.md)
        * [Seller não VTEX](integracao/marketplace/seller-não-vtex/README.md)
        * [Seller não VTEX com pagamento](integracao/marketplace/seller-não-vtex-com-pgto/README.md)
-       * [Catalog](integracao/marketplace/catalog/README.md)
 * [Plugins](plugins/lib/latest/expiration/README.md)
 * [Search](search/api/beta/search/README.md)
 * [Vtex.js](vtex.js/latest/README.md)

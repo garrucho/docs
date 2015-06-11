@@ -1,4 +1,4 @@
-## Marketplace e Sellers Hospedados ou NÂO na VTEX
+## Marketplace e Sellers Hospedados ou NÃO na VTEX
 
 Modelo de e-commerce entre Marketplaces* e Sellers*, podendo as lojas estarem hospedadas ou não na plataforma VTEX. Vendas entre Marketplace e Seller envolvem uma negociação entre as duas pontas, dono do produto (o Seller) e o dono da vitrine (o Marketplace). Essa negociação geralmente envolve política comercial dos itens comercializados e a manutenção do pagamento. A VTEX além de oferecer as integrações com grandes players do mercado nativamente, também oferece um conjunto de APIs e instruções para que terceiros se integrem. Seguem abaixo os modelos existentes:
 
