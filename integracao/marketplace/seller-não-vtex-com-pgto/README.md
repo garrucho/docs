@@ -34,7 +34,7 @@ Este documento tem por objetivo auxiliar na integração e atualização de cond
     _exemplo da chamada:_
     ``` https://[seller].com.br/pvt/orderForms/simulation?sc=1&an=lojaseller ```
 
-    [Exemplo Completo: Consultar Política Comercial](#a3)
+    [Exemplo Completo: Consultar Política Comercial](#a3) </br>
     [Exemplo Completo: Simulação de Carrinho](#a4)
 
 > NOTA:
