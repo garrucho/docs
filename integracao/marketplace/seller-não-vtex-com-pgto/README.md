@@ -1,65 +1,266 @@
+##_Seller_ Não VTEX Vendendo em _Marketplace_ Hospedado na VTEX Recebendo Pagamento
 
-##Seller Não VTEX Vendendo em Marketplace VTEX Recebendo Pagamento
- 
-Este documento tem por objetivo auxiliar na integração e atualização de condição comercial (preço, estoque, frete, SLAs de entrega) de um SKU* entre um Seller não VTEX  para uma loja hospedada na versão smartcheckout da VTEX e também auxiliar na descida de pedido, dados de pagamento e envio de autorização de despacho para o Seller não VTEX.
-
-###Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU  
+Este documento tem por objetivo auxiliar na integração e atualização de condição comercial (preço, estoque) de um _SKU_ entre um Seller não hospedado na plataforma VTEX  para uma loja hospedada na plataforma VTEX e também auxiliar na descida de pedido, dados de pagamento e envio de autorização de despacho para o Seller não hospedado na VTEX.
 
 
-Troca de catalogo (sugestão de SKU) entre o Seller não VTEX com um Marketplace hospedado na VTEX.  
+> _Seller_ = Dono do produto, responsável por fazer a entrega.
 
-<a href="http://lab.vtex.com/docs/integracao/guide/marketplace/seller-n%C3%A3o-vtex/index.html#troca-de-catalogo-de-sku-e-atualizao-de-condio-comercial-de-sku" target="_blank">[[Guide] Troca de catalogo entre o Seller não VTEX com um Marketplace hospedado na VTEX]</a>    
+> _Marketplace_ = Dono da vitrine, responsável por expor e vender o SKU.
+
+> _SKU_ = Item a ser trocado e vendido entre Seller e Marketplace.
+
+
+####Acões que deverão ser tomadas pelo Seller não hospedado na VTEX para implementção da integração:
+
+1. Implementar chamada de notoficação de mudança de preço e estoque - Seller vai chamar endpoint da VTEX.
+    > Toda vez que o SKU mudar o preço e ou estoque no Seller o Seller tem que chamar esse endpoint da loja na VTEX.
+
+    exemplo da chamada:
+    http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller]
+
+    <a href="#enviar-notificao-de-mudana-de-preo-e-estoque-de-sku">[guia de implemementação]</a>
+
+
+2. Implementar chamada de inserção de de sugestão de SKU -  Seller vai chamar endpoint da VTEX.
+    > Toda vez que o serviço acima retorna SKU não encontrada(404), o Seller deve inserir a sugestão na loja da VTEX.
+
+    exemplo da chamada:
+    http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2
+
+    http://lab.vtex.com/docs/integracao/guide/marketplace/Seller-n%C3%A3o-vtex/index.html#enviar-sugesto-de-sku
+
+
+3. Implementar endpoint para consulta de politica comercial - VTEX chama endpoint do Seller.
+    > A loja hospedada na VTEX usará esse metodo para buscar preço e estoque no Seller.
+
+    exeplo da chamada:
+    https://[Seller].com.br/pvt/orderForms/simulation?an=shopfacilseller
+
+    http://lab.vtex.com/docs/integracao/guide/marketplace/Seller-n%C3%A3o-vtex-com-pgto/index.html#simulao-de-carrinho
+
+
+4. Implementar endpoint para para consultar os parcelamentos - VTEX chama endpoint do Seller.
+    > A loja na VTEX irá usar esse endpoint para consultar o parcelamentos no Seller.
+
+    exemplo da chamada:
+    https://[Seller].com.br/installments/options?an=shopfacilseller
+
+    http://lab.vtex.com/docs/integracao/guide/marketplace/Seller-n%C3%A3o-vtex-com-pgto/index.html#consulta-de-opes-de-parcelamento
+
+
+5. Implementar endpoint para receber um pedido - VTEX chama endpoint do Seller.
+    > A loja na VTEX irá usar esse enpoint para colocar um pedido no Seller.
+
+    http://lab.vtex.com/docs/integracao/guide/marketplace/seller-n%C3%A3o-vtex-com-pgto/index.html#enviar-pedido
+
+    exemplo da chamda:
+    https://[Seller].com.br/pvt/orders?an=shopfacilSeller
+
+
+6. Implementar endpoint para receber o pagamento - VTEX chama endpoint do Seller
+    > A loja na VTEX irá usar esse endpoint para enviar o pagamento para o Seller
+
+    exemplo da chamada:
+    https://[Seller].com.br/pvt/payment?an=shopfacilSeller
+
+    http://lab.vtex.com/docs/integracao/guide/marketplace/Seller-n%C3%A3o-vtex-com-pgto/index.html#enviar-pagamento
+
+    >> Nos dados de pagamento vai a url de retorno, onde o Seller irá notificar a loja na VTEX sobre o status do pagamento, ou seja, o Seller deve implementar rotina de informar status de pagamento na loja VTEX
+
+
+7. Implementar endpoint para fechar a transação e autorizar despacho - VTEX chama endpoint do Seller.
+    > loja na VTEX irá usar esse endpoint para avisar o Seller que já sabe do pagamento aprovado,
+e que o Seller já pode andar com o pedido.
+
+    exemplo da chamada:
+    https://satelital.com.br/pvt/orders/[orderid]/fulfill?an=shopfacilSeller
+
+    http://lab.vtex.com/docs/integracao/guide/marketplace/Seller-n%C3%A3o-vtex-com-pgto/index.html#enviar-autorizao-para-despachar
 
 ---
 
-###Simulação de Carrinho e Consulta Parcelamento  
+##Abaixo segue passo a passo detalhado de cada fluxo:
+
+###Troca de Catalogo e Atualização de Preço e Estoque de SKU
+
+Sugestão de SKU, atualização de preço e estoque. Toda vez que houver uma alteração no preço ou no estoque de um SKU no Seller, o Seller deve enviar uma notificação de mudança de SKU para a loja hospedada na VTEX, caso a loja retorne em seu serviço o **response status 404**, significa que a **SKU não existe na loja**, então o Seller deve enviar a sugestão de SKU para a loja, caso a loja retorne em seu serviço o **response status 200 ou 202**, significa que a **SKU existe** na loja, então a loja vai no Seller consultar o novo preço ou estoque.
+
+_Exemplo do fluxo:_
+
+![alt text](sku-sugestion-Seller-nao-vtex.png "Fluxo de troca de catalogo")
+
+###Enviar Notificação de Mudança de Preço e Estoque de SKU
+
+
+Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o Seller deve enviar uma notificação de mudança de SKU para a loja hospeada na VTEX.
+
+<a title="notificar mudança de sku no marketplace" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/CATALOG/CATALOG_Notification" target="_blank">[Developer] - Exemplo de Request de Notificação de Mudança - Endpoint da loja hospedada na VTEX</a>
+
+
+###Enviar Sugestão de SKU
+
+
+Quando o serviço de notificação descrito acima retornar um **response status 404**, significa que o SKU **NÂO existe** no marketplace hospedado na VTEX, então o Seller envia um POST com os dados da SKU que deseja sugerir para vender no marketplace. O Seller faz as sugestões de suas SKUs e o administrador do Marketplace realiza o mapeamento de marcas e categorias através do admin da loja, e aceita ou não a sugestão de SKU enviada pelo Seller.
+
+<a title="envia sugestão de sku" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/CATALOG/CATALOG_Sugestion" target="_blank">[Developer] - Exemplo de Request de Inserção de Sugestão de SKU - Endpoint da loja hospedada VTEX</a>
+
+_Exemplo do POST de dados:_
+
+```json
+{
+  "BrandId": null,
+  "BrandName": "RAY BAN",
+  "CategoryFullPath": "Oculos/Oculos de Sol/Masculino",
+  "CategoryId": null,
+  "EAN": [
+    "0123456789123"
+  ],
+  "Height": 0.5,
+  "Id": null,
+  "Images": [
+    {
+      "ImageUrl": "http://www.cristalliotica.com.br/image/magictoolbox_cache/8c95d73fec130487c102a73bf1ab42ce/1/1/113/thumb450x450/2790576687/zoom-RAY%20BAN%204187%20Chris%206077_4V.jpg",
+      "ImageName": "Principal",
+      "FileId": null
+    },
+    {
+      "ImageUrl": "http://www.cristalliotica.com.br/image/magictoolbox_cache/8c95d73fec130487c102a73bf1ab42ce/1/1/113/thumb450x450/2436023899/zoom-RAY%20BAN%204187%20Chris%206077_4V%201.jpg",
+      "ImageName": "Lateral",
+      "FileId": null
+    }
+  ],
+  "IsAssociation": false,
+  "IsKit": false,
+  "IsProductSuggestion": false,
+  "Length": 10,
+  "ListPrice": 39900,
+  "ModalId": null,
+  "Price": 39900,
+  "ProductDescription": "Oculos de sol feito de material de primira qualidade, com lentes anti reflexo e astes confortáveis",
+  "ProductId": null,
+  "ProductName": "Oculos de Sol RAY BAN",
+  "ProductSpecifications": [
+    {
+      "FieldId": 0,
+      "FieldName": "Origem",
+      "FieldValueIds": null,
+      "FieldValues": [
+        "Importado"
+      ]
+    },
+    {
+      "FieldId": 0,
+      "FieldName": "Capa Inclusa",
+      "FieldValueIds": null,
+      "FieldValues": [
+        "Sim"
+      ]
+    }
+  ],
+  "ProductSupplementaryFields": null,
+  "RefId": null, //obrigatório quando o EAN não for enviado
+  "SellerId": "Cristalli",
+  "SellerModifiedDate": null,
+  "SellerStockKeepingUnitId": "cristalli00011", // tem que trocar esse id para os testes
+  "SkuId": null,
+  "SkuName": "Oculos de Sol RAY BAN Lente Polarizada",
+  "SkuSpecifications": [
+    {
+      "FieldId": 0,
+      "FieldName": "Lente Polarizada",
+      "FieldValueIds": null,
+      "FieldValues": [
+        "Sim"
+      ]
+    }
+  ],
+  "SkuSupplementaryFields": null,
+  "SynonymousPropertyNames": null,
+  "WeightKg": 0.2,
+  "Width": 0.5
+}
+```
+
+
+###Atualização de Preço e ou Estoque de SKU
+
+
+Toda vez que houver uma alteração no preço ou estoque, o Seller deve enviar uma notificação de mudança de SKU para a loja hospedadana VTEX, caso a loja retorne em seu serviço o **response status 200 ou 202**, significa que a SKU **existe** na loja, então a loja vai no Seller consultar o novo preço ou estoque.
+
+
+<a title="busca de condições comerciais no Seller" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/FULFILLMENT/FULFILLMENT_Simulation" target="_blank">[Developer] - Exemplo de Request de Busca de Condições Comerciais - Endpoint do Seller</a>
+
+_Exemplo do POST de dados:_
+
+```json
+{
+  "postalCode": "22251-030",
+  "country": "BRA",
+  "items": [
+    {
+      "id": "2000037",
+      "quantity": 1,
+      "Seller": "1"
+    },
+    {
+      "id": "34562",
+      "quantity": 2,
+      "Seller": "1"
+    }
+  ]
+}
+```
+
+---
+
+###Simulação de Carrinho e Consulta Parcelamento
 
 
 Este tópico tem por objetivo auxiliar o integrador na simulação de carrinho, consultar parcelamento entre o marketplace VTEX com uma loja não VTEX. Simular um pedido e consultar as formas de parcelamento.
 
 ###No Carrinho e no Pagamento
-Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho é feita no Seller para checar a validade das condiçoes comerciais (preço, estoque, frete e SLAs de entrega).  
+Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho é feita no Seller para checar a validade das condiçoes comerciais (preço, estoque, frete e SLAs de entrega).
 
-*Exemplo do fuxo de chamadas no carrinho:*  
+*Exemplo do fuxo de chamadas no carrinho:*
 
-![alt text](fechamento-fluxo.png "Title")  
+![alt text](fechamento-fluxo.png "Title")
 
-###Simulação de Carrinho  
- 
-
-Quando ocorre uma edição no carrinho, uma chamada será feita no Seller não VTEX para checar a disponibilidade do item. Quando o CEP não for enviado, retornar sem as informações de logistica - Endpoint do Seller  
+###Simulação de Carrinho
 
 
-endpoint: **https://sellerendpoint/pvt/orderForms/simulation?sc=[idcanal]**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+Quando ocorre uma edição no carrinho, uma chamada será feita no Seller não VTEX para checar a disponibilidade do item. Quando o CEP não for enviado, retornar sem as informações de logistica - Endpoint do Seller
+
+
+endpoint: **https://Sellerendpoint/pvt/orderForms/simulation?sc=[idcanal]**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 Parametro: **sc=5** // sc é o id do canal de vendas
 
 
-_request:_  
-```json  
+_request:_
+```json
 {
     "postalCode":"22251-030",            //obrigatório se country estiver preenchido, string
-    "country":"BRA",                     //obrigatório se postalCode estiver preenchido, string      
+    "country":"BRA",                     //obrigatório se postalCode estiver preenchido, string
     "items": [                           //obrigatório: deve conter pelo menos um objeto item
         {
             "id":"287611",               //obrigatório, string
             "quantity":1,                //obrigatório-quantidade do item a ser simulada, int
-            "seller":"seller1"           //sigla do do seller criado no admin // obrigatório, string
+            "Seller":"Seller1"           //sigla do do Seller criado no admin // obrigatório, string
         },
         {
             "id":"5837",
             "quantity":5,
-            "seller":"seller1"
+            "Seller":"Seller1"
         }
     ]
 }
-``` 
+```
 
-_response:_  
+_response:_
 
-```json  
+```json
 {
 	"items": [                                                     //pode vir um array vazio
 	    {
@@ -68,7 +269,7 @@ _response:_
 	        "price": 7390,                                         //obrigatório, int - preço por, os dois dígitos menos significativos são os centavos
 	        "listPrice": 7490,                                     //obrigatório, int - preço de, os dois dígitos menos significativos são os centavos
 	        "quantity": 1,                                         //obrigatório, int - retornar a quantidade solicitada ou a quantidade que consegue atender
-	        "seller": "1",                                         //obrigatório, string - retonar o que foi passado no request
+	        "Seller": "1",                                         //obrigatório, string - retonar o que foi passado no request
 	    	"merchantName": "shopfacilfastshop",				   //nome do gateway (enviador do pagamento) criado na VTEX para o Seller
 	        "priceValidUntil": "2014-03-01T22:58:28.143"           //pode ser nulo, string - data de validade do preço.
 	        "offerings":[                                          //array opcional de ofertas, porém não pode ser nulo: enviar array vazio ou não enviar
@@ -82,18 +283,18 @@ _response:_
 	                "type":"Embalagem de Presente",
 	                "id":"6",
 	                "name":"Embalagem de Presente",
-	                "price":250                                       
+	                "price":250
 	            }
 	        ]
 	    },
 	    {
 	        "id": "5837",
 	        "requestIndex": 1,
-	        "price": 890,                                          
-	        "listPrice": 990,                                      
+	        "price": 890,
+	        "listPrice": 990,
 	        "quantity": 5,
-	        "seller": "1",
-			"merchantName": "shopfacilfastshop",	
+	        "Seller": "1",
+			"merchantName": "shopfacilfastshop",
 	        "priceValidUntil": null
 	    }
 	],
@@ -107,7 +308,7 @@ _response:_
 	            {
 	                "id": "Expressa",                             //obrigatório, string - identificador tipo entrega
 	                "name": "Entrega Expressa",                   //obrigatório, string - nome do tipo entrega
-	                "shippingEstimate": "2bd",                    //obrigatório, string - doas estimados para a entrega, bd == "business days" 
+	                "shippingEstimate": "2bd",                    //obrigatório, string - doas estimados para a entrega, bd == "business days"
 	                "price": 1000                                 //obrigatório, int - custo da entrega, os dois dígitos menos significativos são os centavos
 	                "availableDeliveryWindows": [                 //opcional, janelas de entrega,  podendo ser um array vazio
 	                ]
@@ -143,30 +344,33 @@ _response:_
 	    }
 	],
 	"country":"BRA",                                           //string, nulo se não enviado
-	"postalCode":"22251-030"                                   //string, nulo se não enviado    
+	"postalCode":"22251-030"                                   //string, nulo se não enviado
 }
-```  
+```
 
-**obs= enviar o valor do frete para cada item.
+> ATENÇÃO!
+> > O valor do frete deve ser enviado por item consultado.
+> > Quando não for passado CEP retorna o array de SLAs vazio []
+> > No campo quantity, retornor o solicitado ou a quantidade que consegue atender.
 
-###Consulta de Opções de Parcelamento.  
- 
+###Consulta de Opções de Parcelamento.
 
-Quando cliente for para a página de pagamento, uma chamada será feita no Seller para buscar as formas de parcelamento das formas de pagamento. O Seller não VTEX deverá conhecer préviamente os ids das formas de pagamento do marketplace VTEX. Os mais comuns:(1-American Express, 2-Visa, 3-Diners, 8-Hipercard, 4-Mastercard) - Endpoint do Seller  
- 
+
+Quando cliente for para a página de pagamento, uma chamada será feita no Seller para buscar as formas de parcelamento das formas de pagamento. O Seller não VTEX deverá conhecer préviamente os ids das formas de pagamento do marketplace VTEX. Os mais comuns:(1-American Express, 2-Visa, 3-Diners, 8-Hipercard, 4-Mastercard) - Endpoint do Seller
+
 Identificadores dos cartões mais comuns no gateway das lojas VTEX:
 
 
 
-endpoint: **https://sellerendpoint/installments/options?an=[nomedaloja]**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://Sellerendpoint/installments/options?an=[nomedaloja]**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 Parametro: **an=nomedaloja**
 
-_request:_  
+_request:_
 
-```json 
+```json
 {
   "PaymentSystemsIds":[1,2], //ids das formas de pagamento na loja VTEX
   "SubtotalAsInt":27280, //total que se deseja parcelar
@@ -176,16 +380,16 @@ _request:_
      	"Quantity":1, //quantidade do SKU
      	"Id":1940388, //id do SKU
      	"SellerId":"1",
-    	"SalesChannel":5 //id do canal de vendas criadopelo seller
+    	"SalesChannel":5 //id do canal de vendas criadopelo Seller
     }
   ],
   "postalCode":"22051030" //CEP
 }
-``` 
+```
 
 _response:_
 
-```json 
+```json
 [
     {
         "paymentSystem": 2, //int -identificador da forma de pagamento
@@ -266,31 +470,31 @@ _response:_
 
 ---
 
-###Enviar Pedido e Informar Pagamento  
+###Enviar Pedido e Informar Pagamento
 
 
 Este tópico tem por objetivo auxiliar o Seller não VTEX a receber um pedido, receber o respectivo pagamento do pedido, e comunicar a atualização de status de pagamento.
 
 
-*Exemplo do fuxo de chamadas de descida de pedido, pagamento e atualização de status de pagamento:*  
+*Exemplo do fuxo de chamadas de descida de pedido, pagamento e atualização de status de pagamento:*
 
-![alt text](pedido-pagamento-fluxo.png "Title") 
+![alt text](pedido-pagamento-fluxo.png "Title")
 
-###Enviar Pedido  
- 
+###Enviar Pedido
+
 
 Quando o pedido é fechado no ambiente VTEX, um POST é feito no Seller não VTEX, para que este possa receber a ordem de pedido - Endpoint do Seller
 
-endpoint: **https://sellerendpoint/pvt/orders?sc=[idcanal]&affiliateId[idafiliado]**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
-Parametro: **sc** // sc serve para destacar o canal por onde o pedido entrou  
+endpoint: **https://Sellerendpoint/pvt/orders?sc=[idcanal]&affiliateId[idafiliado]**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
+Parametro: **sc** // sc serve para destacar o canal por onde o pedido entrou
 Parametro: **affiliateId** // afiliado que esta colocando o pedido
 
-_request:_  
+_request:_
 
-```json  
+```json
 [
   {
     "marketplaceOrderId": "959311095", //identificador do pedido no market place
@@ -300,12 +504,12 @@ _request:_
       {
         "id": "2002495", //identificadro da SKU no Seller
         "quantity": 1, //quantidade comprada
-        "seller": "1",
+        "Seller": "1",
         "commission": 0,
         "freightCommission": 0,
         "price": 9990, //preço da SKU
         "bundleItems": [], //serviços. Ex: embalagem pra presente.
-        "itemAttachment": { 
+        "itemAttachment": {
           "name": null,
           "content": {}
         },
@@ -330,7 +534,7 @@ _request:_
       "stateInscription": null, //se pessoa juridica, iscrição estadual
       "corporatePhone": null, //se pessoa juridica, fone
       "isCorporate": false, //é pessoa juridica?
-      "userProfileId": null 
+      "userProfileId": null
     },
     "shippingData": {
       "id": "shippingData",
@@ -367,21 +571,21 @@ _request:_
 	}
   }
 ]
-{% endhighlight %} 
+{% endhighlight %}
 
-_response:_  
+_response:_
 
-```json  
+```json
 [
   {
     "marketplaceOrderId": "959311095",
-    "orderId": "123543123", //** - identificador do pedido inserido no seller
+    "orderId": "123543123", //** - identificador do pedido inserido no Seller
     "followUpEmail": "75c70c09dbb3498c9b3bbdee59bf0687@ct.vtex.com.br",
     "items": [
       {
         "id": "2002495",
         "quantity": 1,
-        "seller": "1",
+        "Seller": "1",
         "commission": 0,
         "freightCommission": 0,
         "price": 9990,
@@ -441,13 +645,13 @@ _response:_
 		"merchantPaymentReferenceId":"123543123" //inteiro id do pagamento, número que será enviado junto com o pagamento para conciliação.
 	}
   }
-]  
+]
 
 
 
-_retorno de erro:_  
+_retorno de erro:_
 
-```json 
+```json
 {
 	"error": {
 	"code": "1",
@@ -455,7 +659,7 @@ _retorno de erro:_
 	"exception": null
 	}
 }
-```  
+```
 
 
 ###Enviar Pagamento
@@ -463,16 +667,16 @@ _retorno de erro:_
 
 Quando o pagamento do pedido é informado no ambiente VTEX, um POST é feito no Seller não VTEX, para que este possa receber os dados referente ao pagamento do respectivo pedido - Endpoint do Seller
 
-endpoint: **https://sellerendpoint/pvt/payment?an=shopfacilfastshop**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://Sellerendpoint/pvt/payment?an=shopfacilfastshop**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 Parametro: **an=shopfacilfastshop** // an é o nome do gateway da loja que ta enviando o pagamento
 
 
-_request:_    
+_request:_
 
-```json 
+```json
 {
 	"referenceId": "123543123", //merchantPaymentReferenceId retornado no request do place order
 	"transactionId": "D3AA1FC8372E430E8236649DB5EBD08E", //identificador da transação
@@ -558,7 +762,7 @@ _request:_
 
 _Exemplo do Response e do POST Feito na CallbackUrl de Pagamento :_
 
-```json 
+```json
 {
   	"paymentId" : "F5C1A4E20D3B4E07B7E871F5B5BC9F91",   // string, not null, Payment identifier sent on authorization request
 	"status" : "",    // string, not null, [approved | denied | undefined]
@@ -567,30 +771,30 @@ _Exemplo do Response e do POST Feito na CallbackUrl de Pagamento :_
 }
 ```
 
-**O response de pagamento pode ser respondido como "undefined" enquanto o Seller não tem a informação sobre o pagamento. Em caso de marketplace e seller aceitarem boleto, quando recebido um post de pagamento com o paymentSystem igual a boleto, o seller deve gerar o boleto e responder imediatamente com a url de boleto preenchida.
-	    
+**O response de pagamento pode ser respondido como "undefined" enquanto o Seller não tem a informação sobre o pagamento. Em caso de marketplace e Seller aceitarem boleto, quando recebido um post de pagamento com o paymentSystem igual a boleto, o Seller deve gerar o boleto e responder imediatamente com a url de boleto preenchida.
+
 
 ###Enviar Autorização Para Despachar
 
 
 Quando o pagamento do pedido é concluído no Seller (pagamento válido), um POST deverá ser feito na "callbackUrl" do pagamento, informando sucesso do pagamento ("status":"approved"), nesse momento o marketplace VTEX envia autorização para despachar o respectivo pedido no Seller - Endpoint da Seller
 
-endpoint: **https://sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
-Parametro: **orderid** // identificador do pedido gerado no seller
-Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace, serve para destacar o canal por onde o pedido entrou.  
+endpoint: **https://Sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
+Parametro: **orderid** // identificador do pedido gerado no Seller
+Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace, serve para destacar o canal por onde o pedido entrou.
 
-_request:_  
-  
+_request:_
+
 ```json
 {
 	"marketplaceOrderId": "959311095" //id do pedido originado no canal de vendas
 }
 ```
 
-_response:_  
+_response:_
 
 ```json
 {
@@ -606,21 +810,21 @@ _response:_
 
 O MarketplaceServicesEndpoint serve para receber informações do Seller referentes a nota fiscal e tracking de pedido. É permitido o envio de notas fiscais parciais, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial. O pedido na VTEX só andará pra o status FATURADO quando o valor total de todas as notas fiscais de um pedido forem enviadas.
 
-###Informar Nota Fiscal 
+###Informar Nota Fiscal
 
 
 Quando o Seller não VTEX emitir a Nota Fiscal, deve informar as informações da Nota Fiscal - Endpoint VTEX
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/{orderId}/invoice**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://marketplaceServicesEndpoint/pub/orders/{orderId}/invoice**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 Parametro: **orderId** // id do pedido na VTEX
 
 
-_request:_  
+_request:_
 
-```json  
+```json
 {
     "type": "Output", //Output|Input (venda|devolução)
     "invoiceNumber": "NFe-00001", //numero da nota fiscal
@@ -636,10 +840,10 @@ _request:_
     ],
     "issuanceDate": "2013-11-21T00:00:00", //data da nota
     "invoiceValue": 9508 //valor da nota
-}  
-{% endhighlight %} 
+}
+{% endhighlight %}
 
-_response:_  
+_response:_
 
 ```json
 {
@@ -649,19 +853,19 @@ _response:_
 }
 ```
 
-###Informar Tracking 
+###Informar Tracking
 
 
 Quando o Seller não VTEX entregar o pedido para a transportadora, deve informar as informações de Tracking - Endpoint VTEX
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice**  
-verb: **POST**  
-Content-Type: **application/json**  
-Accept: **application/json**  
+endpoint: **https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice**
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
 
-_request:_  
+_request:_
 
-```json 
+```json
 {
     "type": "Output",
     "invoiceNumber": "NFe-00001",
@@ -677,12 +881,12 @@ _request:_
     ],
     "issuanceDate": "2013-11-21T00:00:00",
     "invoiceValue": 9508
-}  
+}
 ```
 
-_response:_  
+_response:_
 
-```json 
+```json
 {
     "date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
     "orderId": "123543123",
@@ -693,16 +897,16 @@ _response:_
 **A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.
 
 ###Enviar Solicitação de Cancelamento
- 
+
 
 Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em um estado que se possa cancelar, o pedido será cancelado - Endpoint VTEX
 
-endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel**  
+endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel**
 verb: **GET**
 
 Obs=Para cancelar um pedido com Nota Fiscal Informada, tem quer enviado uma Nota Fiscal do tipo Input.
 
 ---
 
-Autor: _Jonas Bolognim_  
+Autor: _Jonas Bolognim_
 Propriedade: _VTEX_ &copy;
