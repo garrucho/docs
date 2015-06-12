@@ -13,7 +13,7 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
 1. Implementar chamada de notificação de mudança de preço e estoque - Seller vai chamar endpoint da VTEX.
     > Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint da loja na VTEX.
 
-    _exemplo da chamada:_
+    _exemplo da chamada:_</br>
     ``` http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller] ```
 
    [Exemplo Completo: Enviar Notificação de Mudança de Preço e Estoque de SKU](#a1)
@@ -22,7 +22,7 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
 2. Implementar chamada de inserção de de sugestão de SKU -  Seller vai chamar endpoint da VTEX.
     > Toda vez que o serviço de notificação de mudança retornar SKU não encontrada (404), o Seller deve inserir a sugestão na loja da VTEX.
 
-    _exemplo da chamada:_
+    _exemplo da chamada:_</br>
     ``` http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2 ```
 
     [Exemplo Completo: Enviar Sugestão de SKU](#a2)
@@ -31,11 +31,11 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
 3. Implementar endpoint para consulta de politica comercial (preço e estoque) - VTEX chama endpoint do Seller.
     > A loja hospedada na VTEX usará esse metodo para buscar preço e estoque no Seller tanto na indexação quanto na simulação de carrinho.
 
-    _exemplo da chamada:_
-    ``` https://[seller].com.br/pvt/orderForms/simulation?sc=1&an=lojaseller ```
+    _exemplo da chamada:_</br>
+    ``` https://[seller].com.br/pvt/orderForms/simulation?sc=1&an=mechantname ```
 
     [Exemplo Completo: Consultar Política Comercial](#a3) </br>
-    [Exemplo Completo: Simulação de Carrinho](#a4)
+    [Exemplo Completo: Simulação de Carrinho](#a4)</br>
 
     > NOTA:
     >> O metodo que consulta preço e estoque e o metodo que simula carrinho são os mesmos, logo, requer somente uma implementação por parte do integrador do Seller.
@@ -44,8 +44,8 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
 4. Implementar endpoint para consultas de parcelamento - VTEX chama endpoint do Seller.
     > A loja na VTEX irá usar esse endpoint para consultar os parcelamentos oferecidos pelo Seller.
 
-    _exemplo da chamada:_
-    ``` https://[seller].com.br/installments/options?an=lojaseller ```
+    _exemplo da chamada:_</br>
+    ``` https://[seller].com.br/installments/options?sc=1&an=mechantname ```
 
     [Exemplo Completo: Consultar Formas de Parcelamento no Seller](#a5)
 
@@ -56,8 +56,8 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
 5. Implementar endpoint para receber um pedido - VTEX chama endpoint do Seller.
     > A loja na VTEX irá usar esse enpoint para colocar um pedido no Seller.
 
-    _exemplo da chamada:_
-    ``` https://[seller].com.br/pvt/orders?sc=1&an=lojaseller ```
+    _exemplo da chamada:_</br>
+    ``` https://[seller].com.br/pvt/orders?sc=1&an=mechantname ```
 
     [Exemplo Completo: Colocar um Pedido no Seller](#a6)
 
@@ -65,8 +65,8 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
 6. Implementar endpoint para receber o pagamento - VTEX chama endpoint do Seller.
     > A loja na VTEX irá usar esse endpoint para enviar o pagamento para o Seller
 
-    _exemplo da chamada:_
-    ``` https://[seller].com.br/pvt/payment?an=lojaseller ```
+    _exemplo da chamada:_</br>
+    ``` https://[seller].com.br/pvt/payment?sc=1&an=mechantname ```
 
     [Exemplo Completo: Colocar um Pagamento no Seller](#a7)
 
@@ -77,8 +77,8 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
     > loja na VTEX irá usar esse endpoint para avisar o Seller que já sabe do pagamento aprovado,
 e que o Seller já pode andar com o pedido.
 
-    _exemplo da chamada:_
-    ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=lojaseller ```
+    _exemplo da chamada:_</br>
+    ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
 
     [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
 
@@ -86,13 +86,13 @@ e que o Seller já pode andar com o pedido.
 8. Implemtar rotina de informar nota fiscal e tracking de um pedido.
     > Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
 
-    _exemplo da chamada:_
-    ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```
-    ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/calcel ```
+    _exemplo da chamada:_</br>
+    ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```</br>
+    ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/calcel ```</br>
 
-    [Exemplo Completo: Informar nota fiscal de um pedido](#a10)
-    [Exemplo Completo: Informar tracking de um pedido](#a11)
-    [Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a12)
+    [Exemplo Completo: Informar nota fiscal de um pedido](#a10)</br>
+    [Exemplo Completo: Informar tracking de um pedido](#a11)</br>
+    [Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a12)</br>
 
 ---
 
@@ -395,7 +395,7 @@ _response:_
 > > No campo quantity, retornar o solicitado ou a quantidade que consegue atender.
 
 
-<a name="a5"><a/>
+<a name="mechantname"><a/>
 ###Consulta de Opções de Parcelamento.
 
 
@@ -409,7 +409,7 @@ Quando cliente for para a página de pagamento, uma chamada será feita no Selle
 >> 4-Mastercard </br>
 
 
-endpoint: **https://Sellerendpoint/installments/options?an=[nomedaloja]**</br>
+endpoint: **https://Sellerendpoint/installments/options?sc=[idcanal]&an=[mechantname]**</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -718,7 +718,7 @@ _retorno de erro:_
 
 Quando o pagamento do pedido é informado no Marketplace hospedado na VTEX, um POST é feito no Seller, para que este possa receber os dados referente ao pagamento do respectivo pedido - Endpoint do Seller.
 
-endpoint: **https://sellerendpoint/pvt/payment?an=shopfacilfastshop**</br>
+endpoint: **https://sellerendpoint/pvt/payment?sc=[idcanal]&an=[mechantname]**</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -832,7 +832,7 @@ _Exemplo do Response e do POST Feito na CallbackUrl de Pagamento :_
 
 Quando o pagamento do pedido é concluído no Seller (pagamento válido), um POST deverá ser feito na "callbackUrl" do pagamento, informando sucesso do pagamento ("status":"approved"), nesse momento o marketplace VTEX envia autorização para despachar o respectivo pedido no Seller - Endpoint da Seller
 
-endpoint: **https://Sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]**</br>
+endpoint: **https://Sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]&an=[mechantname]**</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
