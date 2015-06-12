@@ -88,7 +88,7 @@ e que o Seller já pode andar com o pedido.
 
     _exemplo da chamada:_</br>
     ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```</br>
-    ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/calcel ```</br>
+    ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/cancel ```</br>
 
     [Exemplo Completo: Informar nota fiscal de um pedido](#a10)</br>
     [Exemplo Completo: Informar tracking de um pedido](#a11)</br>
