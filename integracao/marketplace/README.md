@@ -4,9 +4,9 @@ Modelo de e-commerce entre _Marketplace_ e _Seller_, podendo as lojas estarem ho
 A VTEX além de oferecer as integrações com os grandes players do mercado nativamente, também oferece um conjunto de _APIs_ e instruções para que terceiros se integrem.
 
 
-> _Seller_ - Responsável por fazer a entrega do pedido.</br>
+> _Seller_ - Responsável por cumprir com a entrega do pedido (o dono do produto).</br>
 > _SKU_ - Define uma variação de um produto, Ex. geladeira branca 110V.</br>
-> _Marketplace_ - Vitrine onde se expõe os SKUs (produtos).</br>
+> _Marketplace_ - Vitrine onde se expõe os SKUs (o dono da vitrine)</br>
 > _SLA_ - Acordo de serviço, Ex. prazo e custo de entrega.</br>
 > _API_ - Interfaces de serviço para comunicação entre sistemas de computador.</br>
 
