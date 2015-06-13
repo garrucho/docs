@@ -694,7 +694,7 @@ _response:_
 ```
 
 > NOTA:
->> Retonar no campo paymentData.merchantPaymentReferenceId um inteiro (numero) identificador que será usado futuramente na mapeamnto do pagamento com o pedido, ou seja, o valor que retornar nesse campo irá indentifiar o pagamento desse pedido.
+>> Retonar no campo paymentData.merchantPaymentReferenceId um inteiro (numero) identificador que será usado futuramente na mapeamnto do pagamento com o pedido, ou seja, o valor que retornar nesse campo irá identificar o pagamento desse pedido. Pode até ser o "orderId" do Seller, caso este seja inteiro.
 
 _retorno de erro:_
 
