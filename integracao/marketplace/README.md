@@ -48,10 +48,10 @@ Este modelo permite a um Marketplace **não** VTEX expor e vender os produtos (S
 
 - - -
 
-####Marketplace hospedado na VTEX vendendo para Sellers hospedado na VTEX e Vice Versa
+####Marketplace Hospedado na VTEX Vendendo para Sellers Hospedado na VTEX e Vice Versa
 
 
-Nativamente a plataforma Vtex oferece essa possibiidade, através de uma simples configuração no Seller, (criação do afiliado relacionado o a uma política comercial) e outra configuração no Marketplace (criação do Seller).
+Nativamente a plataforma VTEX oferece essa possibiidade, através de uma simples configuração no Seller, (criação do afiliado relacionado o a uma política comercial) e outra configuração no Marketplace (criação do Seller).
 
 - - -
 
@@ -85,7 +85,7 @@ Toda chamada feita as APIs REST da VTEX devem ser feitas em "https" e devem cont
 
 
 ##Versão Beta
-Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integrador. A idéia e que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas na comunidade, para chegarmos a um documento rico e funcional.
+Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integrador. A idéia é que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas na comunidade, para chegarmos a um documento rico e funcional.
 
 ---
 
