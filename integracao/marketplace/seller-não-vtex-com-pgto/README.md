@@ -271,9 +271,8 @@ Content-Type: **application/json**</br>
 Accept: **application/json**</br>
 
 >PARAMETROS
->>?sc=[idcanal]an=[mechantname]
->>Esses parametros servem para o Seller fazer o controle de qual Marketplace está fazendo a chamada em seus serviços, pois, esse modelo, uma vez bem implementado servirá para vender em qualquer Marketplace hospedado na VTEX, dando ao Seller a oportunidade de vender em N Marketplace ao mesmo tempo.
->>**sc**=1&**an**=marketplaceseller, onde **sc** seria a campanha (será enviado 1 como padrao) e **an** seria o identificador do marketplace (esse deverá ser retornado em algumas chamadas). Opcional o uso pelo Seller.
+>>?**sc**=[idcanal]**an**=[mechantname]. Esses parametros servem para o Seller fazer o controle de qual Marketplace está fazendo a chamada em seus serviços, pois, esse modelo, uma vez bem implementado servirá para vender em qualquer Marketplace hospedado na VTEX, dando ao Seller a oportunidade de vender em N Marketplace ao mesmo tempo.
+>>>**sc**=1&**an**=marketplaceseller, onde **sc** seria a campanha (será enviado 1 como padrao) e **an** seria o identificador do marketplace (esse deverá ser retornado em algumas chamadas). Opcional o uso pelo Seller.
 
 
 _request:_
