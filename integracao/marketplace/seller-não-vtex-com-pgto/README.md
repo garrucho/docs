@@ -403,7 +403,7 @@ _response:_
 
 Quando cliente for para a página de pagamento, uma chamada será feita no Seller para buscar as formas de parcelamento das formas de pagamento. O Seller **não** VTEX deverá conhecer préviamente os ids das formas de pagamento do marketplace VTEX - Endpoint do Seller.
 
-> Identificadores dos cartões mais comuns no gateway das lojas VTEX:
+> Identificadores das formas de pagamento mais comuns no gateway das lojas VTEX:
 >> 1-American Express </br>
 >> 2-Visa </br>
 >> 3-Diners </br>
@@ -411,7 +411,7 @@ Quando cliente for para a página de pagamento, uma chamada será feita no Selle
 >> 4-Mastercard </br>
 
 
-endpoint: **https://Sellerendpoint/installments/options?sc=[idcanal]&an=[mechantname]**</br>
+endpoint: ```https://Sellerendpoint/installments/options?sc=[idcanal]&an=[mechantname]```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -718,14 +718,12 @@ _retorno de erro:_
 <a name="a7"><a/>
 ###Enviar Pagamento
 
-Quando o pagamento do pedido é informado no Marketplace hospedado na VTEX, um POST é feito no Seller, para que este possa receber os dados referente ao pagamento do respectivo pedido - Endpoint do Seller.
+Quando o pagamento do pedido é informado no Marketplace hospedado na VTEX, um POST é feito no Seller enviando os dados referente ao pagamento do respectivo pedido - endpoint do Seller.
 
-endpoint: **https://sellerendpoint/pvt/payment?sc=[idcanal]&an=[mechantname]**</br>
+endpoint: ```https://sellerendpoint/pvt/payment?sc=[idcanal]&an=[mechantname]```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
-Parametro: **an=shopfacilfastshop** // an é o nome do gateway da loja que ta enviando o pagamento</br>
-
 
 _request:_
 
@@ -758,14 +756,14 @@ _request:_
 	"clientData": { //dados do cliente
 		"firstName": "JONAS",
 		"lastName": "ALVES DE OLIVEIRA",
-		"document": "08081268731",
+		"document": "08081268731", 
 		"corporateName": "",
 		"tradeName": "",
 		"corporateDocument": "",
 		"isCorporate": "false"
 	},
-	"shippingValue": 3691, //valor da entrega
-	"callbackUrl": "https://nomedaloja.vtexpayments.com.br/api/pvt/callback/vtxstd/transactions/D3AA1FC8372E430E8236649DB5EBD08E/payments/F5C1A4E20D3B4E07B7E871F5B5BC9F91/return", //**url para falar de volta com o gateway de pagamento
+	"shippingValue": 3691, //custo da entrega
+	"callbackUrl": "https://marketplace.vtexpayments.com.br/api/pvt/callback/vtxstd/transactions/D3AA1FC8372E430E8236649DB5EBD08E/payments/F5C1A4E20D3B4E07B7E871F5B5BC9F91/return", //**url para falar de volta com o gateway de pagamento
 	"shoppingCart": { // carrinho
 	    "items": [
 	      {
@@ -811,41 +809,44 @@ _request:_
 	  }
 }
 ```
+>MUITO IMPORTANTE!
+>> Lembra do "paymentData.merchantPaymentReferenceId", da reposta do receber ordem de pedido citado acima?
+>> Ele agora vem como "referenceId" nos dados do pagamento, e serve para associar pedido com pagamento.
+
+Ao receber o POST com os dados de pagamento o Seller deve responder sincronamente com o status "undefined" enquanto o Seller não tem a informação sobre o resultado do processo de validação do pagamento (anti-fraude, autorização e aprovação). Os status do pagamento devem ser informados pela url de callback (chamada assincrona de retorno).
 
 <a name="a8"><a/>
-_Exemplo do Response e do POST Feito na CallbackUrl de Pagamento :_
+_exemplo do POST feito na CallbackUrl de Pagamento :_
 
 ```json
 {
-  	"paymentId" : "F5C1A4E20D3B4E07B7E871F5B5BC9F91",   // string, not null, Payment identifier sent on authorization request
+  	"paymentId" : "F5C1A4E20D3B4E07B7E871F5B5BC9F91",   // string, "paymentData.Id", recebido no POST de pagamento
 	"status" : "",    // string, not null, [approved | denied | undefined]
-  	"authorizationId": "", //id da autorização quando aprovado
+  	"authorizationId": "", //identificador da autorização
   	"bankIssueInvoiceUrl":"urldoboleto" //url do boleto bancario
 }
 ```
 
 > NOTA:
->> O response de pagamento pode ser respondido como "undefined" enquanto o Seller não tem a informação sobre o pagamento. Em caso de marketplace e Seller aceitarem boleto, quando recebido um post de pagamento com o paymentSystem igual a boleto, o Seller deve gerar o boleto e responder imediatamente com a url de boleto preenchida.
+>> A resposta de POST de dados de pagamento deve ser sincrona (na hora).
 
 
 <a name="a9"><a/>
 ###Enviar Autorização Para Despachar
 
 
-Quando o pagamento do pedido é concluído no Seller (pagamento válido), um POST deverá ser feito na "callbackUrl" do pagamento, informando sucesso do pagamento ("status":"approved"), nesse momento o marketplace VTEX envia autorização para despachar o respectivo pedido no Seller - Endpoint da Seller
+Quando o pagamento do pedido é concluído **com sucesso** no Seller (pagamento válido), um POST deverá ser feito na "callbackUrl" do pagamento, informando sucesso do pagamento ("status":"approved"), nesse momento o Marketplace hospedado na VTEX envia uma autorização para despachar o respectivo pedido no Seller (2 fase coomited) - endpoint do Seller.
 
-endpoint: **https://Sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]&an=[mechantname]**</br>
+endpoint: ```https://Sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]&an=[mechantname]```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
-Parametro: **orderid** // identificador do pedido gerado no Seller </br>
-Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace, serve para destacar o canal por onde o pedido entrou.</br>
 
 _request:_
 
 ```json
 {
-	"marketplaceOrderId": "959311095" //id do pedido originado no canal de vendas
+	"marketplaceOrderId": "959311095" //identificador do pedido originado no Marketplace
 }
 ```
 
@@ -860,17 +861,20 @@ _response:_
 }
 ```
 
+> PAGAMENTO NEGADO NO SELLER
+>> Enviar na url assincrona de retorno o POST com o status "denied", pagamento negado. :(
+
 ##Invocando Marketplace Services Endpoint Actions
 
 
-O MarketplaceServicesEndpoint serve para receber informações do Seller referentes a nota fiscal e tracking de pedido. É permitido o envio de notas fiscais parciais, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial. O pedido na VTEX só andará pra o status FATURADO quando o valor total de todas as notas fiscais de um pedido forem enviadas.
+O MarketplaceServicesEndpoint serve para receber informações do Seller referentes a nota fiscal e rastreamento de entrega de pedido. É permitido o envio de notas fiscais parciais, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial. O pedido na VTEX só andará pra o status FATURADO quando o valor total de todas as notas fiscais de um pedido forem enviadas.
 
 
 <a name="a10"><a/>
-###Informar Dados Nota Fiscal
+###Informar Dadosd de Nota Fiscal
 
 
-Quando o Seller não VTEX emitir a Nota Fiscal, deve informar as informações da Nota Fiscal - Endpoint VTEX
+Quando o Seller emitir a nota fiscal, deve informar as informações da nota fiscal - endpoint palataforma VTEX.
 
 endpoint: ```https://marketplaceServicesEndpoint/pub/orders/{orderId}/invoice```
 verb: **POST**
@@ -913,7 +917,7 @@ _response:_
 ###Informar Rastreamento de Entrega
 
 
-Quando o Seller entregar o pedido para a transportadora, deve informar as informações de rastreamento - Endpoint plataforma VTEX
+Quando o Seller entregar o pedido para a transportadora, deve informar as informações de rastreamento - endpoint palataforma VTEX.
 
 endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```</br>
 verb: **POST**</br>
@@ -958,7 +962,7 @@ _response:_
 ###Enviar Solicitação de Cancelamento
 
 
-Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em um estado que se possa cancelar, o pedido será cancelado - Endpoint VTEX
+Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em um estado que se permita cancelar, o pedido será cancelado - endpoint palataforma VTEX.
 
 endpoint: ``` https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel ```</br>
 verb: **GET**</br>
