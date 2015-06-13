@@ -51,7 +51,7 @@ Este modelo permite a um Marketplace **não** VTEX expor e vender os produtos (S
 ####Marketplace Hospedado na VTEX Vendendo para Sellers Hospedado na VTEX e Vice Versa
 
 
-Nativamente a plataforma VTEX oferece essa possibiidade, através de uma simples configuração no Seller, (criação do afiliado relacionado o a uma política comercial) e outra configuração no Marketplace (criação do Seller).
+Nativamente a plataforma VTEX oferece essa possibiidade, através de uma simples configuração no Seller, (criação do afiliado relacionado-o a uma política comercial) e outra configuração no Marketplace (criação do Seller).
 
 - - -
 
@@ -65,7 +65,7 @@ Extensão do navegador chrome, nesta ferramenta pode se testar, armazenar histó
 ####VTEX Bridge
 
 Essa ferramenta permite simular todos os metodos solicitados nas documentações do VTEX Lab, simulando request em uma loja real.
-[sandboxintegracao](https://sandboxintegracao.vtexcommercestable.com.br).
+[sandboxintegracao](http://sandboxintegracao.vtexcommercestable.com.br).
 
 <a title="VTEX Bridge" href="http://bridge.vtexlab.com.br/" target="_blank">[Developer] - VTEX Bridge</a>
 
@@ -73,7 +73,7 @@ Essa ferramenta permite simular todos os metodos solicitados nas documentações
 
 - - -
 
-##Credenciais Para Acesso  as API REST
+##Credenciais Para Acesso nas API REST
 
 
 Toda chamada feita as APIs REST da VTEX devem ser feitas em "https" e devem conter em seu header as chaves de autenticação. As chaves de autenticação do header(para acessar as APIs REST) devem ser solicitados ao administrador da loja, ou ao time de operaçãoes que está implantando a loja.
