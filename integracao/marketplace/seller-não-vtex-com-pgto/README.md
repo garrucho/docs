@@ -185,7 +185,7 @@ _exemplo do POST de dados:_
     }
   ],
   "ProductSupplementaryFields": null,
-  "RefId": null, //obrigatório quando o EAN não for enviado
+  "RefId": null, // obrigatório quando o EAN não for enviado
   "SellerId": "Cristalli",
   "SellerModifiedDate": null,
   "SellerStockKeepingUnitId": "cristalli00011", // tem que trocar esse id para os testes
@@ -211,9 +211,7 @@ _exemplo do POST de dados:_
 <a name="a3"><a/>
 ###Atualização de Preço e ou Estoque de SKU
 
-
 Toda vez que houver uma alteração no preço ou estoque, o Seller deve enviar uma notificação de mudança de SKU para a loja hospedadana VTEX, caso a loja retorne em seu serviço o **response status 200 ou 202**, significa que a SKU **existe** na loja, então a loja vai no Seller consultar o novo preço ou estoque.
-
 
 <a title="busca de condições comerciais no Seller" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/FULFILLMENT/FULFILLMENT_Simulation" target="_blank">[Developer] - Exemplo de Request de Busca de Condições Comerciais - Endpoint do Seller</a>
 
@@ -249,14 +247,13 @@ _Exemplo do POST de dados:_
 
 ###Simulação de Carrinho e Consulta Parcelamento
 
-
 Este tópico tem por objetivo auxiliar o integrador na simulação de carrinho, consultar parcelamento entre o marketplace VTEX com uma loja **não** VTEX. Simular um pedido e consultar as formas de parcelamento.
 
 > ATENÇÃO
 >> Esses metodos são usados no momento do fechamento da compra no Marketplace, por isso, é de suma importancia para uma boa conversão, que esses metodos sejam perfomáticos e de alta disponibilidade.
 
 ###No Carrinho e no Pagamento
-Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho é feita no Seller para checar a validade das condiçoes comerciais (preço, estoque, frete e SLAs de entrega).
+Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma edição no carrinho, uma consulta de simulação de carrinho é feita no Seller para checar a validade das condiçoes comerciais (preço, estoque, frete e SLAs de entrega).
 
 *Exemplo do fuxo de chamadas no carrinho:*
 
@@ -266,15 +263,17 @@ Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma 
 <a name="a4"><a/>
 ###Simulação de Carrinho
 
+Quando ocorre uma edição no carrinho, uma chamada será feita no Seller para checar a disponibilidade dos itens - Endpoint do Seller.
 
-Quando ocorre uma edição no carrinho, uma chamada será feita no Seller para checar a disponibilidade do item. Quando o CEP não for enviado, retornar sem as informações de logistica - Endpoint do Seller
-
-
-endpoint: **https://Sellerendpoint/pvt/orderForms/simulation?sc=[idcanal]?an=[mechantname]**</br>
+endpoint: ```https://[sellerendpoint]/pvt/orderForms/simulation?sc=[idcanal]&an=[mechantname]```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
-Accept: **application/json** </br>
-Parametro: **sc=5** // sc é o id do canal de vendas</br>
+Accept: **application/json**</br>
+
+>PARAMETROS
+>>?sc=[idcanal]an=[mechantname]
+>>Esses parametros servem para o Seller fazer o controle de qual Marketplace está fazendo a chamada em seus serviços, pois, esse modelo, uma vez bem implementado servirá para vender em qualquer Marketplace hospedado na VTEX, dando ao Seller a oportunidade de vender em N Marketplace ao mesmo tempo.
+>>**sc**=1&**an**=marketplaceseller, onde **sc** seria a campanha (será enviado 1 como padrao) e **an** seria o identificador do marketplace (esse deverá ser retornado em algumas chamadas). Opcional o uso pelo Seller.
 
 
 _request:_
@@ -283,19 +282,19 @@ _request:_
 {
   "items": [
     {
-      "id": "2000037",
-      "quantity": 1,
-      "Seller": "1"
+      "id": "2000037", //identificador do item no Seller
+      "quantity": 1, //quantidade desejada
+      "seller": "1"
     },
     {
       "id": "34562",
       "quantity": 2,
-      "Seller": "1"
+      "seller": "1"
     }
   ],
   "marketingData": null,
-  "postalCode": "22051030", //não obrigatório
-  "country": "BRA", //não obrigatório
+  "postalCode": "22051030", // não obrigatório
+  "country": "BRA", // não obrigatório
   "selectedSla": null,
   "clientProfileData": null,
   "geoCoordinates": []
@@ -306,19 +305,19 @@ _response:_
 
 ```json
 {
-	"items": [ //pode vir um array vazio
+	"items": [ //pode vir um array vazio caso item insidponivel
 	    {
-	        "id": "287611",//obrigatório, string - identificador so SKU
-	        "requestIndex": 0, //obrigatório, int - representa a posição desse item no array original (request)
-	        "price": 7390, //obrigatório, int - preço por, os dois dígitos menos significativos são os centavos
-	        "listPrice": 7490, //obrigatório, int - preço de, os dois dígitos menos significativos são os centavos
-	        "quantity": 1, //obrigatório, int - retornar a quantidade solicitada ou a quantidade que consegue atender
-	        "Seller": "1", //obrigatório, string - retonar o que foi passado no request
-	    	"merchantName": "shopfacilfastshop", //nome do gateway (enviador do pagamento) criado na VTEX para o Seller
-	        "priceValidUntil": "2014-03-01T22:58:28.143"  //pode ser nulo, string - data de validade do preço.
-	        "offerings":[  //array opcional de ofertas, porém não pode ser nulo: enviar array vazio ou não enviar
+	        "id": "287611",// obrigatório, string - identificador so SKU
+	        "requestIndex": 0, // obrigatório, int - representa a posição desse item no array original (request)
+	        "price": 7390, // obrigatório, int - preço por, os dois dígitos menos significativos são os centavos
+	        "listPrice": 7490, // obrigatório, int - preço de, os dois dígitos menos significativos são os centavos
+	        "quantity": 1, // obrigatório, int - retornar a quantidade solicitada ou a quantidade que consegue atender
+	        "seller": "1", // obrigatório, string - retonar o que foi passado no request
+	    	"merchantName": "shopfacilfastshop", // se o pagamento for no seller, retornar o que recebeu no parametro an.
+	        "priceValidUntil": "2014-03-01T22:58:28.143"  // pode ser nulo, string - data de validade do preço.
+	        "offerings":[  //array opcional de ofertas, porém não pode ser nulo: enviar array vazio.
 	            {
-	                "type":"Garantia",                             //obrigatório, string - tipo do serviço
+	                "type":"Garantia", //obrigatório, string - tipo do serviço
 	                "id":"5",  //obrigatório, string - identificador do serviço
 	                "name":"Garantia de 1 ano", //obrigatório, string - nome do serviço
 	                "price":10000  //obrigatório, int - preço do serviço, os dois dígitos menos significativos são os centavos
@@ -337,36 +336,36 @@ _response:_
 	        "price": 890,
 	        "listPrice": 990,
 	        "quantity": 5,
-	        "Seller": "1",
-			"merchantName": "shopfacilfastshop",
+	        "seller": "1",
+			"merchantName": "shopfacilfastshop", // se o pagamento for no seller, retornar o que recebeu no parametro an.
 	        "priceValidUntil": null
 	    }
 	],
-	"logisticsInfo": [ //array de informações, quando produtos indisponíveis enviar vazio []
+	"logisticsInfo": [ // array de informações, quando produtos indisponíveis retornar vazio []
 	    {
-	        "itemIndex": 0, //obrigatório, int - index do array de items
-	        "stockBalance": 99, //obrigatório, int - estoque que atende
-	        "quantity": 1, //obrigatório, int - retornar a quantidade solicitada ou a quantidade que consegue atender
-	        "shipsTo": [ "BRA", "USA" ],  //obrigatório, array de string com as siglas dos países de entrega
-	        "slas": [  //obrigatório quando o CEP e país forem passados no request. Pode ser um array vazio
+	        "itemIndex": 0, // obrigatório, int - index do array de items
+	        "stockBalance": 99, // obrigatório, int - estoque que atende
+	        "quantity": 1, // obrigatório, int - retornar a quantidade solicitada ou a quantidade que consegue atender
+	        "shipsTo": [ "BRA"],  // obrigatório, array de string com as siglas dos países de entrega
+	        "slas": [  // obrigatório,  pode ser um array vazio na ausencia de CEP.
 	            {
 	                "id": "Expressa",  //obrigatório, string - identificador tipo entrega
-	                "name": "Entrega Expressa",//obrigatório, string - nome do tipo entrega
-	                "shippingEstimate": "2bd", //obrigatório, string - doas estimados para a entrega, bd == "business days"
-	                "price": 1000 //obrigatório, int - custo da entrega, os dois dígitos menos significativos são os centavos
-	                "availableDeliveryWindows": [  //opcional, janelas de entrega,  podendo ser um array vazio
+	                "name": "Entrega Expressa",// obrigatório, string - nome do tipo entrega
+	                "shippingEstimate": "2bd", // obrigatório, string - doas estimados para a entrega, bd == "business days"
+	                "price": 1000 // obrigatório, int - custo da entrega, os dois dígitos menos significativos são os centavos
+	                "availableDeliveryWindows": [  // opcional, janelas de entrega,  podendo ser um array vazio
 	                ]
 	            },
 	            {
 	                "id": "Agendada",
 	                "name": "Entrega Agendada",
-	                "shippingEstimate": "5d",  //d - days, bd -business days
+	                "shippingEstimate": "5d",  // d - days, bd -business days
 	                "price": 800,
 	                "availableDeliveryWindows": [
 	                     {
-	                        "startDateUtc": "2013-02-04T08:00:00+00:00",  //date, obrigatório se for enviado delivery window
-	                        "endDateUtc": "2013-02-04T13:00:00+00:00", //date, obrigatório se for enviado delivery window
-	                        "price": 0 //int, obrigatório se for enviado delivery window - o valor adicional da entrega agendada
+	                        "startDateUtc": "2013-02-04T08:00:00+00:00",  // date, obrigatório se for enviado delivery window
+	                        "endDateUtc": "2013-02-04T13:00:00+00:00", // date, obrigatório se for enviado delivery window
+	                        "price": 0 // int, obrigatório se for enviado delivery window - o valor adicional da entrega agendada
 	                    },
 	                ]
 	            }
@@ -381,14 +380,14 @@ _response:_
 	            {
 	                "id": "Normal",
 	                "name": "Entrega Normal",
-	                "shippingEstimate": "5bd", //bd - business days
+	                "shippingEstimate": "5bd", // bd - business days
 	                "price": 200
 	            }
 	        ]
 	    }
 	],
-	"country":"BRA",   //string, nulo se não enviado
-	"postalCode":"22251-030"   //string, nulo se não enviado
+	"country":"BRA",   // string, nulo se não enviado
+	"postalCode":"22251-030"   // string, nulo se não enviado
 }
 ```
 
@@ -398,9 +397,8 @@ _response:_
 > > No campo quantity, retornar o solicitado ou a quantidade que consegue atender.
 
 
-<a name="mechantname"><a/>
+<a name="a5"><a/>
 ###Consulta de Opções de Parcelamento.
-
 
 Quando cliente for para a página de pagamento, uma chamada será feita no Seller para buscar as formas de parcelamento das formas de pagamento. O Seller **não** VTEX deverá conhecer préviamente os ids das formas de pagamento do marketplace VTEX - Endpoint do Seller.
 
@@ -412,11 +410,10 @@ Quando cliente for para a página de pagamento, uma chamada será feita no Selle
 >> 4-Mastercard </br>
 
 
-endpoint: ```https://Sellerendpoint/installments/options?sc=[idcanal]&an=[mechantname]```</br>
+endpoint: ```https://[sellerendpoint]/installments/options?sc=[idcanal]&an=[mechantname]```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
-Parametro: **an=nomedaloja**</br>
 
 _request:_
 
@@ -430,7 +427,7 @@ _request:_
      	"Quantity":1, //quantidade do SKU
      	"Id":1940388, //id do SKU
      	"SellerId":"1",
-    	"SalesChannel":5 //id do canal de vendas no Seller, caso exista
+    	"SalesChannel":1 //id do canal de vendas no Seller, caso exista
     }
   ],
   "postalCode":"22051030" //CEP
@@ -443,14 +440,14 @@ _response:_
 ```json
 [
     {
-        "paymentSystem": 2, //int -identificador da forma de pagamento
+        "paymentSystem": 2, // int -identificador da forma de pagamento
         "name": "",
-        "value": 27280, //int, valor solicitado para parcelar
+        "value": 27280, // int, valor solicitado para parcelar
         "installments": [
             {
-                "count": 1, //int, numero de parcelas
-                "value": 27280, //int, valor da parecela
-                "interestRate": 0, //int, taxa de juros
+                "count": 1, // int, numero de parcelas
+                "value": 27280, // int, valor da parecela
+                "interestRate": 0, // int, taxa de juros
                 "hasInterestRate": false // booleana - tem juros?
             },
             {
@@ -523,103 +520,99 @@ _response:_
 
 ###Enviar Pedido e Informar Pagamento
 
-
 Este tópico tem por objetivo auxiliar o Seller não VTEX a receber um pedido, receber o respectivo pagamento do pedido, e comunicar a atualização de status de pagamento.
 
 
-*Exemplo do fuxo de chamadas de descida de pedido, pagamento e atualização de status de pagamento:*
+_Exemplo do fuxo de chamadas de descida de pedido, pagamento e atualização de status de pagamento:_
 
 ![alt text](pedido-pagamento-fluxo.png "Title")
 
 <a name="a6"><a/>
 ###Enviar Pedido
 
-
 Quando o pedido é fechado no ambiente do Marketplace hospedado na VTEX, um POST é feito no Seller, para que este possa receber a ordem de pedido - Endpoint do Seller.
 
-endpoint: **https://sellerendpoint/pvt/orders?sc=[idcanal]&an=[mechantname]**</br>
+endpoint: ```https://sellerendpoint/pvt/orders?sc=[idcanal]&an=[mechantname]```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
-Parametro: **sc** // sc serve para destacar o canal por onde o pedido entrou</br>
-Parametro: **mechantname** // afiliado que esta colocando o pedido
 
 _request:_
 
 ```json
 [
   {
-    "marketplaceOrderId": "959311095", //identificador do pedido no market place
-    "marketplaceServicesEndpoint": "https://marketplaceservicesendpoint/", //leia o tópico Invocando MarketplaceServicesEndpoint Actions
+    "marketplaceOrderId": "959311095", // identificador do pedido no market place
+    "marketplaceServicesEndpoint": "https://marketplaceservicesendpoint/", // leia o tópico Invocando MarketplaceServicesEndpoint Actions
     "marketplacePaymentValue": 11080, //valor que o marketplace se compromete a pagar para o Seller
     "items": [
       {
-        "id": "2002495", //identificadro da SKU no Seller
-        "quantity": 1, //quantidade comprada
+        "id": "2002495", // identificadro da SKU no Seller
+        "quantity": 1, // quantidade comprada
         "Seller": "1",
         "commission": 0,
         "freightCommission": 0,
-        "price": 9990, //preço da SKU
-        "bundleItems": [], //serviços. Ex: embalagem pra presente.
+        "price": 9990, // preço da SKU
+        "bundleItems": [], // serviços. Ex: embalagem pra presente.
         "itemAttachment": {
           "name": null,
           "content": {}
         },
-        "attachments": [], //customização do item, Ex:camisa com o numero 10
+        "attachments": [], // customização do item, Ex:camisa com o numero 10
         "priceTags": [],
-        "measurementUnit": null, //unidade de medida
-        "unitMultiplier": 0, //unidade multipladora,Ex: venda por quilo
+        "measurementUnit": null, // unidade de medida
+        "unitMultiplier": 0, // unidade multipladora, Ex: venda por quilo
         "isGift": false
       }
     ],
     "clientProfileData": {
       "id": "clientProfileData",
-      "email": "32172239852@gmail.com.br", //e-mail do cliente
-      "firstName": "Jonas", //primeiro nome do ciente
-      "lastName": "Alves de Oliveira", //sobrenome do cliente
+      "email": "32172239852@gmail.com.br", // e-mail do cliente
+      "firstName": "Jonas", // primeiro nome do ciente
+      "lastName": "Alves de Oliveira", // sobrenome do cliente
       "documentType": null,
-      "document": "3244239851", //documento
-      "phone": "399271258", //fone
-      "corporateName": null, //se pessoa juridica, razao social
-      "tradeName": null, //se pessoa juridica, nome fantasia
-      "corporateDocument": null, //se pessoa juridica, documento
-      "stateInscription": null, //se pessoa juridica, iscrição estadual
-      "corporatePhone": null, //se pessoa juridica, fone
-      "isCorporate": false, //é pessoa juridica?
+      "document": "3244239851", // documento
+      "phone": "399271258", // fone
+      "corporateName": null, // se pessoa juridica, razao social
+      "tradeName": null, // se pessoa juridica, nome fantasia
+      "corporateDocument": null, // se pessoa juridica, documento
+      "stateInscription": null, // se pessoa juridica, iscrição estadual
+      "corporatePhone": null, // se pessoa juridica, fone
+      "isCorporate": false, // é pessoa juridica?
       "userProfileId": null
     },
     "shippingData": {
       "id": "shippingData",
       "address": {
-        "addressType": "Residencial", //tipo do endereço
-        "receiverName": "Jonas Alves de Oliveira", //nome do destinatário
-        "addressId": "Casa", //identificador do endereço
-        "postalCode": "13476103", //código postal
-        "city": "Americana", //cidade
-        "state": "SP", //unidade federativa
-        "country": "BRA", //país
-        "street": "JOÃO DAMÁZIO GOMES", //logradouro
-        "number": "311", //número do endereço
-        "neighborhood": "SÃO JOSÉ", //bairro
-        "complement": null, //complemnto
-        "reference": "Bairro Praia Azul / Posto de Saúde 17", //refrencia
+        "addressType": "Residencial", // tipo do endereço
+        "receiverName": "Jonas Alves de Oliveira", // nome do destinatário
+        "addressId": "Casa", // identificador do endereço
+        "postalCode": "13476103", // código postal
+        "city": "Americana", // cidade
+        "state": "SP", // unidade federativa
+        "country": "BRA", // país
+        "street": "JOÃO DAMÁZIO GOMES", // logradouro
+        "number": "311", // número do endereço
+        "neighborhood": "SÃO JOSÉ", // bairro
+        "complement": null, // complemnto
+        "reference": "Bairro Praia Azul / Posto de Saúde 17", // refrencia
         "geoCoordinates": []
       },
       "logisticsInfo": [
         {
-          "itemIndex": 0, //index do array de itens
-          "selectedSla": "Normal", //tipo de entrega
-          "lockTTL": "8d", //dias de reserva
-          "shippingEstimate": "7d", //dias estimados para a entrega
-          "price": 1090, //preço da entrega
-          "deliveryWindow": null //janela de entrega
+          "itemIndex": 0, // index do array de itens
+          "selectedSla": "Normal", // tipo de entrega
+          "lockTTL": "8d", // dias de reserva
+          "shippingEstimate": "7d", // dias estimados para a entrega
+          "price": 1090, // preço da entrega
+          "deliveryWindow": null // janela de entrega
         }
       ]
     },
     "openTextField": null,
     "marketingData": null,
     "paymentData":{
-		"merchantName":"shopfacilfastshop" //gateway de redirect na vtex.
+		"merchantName":"shopfacilfastshop" //identificador do marketplaceseller
 	}
   }
 ]
@@ -693,8 +686,8 @@ _response:_
       ]
     },
    "paymentData":{
-		"merchantName":"shopfacilfastshop", //devolver o parametro an recebido no request
-		"merchantPaymentReferenceId":"123543123" //inteiro, id do pagamento, número que será enviado junto com o pagamento para conciliação.
+		"merchantName":"shopfacilfastshop", // devolver o parametro an recebido no request
+		"merchantPaymentReferenceId":"123543123" // inteiro, id do pagamento, número que será enviado junto com o pagamento para conciliação.
 	}
   }
 ]
@@ -703,8 +696,6 @@ _response:_
 
 > NOTA:
 >> Retonar no campo paymentData.merchantPaymentReferenceId um inteiro (numero) identificador que será usado futuramente na mapeamnto do pagamento com o pedido, ou seja, o valor que retornar nesse campo irá indentifiar o pagamento desse pedido.
-
-
 
 _retorno de erro:_
 
@@ -732,19 +723,19 @@ _request:_
 
 ```json
 {
-	"referenceId": "123543123", //merchantPaymentReferenceId retornado no request do place order
-	"transactionId": "D3AA1FC8372E430E8236649DB5EBD08E", //identificador da transação
+	"referenceId": "123543123", // merchantPaymentReferenceId retornado no request do place order
+	"transactionId": "D3AA1FC8372E430E8236649DB5EBD08E", // identificador da transação
 	"paymentData": {
-		"id": "F5C1A4E20D3B4E07B7E871F5B5BC9F91", //identificador do pagamento
-		"paymentSystem": 2, //identificador da forma depagamento
-		"cardNumber": "4444333322221111", //numero do cartão
-		"cardHolder": "JONAS ALVES DE OLIVEIRA", //nome do cartão
-		"expiryMonth": 11, //mes de expiração
-		"expiryYear": 16, //ano de expiração
-		"value": 11080, //valor do pagamento
-		"installments": 3, //numero de parcelas
-		"cvv2": "123", //codigo verificador
-		"billingAddress": { //endereço de cobrança
+		"id": "F5C1A4E20D3B4E07B7E871F5B5BC9F91", // identificador do pagamento
+		"paymentSystem": 2, // identificador da forma depagamento
+		"cardNumber": "4444333322221111", // numero do cartão
+		"cardHolder": "JONAS ALVES DE OLIVEIRA", // nome do cartão
+		"expiryMonth": 11, // mes de expiração
+		"expiryYear": 16, // ano de expiração
+		"value": 11080, // valor do pagamento
+		"installments": 3, // numero de parcelas
+		"cvv2": "123", // codigo verificador
+		"billingAddress": { // endereço de cobrança
 			"addressType": "residential",
 			"street": "Rua Cinco De Julho",
 			"number": "176",
@@ -756,7 +747,7 @@ _request:_
 			"neighborhood": ""
 		}
 	},
-	"clientData": { //dados do cliente
+	"clientData": { // dados do cliente
 		"firstName": "JONAS",
 		"lastName": "ALVES DE OLIVEIRA",
 		"document": "08081268731", 
@@ -765,15 +756,15 @@ _request:_
 		"corporateDocument": "",
 		"isCorporate": "false"
 	},
-	"shippingValue": 3691, //custo da entrega
-	"callbackUrl": "https://marketplace.vtexpayments.com.br/api/pvt/callback/vtxstd/transactions/D3AA1FC8372E430E8236649DB5EBD08E/payments/F5C1A4E20D3B4E07B7E871F5B5BC9F91/return", //url para falar de volta com o gateway de pagamento
+	"shippingValue": 3691, // custo da entrega
+	"callbackUrl": "https://marketplace.vtexpayments.com.br/api/pvt/callback/vtxstd/transactions/D3AA1FC8372E430E8236649DB5EBD08E/payments/F5C1A4E20D3B4E07B7E871F5B5BC9F91/return", // url para falar de volta com o gateway de pagamento
 	"shoppingCart": { // carrinho
 	    "items": [
 	      {
-	        "id": "2044360", //identificador do SKU no Seller
-	        "name": "Calça com Rasgos Skinny Preto 36", //nome do SKU
-	        "value": 6990, //preço do SKU
-	        "quantity": 1, //quantidade do item
+	        "id": "2044360", // identificador do SKU no Seller
+	        "name": "Calça com Rasgos Skinny Preto 36", // nome do SKU
+	        "value": 6990, // preço do SKU
+	        "quantity": 1, // quantidade do item
 	        "priceTags": [
 	          {
 	            "name": "discount@shipping-1e522efe-9638-4f93-81d7-b280cdbef920#8bacb546-ac99-4107-a54a-c17cf53034c6",
@@ -804,11 +795,11 @@ _request:_
 	        "productId": "2009639"
 	      }
 	    ],
-	    "freight": 0, //frete
+	    "freight": 0, // frete
 	    "orderUrl": "http://www.cea.com.br/admin/checkout/#/orders?q=v676163cea",
 	    "tax": 0,
 	    "shippingdate": null,
-	    "shippingestimated": "6bd" //dias estimados para entrega
+	    "shippingestimated": "6bd" // dias estimados para entrega
 	  }
 }
 ```
@@ -819,14 +810,14 @@ _request:_
 Ao receber o POST com os dados de pagamento o Seller deve responder sincronamente com o status "undefined" enquanto não tem a informação sobre o resultado do processo do pagamento (anti-fraude, autorização e aprovação). Os status do pagamento devem ser informados pela url de callback (chamada assincrona de retorno).
 
 <a name="a8"><a/>
-_exemplo do POST feito na CallbackUrl de Pagamento :_
+_exemplo do POST feito na CallbackUrl de pagamento :_
 
 ```json
 {
-  	"paymentId" : "F5C1A4E20D3B4E07B7E871F5B5BC9F91",   // string, "paymentData.Id", recebido no POST de pagamento
-	"status" : "",    // string, not null, [approved | denied | undefined]
-  	"authorizationId": "", //identificador da autorização
-  	"bankIssueInvoiceUrl":"urldoboleto" //url do boleto bancario
+  	"paymentId" : "F5C1A4E20D3B4E07B7E871F5B5BC9F91", // string, obrigatorio, "paymentData.Id", recebido no POST de pagamento
+	"status" : "undefined",    // string, obrigatorio, [approved | denied | undefined]
+  	"authorizationId": "", // string, identificador da autorização quando aprovado.
+  	"bankIssueInvoiceUrl":"urldoboleto" // string, url do boleto bancario
 }
 ```
 
@@ -849,7 +840,7 @@ _request:_
 
 ```json
 {
-	"marketplaceOrderId": "959311095" //identificador do pedido originado no Marketplace
+	"marketplaceOrderId": "959311095" // identificador do pedido originado no Marketplace
 }
 ```
 
@@ -865,19 +856,18 @@ _response:_
 ```
 
 > PAGAMENTO NEGADO NO SELLER
->> Enviar na url assincrona de retorno o POST com o status "denied", pagamento negado. :(
+>> Enviar na URL assincrona de retorno o POST com o status "denied", pagamento negado. :(
 
 ##Invocando Marketplace Services Endpoint Actions
-
 
 O MarketplaceServicesEndpoint serve para receber informações do Seller referentes a nota fiscal e rastreamento de entrega de pedido. É permitido o envio de notas fiscais parciais, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial. O pedido na VTEX só andará pra o status FATURADO quando o valor total de todas as notas fiscais de um pedido forem enviadas.
 
 
 <a name="a10"><a/>
-###Informar Dadosd de Nota Fiscal
+###Informar Dados de Nota Fiscal
 
 
-Quando o Seller emitir a nota fiscal, deve informar as informações da nota fiscal - endpoint palataforma VTEX.
+Quando o Seller emitir a nota fiscal, deve enviar as informações da nota fiscal - endpoint palataforma VTEX.
 
 endpoint: ```https://marketplaceServicesEndpoint/pub/orders/{orderId}/invoice```
 verb: **POST**
@@ -890,20 +880,20 @@ _request:_
 
 ```json
 {
-    "type": "Output", //Output|Input (venda|devolução)
-    "invoiceNumber": "NFe-00001", //numero da nota fiscal
-    "courier": "", //quando é nota fiscal, dados de tracking vem vazio
-    "trackingNumber": "", //quando é nota fiscal, dados de tracking vem vazio
-    "trackingUrl": "",//quando é nota fiscal, dados de tracking vem vazio
-    "items": [ //itens da nota
+    "type": "Output", // Output|Input (venda|devolução)
+    "invoiceNumber": "NFe-00001", // numero da nota fiscal
+    "courier": "", // quando é nota fiscal, dados de tracking vem vazio
+    "trackingNumber": "", // quando é nota fiscal, dados de tracking vem vazio
+    "trackingUrl": "",// quando é nota fiscal, dados de tracking vem vazio
+    "items": [ // itens da nota
       {
         "id": "345117",
         "quantity": 1,
         "price": 9003
       }
     ],
-    "issuanceDate": "2013-11-21T00:00:00", //data de emissao da nota
-    "invoiceValue": 9508 //valor da nota
+    "issuanceDate": "2013-11-21T00:00:00", // data de emissao da nota
+    "invoiceValue": 9508 // valor da nota
 }
 ```
 
@@ -911,9 +901,9 @@ _response:_
 
 ```json
 {
-    "date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
+    "date": "2014-02-07T15:22:56.7612218-02:00", // data do recibo
     "orderId": "123543123",
-    "receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
+    "receipt": "38e0e47da2934847b489216d208cfd91" // protocolo gerado, pode ser nulo
 }
 ```
 <a name="a11"><a/>
@@ -933,9 +923,9 @@ _request:_
 {
     "type": "Output",
     "invoiceNumber": "NFe-00001",
-    "courier": "Correios", //transportadora
-    "trackingNumber": "SR000987654321", /identificador de rastreamentor
-    "trackingUrl": "http://traking.correios.com.br/sedex/SR000987654321", url de rastreamento
+    "courier": "Correios", // transportadora
+    "trackingNumber": "SR000987654321", // identificador de rastreamentor
+    "trackingUrl": "http://traking.correios.com.br/sedex/SR000987654321", // url de rastreamento
     "items": [
       {
         "id": "345117",
@@ -952,9 +942,9 @@ _response:_
 
 ```json
 {
-    "date": "2014-02-07T15:22:56.7612218-02:00", //data do recebimento
+    "date": "2014-02-07T15:22:56.7612218-02:00", // data do recebimento
     "orderId": "123543123",
-    "receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado confirmando o recebimento do POST (GUID)
+    "receipt": "38e0e47da2934847b489216d208cfd91" // protocolo gerado confirmando o recebimento do POST (GUID)
 }
 ```
 
