@@ -958,10 +958,10 @@ _response:_
 
 Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em um estado que se possa cancelar, o pedido será cancelado - Endpoint VTEX
 
-endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel**</br>
+endpoint: ``` https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel ```</br>
 verb: **GET**</br>
 
-> Para cancelar um pedido com nota fiscal já informada, tem quer enviado uma Nota Fiscal do tipo Input.
+> Para cancelar um pedido com nota fiscal já informada, enviar uma Nota Fiscal do tipo Input com o valor cheio do pedido.
 
 ---
 
