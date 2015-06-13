@@ -8,15 +8,15 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
 > _SKU_ = Item a ser trocado e vendido entre Seller e Marketplace.</br>
 
 
-####Acões que deverão ser tomadas pelo Seller não hospedado na VTEX para implementação da integração:
+####Ações que deverão ser tomadas pelo Seller não hospedado na VTEX para implementação da integração:
 
 1. Implementar chamada de notificação de mudança de preço e estoque - Seller vai chamar endpoint da VTEX.
-    > Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint da loja na VTEX.
+    > Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint da loja na VTEX, simplesmente comunicando a mudança.
 
     _exemplo da chamada:_</br>
     ``` https://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller] ```
 
-   [Exemplo Completo: Enviar Notificação de Mudança de Preço e Estoque de SKU](#a1)
+    [Exemplo Completo: Enviar Notificação de Mudança de Preço e Estoque de SKU](#a1)
 
 
 2. Implementar chamada de inserção de de sugestão de SKU -  Seller vai chamar endpoint da VTEX.
@@ -29,7 +29,7 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
 
 
 3. Implementar endpoint para consulta de politica comercial (preço e estoque) - VTEX chama endpoint do Seller.
-    > A loja hospedada na VTEX usará esse metodo para buscar preço e estoque no Seller tanto na indexação quanto na simulação de carrinho.
+    > A loja hospedada na VTEX usará esse metodo para buscar preço e estoque no Seller tanto na indexação (catalogar preço e estoque), quanto na simulação de carrinho.
 
     _exemplo da chamada:_</br>
     ``` https://[seller].com.br/pvt/orderForms/simulation?sc=1&an=mechantname ```
@@ -62,7 +62,7 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
     [Exemplo Completo: Colocar um Pedido no Seller](#a6)
 
 
-6. Implementar endpoint para receber o pagamento - VTEX chama endpoint do Seller.
+6. Implementar endpoint para receber dados de pagamento - VTEX chama endpoint do Seller.
     > A loja na VTEX irá usar esse endpoint para enviar o pagamento para o Seller
 
     _exemplo da chamada:_</br>
@@ -83,8 +83,8 @@ e que o Seller já pode andar com o pedido.
     [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
 
 
-8. Implementar rotina de informar nota fiscal e tracking de um pedido.
-    > Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
+8. Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido.
+    > Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
 
     _exemplo da chamada:_</br>
     ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```</br>
@@ -104,7 +104,7 @@ Sugestão de SKU, atualização de preço e estoque. Toda vez que houver uma alt
 Caso a loja retorne em seu serviço o **response status 200 ou 202**, significa que a **SKU existe** no Marketplace, então a Marketplace vai no Seller consultar o novo preço e ou estoque.
 
 > ATENÇÂO:
->> Este modelo não comtempla atualizações de imagens e descrição de um SKU depois dele catalogado no Marketplace, ou seja, depois do SKU mapeado e aceito pelo Marketplace, somente preço e estoque serão atualizados dinamicamente.
+>> Este modelo não comtempla atualizações de imagens e descrição de um SKU depois de catalogado (aceito) no Marketplace, ou seja, depois do SKU mapeado e aceito pelo Marketplace, somente preço e estoque serão atualizados dinamicamente.
 
 
 _Exemplo do fluxo:_
@@ -121,14 +121,16 @@ Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o 
 
 
 <a name="a2"><a/>
-###Enviar Sugestão de SKU
+###Enviar Sugestão de SKU para Venda
 
 
-Quando o serviço de notificação descrito acima retornar um **response status 404**, significa que o SKU **NÂO existe** no marketplace hospedado na VTEX, então o Seller envia um POST com os dados da SKU que deseja sugerir para vender no Marketplace. O Seller faz as sugestões de suas SKUs e o administrador do Marketplace realiza o mapeamento de marcas e categorias através da pagina de administração do Marketplace, e aceita ou não a sugestão de SKU enviada pelo Seller.
+Quando o serviço de notificação descrito acima retornar um **response status 404**, significa que o SKU **NÂO existe** no Marketplace hospedado na VTEX, então o Seller envia um POST com os dados da SKU que deseja sugerir para vender no Marketplace. 
 
-<a title="envia sugestão de sku" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/CATALOG/CATALOG_Sugestion" target="_blank">[Developer] - Exemplo de Request de Inserção de Sugestão de SKU - Endpoint da loja hospedada VTEX</a>
+> O Seller faz as sugestões de suas SKUs e o administrador do Marketplace realiza o mapeamento de marcas e categorias através da pagina de administração do Marketplace, e aceita ou não a sugestão de SKU enviada pelo Seller.
 
-_Exemplo do POST de dados:_
+<a title="envia sugestão de sku" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/CATALOG/CATALOG_Sugestion" target="_blank">[Developer] - Exemplo de Request de Inserção de Sugestão de SKU - Endpoint da loja hospedada na VTEX</a>
+
+_exemplo do POST de dados:_
 
 ```json
 {
@@ -865,12 +867,12 @@ O MarketplaceServicesEndpoint serve para receber informações do Seller referen
 
 
 <a name="a10"><a/>
-###Informar Nota Fiscal
+###Informar Dados Nota Fiscal
 
 
 Quando o Seller não VTEX emitir a Nota Fiscal, deve informar as informações da Nota Fiscal - Endpoint VTEX
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/{orderId}/invoice**
+endpoint: ```https://marketplaceServicesEndpoint/pub/orders/{orderId}/invoice```
 verb: **POST**
 Content-Type: **application/json**
 Accept: **application/json**
@@ -893,7 +895,7 @@ _request:_
         "price": 9003
       }
     ],
-    "issuanceDate": "2013-11-21T00:00:00", //data da nota
+    "issuanceDate": "2013-11-21T00:00:00", //data de emissao da nota
     "invoiceValue": 9508 //valor da nota
 }
 ```
@@ -908,12 +910,12 @@ _response:_
 }
 ```
 <a name="a11"><a/>
-###Informar Tracking
+###Informar Rastreamento de Entrega
 
 
-Quando o Seller entregar o pedido para a transportadora, deve informar as informações de Tracking - Endpoint VTEX
+Quando o Seller entregar o pedido para a transportadora, deve informar as informações de rastreamento - Endpoint plataforma VTEX
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice**</br>
+endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -925,8 +927,8 @@ _request:_
     "type": "Output",
     "invoiceNumber": "NFe-00001",
     "courier": "Correios", //transportadora
-    "trackingNumber": "SR000987654321", /tracking number
-    "trackingUrl": "http://traking.correios.com.br/sedex/SR000987654321", url de tracking
+    "trackingNumber": "SR000987654321", /identificador de rastreamentor
+    "trackingUrl": "http://traking.correios.com.br/sedex/SR000987654321", url de rastreamento
     "items": [
       {
         "id": "345117",
@@ -934,7 +936,7 @@ _request:_
         "price": 9003
       }
     ],
-    "issuanceDate": "2013-11-21T00:00:00",
+    "issuanceDate": "2013-11-21T00:00:00", // formato esperado
     "invoiceValue": 9508
 }
 ```
@@ -943,13 +945,13 @@ _response:_
 
 ```json
 {
-    "date": "2014-02-07T15:22:56.7612218-02:00", //data do recibo
+    "date": "2014-02-07T15:22:56.7612218-02:00", //data do recebimento
     "orderId": "123543123",
-    "receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
+    "receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado confirmando o recebimento do POST (GUID)
 }
 ```
 
-> A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.
+> A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta preencher todos os dados do POST.
 
 
 <a name="a12"><a/>
