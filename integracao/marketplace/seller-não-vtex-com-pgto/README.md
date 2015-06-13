@@ -765,7 +765,7 @@ _request:_
 		"isCorporate": "false"
 	},
 	"shippingValue": 3691, //custo da entrega
-	"callbackUrl": "https://marketplace.vtexpayments.com.br/api/pvt/callback/vtxstd/transactions/D3AA1FC8372E430E8236649DB5EBD08E/payments/F5C1A4E20D3B4E07B7E871F5B5BC9F91/return", //**url para falar de volta com o gateway de pagamento
+	"callbackUrl": "https://marketplace.vtexpayments.com.br/api/pvt/callback/vtxstd/transactions/D3AA1FC8372E430E8236649DB5EBD08E/payments/F5C1A4E20D3B4E07B7E871F5B5BC9F91/return", //url para falar de volta com o gateway de pagamento
 	"shoppingCart": { // carrinho
 	    "items": [
 	      {
@@ -815,7 +815,7 @@ _request:_
 >> Lembra do "paymentData.merchantPaymentReferenceId", da reposta do receber ordem de pedido citado acima?
 >> Ele agora vem como "referenceId" nos dados do pagamento, e serve para associar pedido com pagamento.
 
-Ao receber o POST com os dados de pagamento o Seller deve responder sincronamente com o status "undefined" enquanto o Seller não tem a informação sobre o resultado do processo de validação do pagamento (anti-fraude, autorização e aprovação). Os status do pagamento devem ser informados pela url de callback (chamada assincrona de retorno).
+Ao receber o POST com os dados de pagamento o Seller deve responder sincronamente com o status "undefined" enquanto não tem a informação sobre o resultado do processo do pagamento (anti-fraude, autorização e aprovação). Os status do pagamento devem ser informados pela url de callback (chamada assincrona de retorno).
 
 <a name="a8"><a/>
 _exemplo do POST feito na CallbackUrl de Pagamento :_
