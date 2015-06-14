@@ -227,7 +227,7 @@ Este tópico tem por objetivo auxiliar o integrador na simulação de carrinho, 
 > ATENÇÃO
 >> Esses metodos são usados no momento do fechamento da compra no Marketplace, por isso, é de suma importancia para uma boa conversão, que esses metodos sejam perfomáticos e de alta disponibilidade.
 
-*Exemplo do fluxo de chamadas no carrinho:*
+_exemplo do fluxo de chamadas no carrinho:_
 
 ![alt text](fechamento-fluxo-nao-vtex.png "fluxo de fechamento de pedido")
 
@@ -678,6 +678,10 @@ endpoint: ``` https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel ``
 verb: **GET**</br>
 
 > Para cancelar um pedido com nota fiscal já informada, enviar uma Nota Fiscal do tipo Input com o valor cheio do pedido.
+
+
+>POR LER ATE AQUI
+>>Na ferramenta POSTMAN usando esse link [https://www.getpostman.com/collections/ba95d70124bba8e05fe0] é possivel importar uma coleção de requests. Nela tem um exemplo de cada request citado nesse documento.
 
 ---
 
