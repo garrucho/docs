@@ -681,7 +681,7 @@ verb: **GET**</br>
 
 
 >POR LER ATE AQUI
->>Na ferramenta POSTMAN usando esse link [https://www.getpostman.com/collections/ba95d70124bba8e05fe0] é possivel importar uma coleção de requests. Nela tem um exemplo de cada request citado nesse documento.
+>>Na ferramenta POSTMAN usando esse link ```https://www.getpostman.com/collections/ba95d70124bba8e05fe0``` é possivel importar uma coleção de requests. Nela tem um exemplo de cada request citado nesse documento.
 
 ---
 
