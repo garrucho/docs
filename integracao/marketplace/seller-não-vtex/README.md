@@ -229,7 +229,7 @@ Este tópico tem por objetivo auxiliar o integrador na simulação de carrinho, 
 
 *Exemplo do fluxo de chamadas no carrinho:*
 
-![alt text](fechamento-fluxo-seller-nao-vtex.png "Title")
+![alt text](fechamento-fluxo-nao-vtex.png "fluxo de fechamento de pedido")
 
 
 <a name="a4"><a/>
