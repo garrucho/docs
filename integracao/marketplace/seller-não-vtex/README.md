@@ -548,7 +548,7 @@ _exemplo do retorno de Erro:_
 }
 ```
 
-<a name="a9"><a/>
+<a name="a8"><a/>
 ###Enviar Autorização Para Despachar
 
 Quando o pagamento do pedido é concluído no marketplace VTEX (pagamento válido), envia se ao Seller uma autorização para dar andamento no processo de entrega do pedido - endpoint da Seller.

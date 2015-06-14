@@ -804,7 +804,7 @@ _request:_
 
 Ao receber o POST com os dados de pagamento o Seller deve responder sincronamente com o status "undefined" enquanto não tem a informação sobre o resultado do processo do pagamento (anti-fraude, autorização e aprovação). Os status do pagamento devem ser informados pela url de callback (chamada assincrona de retorno).
 
-<a name="a8"><a/>
+
 _exemplo do POST feito na CallbackUrl de pagamento :_
 
 ```json
@@ -820,7 +820,7 @@ _exemplo do POST feito na CallbackUrl de pagamento :_
 >> A resposta de POST de dados de pagamento deve ser sincrona (na hora).
 
 
-<a name="a9"><a/>
+<a name="a8"><a/>
 ###Enviar Autorização Para Despachar
 
 
