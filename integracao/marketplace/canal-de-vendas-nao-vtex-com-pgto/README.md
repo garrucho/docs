@@ -14,113 +14,113 @@ Este modelo contempla troca de catalogo, atualização de condição comercial (
 1. Implementar o endpoint para receber notificação de mudança de preço e estoque - Seller hospedado na VTEX vai chamar endpoint do Marketplace.
     Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint do Marketplace, simplesmente comunicando a mudança. Ao receber esse request o Marketplace vem buscar o preço e estoque no Seller no metodo de consulta politica comercial que vamos falar mais abaixo.
 
-_exemplo da chamada:_</br>
-```https://marketplace.com.br/api/notification/```
+ _exemplo da chamada:_</br>
+ ``` https://marketplace.com.br/api/notification/ ```
 
-[Exemplo Completo: Enviar Notificação de Mudança de Preço e Estoque de SKU](#a1)
+ [Exemplo Completo: Enviar Notificação de Mudança de Preço e Estoque de SKU](#a1)
 
 
 2. Implementar busca de dados de SKU no Seller - Marketplace vai chamar endpoint do Seller na VTEX.
 Toda vez que o serviço de notificação de mudança do Seller avisar sobre uma SKU, e o Marketplace ainda nao tem a SKU catalogada, o Marketplace vem no Seller buscar os dados da nova SKU.
 
-    _exemplo da chamada:_</br>
-    ``` http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku] ```
+ _exemplo da chamada:_</br>
+ ```http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku] ```
 
-[Exemplo Completo: Buscar Dados de SKU](#a2)
+ [Exemplo Completo: Buscar Dados de SKU](#a2)
 
 
 3. Implementar busca de politica comercial (preço e estoque, frete, tipo entrega e custo) - Marketplace vai chamar endpoint do Seller.
 Toda vez que o serviço de notificação de mudança do Seller avisar sobre mudança de uma SKU (já catalogada), o Marketplace busca preço e ou estoque no Seller pra se atualizar.
 
-    _exemplo da chamada:_</br>
-    ``` https://sandboxintegracao.vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=1&affiliateId=LAB ```
+ _exemplo da chamada:_</br>
+ ``` https://sandboxintegracao.vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=1&affiliateId=LAB ```
 
 
-[Exemplo Completo: Consultar Política Comercial](#a3) </br>
+ [Exemplo Completo: Consultar Política Comercial](#a3) </br>
 
 
 4. Implementar busca de formas de pagamento do Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse endpoint para consultar as formas de pagamento oferecidas pelo Seller.
 
-    _exemplo da chamada:_</br>
-    ```https://sandboxintegracao.vtexpayments.com.br/api/pvt/merchants/payment-systems```
+ _exemplo da chamada:_</br>
+ ```https://sandboxintegracao.vtexpayments.com.br/api/pvt/merchants/payment-systems```
 
 
-    [Exemplo Completo: Consultar Formas de Pagamento no Seller](#a5)
+ [Exemplo Completo: Consultar Formas de Pagamento no Seller](#a5)
 
 
 5. Implementar busca de parcelamento - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse endpoint para consultar os parcelamentos oferecidos pelo Seller.
 
-    _exemplo da chamada:_</br>
-    ```https://sandboxintegracao.vtexpayments.com.br/api/pvt/installments/options```
+ _exemplo da chamada:_</br>
+ ```https://sandboxintegracao.vtexpayments.com.br/api/pvt/installments/options```
 
 
-[Exemplo Completo: Consultar Formas de Parcelamento no Seller](#a6)
+ [Exemplo Completo: Consultar Formas de Parcelamento no Seller](#a6)
 
 
 6. Implementar rotina que coloca um pedido no Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse enpoint para colocar um pedido no Seller.
 
-    _exemplo da chamada:_</br>
-    ``` https://[seller].com.br/pvt/orders?sc=1&an=mechantname ```
+ _exemplo da chamada:_</br>
+ ``` https://[seller].com.br/pvt/orders?sc=1&an=mechantname ```
 
-[Exemplo Completo: Colocar um Pedido no Seller](#a7)
+ [Exemplo Completo: Colocar um Pedido no Seller](#a7)
 
 
 7. Implementar rotina que abre transacao de pagamento no Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse enpoint para abrir uma transacao pagamento para o Seller.
 
-    _exemplo da chamada:_</br>
-    ``` https://[seller].com.br/pvt/payment?sc=1&an=mechantname ```
+ _exemplo da chamada:_</br>
+ ``` https://[seller].com.br/pvt/payment?sc=1&an=mechantname ```
 
-[Exemplo Completo: Colocar um Pagamento no Seller](#a7)
+ [Exemplo Completo: Colocar um Pagamento no Seller](#a7)
 
 
 8. Implementar rotina que coloca pagamento no Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse enpoint para colocar um pagamento no Seller.
 
-    _exemplo da chamada:_</br>
-    ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
+ _exemplo da chamada:_</br>
+ ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
 
-[Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
+ [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
 
 
 9. Implementar rotina que coloca dados adicionais de pagamento no Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse enpoint para colocar informacoes adicionais de dados do pagamento  no Seller
 
-    _exemplo da chamada:_</br>
-    ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
+ _exemplo da chamada:_</br>
+ ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
 
-[Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
+ [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
 
 10. Implementar rotina que autoriza o pagamento no Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse enpoint para autorizar o andamento do pagamento no Seller
 
-    _exemplo da chamada:_</br>
-    ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
+ _exemplo da chamada:_</br>
+ ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
 
-[Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
+ [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
 
 
 11. Implementar endponit de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace.
 Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
 
-    _exemplo da chamada:_</br>
-    ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```</br>
-    ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/cancel ```</br>
+ _exemplo da chamada:_</br>
+ ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```</br>
+ ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/cancel ```</br>
 
-[Exemplo Completo: Informar nota fiscal de um pedido](#a10)</br>
-[Exemplo Completo: Informar tracking de um pedido](#a11)</br>
-[Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a12)</br>
+ [Exemplo Completo: Informar nota fiscal de um pedido](#a10)</br>
+ [Exemplo Completo: Informar tracking de um pedido](#a11)</br>
+ [Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a12)</br>
 
 12. Implementar rotina que captura ou cancela o pagamento no Seller - Marketplace vai chamar endpoint do Seller.
 A loja na VTEX irá usar esse endpoint para avisar o Seller que já sabe do pagamento aprovado, e que o Seller já pode entegar com o pedido.
 
-    _exemplo da chamada:_</br>
-    ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
+ _exemplo da chamada:_</br>
+ ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
 
-[Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
+ [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
 
 ---
 
