@@ -35,16 +35,13 @@ Toda vez que o serviço de notificação de mudança do Seller avisar sobre muda
  _exemplo da chamada:_</br>
  ``` https://sandboxintegracao.vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=1&affiliateId=LAB ```
 
-
  [Exemplo Completo: Consultar Política Comercial](#a3) </br>
-
 
 4. Implementar busca de formas de pagamento do Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse endpoint para consultar as formas de pagamento oferecidas pelo Seller.
 
  _exemplo da chamada:_</br>
  ```https://sandboxintegracao.vtexpayments.com.br/api/pvt/merchants/payment-systems```
-
 
  [Exemplo Completo: Consultar Formas de Pagamento no Seller](#a5)
 
