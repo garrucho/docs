@@ -6,7 +6,7 @@ O objetivo de agrupar os formulários em aplicações é para permitir que possa
 
 Vamos criar uma aplicação.
 
-1. Entre no VTEX Master Data Applications através da url: http://{minhaloja}.vtexcrm.com.br;
+1. Entre no VTEX CRM através da url: http://{minhaloja}.vtexcrm.com.br;
 
 2. Clique em Configurações;
 <a href="../img/home-1.jpg" target="\_blank">

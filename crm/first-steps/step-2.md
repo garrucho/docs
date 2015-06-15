@@ -4,7 +4,7 @@ Crie, edite e controle a listagem de documentos através dos formulários.
 
 Para criar um formulário, siga os passos a seguir:
 
-1. Entre no VTEX Master Data Applications através da url: http://{minhaloja}.vtexcrm.com.br;
+1. Entre no VTEX CRM através da url: http://{minhaloja}.vtexcrm.com.br;
 
 2. Clique em Configurações;
 <a href="../img/home-1.jpg" target="\_blank">
