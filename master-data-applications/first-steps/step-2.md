@@ -90,3 +90,5 @@ A sua estrutura é composta de Seções e colunas. Cada Seção possui duas colu
 <a href="../img/form-sheet-new-3.jpg" target="\_blank">
 <img src="../img/form-sheet-new-3.jpg" alt="" />
 </a>
+
+Pronto, agora podemos trabalhar no formulario Cliente!
