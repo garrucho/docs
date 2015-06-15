@@ -41,17 +41,15 @@ Toda vez que o serviço de notificação de mudança do Seller avisar sobre muda
 O Marketplace irá usar esse endpoint para consultar as formas de pagamento oferecidas pelo Seller.
 
  _exemplo da chamada:_</br>
- ```https://sandboxintegracao.vtexpayments.com.br/api/pvt/merchants/payment-systems```
+ ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/merchants/payment-systems ```
 
  [Exemplo Completo: Consultar Formas de Pagamento no Seller](#a5)
-
 
 5. Implementar busca de parcelamento - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse endpoint para consultar os parcelamentos oferecidos pelo Seller.
 
  _exemplo da chamada:_</br>
  ```https://sandboxintegracao.vtexpayments.com.br/api/pvt/installments/options```
-
 
  [Exemplo Completo: Consultar Formas de Parcelamento no Seller](#a6)
 
