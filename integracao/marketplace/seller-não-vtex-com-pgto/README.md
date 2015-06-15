@@ -1,6 +1,7 @@
 ##Seller Não VTEX Vendendo em Marketplace Hospedado na VTEX Recebendo Pagamento
 
-Este documento tem por objetivo auxiliar na integração de um _Seller_ **não** hospedado na plataforma VTEX para uma _Marketplace_ hospedado na plataforma VTEX. Nesse modelo são integrados produtos (_SKUs_), atualização de condição comercial (preço, estoque) de um SKU, além de descida de pedido, dados de pagamento e envio de autorização de despacho de pedido para o Seller.
+Este documento tem por finalidade auxiliar na integração de um _Seller_ **não** hospedado na plataforma VTEX para uma _Marketplace_ hospedado na plataforma VTEX. </br>
+Nesse modelo são integrados produtos (_SKUs_), atualização de condição comercial (preço, estoque) de um SKU, além de descida de pedido, dados de pagamento e envio de autorização de despacho de pedido para o Seller.
 
 > _Seller_ = Dono do produto, responsável por fazer a entrega.</br>
 > _Marketplace_ = Dono da vitrine, responsável por expor e vender o SKU.</br>
