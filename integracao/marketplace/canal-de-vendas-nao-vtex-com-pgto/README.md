@@ -49,10 +49,9 @@ O Marketplace irá usar esse endpoint para consultar as formas de pagamento ofer
 O Marketplace irá usar esse endpoint para consultar os parcelamentos oferecidos pelo Seller.
 
  _exemplo da chamada:_</br>
- ```https://sandboxintegracao.vtexpayments.com.br/api/pvt/installments/options```
+ ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/installments/options ```
 
  [Exemplo Completo: Consultar Formas de Parcelamento no Seller](#a6)
-
 
 6. Implementar rotina que coloca um pedido no Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse enpoint para colocar um pedido no Seller.
@@ -62,7 +61,6 @@ O Marketplace irá usar esse enpoint para colocar um pedido no Seller.
 
  [Exemplo Completo: Colocar um Pedido no Seller](#a7)
 
-
 7. Implementar rotina que abre transacao de pagamento no Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse enpoint para abrir uma transacao pagamento para o Seller.
 
@@ -71,7 +69,6 @@ O Marketplace irá usar esse enpoint para abrir uma transacao pagamento para o S
 
  [Exemplo Completo: Colocar um Pagamento no Seller](#a7)
 
-
 8. Implementar rotina que coloca pagamento no Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse enpoint para colocar um pagamento no Seller.
 
@@ -79,7 +76,6 @@ O Marketplace irá usar esse enpoint para colocar um pagamento no Seller.
  ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
 
  [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
-
 
 9. Implementar rotina que coloca dados adicionais de pagamento no Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse enpoint para colocar informacoes adicionais de dados do pagamento  no Seller
