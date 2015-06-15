@@ -14,8 +14,8 @@ Este modelo contempla troca de catalogo, atualização de condição comercial (
 1. Implementar o endpoint para receber notificação de mudança de preço e estoque - Seller hospedado na VTEX vai chamar endpoint do Marketplace.
     Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint do Marketplace, simplesmente comunicando a mudança. Ao receber esse request o Marketplace vem buscar o preço e estoque no Seller no metodo de consulta politica comercial que vamos falar mais abaixo.
 
-    _exemplo da chamada:_</br>
-    ```https://marketplace.com.br/api/notification/```
+_exemplo da chamada:_</br>
+```https://marketplace.com.br/api/notification/```
 
 [Exemplo Completo: Enviar Notificação de Mudança de Preço e Estoque de SKU](#a1)
 
