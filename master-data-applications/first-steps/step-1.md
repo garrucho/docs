@@ -9,22 +9,28 @@ Vamos criar uma aplicação.
 1. Entre no VTEX Master Data Applications através da url: http://{minhaloja}.vtexcrm.com.br;
 
 2. Clique em Configurações;
-
-![alt text](../img/home-1.jpg "Home")
+<a href="../img/home-1.jpg" target="\_blank">
+<img src="../img/home-1.jpg" alt="Home" />
+</a>
 
 3. Clique em Aplicações;
-
-![alt text](../img/config-1.jpg "Configurações")
+<a href="../img/config-1.jpg" target="\_blank">
+<img src="../img/config-1.jpg" alt="Configurações" />
+</a>
 
 4. Clique em "Novo";
-
-![alt text](../img/app-list-1.jpg "")
+<a href="../img/app-list-1.jpg" target="\_blank">
+<img src="../img/app-list-1.jpg" alt="" />
+</a>
 
 5. Preencha o nome da aplicação e clique em Salvar;
+<a href="../img/app-edit-1.jpg" target="\_blank">
+<img src="../img/app-edit-1.jpg" alt="" />
+</a>
 
-![alt text](../img/app-edit-1.jpg "TESTE TESTE TESTE")
-
-![alt text](../img/app-edit-save-1.jpg "TESTE TESTE TESTE")
+<a href="../img/app-edit-save-1.jpg" target="\_blank">
+<img src="../img/app-edit-save-1.jpg" alt="" />
+</a>
 
 Pronto. Sua aplicação foi criada.
 

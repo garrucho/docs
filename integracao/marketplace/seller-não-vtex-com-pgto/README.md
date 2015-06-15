@@ -571,7 +571,7 @@ _request:_
 	}
   }
 ]
-{% endhighlight %}
+```
 
 _response:_
 
@@ -841,7 +841,7 @@ _request:_
     "issuanceDate": "2013-11-21T00:00:00", //data da nota
     "invoiceValue": 9508 //valor da nota
 }
-{% endhighlight %}
+```
 
 _response:_
 
