@@ -24,7 +24,7 @@ Este modelo contempla troca de catalogo, atualização de condição comercial (
 Toda vez que o serviço de notificação de mudança do Seller avisar sobre uma SKU, e o Marketplace ainda nao tem a SKU catalogada, o Marketplace vem no Seller buscar os dados da nova SKU.
 
  _exemplo da chamada:_</br>
- ```http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku] ```
+ ```http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/2000037 ```
 
  [Exemplo Completo: Buscar Dados de SKU](#a2)
 
@@ -35,7 +35,8 @@ Toda vez que o serviço de notificação de mudança do Seller avisar sobre muda
  _exemplo da chamada:_</br>
  ``` https://sandboxintegracao.vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=1&affiliateId=LAB ```
 
- [Exemplo Completo: Consultar Política Comercial](#a3) </br>
+ [Exemplo Completo: Consultar Política Comercial](#a3)
+
 
 4. Implementar busca de formas de pagamento do Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse endpoint para consultar as formas de pagamento oferecidas pelo Seller.
@@ -57,7 +58,7 @@ O Marketplace irá usar esse endpoint para consultar os parcelamentos oferecidos
 O Marketplace irá usar esse enpoint para colocar um pedido no Seller.
 
  _exemplo da chamada:_</br>
- ``` https://[seller].com.br/pvt/orders?sc=1&an=mechantname ```
+ ``` https://sandboxintegracao.vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=1&affiliateId=LAB ```
 
  [Exemplo Completo: Colocar um Pedido no Seller](#a7)
 
@@ -65,17 +66,17 @@ O Marketplace irá usar esse enpoint para colocar um pedido no Seller.
 O Marketplace irá usar esse enpoint para abrir uma transacao pagamento para o Seller.
 
  _exemplo da chamada:_</br>
- ``` https://[seller].com.br/pvt/payment?sc=1&an=mechantname ```
+ ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions ```
 
- [Exemplo Completo: Colocar um Pagamento no Seller](#a7)
+ [Exemplo Completo: Abrir uma Trasação de Pagamento no Seller](#a8)
 
 8. Implementar rotina que coloca pagamento no Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse enpoint para colocar um pagamento no Seller.
 
  _exemplo da chamada:_</br>
- ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
+ ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/payments ```
 
- [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
+ [Exemplo Completo: Colocar um Pagamento no Seller](#a9)
 
 9. Implementar rotina que coloca dados adicionais de pagamento no Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse enpoint para colocar informacoes adicionais de dados do pagamento  no Seller
@@ -83,7 +84,7 @@ O Marketplace irá usar esse enpoint para colocar informacoes adicionais de dado
  _exemplo da chamada:_</br>
  ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
 
- [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
+ [Exemplo Completo: Colocar Dados Adicionais de Pagamento no Seller](#a10)
 
 10. Implementar rotina que autoriza o pagamento no Seller - Marketplace vai chamar endpoint do Seller.
 O Marketplace irá usar esse enpoint para autorizar o andamento do pagamento no Seller
@@ -91,7 +92,12 @@ O Marketplace irá usar esse enpoint para autorizar o andamento do pagamento no 
  _exemplo da chamada:_</br>
  ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
 
- [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
+ [Exemplo Completo: Autorizar o Andamento do Pagamento no Seller](#a11)
+
+
+------
+
+
 
 
 11. Implementar endponit de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace.
@@ -101,8 +107,8 @@ Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Selle
  ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```</br>
  ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/cancel ```</br>
 
- [Exemplo Completo: Informar nota fiscal de um pedido](#a10)</br>
- [Exemplo Completo: Informar tracking de um pedido](#a11)</br>
+ [Exemplo Completo: Informar nota fiscal de um pedido](#a12)</br>
+ [Exemplo Completo: Informar tracking de um pedido](#a13)</br>
  [Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a12)</br>
 
 12. Implementar rotina que captura ou cancela o pagamento no Seller - Marketplace vai chamar endpoint do Seller.
@@ -111,12 +117,9 @@ A loja na VTEX irá usar esse endpoint para avisar o Seller que já sabe do paga
  _exemplo da chamada:_</br>
  ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
 
- [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
+ [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a14)
 
 ---
-
-
-- - -
 
 ###Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU
 
@@ -746,7 +749,6 @@ _response:_
 ]
 ```
 
-- - -
 
 ###Enviar Pedido, Enviar Pagamento e Autorizar Despacho
 
@@ -758,11 +760,13 @@ _Fluxo de chamadas de descida de pedido, pagamento e autorização para despacha
 
 ![alt text](order-canal-n-vtex-com-pgto.PNG "Title")
 
+
+<a name="a7"></a>
 ###Enviar Pedido
 
 Quando o pedido é fechado em um Marketplace não VTEX, um POST deve ser feito na loja VTEX, para que essa possa receber a ordem de pedido - Endpoint Loja VTEX
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]**
+endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]```
 verb: **POST**
 Content-Type: **application/json**
 Accept: **application/json**
@@ -938,12 +942,12 @@ _retorno de erro:_
 
 Após enviar o pedido e receber o response com o paymentData.merchantPaymentReferenceId, o processo de transação de pagamento do pedido deverá ser enviado.
 
-
+<a name="a8"></a>
 ###Iniciar Transação
 
 Inicia uma transação de pagamento usando o paymentData.merchantPaymentReferenceId recebi no retorno de inserção de pedido - Endpoint Loja VTEX
 
-endpoint: **https://[loja].vtexpayments.com.br/api/pvt/transactions**
+endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/transactions ```
 verb: **POST**
 Content-Type: **application/json**
 Accept: **application/json**
@@ -1012,7 +1016,7 @@ _response:_
 
 Envia os dados referentes ao pagamento, debaixo da transação iniciada - Endpoint Loja VTEX
 
-endpoint: **https://[loja].vtexpayments.com.br/api/pvt/payments**
+endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/payments ```
 verb: **POST**
 Content-Type: **application/json**
 Accept: **application/json**
@@ -1058,7 +1062,7 @@ _response:_
 200
 ```
 
-###Enviar Dados Adicional
+###Enviar Dados Adicionais
 
 
 Envia dados adicionais que serão usados pelo sistema de anti-fraude - Endpoint Loja VTEX
