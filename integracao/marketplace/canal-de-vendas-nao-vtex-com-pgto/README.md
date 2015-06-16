@@ -7,6 +7,7 @@ Este modelo contempla troca de catalogo, atualização de condição comercial (
 >> _Seller_ = Dono do produto, responsável por cumprir com a entrega do SKU.</br>
 >> _Marketplace_ = Dono da vitrine (cara com o cliente final), responsável por expor e vender o SKU.</br>
 >> _SKU_ = Item a ser trocado e vendido entre Marketplace e Seller.</br>
+>> _Endpoint_ = Ponto de acesso de um serviço ma internet, serviço pronto para receber um requisição e devolver uma resposta.</br>
 
 
 ####Ações que deverão ser tomadas pelo Marketplace não hospedado na VTEX para implementação da integração:
@@ -79,45 +80,47 @@ O Marketplace irá usar esse enpoint para colocar um pagamento no Seller.
  [Exemplo Completo: Colocar um Pagamento no Seller](#a9)
 
 9. Implementar rotina que coloca dados adicionais de pagamento no Seller - Marketplace vai chamar endpoint do Seller.
-O Marketplace irá usar esse enpoint para colocar informacoes adicionais de dados do pagamento  no Seller
+O Marketplace irá usar esse enpoint para colocar informações adicionais de dados do pagamento  no Seller
 
  _exemplo da chamada:_</br>
- ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
+ ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionid]/additional-data ```
 
  [Exemplo Completo: Colocar Dados Adicionais de Pagamento no Seller](#a10)
 
 10. Implementar rotina que autoriza o pagamento no Seller - Marketplace vai chamar endpoint do Seller.
-O Marketplace irá usar esse enpoint para autorizar o andamento do pagamento no Seller
+O Marketplace irá usar esse endpoint para autorizar o andamento do pagamento no Seller
 
  _exemplo da chamada:_</br>
- ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
+ ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionid]/authorization-request ```
 
  [Exemplo Completo: Autorizar o Andamento do Pagamento no Seller](#a11)
 
 
-------
-
-
-
-
-11. Implementar endponit de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace.
-Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
+11. Implementar endpoint de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace.
+Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller vai invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
 
  _exemplo da chamada:_</br>
- ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```</br>
- ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/cancel ```</br>
+ ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```</br>
+ ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/cancel ```</br>
 
  [Exemplo Completo: Informar nota fiscal de um pedido](#a12)</br>
  [Exemplo Completo: Informar tracking de um pedido](#a13)</br>
- [Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a12)</br>
+ [Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a14)</br>
+
+ >NOTA
+ >> No POST do pedido feito pelo Marketplace, o campo "marketplaceserviceendpoint" deve vir preenchido com o url base do serviços.
 
 12. Implementar rotina que captura ou cancela o pagamento no Seller - Marketplace vai chamar endpoint do Seller.
-A loja na VTEX irá usar esse endpoint para avisar o Seller que já sabe do pagamento aprovado, e que o Seller já pode entegar com o pedido.
+O Markeplace deve capturar o pagamento ao receber a nota fisca e deve cancelar o pagamento ao receber um cancelamento de pedido.
 
- _exemplo da chamada:_</br>
- ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
+ _exemplo da chamada de captura:_</br>
+ ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionId]/settlement-request ```
 
- [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a14)
+_exemplo da chamada de cancelamento:_</br>
+``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionId]/cancellation-request ```
+
+
+ > O exemplo completo esta descrito dentro da rotina de informar nota fiscal e cancelar, citada acima.
 
 ---
 
@@ -147,7 +150,7 @@ Fluxo de troca de catalogo de SKU e atualização de preço, estoque, frete, SLA
 
 Notifica o Marketplace Não VTEX que houve uma mudança nas condiçoes comerciais (preço, estoque, SLAs de entrega) de uma SKU - Endpoint do Afiliado (Marketplace)
 
-endpoint: ```https://[endpointdoafiliado}/api/notification/```</br>
+endpoint: ``` https://[endpointdoafiliado}/api/notification/ ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -169,7 +172,7 @@ _request:_
 
 Acessa a loja VTEX pegando as condições comerciais (preço, estoque, SLAs de entrega) de uma SKU  - Endpoint da Loja VTEX
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado]**
+endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado] ```
 verb: **POST**
 Content-Type: **application/json**
 Accept: **application/json**
@@ -292,7 +295,7 @@ _response:_
 
 Acessa uma loja VTEX e busca dados de uma SKU - Endpoint da Loja VTEX
 
-endpoint: **http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku]**
+endpoint: ``` http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku] ```
 verb: **GET**
 Accept: **application/json**
 Parametro: **idSku** identificador do SKU
@@ -445,7 +448,7 @@ _Fluxo de chamadas no carrinho e no pagamento:_
 
 Acessa a loja VTEX simulando um carrinho, para checar as condiçoes comerciais e as SLAs de entrega - Endpoint loja VTEX
 
-endpoint: **https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado]**
+endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado] ```
 verb: **POST**
 Content-Type: **application/json**
 Accept: **application/json**
@@ -531,7 +534,7 @@ _response:_
                 {
                     "id": "Agendada",
                     "name": "Entrega Agendada",
-                    "shippingEstimate": "5d",                     // d == "days, bd == "business days"
+                    "shippingEstimate": "5d",                     // d - "days, bd - "business days"
                     "price": 800,
                     "availableDeliveryWindows": [
                          {
@@ -552,7 +555,7 @@ _response:_
                 {
                     "id": "Normal",
                     "name": "Entrega Normal",
-                    "shippingEstimate": "5bd",                                  // bd == "business days"
+                    "shippingEstimate": "5bd",                                  // bd - "business days"
                     "price": 200
                 }
             ]
@@ -570,7 +573,7 @@ _response:_
 
 Acessa a loja VTEX para consultar a formas de pagamento disponíveis - Endpoint loja VTEX
 
-endpoint: **https://[loja].vtexpayments.com.br/api/pvt/merchants/payment-systems**
+endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/merchants/payment-systems ```
 verb: **GET**
 Content-Type: **application/json**
 Accept: **application/json**
@@ -667,7 +670,7 @@ _response:_
 
 Consulta a loja VTEX para buscar os parcelamentos por forma de pagamento e promoções de SKU - Endpoint loja VTEX
 
-endpoint: **https://[loja].vtexpayments.com.br/api/pvt/installments/options**
+endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/installments/options ```
 verb: **POST**
 Content-Type: **application/json**
 Accept: **application/json**
@@ -1012,6 +1015,7 @@ _response:_
 }
 ```
 
+<a name="a9"></a>
 ###Enviar Dados de Pagamento
 
 Envia os dados referentes ao pagamento, debaixo da transação iniciada - Endpoint Loja VTEX
@@ -1062,12 +1066,12 @@ _response:_
 200
 ```
 
+<a name="a10"></a>
 ###Enviar Dados Adicionais
-
 
 Envia dados adicionais que serão usados pelo sistema de anti-fraude - Endpoint Loja VTEX
 
-endpoint: **https://[loja].vtexpayments.com.br/api/pvt/transactions/[transactionid]/additional-data**
+endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/transactions/[transactionid]/additional-data ```
 verb: **POST**
 Content-Type: **application/json**
 Accept: **application/json**
@@ -1110,12 +1114,12 @@ _response:_
 
 ```
 
+<a name="a11"></a>
 ###Autorização de Pagamento
 
+Envia uma autorização para liberação  do andamento do processo de pagamento - Endpoint Loja VTEX
 
-Envia uma autorização confirmando a autorização do pagamento enviado - Endpoint Loja VTEX
-
-endpoint: **https://[loja].vtexpayments.com.br/api/pvt/transactions/BB55ED929FF749E6BE5A835E4C811B77/authorization-request**
+endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/transactions/BB55ED929FF749E6BE5A835E4C811B77/authorization-request ```
 verb: **POST**
 Content-Type: **application/json**
 Accept: **application/json**
@@ -1143,21 +1147,18 @@ _response:_
 
 ```json
 
-
-
-
-- - -
+```
 
 ###Implementando Marketplace Services Endpoint Actions
 
+O MarketplaceServicesEndpoint serve para o Seller VTEX informar ao canal de vendas a nota fiscal e tracking de pedido. O envio de notas fiscais pode ser parcial, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial.
 
-O MarketplaceServicesEndpoint serve para a loja VTEX informar ao canal de vendas a nota fiscal e tracking de pedido. O envio de notas fiscais pode ser parcial, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial.
-
+<a name="a12"></a>
 ###Informar Nota Fiscal
 
 Quando a Nota Fiscal for emitida pelo Seller VTEX, está será enviada para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**
+endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```
 verb: **POST**
 Content-Type: **application/json**
 Accept: **application/json**
@@ -1192,12 +1193,29 @@ _response:_
 	"receipt": "38e0e47da2934847b489216d208cfd91" //protocolo gerado, pode ser nulo
 }
 ```
+#####Captura de Pagamento
+No momento em que o Marketplace recebe a nota fiscal, é o momento de efetuar a captura do pagamento.
 
+endpoint: ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionId]/settlement-request ```
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
+
+_request_
+```json
+  {value: 14890} //valor que deseja capturar
+```
+_response_
+```json
+
+```
+
+<a name="a13"></a>
 ###Informar Tracking de Transportadora
 
 Quando o pedido for entegue a uma transportadora, as informaçãoes de tracking serão enviadas para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace
 
-endpoint: **https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**
+endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```
 verb: **POST**
 Content-Type: **application/json**
 Accept: **application/json**
@@ -1234,16 +1252,33 @@ _response:_
 }
 ```
 
+<a name="a14"></a>
 ###Enviar Solicitação de Cancelamento
-
 
 Uma solicitação de cancelamento pode ser enviada para o para o Marketplace no marketplaceServicesEndpoint - Endpoint do Marketplace
 
-endpoint: **https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel**
+endpoint: ``` https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel ```
 verb: **GET**
 
-**A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.
+#####Cancelamento de Pagamento
+No momento em que o Marketplace recebe uma solicitação de cancelamento de pedido, é o momento de efetuar o cancelamento da transação de pagamento.
+
+endpoint: ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionId]/cancellation-request ```
+verb: **POST**
+Content-Type: **application/json**
+Accept: **application/json**
+
+_request_
+```json
+  {value: 14890} //valor que deseja cancelar, geralmente o total do pedido
+```
+_response_
+```json
+
+```
+
+>A nota fiscal e o tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST, cabendo ao receber controlar o fluxo de captura de pagamento.
 
 ---
-Autor: *Jonas Bolognim*
-Propriedade:*VTEX &copy;*
+Autor: _Jonas Bolognim_
+Propriedade:_VTEX &copy;_
