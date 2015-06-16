@@ -1,4 +1,4 @@
 # Configurações avançadas
 
-* [Consultas na visualização](crm/advanced/step-1.html)
-* [Consultas personalizadas](crm/advanced/step-2.html)
+* [Consultas na visualização](step-1.html)
+* [Consultas personalizadas](step-2.html)
