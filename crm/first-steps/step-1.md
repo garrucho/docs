@@ -28,10 +28,24 @@ Vamos criar uma aplicação.
 <img src="../img/app-edit-1.jpg" alt="" />
 </a>
 
+6. Pronto. Sua aplicação foi criada.
 <a href="../img/app-edit-save-1.jpg" target="\_blank">
 <img src="../img/app-edit-save-1.jpg" alt="" />
 </a>
 
-Pronto. Sua aplicação foi criada.
+7. Para mudar de aplicação, atualize a página clicando na aba "Início";
+<a href="../img/app-edit-save-begin-1.jpg" target="\_blank">
+<img src="../img/app-edit-save-begin-1.jpg" alt="" />
+</a>
+
+8. Mude de aplicação selecionando "Profile System";
+<a href="../img/app-change-1.jpg" target="\_blank">
+<img src="../img/app-change-1.jpg" alt="" />
+</a>
+
+9. O sistema atualizará a página e você estará na aplicação "Profile System";
+<a href="../img/app-change-2.jpg" target="\_blank">
+<img src="../img/app-change-2.jpg" alt="" />
+</a>
 
 Vamos agora criar o formulário "Cliente".
