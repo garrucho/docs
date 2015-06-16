@@ -1,10 +1,3 @@
-## Seja bem vindo!
+## VTEX Lab Docs
 
-Aqui, você encontrará toda a documentação referente à **Plataforma VTEX**.
-
-
-
-
-
-
-
+Seja bem vindo! Aqui, você encontrará toda a documentação referente à **Plataforma VTEX**.
