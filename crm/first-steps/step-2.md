@@ -81,14 +81,19 @@ A sua estrutura é composta de Seções e colunas. Cada Seção possui duas colu
 <img src="../img/form-sheet-new-1.jpg" alt="" />
 </a>
 
-3. Preencha os campos;
+3. Preencha os campos e clique em "Salvar";
 <a href="../img/form-sheet-new-2.jpg" target="\_blank">
 <img src="../img/form-sheet-new-2.jpg" alt="" />
 </a>
 
-4. Clique em "Salvar";
+4. A tela de visualização aparecerá;
 <a href="../img/form-sheet-new-3.jpg" target="\_blank">
 <img src="../img/form-sheet-new-3.jpg" alt="" />
+</a>
+
+5. Veja na listagem clicando na aba "Cliente";
+<a href="../img/form-sheet-new-4.jpg" target="\_blank">
+<img src="../img/form-sheet-new-4.jpg" alt="" />
 </a>
 
 Pronto, agora podemos trabalhar no formulario Cliente!
