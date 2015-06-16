@@ -7,3 +7,7 @@ Possui uma interface amigável para criação de aplicações e formulários de 
 Adicione, remova ou customize seus formulários e aplicações conforme sua demanda sem burocracia.
 
 Através deste documento ensinaremos como configurar seu ambiente através de um exemplo real.
+
+
+* [Primeiros Passos](first-steps/home.html)
+* [Configurações avançadas](advanced/home.html)

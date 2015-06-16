@@ -1,6 +1,6 @@
 # Primeiros passos
 
-* [Criando uma aplicação](crm/first-steps/step-1.md)
-* [Criando um formulário](crm/first-steps/step-2.md)
-* [Adicionando filtros na listagem](crm/first-steps/step-3.md)
-* [Customizando resultado de busca](crm/first-steps/step-4.md)
+* [Criando uma aplicação](crm/first-steps/step-1.html)
+* [Criando um formulário](crm/first-steps/step-2.html)
+* [Adicionando filtros na listagem](crm/first-steps/step-3.html)
+* [Customizando resultado de busca](crm/first-steps/step-4.html)
