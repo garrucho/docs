@@ -35,6 +35,11 @@ Os campos da listagem são os campos os quais aparecerão quando estivermos visu
 <img src="../img/form-edit-2.jpg" alt="" />
 </a>
 
+A listagem ficará dessa forma:
+<a href="../img/form-sheet-new-4.jpg" target="\_blank">
+<img src="../img/form-sheet-new-4.jpg" alt="" />
+</a>
+
 ### Schemas de Layout
 
 Schemas de Layout é a área onde podemos customizar a tela de edição/visualização.
