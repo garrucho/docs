@@ -10,7 +10,7 @@ A VTEX além de oferecer as integrações com os grandes players do mercado nati
 > _SLA_ - Acordo de serviço, Ex. prazo e custo de entrega.</br>
 > _API_ - Interfaces de serviço para comunicação entre sistemas de computador.</br>
 
-##Ferramentas de Apoio ao Integrador
+###Ferramentas de Apoio ao Integrador
 
 ####POSTMAN
 
@@ -26,7 +26,7 @@ Essa ferramenta permite simular todos os metodos solicitados nas documentações
 É de suma importancia que o integrador tenha o conhecimento de ferramentas desse tipo, ou outras parecidas, antes de inciar um processo de integração usando as APIs REST VTEX.
 
 
-##Credenciais Para Acesso nas API REST
+###Credenciais Para Acesso nas API REST
 
 
 Toda chamada feita as APIs REST da VTEX devem ser feitas em "https" e devem conter em seu header as chaves de autenticação. As chaves de autenticação do header(para acessar as APIs REST) devem ser solicitados ao administrador da loja, ou ao time de operaçãoes que está implantando a loja.
@@ -36,7 +36,7 @@ Toda chamada feita as APIs REST da VTEX devem ser feitas em "https" e devem cont
 
 - - -
 
-Seguem abaixo os modelos existentes:
+###Seguem abaixo os modelos existentes:
 
 ####Seller Vendendo em Marketplace Hospedado na Plataforma VTEX
 
