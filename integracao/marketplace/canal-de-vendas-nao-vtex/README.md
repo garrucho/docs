@@ -199,7 +199,7 @@ _response:_
                 {
                     "id": "Agendada",
                     "name": "Entrega Agendada",
-                    "shippingEstimate": "5d",                     // d == "days, bd == "business days"
+                    "shippingEstimate": "5d",                     // d - "days, bd - "business days"
                     "price": 800,
                     "availableDeliveryWindows": [
                          {
@@ -220,7 +220,7 @@ _response:_
                 {
                     "id": "Normal",
                     "name": "Entrega Normal",
-                    "shippingEstimate": "5bd",                                  // bd == "business days"
+                    "shippingEstimate": "5bd",                                  // bd - "business days"
                     "price": 200
                 }
             ]
