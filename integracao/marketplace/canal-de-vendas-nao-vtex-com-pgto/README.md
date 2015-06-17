@@ -119,10 +119,11 @@ O Markeplace deve capturar o pagamento ao receber a nota fisca e deve cancelar o
 _exemplo da chamada de cancelamento:_</br>
 ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionId]/cancellation-request ```
 
-
  > O exemplo completo esta descrito dentro da rotina de informar nota fiscal e cancelar, citada acima.
 
----
+ - - -
+
+##Abaixo segue o passo a passo detalhado de cada fluxo:
 
 ###Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU
 
@@ -173,11 +174,11 @@ _request:_
 Acessa a loja VTEX pegando as condições comerciais (preço, estoque, SLAs de entrega) de uma SKU  - Endpoint da Loja VTEX
 
 endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado] ```
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
-Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace
-Parametro: **affiliateId** // o id do afiliado cadastrado na loja VTEX
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
+Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace</br>
+Parametro: **affiliateId** // o id do afiliado cadastrado na loja VTEX</br>
 
 _request:_
 
@@ -296,9 +297,9 @@ _response:_
 Acessa uma loja VTEX e busca dados de uma SKU - Endpoint da Loja VTEX
 
 endpoint: ``` http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku] ```
-verb: **GET**
-Accept: **application/json**
-Parametro: **idSku** identificador do SKU
+verb: **GET**</br>
+Accept: **application/json**</br>
+Parametro: **idSku** // identificador do SKU</br>
 
 
 _response:_
@@ -449,11 +450,11 @@ _Fluxo de chamadas no carrinho e no pagamento:_
 Acessa a loja VTEX simulando um carrinho, para checar as condiçoes comerciais e as SLAs de entrega - Endpoint loja VTEX
 
 endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado] ```
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
-Parametro: **sc** // sc é o canal de vendas
-Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado na loja VTEX
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
+Parametro: **sc** // sc é o canal de vendas</br>
+Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado na loja VTEX</br>
 
 _request:_
 
@@ -566,7 +567,7 @@ _response:_
 }
 ```
 
-**Caso o CEP e Pais não for enviado, não será retornado informações de SLA de entrega
+>Caso o CEP e Pais não for enviado, não será retornado informações de SLA de entrega
 
 <a name="a5"></a>
 ###Consulta as Formas de Pagamento Disponíveis no Seller
@@ -574,9 +575,9 @@ _response:_
 Acessa a loja VTEX para consultar a formas de pagamento disponíveis - Endpoint loja VTEX
 
 endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/merchants/payment-systems ```
-verb: **GET**
-Content-Type: **application/json**
-Accept: **application/json**
+verb: **GET**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
 
 _response:_
 
@@ -671,9 +672,9 @@ _response:_
 Consulta a loja VTEX para buscar os parcelamentos por forma de pagamento e promoções de SKU - Endpoint loja VTEX
 
 endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/installments/options ```
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
 
 _request:_
 
@@ -757,7 +758,7 @@ _response:_
 
 Este tópico tem por objetivo auxiliar um Marketplace não VTEX enviar um pedido, enviar uma transação de pagamento, e enviar autorização para despacho (proceder com o fulfillment do pedido).
 
-Caso se queira uma condição comercial diferenciada para o Marketplace não VTEX, na loja VTEX deverá ser criado um novo canal de vendas, podendo assim criar promoções diferenciadas (desconto, frete, etc) somente para o canal desejado. Caso não tenha condição comercial diferenciada, deve se usar o canal de vendas da loja principal (sc=1).
+Caso se queira uma condição comercial diferenciada para o Marketplace não VTEX, na loja VTEX deverá ser criado uma nova politica comercial, podendo assim criar promoções diferenciadas (desconto, frete, etc) somente para o afiliado desejado. Caso **não** tenha politica comercial diferenciada, deve se usar apolitica comercial da loja principal (sc=1).
 
 _Fluxo de chamadas de descida de pedido, pagamento e autorização para despachar:_
 
@@ -770,11 +771,11 @@ _Fluxo de chamadas de descida de pedido, pagamento e autorização para despacha
 Quando o pedido é fechado em um Marketplace não VTEX, um POST deve ser feito na loja VTEX, para que essa possa receber a ordem de pedido - Endpoint Loja VTEX
 
 endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]```
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
-Parametro: **sc** // sc é o canal de vendas cadastrado na VTEX.
-Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado n loja VTEX
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
+Parametro: **sc** // sc é o canal de vendas cadastrado na VTEX.</br>
+Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado n loja VTEX</br>
 
 _request:_
 
@@ -948,12 +949,12 @@ Após enviar o pedido e receber o response com o paymentData.merchantPaymentRefe
 <a name="a8"></a>
 ###Iniciar Transação
 
-Inicia uma transação de pagamento usando o paymentData.merchantPaymentReferenceId recebi no retorno de inserção de pedido - Endpoint Loja VTEX
+Inicia uma transação de pagamento usando o paymentData.merchantPaymentReferenceId recebido no retorno de inserção de pedido - Endpoint Loja VTEX
 
 endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/transactions ```
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
 
 _request:_
 
@@ -1021,9 +1022,9 @@ _response:_
 Envia os dados referentes ao pagamento, debaixo da transação iniciada - Endpoint Loja VTEX
 
 endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/payments ```
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
 
 _request:_
 
@@ -1072,10 +1073,10 @@ _response:_
 Envia dados adicionais que serão usados pelo sistema de anti-fraude - Endpoint Loja VTEX
 
 endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/transactions/[transactionid]/additional-data ```
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
-Parametro: **transactionid** // identificador da transação  Ex: BB55ED929FF749E6BE5A835E4C811B77
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
+Parametro: **transactionid** // identificador da transação  Ex: BB55ED929FF749E6BE5A835E4C811B77</br>
 
 _request:_
 
@@ -1120,10 +1121,10 @@ _response:_
 Envia uma autorização para liberação  do andamento do processo de pagamento - Endpoint Loja VTEX
 
 endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/transactions/BB55ED929FF749E6BE5A835E4C811B77/authorization-request ```
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
-Parametro: **transactionid** // identificador da transação
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
+Parametro: **transactionid** // identificador da transação</br>
 
 _request:_
 
@@ -1159,9 +1160,9 @@ O MarketplaceServicesEndpoint serve para o Seller VTEX informar ao canal de vend
 Quando a Nota Fiscal for emitida pelo Seller VTEX, está será enviada para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace
 
 endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
 
 _request:_
 
@@ -1197,9 +1198,9 @@ _response:_
 No momento em que o Marketplace recebe a nota fiscal, é o momento de efetuar a captura do pagamento.
 
 endpoint: ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionId]/settlement-request ```
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
 
 _request_
 ```json
@@ -1216,9 +1217,9 @@ _response_
 Quando o pedido for entegue a uma transportadora, as informaçãoes de tracking serão enviadas para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace
 
 endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
 
 
 _request:_
@@ -1258,15 +1259,15 @@ _response:_
 Uma solicitação de cancelamento pode ser enviada para o para o Marketplace no marketplaceServicesEndpoint - Endpoint do Marketplace
 
 endpoint: ``` https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel ```
-verb: **GET**
+verb: **GET**</br>
 
 #####Cancelamento de Pagamento
 No momento em que o Marketplace recebe uma solicitação de cancelamento de pedido, é o momento de efetuar o cancelamento da transação de pagamento.
 
 endpoint: ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionId]/cancellation-request ```
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
 
 _request_
 ```json
@@ -1280,5 +1281,5 @@ _response_
 >A nota fiscal e o tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST, cabendo ao receber controlar o fluxo de captura de pagamento.
 
 ---
-Autor: _Jonas Bolognim_
-Propriedade:_VTEX &copy;_
+Autor: _Jonas Bolognim_</br>
+Propriedade:_VTEX &copy;_</br>
