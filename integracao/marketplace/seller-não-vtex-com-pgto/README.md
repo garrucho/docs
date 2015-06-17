@@ -95,6 +95,10 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
     [Exemplo Completo: Informar tracking de um pedido](#a11)</br>
     [Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a12)</br>
 
+
+> ATENÇÃO:
+>> Caso o Seller não possua ambiente certificado para receber os dados de pagamento, um novo modelo deverá ser usado, que é a criação de uma conta no gateway VTEX para o Seller receber as transações de pagamento.
+
 ---
 
 ##Abaixo segue o passo a passo detalhado de cada fluxo:
@@ -124,7 +128,7 @@ Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o 
 ###Enviar Sugestão de SKU para Venda
 
 
-Quando o serviço de notificação descrito acima retornar um **response status 404**, significa que o SKU **NÂO existe** no Marketplace hospedado na VTEX, então o Seller envia um POST com os dados da SKU que deseja sugerir para vender no Marketplace. 
+Quando o serviço de notificação descrito acima retornar um **response status 404**, significa que o SKU **NÂO existe** no Marketplace hospedado na VTEX, então o Seller envia um POST com os dados da SKU que deseja sugerir para vender no Marketplace.
 
 > O Seller faz as sugestões de suas SKUs e o administrador do Marketplace realiza o mapeamento de marcas e categorias através da pagina de administração do Marketplace, e aceita ou não a sugestão de SKU enviada pelo Seller.
 
@@ -264,7 +268,7 @@ Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma 
 
 Quando ocorre uma edição no carrinho, uma chamada será feita no Seller para checar a disponibilidade dos itens - Endpoint do Seller.
 
-endpoint: ```https://[sellerendpoint]/pvt/orderForms/simulation?sc=[idcanal]&an=[mechantname]```</br>
+endpoint: ``` https://[sellerendpoint]/pvt/orderForms/simulation?sc=[idcanal]&an=[mechantname] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -407,7 +411,7 @@ Quando cliente for para a página de pagamento, uma chamada será feita no Selle
 >> 4-Mastercard </br>
 
 
-endpoint: ```https://[sellerendpoint]/installments/options?sc=[idcanal]&an=[mechantname]```</br>
+endpoint: ``` https://[sellerendpoint]/installments/options?sc=[idcanal]&an=[mechantname] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -518,6 +522,9 @@ _response:_
 
 Este tópico tem por objetivo auxiliar o Seller não VTEX a receber um pedido, receber o respectivo pagamento do pedido, e comunicar a atualização de status de pagamento.
 
+> ATENÇÃO:
+>> Caso o Seller não possua ambiente certificado para receber os dados de pagamento, um novo modelo deverá ser usado, que é a criação de uma conta no gateway VTEX para o Seller receber as transações de pagamento.
+
 
 _exemplo do fluxo de chamadas de descida de pedido, pagamento e atualização de status de pagamento:_
 
@@ -528,7 +535,7 @@ _exemplo do fluxo de chamadas de descida de pedido, pagamento e atualização de
 
 Quando o pedido é fechado no ambiente do Marketplace hospedado na VTEX, um POST é feito no Seller, para que este possa receber a ordem de pedido - endpoint do Seller.
 
-endpoint: ```https://sellerendpoint/pvt/orders?sc=[idcanal]&an=[mechantname]```</br>
+endpoint: ``` https://sellerendpoint/pvt/orders?sc=[idcanal]&an=[mechantname] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -710,7 +717,7 @@ _retorno de erro:_
 
 Quando o pagamento do pedido é informado no Marketplace hospedado na VTEX, um POST é feito no Seller enviando os dados referente ao pagamento do respectivo pedido - endpoint do Seller.
 
-endpoint: ```https://sellerendpoint/pvt/payment?sc=[idcanal]&an=[mechantname]```</br>
+endpoint: ``` https://sellerendpoint/pvt/payment?sc=[idcanal]&an=[mechantname] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -746,7 +753,7 @@ _request:_
 	"clientData": { // dados do cliente
 		"firstName": "JONAS",
 		"lastName": "ALVES DE OLIVEIRA",
-		"document": "08081268731", 
+		"document": "08081268731",
 		"corporateName": "",
 		"tradeName": "",
 		"corporateDocument": "",
@@ -827,7 +834,7 @@ _exemplo do POST feito na CallbackUrl de pagamento :_
 
 Quando o pagamento do pedido é concluído **com sucesso** no Seller (pagamento válido), um POST deverá ser feito na "callbackUrl" do pagamento, informando sucesso do pagamento ("status":"approved"), nesse momento o Marketplace hospedado na VTEX envia uma autorização para despachar o respectivo pedido no Seller (2 fase coomited) - endpoint do Seller.
 
-endpoint: ```https://Sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]&an=[mechantname]```</br>
+endpoint: ``` https://Sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]&an=[mechantname] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
