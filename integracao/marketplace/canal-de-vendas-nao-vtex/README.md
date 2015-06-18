@@ -48,7 +48,16 @@ O Marketplace irá usar esse enpoint para colocar um pedido no Seller.
  [Exemplo Completo: Colocar um Pedido no Seller](#a7)
 
 
-5. Implementar endpoint de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace.
+5. Implementar rotina que autoriza procedimento de entrega um pedido no Seller - Marketplace vai chamar endpoint do Seller.
+O Marketplace irá usar esse enpoint para autorizar despacho de um pedido no Seller.
+
+ _exemplo da chamada:_</br>
+ ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=1&affiliateId=LAB ```
+
+ [Exemplo Completo: Autorizar um Pedido no Seller](#a7)
+
+
+6. Implementar endpoint de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace.
 Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller vai invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
 
  _exemplo da chamada:_</br>
@@ -524,7 +533,7 @@ _Fluxo de chamadas de descida de pedido, pagamento e autorização para despacha
 
 Quando o pedido é fechado em um Marketplace não VTEX, um POST deve ser feito na loja VTEX, para que essa possa receber a ordem de pedido - Endpoint Loja VTEX
 
-endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado]```
+endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado] ```
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -691,7 +700,36 @@ _retorno de erro:_
 	}
 }
 ```
+<a name="a8"></a>
+###Enviar Autoriação Para Despachar
 
+Quando o pagamento do pedido é concluído no canal de vendas não VTEX, um POST deverá ser feito na loja VTEX, para que o pedido possa prosseguir para tratamento - Endpoint da Seller
+
+endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=[idcanal]&affiliateId=[idafiliado] ```
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
+Parametro: **sc** // sc é o canal de vendas cadastrado na VTEX.</br>
+Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado n loja VTEX</br>
+
+_request:_
+
+```json
+{
+	"marketplaceOrderId": "959311095" //id do pedido originado no canal de vendas
+}
+```
+
+_response:_
+
+```json
+{
+	"date": "2014-10-06 18:52:00",
+	"marketplaceOrderId": "111",
+	"orderId": "123543123",
+	"receipt": "e39d05f9-0c54-4469-a626-8bb5cff169f8",
+}
+```
 
 ###Implementando Marketplace Services Endpoint Actions
 
