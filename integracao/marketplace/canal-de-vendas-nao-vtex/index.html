@@ -44,7 +44,7 @@
     
 
         
-    <div class="book" data-level="1.2.1" data-basepath="../../.." data-revision="Fri Jun 19 2015 13:51:02 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.1" data-basepath="../../.." data-revision="Fri Jun 19 2015 16:53:42 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -476,48 +476,32 @@ Este modelo contempla troca de catalogo, atualiza&#xE7;&#xE3;o de condi&#xE7;&#x
 </blockquote>
 <h4 id="a%C3%A7%C3%B5es-que-dever%C3%A3o-ser-tomadas-pelo-marketplace-n%C3%A3o-hospedado-na-vtex-para-implementa%C3%A7%C3%A3o-da-integra%C3%A7%C3%A3o"><a name="a%C3%A7%C3%B5es-que-dever%C3%A3o-ser-tomadas-pelo-marketplace-n%C3%A3o-hospedado-na-vtex-para-implementa%C3%A7%C3%A3o-da-integra%C3%A7%C3%A3o" class="plugin-anchor" href="#a%C3%A7%C3%B5es-que-dever%C3%A3o-ser-tomadas-pelo-marketplace-n%C3%A3o-hospedado-na-vtex-para-implementa%C3%A7%C3%A3o-da-integra%C3%A7%C3%A3o"><span class="fa fa-link"></span></a>A&#xE7;&#xF5;es que dever&#xE3;o ser tomadas pelo Marketplace n&#xE3;o hospedado na VTEX para implementa&#xE7;&#xE3;o da integra&#xE7;&#xE3;o:</h4>
 <ol>
-<li><p>Implementar o endpoint para receber notifica&#xE7;&#xE3;o de mudan&#xE7;a de pre&#xE7;o e estoque - Seller hospedado na VTEX vai chamar endpoint do Marketplace.
-Toda vez que o SKU mudar o pre&#xE7;o e ou o estoque no Seller, o Seller tem que chamar esse endpoint do Marketplace, simplesmente comunicando a mudan&#xE7;a. Ao receber esse request o Marketplace vem buscar o pre&#xE7;o e estoque no Seller no metodo de consulta politica comercial que vamos falar mais abaixo.</p>
+<li><p>Implementar o endpoint para receber notifica&#xE7;&#xE3;o de mudan&#xE7;a de pre&#xE7;o e estoque - Seller hospedado na VTEX vai chamar endpoint do Marketplace. Toda vez que o SKU mudar o pre&#xE7;o e ou o estoque no Seller, o Seller tem que chamar esse endpoint do Marketplace, simplesmente comunicando a mudan&#xE7;a. Ao receber esse request o Marketplace vem buscar o pre&#xE7;o e estoque no Seller no metodo de consulta politica comercial que vamos falar mais abaixo.</p>
 <p><em>exemplo da chamada:</em><br>
 <code>https://marketplace.com.br/api/notification/</code></p>
 <p><a href="#a1">Exemplo Completo: Enviar Notifica&#xE7;&#xE3;o de Mudan&#xE7;a de Pre&#xE7;o e Estoque de SKU</a></p>
 </li>
-</ol>
-<ol>
-<li><p>Implementar busca de dados de SKU no Seller - Marketplace vai chamar endpoint do Seller na VTEX.
-Toda vez que o servi&#xE7;o de notifica&#xE7;&#xE3;o de mudan&#xE7;a do Seller avisar sobre uma SKU, e o Marketplace ainda nao tem a SKU catalogada, o Marketplace vem no Seller buscar os dados da nova SKU.</p>
+<li><p>Implementar busca de dados de SKU no Seller - Marketplace vai chamar endpoint do Seller na VTEX. Toda vez que o servi&#xE7;o de notifica&#xE7;&#xE3;o de mudan&#xE7;a do Seller avisar sobre uma SKU, e o Marketplace ainda nao tem a SKU catalogada, o Marketplace vem no Seller buscar os dados da nova SKU.</p>
 <p><em>exemplo da chamada:</em><br>
 <code>http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/2000037</code></p>
 <p><a href="#a2">Exemplo Completo: Buscar Dados de SKU</a></p>
 </li>
-</ol>
-<ol>
-<li><p>Implementar busca de politica comercial (pre&#xE7;o e estoque, frete, tipo entrega e custo) - Marketplace vai chamar endpoint do Seller.
-Toda vez que o servi&#xE7;o de notifica&#xE7;&#xE3;o de mudan&#xE7;a do Seller avisar sobre mudan&#xE7;a de uma SKU (j&#xE1; catalogada), o Marketplace busca pre&#xE7;o e ou estoque no Seller pra se atualizar.</p>
+<li><p>Implementar busca de politica comercial (pre&#xE7;o e estoque, frete, tipo entrega e custo) - Marketplace vai chamar endpoint do Seller. Toda vez que o servi&#xE7;o de notifica&#xE7;&#xE3;o de mudan&#xE7;a do Seller avisar sobre mudan&#xE7;a de uma SKU (j&#xE1; catalogada), o Marketplace busca pre&#xE7;o e ou estoque no Seller pra se atualizar.</p>
 <p><em>exemplo da chamada:</em><br>
 <code>https://sandboxintegracao.vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=1&amp;affiliateId=LAB</code></p>
 <p><a href="#a3">Exemplo Completo: Consultar Pol&#xED;tica Comercial</a></p>
 </li>
-</ol>
-<ol>
-<li><p>Implementar rotina que coloca um pedido no Seller - Marketplace vai chamar endpoint do Seller.
-O Marketplace ir&#xE1; usar esse enpoint para colocar um pedido no Seller.</p>
+<li><p>Implementar rotina que coloca um pedido no Seller - Marketplace vai chamar endpoint do Seller. O Marketplace ir&#xE1; usar esse enpoint para colocar um pedido no Seller.</p>
 <p><em>exemplo da chamada:</em><br>
 <code>https://sandboxintegracao.vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=1&amp;affiliateId=LAB</code></p>
 <p><a href="#a7">Exemplo Completo: Colocar um Pedido no Seller</a></p>
 </li>
-</ol>
-<ol>
-<li><p>Implementar rotina que autoriza procedimento de entrega um pedido no Seller - Marketplace vai chamar endpoint do Seller.
-O Marketplace ir&#xE1; usar esse enpoint para autorizar despacho de um pedido no Seller.</p>
+<li><p>Implementar rotina que autoriza procedimento de entrega um pedido no Seller - Marketplace vai chamar endpoint do Seller. O Marketplace ir&#xE1; usar esse enpoint para autorizar despacho de um pedido no Seller.</p>
 <p><em>exemplo da chamada:</em><br>
 <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=1&amp;affiliateId=LAB</code></p>
 <p><a href="#a7">Exemplo Completo: Autorizar um Pedido no Seller</a></p>
 </li>
-</ol>
-<ol>
-<li><p>Implementar endpoint de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace.
-Nos dados do pedido &#xE9; enviado uma endpoint de servi&#xE7;os do Marketplace, o Seller vai invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda n&#xE3;o enviou nota fiscal.</p>
+<li><p>Implementar endpoint de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace. Nos dados do pedido &#xE9; enviado uma endpoint de servi&#xE7;os do Marketplace, o Seller vai invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda n&#xE3;o enviou nota fiscal.</p>
 <p><em>exemplo da chamada:</em><br>
 <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code><br>
 <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/cancel</code><br></p>
@@ -530,9 +514,9 @@ Nos dados do pedido &#xE9; enviado uma endpoint de servi&#xE7;os do Marketplace,
 <p>No POST do pedido feito pelo Marketplace, o campo &quot;marketplaceserviceendpoint&quot; deve vir preenchido com o url base do servi&#xE7;os.</p>
 </blockquote>
 </blockquote>
+<hr>
 </li>
 </ol>
-<hr>
 <h2 id="abaixo-segue-o-passo-a-passo-detalhado-de-cada-fluxo"><a name="abaixo-segue-o-passo-a-passo-detalhado-de-cada-fluxo" class="plugin-anchor" href="#abaixo-segue-o-passo-a-passo-detalhado-de-cada-fluxo"><span class="fa fa-link"></span></a>Abaixo segue o passo a passo detalhado de cada fluxo:</h2>
 <h3 id="troca-de-catalogo-de-sku-e-atualiza%C3%A7%C3%A3o-de-condi%C3%A7%C3%A3o-comercial-de-sku"><a name="troca-de-catalogo-de-sku-e-atualiza%C3%A7%C3%A3o-de-condi%C3%A7%C3%A3o-comercial-de-sku" class="plugin-anchor" href="#troca-de-catalogo-de-sku-e-atualiza%C3%A7%C3%A3o-de-condi%C3%A7%C3%A3o-comercial-de-sku"><span class="fa fa-link"></span></a>Troca de Catalogo de SKU e Atualiza&#xE7;&#xE3;o de Condi&#xE7;&#xE3;o Comercial de SKU</h3>
 <p>Fluxo de troca de catalogo de SKU e atualiza&#xE7;&#xE3;o de pre&#xE7;o, estoque, frete, SLAs de entrega:</p>

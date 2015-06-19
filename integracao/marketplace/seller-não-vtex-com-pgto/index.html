@@ -44,7 +44,7 @@
     
 
         
-    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Fri Jun 19 2015 13:51:02 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Fri Jun 19 2015 16:53:42 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -472,26 +472,19 @@ Nesse modelo s&#xE3;o integrados produtos (<em>SKUs</em>), atualiza&#xE7;&#xE3;o
 </blockquote>
 <h4 id="a%C3%A7%C3%B5es-que-dever%C3%A3o-ser-tomadas-pelo-seller-n%C3%A3o-hospedado-na-vtex-para-implementa%C3%A7%C3%A3o-da-integra%C3%A7%C3%A3o"><a name="a%C3%A7%C3%B5es-que-dever%C3%A3o-ser-tomadas-pelo-seller-n%C3%A3o-hospedado-na-vtex-para-implementa%C3%A7%C3%A3o-da-integra%C3%A7%C3%A3o" class="plugin-anchor" href="#a%C3%A7%C3%B5es-que-dever%C3%A3o-ser-tomadas-pelo-seller-n%C3%A3o-hospedado-na-vtex-para-implementa%C3%A7%C3%A3o-da-integra%C3%A7%C3%A3o"><span class="fa fa-link"></span></a>A&#xE7;&#xF5;es que dever&#xE3;o ser tomadas pelo Seller n&#xE3;o hospedado na VTEX para implementa&#xE7;&#xE3;o da integra&#xE7;&#xE3;o:</h4>
 <ol>
-<li><p>Implementar chamada de notifica&#xE7;&#xE3;o de mudan&#xE7;a de pre&#xE7;o e estoque - Seller vai chamar endpoint da VTEX.
- Toda vez que o SKU mudar o pre&#xE7;o e ou o estoque no Seller, o Seller tem que chamar esse endpoint da loja na VTEX, simplesmente comunicando a mudan&#xE7;a. Ao receber esse request o Marketplace vai buscar o pre&#xE7;o e estoque no Seller no metodo de consulta politica comercial que vamos falar mais abaixo.</p>
-<p> <em>exemplo da chamada:</em><br>
- <code>https://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller]</code></p>
-<p> <a href="#a1">Exemplo Completo: Enviar Notifica&#xE7;&#xE3;o de Mudan&#xE7;a de Pre&#xE7;o e Estoque de SKU</a></p>
+<li><p>Implementar chamada de notifica&#xE7;&#xE3;o de mudan&#xE7;a de pre&#xE7;o e estoque - Seller vai chamar endpoint da VTEX. Toda vez que o SKU mudar o pre&#xE7;o e ou o estoque no Seller, o Seller tem que chamar esse endpoint da loja na VTEX, simplesmente comunicando a mudan&#xE7;a. Ao receber esse request o Marketplace vai buscar o pre&#xE7;o e estoque no Seller no metodo de consulta politica comercial que vamos falar mais abaixo.</p>
+<p><em>exemplo da chamada:</em><br>
+<code>https://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller]</code></p>
+<p><a href="#a1">Exemplo Completo: Enviar Notifica&#xE7;&#xE3;o de Mudan&#xE7;a de Pre&#xE7;o e Estoque de SKU</a></p>
 </li>
-</ol>
-<ol>
-<li><p>Implementar chamada de inser&#xE7;&#xE3;o de de sugest&#xE3;o de SKU -  Seller vai chamar endpoint da VTEX.
- Toda vez que o servi&#xE7;o de notifica&#xE7;&#xE3;o de mudan&#xE7;a retornar SKU <strong>n&#xE3;o</strong> encontrada (404), o Seller deve inserir a sugest&#xE3;o na loja da VTEX.</p>
-<p> <em>exemplo da chamada:</em><br>
- <code>https://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2</code></p>
-<p> <a href="#a2">Exemplo Completo: Enviar Sugest&#xE3;o de SKU</a></p>
+<li><p>Implementar chamada de inser&#xE7;&#xE3;o de de sugest&#xE3;o de SKU -  Seller vai chamar endpoint da VTEX. Toda vez que o servi&#xE7;o de notifica&#xE7;&#xE3;o de mudan&#xE7;a retornar SKU <strong>n&#xE3;o</strong> encontrada (404), o Seller deve inserir a sugest&#xE3;o na loja da VTEX.</p>
+<p><em>exemplo da chamada:</em><br>
+<code>https://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2</code></p>
+<p><a href="#a2">Exemplo Completo: Enviar Sugest&#xE3;o de SKU</a></p>
 </li>
-</ol>
-<ol>
-<li><p>Implementar endpoint para consulta de politica comercial (pre&#xE7;o e estoque) - VTEX chama endpoint do Seller.
- A loja hospedada na VTEX usar&#xE1; esse metodo para buscar pre&#xE7;o e estoque no Seller tanto na indexa&#xE7;&#xE3;o (catalogar pre&#xE7;o e estoque), quanto na simula&#xE7;&#xE3;o de carrinho.</p>
-<p> <em>exemplo da chamada:</em><br>
- <code>https://[seller].com.br/pvt/orderForms/simulation?sc=1&amp;an=mechantname</code></p>
+<li><p>Implementar endpoint para consulta de politica comercial (pre&#xE7;o e estoque) - VTEX chama endpoint do Seller. A loja hospedada na VTEX usar&#xE1; esse metodo para buscar pre&#xE7;o e estoque no Seller tanto na indexa&#xE7;&#xE3;o (catalogar pre&#xE7;o e estoque), quanto na simula&#xE7;&#xE3;o de carrinho.</p>
+<p><em>exemplo da chamada:</em><br>
+<code>https://[seller].com.br/pvt/orderForms/simulation?sc=1&amp;an=mechantname</code></p>
 <blockquote>
 <p>NOTA:</p>
 <blockquote>
@@ -499,57 +492,45 @@ Nesse modelo s&#xE3;o integrados produtos (<em>SKUs</em>), atualiza&#xE7;&#xE3;o
 Este &#xE9; um dos principais metodos da integra&#xE7;&#xE3;o, precisa ter performance e disponibilidade, pois tem impacto direto no fechamento da compra no Marketplace.</p>
 </blockquote>
 </blockquote>
-<p> <a href="#a3">Exemplo Completo: Consultar Pol&#xED;tica Comercial</a> <br>
- <a href="#a4">Exemplo Completo: Simula&#xE7;&#xE3;o de Carrinho</a><br></p>
+<p><a href="#a3">Exemplo Completo: Consultar Pol&#xED;tica Comercial</a> <br>
+<a href="#a4">Exemplo Completo: Simula&#xE7;&#xE3;o de Carrinho</a><br></p>
 </li>
-<li><p>Implementar endpoint para consultas de parcelamento - VTEX chama endpoint do Seller.
- A loja na VTEX ir&#xE1; usar esse endpoint para consultar os parcelamentos oferecidos pelo Seller.</p>
-<p> <em>exemplo da chamada:</em><br>
- <code>https://[seller].com.br/installments/options?sc=1&amp;an=mechantname</code></p>
+<li><p>Implementar endpoint para consultas de parcelamento - VTEX chama endpoint do Seller. A loja na VTEX ir&#xE1; usar esse endpoint para consultar os parcelamentos oferecidos pelo Seller.</p>
+<p><em>exemplo da chamada:</em><br>
+<code>https://[seller].com.br/installments/options?sc=1&amp;an=mechantname</code></p>
 <blockquote>
 <p>NOTA:</p>
 <blockquote>
 <p>Ah, tamb&#xE9;m precisa ter performance e disponibilidade, pois tem impacto direto no fechamento da compra no Marketplace.</p>
 </blockquote>
 </blockquote>
+<p><a href="#a5">Exemplo Completo: Consultar Formas de Parcelamento no Seller</a></p>
 </li>
-</ol>
-<pre><code>[Exemplo Completo: Consultar Formas de Parcelamento no Seller](#a5)
-</code></pre><ol>
-<li><p>Implementar endpoint para receber um pedido - VTEX chama endpoint do Seller.
- A loja na VTEX ir&#xE1; usar esse enpoint para colocar um pedido no Seller.</p>
-<p> <em>exemplo da chamada:</em><br>
- <code>https://[seller].com.br/pvt/orders?sc=1&amp;an=mechantname</code></p>
-<p> <a href="#a6">Exemplo Completo: Colocar um Pedido no Seller</a></p>
+<li><p>Implementar endpoint para receber um pedido - VTEX chama endpoint do Seller. A loja na VTEX ir&#xE1; usar esse enpoint para colocar um pedido no Seller.</p>
+<p><em>exemplo da chamada:</em><br>
+<code>https://[seller].com.br/pvt/orders?sc=1&amp;an=mechantname</code></p>
+<p><a href="#a6">Exemplo Completo: Colocar um Pedido no Seller</a></p>
 </li>
-</ol>
-<ol>
-<li><p>Implementar endpoint para receber dados de pagamento - VTEX chama endpoint do Seller.
- A loja na VTEX ir&#xE1; usar esse endpoint para enviar o pagamento para o Seller</p>
-<p> <em>exemplo da chamada:</em><br>
- <code>https://[seller].com.br/pvt/payment?sc=1&amp;an=mechantname</code></p>
+<li><p>Implementar endpoint para receber dados de pagamento - VTEX chama endpoint do Seller. A loja na VTEX ir&#xE1; usar esse endpoint para enviar o pagamento para o Seller</p>
+<p><em>exemplo da chamada:</em><br>
+<code>https://[seller].com.br/pvt/payment?sc=1&amp;an=mechantname</code></p>
+<blockquote>
+<p>Nos dados de pagamento tem a url de retorno, onde o Seller ir&#xE1; notificar a loja na VTEX sobre o status do pagamento, ou seja, o Seller deve implementar rotina de informar status de pagamento na loja VTEX.</p>
+</blockquote>
+<p><a href="#a7">Exemplo Completo: Colocar um Pagamento no Seller</a></p>
 </li>
-</ol>
-<pre><code>&gt; Nos dados de pagamento tem a url de retorno, onde o Seller ir&#xE1; notificar a loja na VTEX sobre o status do pagamento, ou seja, o Seller deve implementar rotina de informar status de pagamento na loja VTEX.
-
-[Exemplo Completo: Colocar um Pagamento no Seller](#a7)
-</code></pre><ol>
-<li><p>Implementar endpoint para fechar a transa&#xE7;&#xE3;o e autorizar despacho - VTEX chama endpoint do Seller.
- A loja na VTEX ir&#xE1; usar esse endpoint para avisar o Seller que j&#xE1; sabe do pagamento aprovado, e que o Seller j&#xE1; pode entegar com o pedido.</p>
-<p> <em>exemplo da chamada:</em><br>
- <code>https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&amp;an=mechantname</code></p>
-<p> <a href="#a8">Exemplo Completo: Autorizar o Seller a Despachar o Pedido</a></p>
+<li><p>Implementar endpoint para fechar a transa&#xE7;&#xE3;o e autorizar despacho - VTEX chama endpoint do Seller. A loja na VTEX ir&#xE1; usar esse endpoint para avisar o Seller que j&#xE1; sabe do pagamento aprovado, e que o Seller j&#xE1; pode entegar com o pedido.</p>
+<p><em>exemplo da chamada:</em><br>
+<code>https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&amp;an=mechantname</code></p>
+<p><a href="#a8">Exemplo Completo: Autorizar o Seller a Despachar o Pedido</a></p>
 </li>
-</ol>
-<ol>
-<li><p>Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido.
- Nos dados do pedido &#xE9; enviado uma endpoint de servi&#xE7;os do Marketplace, o Seller dever&#xE1; invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda n&#xE3;o enviou nota fiscal.</p>
-<p> <em>exemplo da chamada:</em><br>
- <code>https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice</code><br>
- <code>https://marketplaceServicesEndpoint/pub/orders/[orderId]/cancel</code><br></p>
-<p> <a href="#a10">Exemplo Completo: Informar nota fiscal de um pedido</a><br>
- <a href="#a11">Exemplo Completo: Informar tracking de um pedido</a><br>
- <a href="#a12">Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal</a><br></p>
+<li><p>Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido. Nos dados do pedido &#xE9; enviado uma endpoint de servi&#xE7;os do Marketplace, o Seller dever&#xE1; invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda n&#xE3;o enviou nota fiscal.</p>
+<p><em>exemplo da chamada:</em><br>
+<code>https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice</code><br>
+<code>https://marketplaceServicesEndpoint/pub/orders/[orderId]/cancel</code><br></p>
+<p><a href="#a10">Exemplo Completo: Informar nota fiscal de um pedido</a><br>
+<a href="#a11">Exemplo Completo: Informar tracking de um pedido</a><br>
+<a href="#a12">Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal</a><br></p>
 </li>
 </ol>
 <blockquote>
