@@ -175,7 +175,7 @@ _exemplo do POST de dados:_
   "RefId": null, // obrigatório quando o EAN não for enviado
   "SellerId": "Cristalli",
   "SellerModifiedDate": null,
-  "SellerStockKeepingUnitId": "cristalli00011", // tem que trocar esse id para os testes
+  "SellerStockKeepingUnitId": "cristalli00011", // identificador da SKU no Seller, trocar esse id para os testes
   "SkuId": null,
   "SkuName": "Oculos de Sol RAY BAN Lente Polarizada",
   "SkuSpecifications": [
