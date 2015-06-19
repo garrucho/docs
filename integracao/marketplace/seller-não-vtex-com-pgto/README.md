@@ -872,10 +872,10 @@ O MarketplaceServicesEndpoint serve para receber informações do Seller referen
 Quando o Seller emitir a nota fiscal, deve enviar as informações da nota fiscal - endpoint palataforma VTEX.
 
 endpoint: ```https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice```
-verb: **POST**
-Content-Type: **application/json**
+verb: **POST**</br>
+Content-Type: **application/json**</br>
 Accept: **application/json**
-Parametro: **orderId** // id do pedido no Seller
+Parametro: **orderId** // id do pedido no Seller</br>
 
 
 _request:_

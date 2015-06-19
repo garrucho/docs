@@ -1,5 +1,5 @@
 ##Seller Não VTEX Vendendo em Marketplace Hospedado na VTEX
- 
+
 Este documento tem por objetivo auxiliar na integração de um _Seller_ **não** hospedado na plataforma VTEX para uma _Marketplace_ hospedado na plataforma VTEX. Nesse modelo são integrados produtos (_SKUs_), atualização de condição comercial (preço, estoque) de um SKU, além de descida de pedido e envio de autorização de despacho de pedido para o Seller.
 
 > _Seller_ = Dono do produto, responsável por fazer a entrega.</br>
@@ -69,6 +69,8 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
     [Exemplo Completo: Informar tracking de um pedido](#a11)</br>
     [Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a12)</br>
 
+7. Rota de validação de cadastro - Auxiliar o diagnostico de problemas de integração que tenham causa, imcompatibilidade de configuração entre os envolvidos (Marketplace e Seller)
+
 ---
 
 ##Abaixo segue o passo a passo detalhado de cada fluxo:
@@ -99,7 +101,7 @@ Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o 
 ###Enviar Sugestão de SKU para Venda
 
 
-Quando o serviço de notificação descrito acima retornar um **response status 404**, significa que o SKU **NÂO existe** no Marketplace hospedado na VTEX, então o Seller envia um POST com os dados da SKU que deseja sugerir para vender no Marketplace. 
+Quando o serviço de notificação descrito acima retornar um **response status 404**, significa que o SKU **NÂO existe** no Marketplace hospedado na VTEX, então o Seller envia um POST com os dados da SKU que deseja sugerir para vender no Marketplace.
 
 > O Seller faz as sugestões de suas SKUs e o administrador do Marketplace realiza o mapeamento de marcas e categorias através da pagina de administração do Marketplace, e aceita ou não a sugestão de SKU enviada pelo Seller.
 
@@ -372,7 +374,7 @@ Este tópico tem por objetivo auxiliar o Seller a receber um pedido do Marketpla
 
 _exemplo do fluxo:_
 
-![alt text](order-seller-nao-vtex.png "Fluxo de pedido") 
+![alt text](order-seller-nao-vtex.png "Fluxo de pedido")
 
 <a name="a6"><a/>
 ###Enviar Pedido
@@ -536,7 +538,7 @@ _response:_
 
 ```
 
-_exemplo do retorno de Erro:_  
+_exemplo do retorno de Erro:_
 
 ```json
 {
@@ -552,7 +554,7 @@ _exemplo do retorno de Erro:_
 ###Enviar Autorização Para Despachar
 
 Quando o pagamento do pedido é concluído no marketplace VTEX (pagamento válido), envia se ao Seller uma autorização para dar andamento no processo de entrega do pedido - endpoint da Seller.
- 
+
 endpoint: ```https://Sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]&an=[mechantname]```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
