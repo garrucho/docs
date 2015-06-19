@@ -8,7 +8,7 @@
         <title>Seller não VTEX com pagamento | VTEX Lab Docs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.0">
+        <meta name="generator" content="GitBook 2.0.1">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -44,7 +44,7 @@
     
 
         
-    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Tue Jun 16 2015 10:43:37 GMT-0300 (BRT)">
+    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Fri Jun 19 2015 13:51:02 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -364,7 +364,9 @@
         
         <li class="divider"></li>
         <li>
-            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">Published with GitBook</a>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
         </li>
         
     </ul>
@@ -416,11 +418,21 @@
                 <span class="caret-inner"></span>
             </div>
             <div class="buttons">
-                <button type="button" data-sharing="twitter" class="button">Share on Twitter</button>
-                <button type="button" data-sharing="google-plus" class="button">Share on Google</button>
-                <button type="button" data-sharing="facebook" class="button">Share on Facebook</button>
-                <button type="button" data-sharing="weibo" class="button">Share on Weibo</button>
-                <button type="button" data-sharing="instapaper" class="button">Share on Instapaper</button>
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
             </div>
         </div>
     </div>
@@ -540,6 +552,12 @@ Este &#xE9; um dos principais metodos da integra&#xE7;&#xE3;o, precisa ter perfo
  <a href="#a12">Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal</a><br></p>
 </li>
 </ol>
+<blockquote>
+<p>ATEN&#xC7;&#xC3;O:</p>
+<blockquote>
+<p>Caso o Seller n&#xE3;o possua ambiente certificado para receber os dados de pagamento, um novo modelo dever&#xE1; ser usado, que &#xE9; a cria&#xE7;&#xE3;o de uma conta no gateway VTEX para o Seller receber as transa&#xE7;&#xF5;es de pagamento.</p>
+</blockquote>
+</blockquote>
 <hr>
 <h2 id="abaixo-segue-o-passo-a-passo-detalhado-de-cada-fluxo"><a name="abaixo-segue-o-passo-a-passo-detalhado-de-cada-fluxo" class="plugin-anchor" href="#abaixo-segue-o-passo-a-passo-detalhado-de-cada-fluxo"><span class="fa fa-link"></span></a>Abaixo segue o passo a passo detalhado de cada fluxo:</h2>
 <h3 id="troca-de-catalogo-e-atualiza%C3%A7%C3%A3o-de-pre%C3%A7o-e-estoque-de-sku"><a name="troca-de-catalogo-e-atualiza%C3%A7%C3%A3o-de-pre%C3%A7o-e-estoque-de-sku" class="plugin-anchor" href="#troca-de-catalogo-e-atualiza%C3%A7%C3%A3o-de-pre%C3%A7o-e-estoque-de-sku"><span class="fa fa-link"></span></a>Troca de Catalogo e Atualiza&#xE7;&#xE3;o de Pre&#xE7;o e Estoque de SKU</h3>
@@ -559,7 +577,7 @@ Caso a loja retorne em seu servi&#xE7;o o <strong>response status 200 ou 202</st
 <p><a title="notificar mudan&#xE7;a de sku no marketplace" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/CATALOG/CATALOG_Notification" target="_blank">[Developer] - Exemplo de Request de Notifica&#xE7;&#xE3;o de Mudan&#xE7;a - Endpoint da loja hospedada na VTEX</a></p>
 <p><a name="a2"><a></a></a></p>
 <h3 id="enviar-sugest%C3%A3o-de-sku-para-venda"><a name="enviar-sugest%C3%A3o-de-sku-para-venda" class="plugin-anchor" href="#enviar-sugest%C3%A3o-de-sku-para-venda"><span class="fa fa-link"></span></a>Enviar Sugest&#xE3;o de SKU para Venda</h3>
-<p>Quando o servi&#xE7;o de notifica&#xE7;&#xE3;o descrito acima retornar um <strong>response status 404</strong>, significa que o SKU <strong>N&#xC2;O existe</strong> no Marketplace hospedado na VTEX, ent&#xE3;o o Seller envia um POST com os dados da SKU que deseja sugerir para vender no Marketplace. </p>
+<p>Quando o servi&#xE7;o de notifica&#xE7;&#xE3;o descrito acima retornar um <strong>response status 404</strong>, significa que o SKU <strong>N&#xC2;O existe</strong> no Marketplace hospedado na VTEX, ent&#xE3;o o Seller envia um POST com os dados da SKU que deseja sugerir para vender no Marketplace.</p>
 <blockquote>
 <p>O Seller faz as sugest&#xF5;es de suas SKUs e o administrador do Marketplace realiza o mapeamento de marcas e categorias atrav&#xE9;s da pagina de administra&#xE7;&#xE3;o do Marketplace, e aceita ou n&#xE3;o a sugest&#xE3;o de SKU enviada pelo Seller.</p>
 </blockquote>
@@ -930,6 +948,12 @@ Accept: <strong>application/json</strong><br></p>
 <hr>
 <h3 id="enviar-pedido-e-informar-pagamento"><a name="enviar-pedido-e-informar-pagamento" class="plugin-anchor" href="#enviar-pedido-e-informar-pagamento"><span class="fa fa-link"></span></a>Enviar Pedido e Informar Pagamento</h3>
 <p>Este t&#xF3;pico tem por objetivo auxiliar o Seller n&#xE3;o VTEX a receber um pedido, receber o respectivo pagamento do pedido, e comunicar a atualiza&#xE7;&#xE3;o de status de pagamento.</p>
+<blockquote>
+<p>ATEN&#xC7;&#xC3;O:</p>
+<blockquote>
+<p>Caso o Seller n&#xE3;o possua ambiente certificado para receber os dados de pagamento, um novo modelo dever&#xE1; ser usado, que &#xE9; a cria&#xE7;&#xE3;o de uma conta no gateway VTEX para o Seller receber as transa&#xE7;&#xF5;es de pagamento.</p>
+</blockquote>
+</blockquote>
 <p><em>exemplo do fluxo de chamadas de descida de pedido, pagamento e atualiza&#xE7;&#xE3;o de status de pagamento:</em></p>
 <p><img src="pedido-pagamento-fluxo.png" alt="alt text" title="Title"></p>
 <p><a name="a6"><a></a></a></p>
@@ -1140,7 +1164,7 @@ Accept: <strong>application/json</strong><br></p>
     <span class="hljs-string">&quot;clientData&quot;</span>: { <span class="hljs-comment">// dados do cliente</span>
         <span class="hljs-string">&quot;firstName&quot;</span>: <span class="hljs-string">&quot;JONAS&quot;</span>,
         <span class="hljs-string">&quot;lastName&quot;</span>: <span class="hljs-string">&quot;ALVES DE OLIVEIRA&quot;</span>,
-        <span class="hljs-string">&quot;document&quot;</span>: <span class="hljs-string">&quot;08081268731&quot;</span>, 
+        <span class="hljs-string">&quot;document&quot;</span>: <span class="hljs-string">&quot;08081268731&quot;</span>,
         <span class="hljs-string">&quot;corporateName&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
         <span class="hljs-string">&quot;tradeName&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
         <span class="hljs-string">&quot;corporateDocument&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
@@ -1247,10 +1271,10 @@ Accept: <strong>application/json</strong><br></p>
 <h3 id="informar-dados-de-nota-fiscal"><a name="informar-dados-de-nota-fiscal" class="plugin-anchor" href="#informar-dados-de-nota-fiscal"><span class="fa fa-link"></span></a>Informar Dados de Nota Fiscal</h3>
 <p>Quando o Seller emitir a nota fiscal, deve enviar as informa&#xE7;&#xF5;es da nota fiscal - endpoint palataforma VTEX.</p>
 <p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice</code>
-verb: <strong>POST</strong>
-Content-Type: <strong>application/json</strong>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong>
-Parametro: <strong>orderId</strong> // id do pedido no Seller</p>
+Parametro: <strong>orderId</strong> // id do pedido no Seller<br></p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">{
     <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Output&quot;</span>, <span class="hljs-comment">// Output|Input (venda|devolu&#xE7;&#xE3;o)</span>

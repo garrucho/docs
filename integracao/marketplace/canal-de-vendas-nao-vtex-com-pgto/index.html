@@ -8,7 +8,7 @@
         <title>Canal de vendas não VTEX com pagamento | VTEX Lab Docs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.0">
+        <meta name="generator" content="GitBook 2.0.1">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -44,7 +44,7 @@
     
 
         
-    <div class="book" data-level="1.2.2" data-basepath="../../.." data-revision="Tue Jun 16 2015 10:43:37 GMT-0300 (BRT)">
+    <div class="book" data-level="1.2.2" data-basepath="../../.." data-revision="Fri Jun 19 2015 13:51:02 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -364,7 +364,9 @@
         
         <li class="divider"></li>
         <li>
-            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">Published with GitBook</a>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
         </li>
         
     </ul>
@@ -416,11 +418,21 @@
                 <span class="caret-inner"></span>
             </div>
             <div class="buttons">
-                <button type="button" data-sharing="twitter" class="button">Share on Twitter</button>
-                <button type="button" data-sharing="google-plus" class="button">Share on Google</button>
-                <button type="button" data-sharing="facebook" class="button">Share on Facebook</button>
-                <button type="button" data-sharing="weibo" class="button">Share on Weibo</button>
-                <button type="button" data-sharing="instapaper" class="button">Share on Instapaper</button>
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
             </div>
         </div>
     </div>
@@ -458,7 +470,8 @@ Este modelo contempla troca de catalogo, atualiza&#xE7;&#xE3;o de condi&#xE7;&#x
 <blockquote>
 <p><em>Seller</em> = Dono do produto, respons&#xE1;vel por cumprir com a entrega do SKU.<br>
 <em>Marketplace</em> = Dono da vitrine (cara com o cliente final), respons&#xE1;vel por expor e vender o SKU.<br>
-<em>SKU</em> = Item a ser trocado e vendido entre Marketplace e Seller.<br></p>
+<em>SKU</em> = Item a ser trocado e vendido entre Marketplace e Seller.<br>
+<em>Endpoint</em> = Ponto de acesso de um servi&#xE7;o ma internet, servi&#xE7;o pronto para receber um requisi&#xE7;&#xE3;o e devolver uma resposta.<br></p>
 </blockquote>
 </blockquote>
 <h4 id="a%C3%A7%C3%B5es-que-dever%C3%A3o-ser-tomadas-pelo-marketplace-n%C3%A3o-hospedado-na-vtex-para-implementa%C3%A7%C3%A3o-da-integra%C3%A7%C3%A3o"><a name="a%C3%A7%C3%B5es-que-dever%C3%A3o-ser-tomadas-pelo-marketplace-n%C3%A3o-hospedado-na-vtex-para-implementa%C3%A7%C3%A3o-da-integra%C3%A7%C3%A3o" class="plugin-anchor" href="#a%C3%A7%C3%B5es-que-dever%C3%A3o-ser-tomadas-pelo-marketplace-n%C3%A3o-hospedado-na-vtex-para-implementa%C3%A7%C3%A3o-da-integra%C3%A7%C3%A3o"><span class="fa fa-link"></span></a>A&#xE7;&#xF5;es que dever&#xE3;o ser tomadas pelo Marketplace n&#xE3;o hospedado na VTEX para implementa&#xE7;&#xE3;o da integra&#xE7;&#xE3;o:</h4>
@@ -518,37 +531,47 @@ O Marketplace ir&#xE1; usar esse enpoint para colocar um pagamento no Seller.</p
 <p><a href="#a9">Exemplo Completo: Colocar um Pagamento no Seller</a></p>
 </li>
 <li><p>Implementar rotina que coloca dados adicionais de pagamento no Seller - Marketplace vai chamar endpoint do Seller.
-O Marketplace ir&#xE1; usar esse enpoint para colocar informacoes adicionais de dados do pagamento  no Seller</p>
+O Marketplace ir&#xE1; usar esse enpoint para colocar informa&#xE7;&#xF5;es adicionais de dados do pagamento  no Seller</p>
 <p><em>exemplo da chamada:</em><br>
-<code>https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&amp;an=mechantname</code></p>
+<code>https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionid]/additional-data</code></p>
 <p><a href="#a10">Exemplo Completo: Colocar Dados Adicionais de Pagamento no Seller</a></p>
 </li>
 <li><p>Implementar rotina que autoriza o pagamento no Seller - Marketplace vai chamar endpoint do Seller.
-O Marketplace ir&#xE1; usar esse enpoint para autorizar o andamento do pagamento no Seller</p>
+O Marketplace ir&#xE1; usar esse endpoint para autorizar o andamento do pagamento no Seller</p>
 <p><em>exemplo da chamada:</em><br>
-<code>https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&amp;an=mechantname</code></p>
+<code>https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionid]/authorization-request</code></p>
 <p><a href="#a11">Exemplo Completo: Autorizar o Andamento do Pagamento no Seller</a></p>
 </li>
 </ol>
-<hr>
 <ol>
-<li><p>Implementar endponit de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace.
-Nos dados do pedido &#xE9; enviado uma endpoint de servi&#xE7;os do Marketplace, o Seller dever&#xE1; invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda n&#xE3;o enviou nota fiscal.</p>
+<li><p>Implementar endpoint de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace.
+Nos dados do pedido &#xE9; enviado uma endpoint de servi&#xE7;os do Marketplace, o Seller vai invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda n&#xE3;o enviou nota fiscal.</p>
 <p><em>exemplo da chamada:</em><br>
-<code>https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice</code><br>
-<code>https://marketplaceServicesEndpoint/pub/orders/[orderId]/cancel</code><br></p>
+<code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code><br>
+<code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/cancel</code><br></p>
 <p><a href="#a12">Exemplo Completo: Informar nota fiscal de um pedido</a><br>
 <a href="#a13">Exemplo Completo: Informar tracking de um pedido</a><br>
-<a href="#a12">Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal</a><br></p>
+<a href="#a14">Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal</a><br></p>
+<blockquote>
+<p>NOTA</p>
+<blockquote>
+<p>No POST do pedido feito pelo Marketplace, o campo &quot;marketplaceserviceendpoint&quot; deve vir preenchido com o url base do servi&#xE7;os.</p>
+</blockquote>
+</blockquote>
 </li>
 <li><p>Implementar rotina que captura ou cancela o pagamento no Seller - Marketplace vai chamar endpoint do Seller.
-A loja na VTEX ir&#xE1; usar esse endpoint para avisar o Seller que j&#xE1; sabe do pagamento aprovado, e que o Seller j&#xE1; pode entegar com o pedido.</p>
-<p><em>exemplo da chamada:</em><br>
-<code>https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&amp;an=mechantname</code></p>
-<p><a href="#a14">Exemplo Completo: Autorizar o Seller a Despachar o Pedido</a></p>
+O Markeplace deve capturar o pagamento ao receber a nota fisca e deve cancelar o pagamento ao receber um cancelamento de pedido.</p>
+<p><em>exemplo da chamada de captura:</em><br>
+<code>https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionId]/settlement-request</code></p>
 </li>
 </ol>
+<p><em>exemplo da chamada de cancelamento:</em><br>
+<code>https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionId]/cancellation-request</code></p>
+<blockquote>
+<p>O exemplo completo esta descrito dentro da rotina de informar nota fiscal e cancelar, citada acima.</p>
+</blockquote>
 <hr>
+<h2 id="abaixo-segue-o-passo-a-passo-detalhado-de-cada-fluxo"><a name="abaixo-segue-o-passo-a-passo-detalhado-de-cada-fluxo" class="plugin-anchor" href="#abaixo-segue-o-passo-a-passo-detalhado-de-cada-fluxo"><span class="fa fa-link"></span></a>Abaixo segue o passo a passo detalhado de cada fluxo:</h2>
 <h3 id="troca-de-catalogo-de-sku-e-atualiza%C3%A7%C3%A3o-de-condi%C3%A7%C3%A3o-comercial-de-sku"><a name="troca-de-catalogo-de-sku-e-atualiza%C3%A7%C3%A3o-de-condi%C3%A7%C3%A3o-comercial-de-sku" class="plugin-anchor" href="#troca-de-catalogo-de-sku-e-atualiza%C3%A7%C3%A3o-de-condi%C3%A7%C3%A3o-comercial-de-sku"><span class="fa fa-link"></span></a>Troca de Catalogo de SKU e Atualiza&#xE7;&#xE3;o de Condi&#xE7;&#xE3;o Comercial de SKU</h3>
 <p>Fluxo de troca de catalogo de SKU e atualiza&#xE7;&#xE3;o de pre&#xE7;o, estoque, frete, SLAs de entrega:</p>
 <p><img src="sku-sugestion-canal-nao-vtex.png" alt="alt text" title="Title"></p>
@@ -588,12 +611,12 @@ Accept: <strong>application/json</strong><br></p>
 <p><a name="a3"></a></p>
 <h3 id="busca-de-condi%C3%A7%C3%B5es-comerciais"><a name="busca-de-condi%C3%A7%C3%B5es-comerciais" class="plugin-anchor" href="#busca-de-condi%C3%A7%C3%B5es-comerciais"><span class="fa fa-link"></span></a>Busca de Condi&#xE7;&#xF5;es Comerciais</h3>
 <p>Acessa a loja VTEX pegando as condi&#xE7;&#xF5;es comerciais (pre&#xE7;o, estoque, SLAs de entrega) de uma SKU  - Endpoint da Loja VTEX</p>
-<p>endpoint: <strong><a href="https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado" target="_blank">https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado</a>]</strong>
-verb: <strong>POST</strong>
-Content-Type: <strong>application/json</strong>
-Accept: <strong>application/json</strong>
-Parametro: <strong>sc</strong> // sc &#xE9; o canal de vendas cadastrado no marketplace
-Parametro: <strong>affiliateId</strong> // o id do afiliado cadastrado na loja VTEX</p>
+<p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]</code>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br>
+Parametro: <strong>sc</strong> // sc &#xE9; o canal de vendas cadastrado no marketplace<br>
+Parametro: <strong>affiliateId</strong> // o id do afiliado cadastrado na loja VTEX<br></p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">{
     <span class="hljs-string">&quot;postalCode&quot;</span>:<span class="hljs-string">&quot;22251-030&quot;</span>,            <span class="hljs-comment">//obrigat&#xF3;rio se country estiver preenchido</span>
@@ -702,10 +725,10 @@ Parametro: <strong>affiliateId</strong> // o id do afiliado cadastrado na loja V
 <p><a name="a2"></a></p>
 <h3 id="busca-informa%C3%A7%C3%B5es-de-uma-sku"><a name="busca-informa%C3%A7%C3%B5es-de-uma-sku" class="plugin-anchor" href="#busca-informa%C3%A7%C3%B5es-de-uma-sku"><span class="fa fa-link"></span></a>Busca Informa&#xE7;&#xF5;es de uma SKU</h3>
 <p>Acessa uma loja VTEX e busca dados de uma SKU - Endpoint da Loja VTEX</p>
-<p>endpoint: <strong><a href="http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku" target="_blank">http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku</a>]</strong>
-verb: <strong>GET</strong>
-Accept: <strong>application/json</strong>
-Parametro: <strong>idSku</strong> identificador do SKU</p>
+<p>endpoint: <code>http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku]</code>
+verb: <strong>GET</strong><br>
+Accept: <strong>application/json</strong><br>
+Parametro: <strong>idSku</strong> // identificador do SKU<br></p>
 <p><em>response:</em></p>
 <pre><code class="lang-json">{
     <span class="hljs-string">&quot;Id&quot;</span>: <span class="hljs-number">1634</span>, <span class="hljs-comment">//id da sku</span>
@@ -841,12 +864,12 @@ Parametro: <strong>idSku</strong> identificador do SKU</p>
 <p><img src="fechato-canal-nao-vtex-com-pgto.png" alt="alt text" title="fechamento do pedido no marketplace"></p>
 <h3 id="simula%C3%A7ao-de-carrinho"><a name="simula%C3%A7ao-de-carrinho" class="plugin-anchor" href="#simula%C3%A7ao-de-carrinho"><span class="fa fa-link"></span></a>Simula&#xE7;ao de Carrinho</h3>
 <p>Acessa a loja VTEX simulando um carrinho, para checar as condi&#xE7;oes comerciais e as SLAs de entrega - Endpoint loja VTEX</p>
-<p>endpoint: <strong><a href="https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado" target="_blank">https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado</a>]</strong>
-verb: <strong>POST</strong>
-Content-Type: <strong>application/json</strong>
-Accept: <strong>application/json</strong>
-Parametro: <strong>sc</strong> // sc &#xE9; o canal de vendas
-Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado cadastrado na loja VTEX</p>
+<p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]</code>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br>
+Parametro: <strong>sc</strong> // sc &#xE9; o canal de vendas<br>
+Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado cadastrado na loja VTEX<br></p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">{
     <span class="hljs-string">&quot;postalCode&quot;</span>:<span class="hljs-string">&quot;22251-030&quot;</span>,            <span class="hljs-comment">//obrigat&#xF3;rio se country estiver preenchido, string</span>
@@ -921,7 +944,7 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
                 {
                     <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;Agendada&quot;</span>,
                     <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Entrega Agendada&quot;</span>,
-                    <span class="hljs-string">&quot;shippingEstimate&quot;</span>: <span class="hljs-string">&quot;5d&quot;</span>,                     <span class="hljs-comment">// d == &quot;days, bd == &quot;business days&quot;</span>
+                    <span class="hljs-string">&quot;shippingEstimate&quot;</span>: <span class="hljs-string">&quot;5d&quot;</span>,                     <span class="hljs-comment">// d - &quot;days, bd - &quot;business days&quot;</span>
                     <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">800</span>,
                     <span class="hljs-string">&quot;availableDeliveryWindows&quot;</span>: [
                          {
@@ -942,7 +965,7 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
                 {
                     <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;Normal&quot;</span>,
                     <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Entrega Normal&quot;</span>,
-                    <span class="hljs-string">&quot;shippingEstimate&quot;</span>: <span class="hljs-string">&quot;5bd&quot;</span>,                                  <span class="hljs-comment">// bd == &quot;business days&quot;</span>
+                    <span class="hljs-string">&quot;shippingEstimate&quot;</span>: <span class="hljs-string">&quot;5bd&quot;</span>,                                  <span class="hljs-comment">// bd - &quot;business days&quot;</span>
                     <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">200</span>
                 }
             ]
@@ -952,14 +975,16 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
     <span class="hljs-string">&quot;postalCode&quot;</span>:<span class="hljs-string">&quot;22251-030&quot;</span>                                   <span class="hljs-comment">//string, nulo se n&#xE3;o enviado</span>
 }
 </code></pre>
-<p>**Caso o CEP e Pais n&#xE3;o for enviado, n&#xE3;o ser&#xE1; retornado informa&#xE7;&#xF5;es de SLA de entrega</p>
+<blockquote>
+<p>Caso o CEP e Pais n&#xE3;o for enviado, n&#xE3;o ser&#xE1; retornado informa&#xE7;&#xF5;es de SLA de entrega</p>
+</blockquote>
 <p><a name="a5"></a></p>
 <h3 id="consulta-as-formas-de-pagamento-dispon%C3%ADveis-no-seller"><a name="consulta-as-formas-de-pagamento-dispon%C3%ADveis-no-seller" class="plugin-anchor" href="#consulta-as-formas-de-pagamento-dispon%C3%ADveis-no-seller"><span class="fa fa-link"></span></a>Consulta as Formas de Pagamento Dispon&#xED;veis no Seller</h3>
 <p>Acessa a loja VTEX para consultar a formas de pagamento dispon&#xED;veis - Endpoint loja VTEX</p>
-<p>endpoint: <strong><a href="https://[loja].vtexpayments.com.br/api/pvt/merchants/payment-systems" target="_blank">https://[loja].vtexpayments.com.br/api/pvt/merchants/payment-systems</a></strong>
-verb: <strong>GET</strong>
-Content-Type: <strong>application/json</strong>
-Accept: <strong>application/json</strong></p>
+<p>endpoint: <code>https://[loja].vtexpayments.com.br/api/pvt/merchants/payment-systems</code>
+verb: <strong>GET</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br></p>
 <p><em>response:</em></p>
 <pre><code class="lang-json">[
     {
@@ -1048,10 +1073,10 @@ Accept: <strong>application/json</strong></p>
 <p><a name="a6"></a></p>
 <h3 id="consulta-os-parcelamentos-no-seller"><a name="consulta-os-parcelamentos-no-seller" class="plugin-anchor" href="#consulta-os-parcelamentos-no-seller"><span class="fa fa-link"></span></a>Consulta os Parcelamentos no Seller</h3>
 <p>Consulta a loja VTEX para buscar os parcelamentos por forma de pagamento e promo&#xE7;&#xF5;es de SKU - Endpoint loja VTEX</p>
-<p>endpoint: <strong><a href="https://[loja].vtexpayments.com.br/api/pvt/installments/options" target="_blank">https://[loja].vtexpayments.com.br/api/pvt/installments/options</a></strong>
-verb: <strong>POST</strong>
-Content-Type: <strong>application/json</strong>
-Accept: <strong>application/json</strong></p>
+<p>endpoint: <code>https://[loja].vtexpayments.com.br/api/pvt/installments/options</code>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br></p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;PaymentSystemsIds&quot;</span>:[<span class="hljs-number">2</span>,<span class="hljs-number">4</span>], <span class="hljs-comment">//ids das formas de pagamento</span>
@@ -1125,18 +1150,18 @@ Accept: <strong>application/json</strong></p>
 </code></pre>
 <h3 id="enviar-pedido-enviar-pagamento-e-autorizar-despacho"><a name="enviar-pedido-enviar-pagamento-e-autorizar-despacho" class="plugin-anchor" href="#enviar-pedido-enviar-pagamento-e-autorizar-despacho"><span class="fa fa-link"></span></a>Enviar Pedido, Enviar Pagamento e Autorizar Despacho</h3>
 <p>Este t&#xF3;pico tem por objetivo auxiliar um Marketplace n&#xE3;o VTEX enviar um pedido, enviar uma transa&#xE7;&#xE3;o de pagamento, e enviar autoriza&#xE7;&#xE3;o para despacho (proceder com o fulfillment do pedido).</p>
-<p>Caso se queira uma condi&#xE7;&#xE3;o comercial diferenciada para o Marketplace n&#xE3;o VTEX, na loja VTEX dever&#xE1; ser criado um novo canal de vendas, podendo assim criar promo&#xE7;&#xF5;es diferenciadas (desconto, frete, etc) somente para o canal desejado. Caso n&#xE3;o tenha condi&#xE7;&#xE3;o comercial diferenciada, deve se usar o canal de vendas da loja principal (sc=1).</p>
+<p>Caso se queira uma condi&#xE7;&#xE3;o comercial diferenciada para o Marketplace n&#xE3;o VTEX, na loja VTEX dever&#xE1; ser criado uma nova politica comercial, podendo assim criar promo&#xE7;&#xF5;es diferenciadas (desconto, frete, etc) somente para o afiliado desejado. Caso <strong>n&#xE3;o</strong> tenha politica comercial diferenciada, deve se usar apolitica comercial da loja principal (sc=1).</p>
 <p><em>Fluxo de chamadas de descida de pedido, pagamento e autoriza&#xE7;&#xE3;o para despachar:</em></p>
 <p><img src="order-canal-n-vtex-com-pgto.PNG" alt="alt text" title="Title"></p>
 <p><a name="a7"></a></p>
 <h3 id="enviar-pedido"><a name="enviar-pedido" class="plugin-anchor" href="#enviar-pedido"><span class="fa fa-link"></span></a>Enviar Pedido</h3>
 <p>Quando o pedido &#xE9; fechado em um Marketplace n&#xE3;o VTEX, um POST deve ser feito na loja VTEX, para que essa possa receber a ordem de pedido - Endpoint Loja VTEX</p>
 <p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&amp;affiliateId=[idafiliado]</code>
-verb: <strong>POST</strong>
-Content-Type: <strong>application/json</strong>
-Accept: <strong>application/json</strong>
-Parametro: <strong>sc</strong> // sc &#xE9; o canal de vendas cadastrado na VTEX.
-Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado cadastrado n loja VTEX</p>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br>
+Parametro: <strong>sc</strong> // sc &#xE9; o canal de vendas cadastrado na VTEX.<br>
+Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado cadastrado n loja VTEX<br></p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">{
     <span class="hljs-string">&quot;marketplaceOrderId&quot;</span>: <span class="hljs-string">&quot;959311095&quot;</span>, <span class="hljs-comment">//identificador do pedido no marketplace</span>
@@ -1297,11 +1322,11 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
 <p>Ap&#xF3;s enviar o pedido e receber o response com o paymentData.merchantPaymentReferenceId, o processo de transa&#xE7;&#xE3;o de pagamento do pedido dever&#xE1; ser enviado.</p>
 <p><a name="a8"></a></p>
 <h3 id="iniciar-transa%C3%A7%C3%A3o"><a name="iniciar-transa%C3%A7%C3%A3o" class="plugin-anchor" href="#iniciar-transa%C3%A7%C3%A3o"><span class="fa fa-link"></span></a>Iniciar Transa&#xE7;&#xE3;o</h3>
-<p>Inicia uma transa&#xE7;&#xE3;o de pagamento usando o paymentData.merchantPaymentReferenceId recebi no retorno de inser&#xE7;&#xE3;o de pedido - Endpoint Loja VTEX</p>
+<p>Inicia uma transa&#xE7;&#xE3;o de pagamento usando o paymentData.merchantPaymentReferenceId recebido no retorno de inser&#xE7;&#xE3;o de pedido - Endpoint Loja VTEX</p>
 <p>endpoint: <code>https://[loja].vtexpayments.com.br/api/pvt/transactions</code>
-verb: <strong>POST</strong>
-Content-Type: <strong>application/json</strong>
-Accept: <strong>application/json</strong></p>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br></p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;value&quot;</span>:<span class="hljs-number">3190</span>, <span class="hljs-comment">//valor do pagamento</span>
@@ -1356,12 +1381,13 @@ Accept: <strong>application/json</strong></p>
     <span class="hljs-string">&quot;softDescriptor&quot;</span>: <span class="hljs-literal">null</span>
 }
 </code></pre>
+<p><a name="a9"></a></p>
 <h3 id="enviar-dados-de-pagamento"><a name="enviar-dados-de-pagamento" class="plugin-anchor" href="#enviar-dados-de-pagamento"><span class="fa fa-link"></span></a>Enviar Dados de Pagamento</h3>
 <p>Envia os dados referentes ao pagamento, debaixo da transa&#xE7;&#xE3;o iniciada - Endpoint Loja VTEX</p>
 <p>endpoint: <code>https://[loja].vtexpayments.com.br/api/pvt/payments</code>
-verb: <strong>POST</strong>
-Content-Type: <strong>application/json</strong>
-Accept: <strong>application/json</strong></p>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br></p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">{
   &quot;callbackUrl&quot;: &quot;&quot;,
@@ -1397,13 +1423,14 @@ Accept: <strong>application/json</strong></p>
 <p><em>response:</em></p>
 <pre><code class="lang-json"><span class="hljs-number">200</span>
 </code></pre>
+<p><a name="a10"></a></p>
 <h3 id="enviar-dados-adicionais"><a name="enviar-dados-adicionais" class="plugin-anchor" href="#enviar-dados-adicionais"><span class="fa fa-link"></span></a>Enviar Dados Adicionais</h3>
 <p>Envia dados adicionais que ser&#xE3;o usados pelo sistema de anti-fraude - Endpoint Loja VTEX</p>
-<p>endpoint: <strong><a href="https://[loja].vtexpayments.com.br/api/pvt/transactions/[transactionid]/additional-data" target="_blank">https://[loja].vtexpayments.com.br/api/pvt/transactions/[transactionid]/additional-data</a></strong>
-verb: <strong>POST</strong>
-Content-Type: <strong>application/json</strong>
-Accept: <strong>application/json</strong>
-Parametro: <strong>transactionid</strong> // identificador da transa&#xE7;&#xE3;o  Ex: BB55ED929FF749E6BE5A835E4C811B77</p>
+<p>endpoint: <code>https://[loja].vtexpayments.com.br/api/pvt/transactions/[transactionid]/additional-data</code>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br>
+Parametro: <strong>transactionid</strong> // identificador da transa&#xE7;&#xE3;o  Ex: BB55ED929FF749E6BE5A835E4C811B77<br></p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">[
     {
@@ -1435,13 +1462,14 @@ Parametro: <strong>transactionid</strong> // identificador da transa&#xE7;&#xE3;
 <pre><code class="lang-json">
 
 </code></pre>
+<p><a name="a11"></a></p>
 <h3 id="autoriza%C3%A7%C3%A3o-de-pagamento"><a name="autoriza%C3%A7%C3%A3o-de-pagamento" class="plugin-anchor" href="#autoriza%C3%A7%C3%A3o-de-pagamento"><span class="fa fa-link"></span></a>Autoriza&#xE7;&#xE3;o de Pagamento</h3>
-<p>Envia uma autoriza&#xE7;&#xE3;o confirmando a autoriza&#xE7;&#xE3;o do pagamento enviado - Endpoint Loja VTEX</p>
-<p>endpoint: <strong><a href="https://[loja].vtexpayments.com.br/api/pvt/transactions/BB55ED929FF749E6BE5A835E4C811B77/authorization-request" target="_blank">https://[loja].vtexpayments.com.br/api/pvt/transactions/BB55ED929FF749E6BE5A835E4C811B77/authorization-request</a></strong>
-verb: <strong>POST</strong>
-Content-Type: <strong>application/json</strong>
-Accept: <strong>application/json</strong>
-Parametro: <strong>transactionid</strong> // identificador da transa&#xE7;&#xE3;o</p>
+<p>Envia uma autoriza&#xE7;&#xE3;o para libera&#xE7;&#xE3;o  do andamento do processo de pagamento - Endpoint Loja VTEX</p>
+<p>endpoint: <code>https://[loja].vtexpayments.com.br/api/pvt/transactions/BB55ED929FF749E6BE5A835E4C811B77/authorization-request</code>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br>
+Parametro: <strong>transactionid</strong> // identificador da transa&#xE7;&#xE3;o<br></p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">{
     <span class="hljs-string">&quot;transactionId&quot;</span>: <span class="hljs-string">&quot;BB55ED929FF749E6BE5A835E4C811B77&quot;</span>,
@@ -1459,28 +1487,18 @@ Parametro: <strong>transactionid</strong> // identificador da transa&#xE7;&#xE3;
 <p><em>response:</em></p>
 <pre><code class="lang-json">
 
-
-
-- - -
-
-###Implementando Marketplace Services Endpoint Actions
-
-
-O MarketplaceServicesEndpoint serve para a loja VTEX informar ao canal de vendas a nota fiscal e tracking de pedido. O envio de notas fiscais pode ser parcial, obrigando assim ao informador informar al&#xE9;m dos valores da nota fiscal, os items ele est&#xE1; mandando na nota fiscal parcial.
-
-###Informar Nota Fiscal
-
-Quando a Nota Fiscal <span class="hljs-keyword">for</span> emitida pelo Seller VTEX, est&#xE1; ser&#xE1; enviada para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint <span class="hljs-keyword">do</span> Marketplace
-
-endpoint: **https:<span class="hljs-comment">//marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice**</span>
-verb: **POST**
-Content-Type: **application/json**
-Accept: **application/json**
-
-_request:_
-
-```json
-{
+</code></pre>
+<h3 id="implementando-marketplace-services-endpoint-actions"><a name="implementando-marketplace-services-endpoint-actions" class="plugin-anchor" href="#implementando-marketplace-services-endpoint-actions"><span class="fa fa-link"></span></a>Implementando Marketplace Services Endpoint Actions</h3>
+<p>O MarketplaceServicesEndpoint serve para o Seller VTEX informar ao canal de vendas a nota fiscal e tracking de pedido. O envio de notas fiscais pode ser parcial, obrigando assim ao informador informar al&#xE9;m dos valores da nota fiscal, os items ele est&#xE1; mandando na nota fiscal parcial.</p>
+<p><a name="a12"></a></p>
+<h3 id="informar-nota-fiscal"><a name="informar-nota-fiscal" class="plugin-anchor" href="#informar-nota-fiscal"><span class="fa fa-link"></span></a>Informar Nota Fiscal</h3>
+<p>Quando a Nota Fiscal for emitida pelo Seller VTEX, est&#xE1; ser&#xE1; enviada para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace</p>
+<p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br></p>
+<p><em>request:</em></p>
+<pre><code class="lang-json">{
     <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Output&quot;</span>, <span class="hljs-comment">//Output(venda)|Input(devolu&#xE7;&#xE3;o)</span>
     <span class="hljs-string">&quot;invoiceNumber&quot;</span>: <span class="hljs-string">&quot;NFe-00001&quot;</span>, <span class="hljs-comment">//numero da nota fiscal</span>
     <span class="hljs-string">&quot;courier&quot;</span>: <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-comment">//quando &#xE9; nota fiscal, dados de tracking vem vazio</span>
@@ -1504,12 +1522,26 @@ _request:_
     <span class="hljs-string">&quot;receipt&quot;</span>: <span class="hljs-string">&quot;38e0e47da2934847b489216d208cfd91&quot;</span> <span class="hljs-comment">//protocolo gerado, pode ser nulo</span>
 }
 </code></pre>
+<h5 id="captura-de-pagamento"><a name="captura-de-pagamento" class="plugin-anchor" href="#captura-de-pagamento"><span class="fa fa-link"></span></a>Captura de Pagamento</h5>
+<p>No momento em que o Marketplace recebe a nota fiscal, &#xE9; o momento de efetuar a captura do pagamento.</p>
+<p>endpoint: <code>https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionId]/settlement-request</code>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br></p>
+<p><em>request</em></p>
+<pre><code class="lang-json">  {value: <span class="hljs-number">14890</span>} <span class="hljs-comment">//valor que deseja capturar</span>
+</code></pre>
+<p><em>response</em></p>
+<pre><code class="lang-json">
+
+</code></pre>
+<p><a name="a13"></a></p>
 <h3 id="informar-tracking-de-transportadora"><a name="informar-tracking-de-transportadora" class="plugin-anchor" href="#informar-tracking-de-transportadora"><span class="fa fa-link"></span></a>Informar Tracking de Transportadora</h3>
 <p>Quando o pedido for entegue a uma transportadora, as informa&#xE7;&#xE3;oes de tracking ser&#xE3;o enviadas para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace</p>
-<p>endpoint: <strong><a href="https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice" target="_blank">https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</a></strong>
-verb: <strong>POST</strong>
-Content-Type: <strong>application/json</strong>
-Accept: <strong>application/json</strong></p>
+<p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br></p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">{
     &quot;type&quot;: &quot;Output&quot;,
@@ -1535,14 +1567,30 @@ Accept: <strong>application/json</strong></p>
     <span class="hljs-string">&quot;receipt&quot;</span>: <span class="hljs-string">&quot;38e0e47da2934847b489216d208cfd91&quot;</span> <span class="hljs-comment">//protocolo gerado, pode ser nulo</span>
 }
 </code></pre>
+<p><a name="a14"></a></p>
 <h3 id="enviar-solicita%C3%A7%C3%A3o-de-cancelamento"><a name="enviar-solicita%C3%A7%C3%A3o-de-cancelamento" class="plugin-anchor" href="#enviar-solicita%C3%A7%C3%A3o-de-cancelamento"><span class="fa fa-link"></span></a>Enviar Solicita&#xE7;&#xE3;o de Cancelamento</h3>
 <p>Uma solicita&#xE7;&#xE3;o de cancelamento pode ser enviada para o para o Marketplace no marketplaceServicesEndpoint - Endpoint do Marketplace</p>
-<p>endpoint: <strong><a href="https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel" target="_blank">https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel</a></strong>
-verb: <strong>GET</strong></p>
-<p>**A Nota Fiscal e o Tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST.</p>
+<p>endpoint: <code>https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel</code>
+verb: <strong>GET</strong><br></p>
+<h5 id="cancelamento-de-pagamento"><a name="cancelamento-de-pagamento" class="plugin-anchor" href="#cancelamento-de-pagamento"><span class="fa fa-link"></span></a>Cancelamento de Pagamento</h5>
+<p>No momento em que o Marketplace recebe uma solicita&#xE7;&#xE3;o de cancelamento de pedido, &#xE9; o momento de efetuar o cancelamento da transa&#xE7;&#xE3;o de pagamento.</p>
+<p>endpoint: <code>https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionId]/cancellation-request</code>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br></p>
+<p><em>request</em></p>
+<pre><code class="lang-json">  {value: <span class="hljs-number">14890</span>} <span class="hljs-comment">//valor que deseja cancelar, geralmente o total do pedido</span>
+</code></pre>
+<p><em>response</em></p>
+<pre><code class="lang-json">
+
+</code></pre>
+<blockquote>
+<p>A nota fiscal e o tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST, cabendo ao receber controlar o fluxo de captura de pagamento.</p>
+</blockquote>
 <hr>
-<p>Autor: <em>Jonas Bolognim</em>
-Propriedade:<em>VTEX &#xA9;</em></p>
+<p>Autor: <em>Jonas Bolognim</em><br>
+Propriedade:<em>VTEX &#xA9;</em><br></p>
 
                     
                     </section>

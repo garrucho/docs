@@ -8,7 +8,7 @@
         <title>Marketplace | VTEX Lab Docs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.0">
+        <meta name="generator" content="GitBook 2.0.1">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -44,7 +44,7 @@
     
 
         
-    <div class="book" data-level="1.2" data-basepath="../.." data-revision="Tue Jun 16 2015 10:43:37 GMT-0300 (BRT)">
+    <div class="book" data-level="1.2" data-basepath="../.." data-revision="Fri Jun 19 2015 13:51:02 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -364,7 +364,9 @@
         
         <li class="divider"></li>
         <li>
-            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">Published with GitBook</a>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
         </li>
         
     </ul>
@@ -416,11 +418,21 @@
                 <span class="caret-inner"></span>
             </div>
             <div class="buttons">
-                <button type="button" data-sharing="twitter" class="button">Share on Twitter</button>
-                <button type="button" data-sharing="google-plus" class="button">Share on Google</button>
-                <button type="button" data-sharing="facebook" class="button">Share on Facebook</button>
-                <button type="button" data-sharing="weibo" class="button">Share on Weibo</button>
-                <button type="button" data-sharing="instapaper" class="button">Share on Instapaper</button>
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
             </div>
         </div>
     </div>
@@ -451,7 +463,7 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="marketplaces-e-sellers"><a name="marketplaces-e-sellers" class="plugin-anchor" href="#marketplaces-e-sellers"><span class="fa fa-link"></span></a>Marketplaces e Sellers</h2>
-<p>Modelo de e-commerce entre <em>Marketplace</em> e <em>Seller</em>, podendo as lojas estarem hospedadas ou <strong>n&#xE3;o</strong> na plataforma VTEX. Vendas entre Marketplace e Seller envolvem uma negocia&#xE7;&#xE3;o entre as duas pontas, dono do produto (o Seller) e o dono da vitrine (o Marketplace). Essa negocia&#xE7;&#xE3;o geralmente envolve pol&#xED;tica comercial dos itens comercialiazados (<em>SKUs</em>) e a manuten&#xE7;&#xE3;o do pagamento.<br>
+<p>Modelo de e-commerce entre <em>Marketplace</em> e <em>Seller</em>, podendo as lojas estarem hospedadas ou <strong>n&#xE3;o</strong> na plataforma VTEX. Vendas entre Marketplace e Seller envolvem uma negocia&#xE7;&#xE3;o entre as duas pontas, dono do produto (o Seller) e o dono da vitrine (o Marketplace). Essa negocia&#xE7;&#xE3;o geralmente envolve pol&#xED;tica comercial dos itens comercializados (<em>SKUs</em>) e a manuten&#xE7;&#xE3;o do pagamento.<br>
 A VTEX al&#xE9;m de oferecer as integra&#xE7;&#xF5;es com os grandes players do mercado nativamente, tamb&#xE9;m oferece um conjunto de <em>APIs</em> e instru&#xE7;&#xF5;es para que terceiros se integrem.</p>
 <blockquote>
 <p><em>Seller</em> - Respons&#xE1;vel por cumprir com a entrega do pedido (o dono do produto).<br>
@@ -460,27 +472,7 @@ A VTEX al&#xE9;m de oferecer as integra&#xE7;&#xF5;es com os grandes players do 
 <em>SLA</em> - Acordo de servi&#xE7;o, Ex. prazo e custo de entrega.<br>
 <em>API</em> - Interfaces de servi&#xE7;o para comunica&#xE7;&#xE3;o entre sistemas de computador.<br></p>
 </blockquote>
-<p>Seguem abaixo os modelos existentes:</p>
-<h4 id="seller-vendendo-em-marketplace-hospedado-na-plataforma-vtex"><a name="seller-vendendo-em-marketplace-hospedado-na-plataforma-vtex" class="plugin-anchor" href="#seller-vendendo-em-marketplace-hospedado-na-plataforma-vtex"><span class="fa fa-link"></span></a>Seller Vendendo em Marketplace Hospedado na Plataforma VTEX</h4>
-<p>Este modelo permite a um Seller <strong>n&#xE3;o</strong> hospedado na plataforma VTEX expor e vender os seus produtos (SKUs) em Marketplaces hospedados na plataforma VTEX. Para implementar esse modelo o Seller dever&#xE1; expor alguns endpoints que ser&#xE3;o chamados pelo Marketplace e chamar alguns endpoints expostos pelo Marketplace, seguindo o protocolo VTEX. Neste modelo o Marketplace controla todo processo de pagamento. Segue abaixo instru&#xE7;&#xF5;es para realizar essa integra&#xE7;&#xE3;o.</p>
-<p><a href="http://lab.vtex.com/docs/integracao/guide/marketplace/seller-n&#xE3;o-vtex/index.html" target="_blank">[Guide] Sellers N&#xE3;o VTEX Vendendo em Marketplace Hospedado na VTEX</a></p>
-<hr>
-<h4 id="seller-vendendo-em-marketplace-hospedado-na-plataforma-vtex-e-processando-o-pagamento"><a name="seller-vendendo-em-marketplace-hospedado-na-plataforma-vtex-e-processando-o-pagamento" class="plugin-anchor" href="#seller-vendendo-em-marketplace-hospedado-na-plataforma-vtex-e-processando-o-pagamento"><span class="fa fa-link"></span></a>Seller Vendendo em Marketplace Hospedado na Plataforma VTEX e Processando o Pagamento</h4>
-<p>Este modelo permite a um Seller <strong>n&#xE3;o</strong> hospedado na plataforma VTEX expor e vender os seus produtos (SKUs) em Marketplaces hospedados na plataforma VTEX. Para implementar esse modelo o Seller dever&#xE1; expor alguns endpoints que ser&#xE3;o chamados pelo Marketplace e chamar alguns endpoints expostos pelo marketplace, seguindo o protocolo VTEX. Neste modelo o Marketplace envia os dados de pagamento para serem processados no Seller. Segue abaixo instru&#xE7;&#xF5;es para realizar essa integra&#xE7;&#xE3;o.</p>
-<p><a href="http://lab.vtex.com/docs/integracao/guide/marketplace/seller-n&#xE3;o-vtex-com-pgto/index.html" target="_blank">[Guide] Sellers N&#xE3;o VTEX Vendendo em Marketplace VTEX Recebendo Pagamento</a></p>
-<hr>
-<h4 id="marketplace-vendendo-para-seller-hospedado-na-plataforma-vtex"><a name="marketplace-vendendo-para-seller-hospedado-na-plataforma-vtex" class="plugin-anchor" href="#marketplace-vendendo-para-seller-hospedado-na-plataforma-vtex"><span class="fa fa-link"></span></a>Marketplace Vendendo para Seller Hospedado na Plataforma VTEX</h4>
-<p>Este modelo permite a um Marketplace <strong>n&#xE3;o</strong> hospedado VTEX expor e vender os produtos (SKUs) de Sellers hospedados na plataforma VTEX. Para implementar esse modelo o Marketplace dever&#xE1; expor alguns endpoints que ser&#xE3;o chamados pelo Seller e chamar alguns endpoints expostos pelo Seller, seguindo o protocolo VTEX. Neste modelo o Marketplace controla toda a transa&#xE7;&#xE3;o de pagamento. Segue abaixo instru&#xE7;&#xF5;es para realizar essa integra&#xE7;&#xE3;o.</p>
-<p><a href="http://lab.vtex.com/docs/integracao/guide/marketplace/canal-de-vendas-nao-vtex/index.html" target="_blank">[Guide] Marketplace N&#xE3;o VTEX vendendo para Sellers VTEX</a></p>
-<hr>
-<h4 id="marketplace-vendendo-para-seller-hospedado-na-plataforma-vtex-enviando-o-pagamento"><a name="marketplace-vendendo-para-seller-hospedado-na-plataforma-vtex-enviando-o-pagamento" class="plugin-anchor" href="#marketplace-vendendo-para-seller-hospedado-na-plataforma-vtex-enviando-o-pagamento"><span class="fa fa-link"></span></a>Marketplace Vendendo para Seller Hospedado na Plataforma VTEX Enviando o Pagamento</h4>
-<p>Este modelo permite a um Marketplace <strong>n&#xE3;o</strong> VTEX expor e vender os produtos (SKUs) de Sellers hospedados na plataforma VTEX. Para implementar esse modelo o Marketplace dever&#xE1; expor alguns endpoints que ser&#xE3;o chamados pelo Seller e chamar alguns endpoints expostos pelo Seller, seguindo o protocolo VTEX. Neste modelo o Marketplace cria a transa&#xE7;&#xE3;o de pagamento no Seller. Segue abaixo instru&#xE7;&#xF5;es para realizar essa integra&#xE7;&#xE3;o.</p>
-<p><a href="http://lab.vtex.com/docs/integracao/guide/marketplace/canal-de-vendas-nao-vtex-com-pgto/index.html" target="_blank">[Guide] Marketplace N&#xE3;o VTEX vendendo para Sellers VTEX Com Pagamento</a></p>
-<hr>
-<h4 id="marketplace-hospedado-na-vtex-vendendo-para-sellers-hospedado-na-vtex-e-vice-versa"><a name="marketplace-hospedado-na-vtex-vendendo-para-sellers-hospedado-na-vtex-e-vice-versa" class="plugin-anchor" href="#marketplace-hospedado-na-vtex-vendendo-para-sellers-hospedado-na-vtex-e-vice-versa"><span class="fa fa-link"></span></a>Marketplace Hospedado na VTEX Vendendo para Sellers Hospedado na VTEX e Vice Versa</h4>
-<p>Nativamente a plataforma VTEX oferece essa possibiidade, atrav&#xE9;s de uma simples configura&#xE7;&#xE3;o no Seller, (cria&#xE7;&#xE3;o do afiliado relacionado-o a uma pol&#xED;tica comercial) e outra configura&#xE7;&#xE3;o no Marketplace (cria&#xE7;&#xE3;o do Seller).</p>
-<hr>
-<h2 id="ferramentas-de-apoio-ao-integrador"><a name="ferramentas-de-apoio-ao-integrador" class="plugin-anchor" href="#ferramentas-de-apoio-ao-integrador"><span class="fa fa-link"></span></a>Ferramentas de Apoio ao Integrador</h2>
+<h3 id="ferramentas-de-apoio-ao-integrador"><a name="ferramentas-de-apoio-ao-integrador" class="plugin-anchor" href="#ferramentas-de-apoio-ao-integrador"><span class="fa fa-link"></span></a>Ferramentas de Apoio ao Integrador</h3>
 <h4 id="postman"><a name="postman" class="plugin-anchor" href="#postman"><span class="fa fa-link"></span></a>POSTMAN</h4>
 <p>Extens&#xE3;o do navegador chrome, nesta ferramenta pode se testar, armazenar hist&#xF3;rico, salvar cole&#xE7;&#xF5;es de requests do acesso de todas as APIs dos modulos VTEX (OMS, Logistics, Pricing, GCS, Catalog, PCI Gateway etc), al&#xE9;m de permitir exportar e importar requests de outros desenvolvedores.</p>
 <h4 id="vtex-bridge"><a name="vtex-bridge" class="plugin-anchor" href="#vtex-bridge"><span class="fa fa-link"></span></a>VTEX Bridge</h4>
@@ -488,8 +480,7 @@ A VTEX al&#xE9;m de oferecer as integra&#xE7;&#xF5;es com os grandes players do 
 <a href="http://sandboxintegracao.vtexcommercestable.com.br" target="_blank">sandboxintegracao</a>.</p>
 <p><a title="VTEX Bridge" href="http://bridge.vtexlab.com.br/" target="_blank">[Developer] - VTEX Bridge</a></p>
 <p>&#xC9; de suma importancia que o integrador tenha o conhecimento de ferramentas desse tipo, ou outras parecidas, antes de inciar um processo de integra&#xE7;&#xE3;o usando as APIs REST VTEX.</p>
-<hr>
-<h2 id="credenciais-para-acesso-nas-api-rest"><a name="credenciais-para-acesso-nas-api-rest" class="plugin-anchor" href="#credenciais-para-acesso-nas-api-rest"><span class="fa fa-link"></span></a>Credenciais Para Acesso nas API REST</h2>
+<h3 id="credenciais-para-acesso-nas-api-rest"><a name="credenciais-para-acesso-nas-api-rest" class="plugin-anchor" href="#credenciais-para-acesso-nas-api-rest"><span class="fa fa-link"></span></a>Credenciais Para Acesso nas API REST</h3>
 <p>Toda chamada feita as APIs REST da VTEX devem ser feitas em &quot;https&quot; e devem conter em seu header as chaves de autentica&#xE7;&#xE3;o. As chaves de autentica&#xE7;&#xE3;o do header(para acessar as APIs REST) devem ser solicitados ao administrador da loja, ou ao time de opera&#xE7;&#xE3;oes que est&#xE1; implantando a loja.</p>
 <blockquote>
 <p>ATEN&#xC7;&#xC2;O</p>
@@ -497,6 +488,26 @@ A VTEX al&#xE9;m de oferecer as integra&#xE7;&#xF5;es com os grandes players do 
 <p>Dever&#xE1; ser criada uma chave e token exclusivas para cada integrador, <strong>n&#xE3;o</strong> se deve usar a chave da pr&#xF3;pria loja.</p>
 </blockquote>
 </blockquote>
+<hr>
+<h3 id="seguem-abaixo-os-modelos-existentes"><a name="seguem-abaixo-os-modelos-existentes" class="plugin-anchor" href="#seguem-abaixo-os-modelos-existentes"><span class="fa fa-link"></span></a>Seguem abaixo os modelos existentes:</h3>
+<h4 id="seller-vendendo-em-marketplace-hospedado-na-plataforma-vtex"><a name="seller-vendendo-em-marketplace-hospedado-na-plataforma-vtex" class="plugin-anchor" href="#seller-vendendo-em-marketplace-hospedado-na-plataforma-vtex"><span class="fa fa-link"></span></a>Seller Vendendo em Marketplace Hospedado na Plataforma VTEX</h4>
+<p>Este modelo permite a um Seller <strong>n&#xE3;o</strong> hospedado na plataforma VTEX expor e vender os seus produtos (SKUs) em Marketplaces hospedados na plataforma VTEX. Para implementar esse modelo o Seller dever&#xE1; expor alguns endpoints que ser&#xE3;o chamados pelo Marketplace e chamar alguns endpoints expostos pelo Marketplace, seguindo o protocolo VTEX. Neste modelo o Marketplace controla todo processo de pagamento. Segue abaixo instru&#xE7;&#xF5;es para realizar essa integra&#xE7;&#xE3;o.</p>
+<p><a href="http://vtex.github.io/docs/integracao/marketplace/seller-n&#xE3;o-vtex/index.html" target="_blank">[Guide] Sellers N&#xE3;o VTEX Vendendo em Marketplace Hospedado na VTEX</a></p>
+<hr>
+<h4 id="seller-vendendo-em-marketplace-hospedado-na-plataforma-vtex-e-processando-o-pagamento"><a name="seller-vendendo-em-marketplace-hospedado-na-plataforma-vtex-e-processando-o-pagamento" class="plugin-anchor" href="#seller-vendendo-em-marketplace-hospedado-na-plataforma-vtex-e-processando-o-pagamento"><span class="fa fa-link"></span></a>Seller Vendendo em Marketplace Hospedado na Plataforma VTEX e Processando o Pagamento</h4>
+<p>Este modelo permite a um Seller <strong>n&#xE3;o</strong> hospedado na plataforma VTEX expor e vender os seus produtos (SKUs) em Marketplaces hospedados na plataforma VTEX. Para implementar esse modelo o Seller dever&#xE1; expor alguns endpoints que ser&#xE3;o chamados pelo Marketplace e chamar alguns endpoints expostos pelo marketplace, seguindo o protocolo VTEX. Neste modelo o Marketplace envia os dados de pagamento para serem processados no Seller. Segue abaixo instru&#xE7;&#xF5;es para realizar essa integra&#xE7;&#xE3;o.</p>
+<p><a href="http://vtex.github.io/docs/integracao/marketplace/seller-n&#xE3;o-vtex-com-pgto/index.html" target="_blank">[Guide] Sellers N&#xE3;o VTEX Vendendo em Marketplace VTEX Recebendo Pagamento</a></p>
+<hr>
+<h4 id="marketplace-vendendo-para-seller-hospedado-na-plataforma-vtex"><a name="marketplace-vendendo-para-seller-hospedado-na-plataforma-vtex" class="plugin-anchor" href="#marketplace-vendendo-para-seller-hospedado-na-plataforma-vtex"><span class="fa fa-link"></span></a>Marketplace Vendendo para Seller Hospedado na Plataforma VTEX</h4>
+<p>Este modelo permite a um Marketplace <strong>n&#xE3;o</strong> hospedado VTEX expor e vender os produtos (SKUs) de Sellers hospedados na plataforma VTEX. Para implementar esse modelo o Marketplace dever&#xE1; expor alguns endpoints que ser&#xE3;o chamados pelo Seller e chamar alguns endpoints expostos pelo Seller, seguindo o protocolo VTEX. Neste modelo o Marketplace controla toda a transa&#xE7;&#xE3;o de pagamento. Segue abaixo instru&#xE7;&#xF5;es para realizar essa integra&#xE7;&#xE3;o.</p>
+<p><a href="http://vtex.github.io/docs/integracao/marketplace/canal-de-vendas-nao-vtex/index.html" target="_blank">[Guide] Marketplace N&#xE3;o VTEX vendendo para Sellers VTEX</a></p>
+<hr>
+<h4 id="marketplace-vendendo-para-seller-hospedado-na-plataforma-vtex-enviando-o-pagamento"><a name="marketplace-vendendo-para-seller-hospedado-na-plataforma-vtex-enviando-o-pagamento" class="plugin-anchor" href="#marketplace-vendendo-para-seller-hospedado-na-plataforma-vtex-enviando-o-pagamento"><span class="fa fa-link"></span></a>Marketplace Vendendo para Seller Hospedado na Plataforma VTEX Enviando o Pagamento</h4>
+<p>Este modelo permite a um Marketplace <strong>n&#xE3;o</strong> VTEX expor e vender os produtos (SKUs) de Sellers hospedados na plataforma VTEX. Para implementar esse modelo o Marketplace dever&#xE1; expor alguns endpoints que ser&#xE3;o chamados pelo Seller e chamar alguns endpoints expostos pelo Seller, seguindo o protocolo VTEX. Neste modelo o Marketplace cria a transa&#xE7;&#xE3;o de pagamento no Seller. Segue abaixo instru&#xE7;&#xF5;es para realizar essa integra&#xE7;&#xE3;o.</p>
+<p><a href="http://vtex.github.io/docs/integracao/marketplace/canal-de-vendas-nao-vtex-com-pgto/index.html" target="_blank">[Guide] Marketplace N&#xE3;o VTEX vendendo para Sellers VTEX Com Pagamento</a></p>
+<hr>
+<h4 id="marketplace-hospedado-na-vtex-vendendo-para-sellers-hospedado-na-vtex-e-vice-versa"><a name="marketplace-hospedado-na-vtex-vendendo-para-sellers-hospedado-na-vtex-e-vice-versa" class="plugin-anchor" href="#marketplace-hospedado-na-vtex-vendendo-para-sellers-hospedado-na-vtex-e-vice-versa"><span class="fa fa-link"></span></a>Marketplace Hospedado na VTEX Vendendo para Sellers Hospedado na VTEX e Vice Versa</h4>
+<p>Nativamente a plataforma VTEX oferece essa possibiidade, atrav&#xE9;s de uma simples configura&#xE7;&#xE3;o no Seller, (cria&#xE7;&#xE3;o do afiliado relacionado-o a uma pol&#xED;tica comercial) e outra configura&#xE7;&#xE3;o no Marketplace (cria&#xE7;&#xE3;o do Seller).</p>
 <hr>
 <h2 id="vers%C3%A3o-beta"><a name="vers%C3%A3o-beta" class="plugin-anchor" href="#vers%C3%A3o-beta"><span class="fa fa-link"></span></a>Vers&#xE3;o Beta</h2>
 <p>Essa vers&#xE3;o de documenta&#xE7;&#xE3;o suporta a integra&#xE7;&#xE3;o na vers&#xE3;o da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integrador. A id&#xE9;ia &#xE9; que atrav&#xE9;s dela, n&#xE3;o  restem nenhuma d&#xFA;vida de como se integrar com a VTEX. Se recebeu essa documenta&#xE7;&#xE3;o e ainda restaram d&#xFA;vidas, por favor, detalhe as suas d&#xFA;vidas na comunidade, para chegarmos a um documento rico e funcional.</p>
