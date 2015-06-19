@@ -12,53 +12,42 @@ Este modelo contempla troca de catalogo, atualização de condição comercial (
 
 ####Ações que deverão ser tomadas pelo Marketplace não hospedado na VTEX para implementação da integração:
 
-1. Implementar o endpoint para receber notificação de mudança de preço e estoque - Seller hospedado na VTEX vai chamar endpoint do Marketplace.
-Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint do Marketplace, simplesmente comunicando a mudança. Ao receber esse request o Marketplace vem buscar o preço e estoque no Seller no metodo de consulta politica comercial que vamos falar mais abaixo.
+1. Implementar o endpoint para receber notificação de mudança de preço e estoque - Seller hospedado na VTEX vai chamar endpoint do Marketplace. Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint do Marketplace, simplesmente comunicando a mudança. Ao receber esse request o Marketplace vem buscar o preço e estoque no Seller no metodo de consulta politica comercial que vamos falar mais abaixo.
 
  _exemplo da chamada:_</br>
  ``` https://marketplace.com.br/api/notification/ ```
 
  [Exemplo Completo: Enviar Notificação de Mudança de Preço e Estoque de SKU](#a1)
 
-
-2. Implementar busca de dados de SKU no Seller - Marketplace vai chamar endpoint do Seller na VTEX.
-Toda vez que o serviço de notificação de mudança do Seller avisar sobre uma SKU, e o Marketplace ainda nao tem a SKU catalogada, o Marketplace vem no Seller buscar os dados da nova SKU.
+2. Implementar busca de dados de SKU no Seller - Marketplace vai chamar endpoint do Seller na VTEX. Toda vez que o serviço de notificação de mudança do Seller avisar sobre uma SKU, e o Marketplace ainda nao tem a SKU catalogada, o Marketplace vem no Seller buscar os dados da nova SKU.
 
  _exemplo da chamada:_</br>
  ```http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/2000037 ```
 
  [Exemplo Completo: Buscar Dados de SKU](#a2)
 
-
-3. Implementar busca de politica comercial (preço e estoque, frete, tipo entrega e custo) - Marketplace vai chamar endpoint do Seller.
-Toda vez que o serviço de notificação de mudança do Seller avisar sobre mudança de uma SKU (já catalogada), o Marketplace busca preço e ou estoque no Seller pra se atualizar.
+3. Implementar busca de politica comercial (preço e estoque, frete, tipo entrega e custo) - Marketplace vai chamar endpoint do Seller. Toda vez que o serviço de notificação de mudança do Seller avisar sobre mudança de uma SKU (já catalogada), o Marketplace busca preço e ou estoque no Seller pra se atualizar.
 
  _exemplo da chamada:_</br>
  ``` https://sandboxintegracao.vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=1&affiliateId=LAB ```
 
  [Exemplo Completo: Consultar Política Comercial](#a3)
 
-
-4. Implementar rotina que coloca um pedido no Seller - Marketplace vai chamar endpoint do Seller.
-O Marketplace irá usar esse enpoint para colocar um pedido no Seller.
+4. Implementar rotina que coloca um pedido no Seller - Marketplace vai chamar endpoint do Seller. O Marketplace irá usar esse enpoint para colocar um pedido no Seller.
 
  _exemplo da chamada:_</br>
  ``` https://sandboxintegracao.vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=1&affiliateId=LAB ```
 
  [Exemplo Completo: Colocar um Pedido no Seller](#a7)
 
-
-5. Implementar rotina que autoriza procedimento de entrega um pedido no Seller - Marketplace vai chamar endpoint do Seller.
-O Marketplace irá usar esse enpoint para autorizar despacho de um pedido no Seller.
+5. Implementar rotina que autoriza procedimento de entrega um pedido no Seller - Marketplace vai chamar endpoint do Seller. O Marketplace irá usar esse enpoint para autorizar despacho de um pedido no Seller.
 
  _exemplo da chamada:_</br>
  ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=1&affiliateId=LAB ```
 
  [Exemplo Completo: Autorizar um Pedido no Seller](#a7)
 
-
-6. Implementar endpoint de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace.
-Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller vai invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
+6. Implementar endpoint de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace. Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller vai invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
 
  _exemplo da chamada:_</br>
  ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```</br>
@@ -70,7 +59,6 @@ Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Selle
 
  >NOTA
  >> No POST do pedido feito pelo Marketplace, o campo "marketplaceserviceendpoint" deve vir preenchido com o url base do serviços.
-
 
  - - -
 

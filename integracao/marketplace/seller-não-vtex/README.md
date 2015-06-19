@@ -9,23 +9,19 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
 
 ####Ações que deverão ser tomadas pelo Seller não hospedado na VTEX para implementação da integração:
 
-1. Implementar chamada de notificação de mudança de preço e estoque - Seller vai chamar endpoint da VTEX.
-    Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint da loja na VTEX, simplesmente comunicando a mudança. Ao receber esse request o Marketplace vai buscar o preço e estoque no Seller no metodo de consulta politica comercial que vamos falar mais abaixo.
+1. Implementar chamada de notificação de mudança de preço e estoque - Seller vai chamar endpoint da VTEX.    Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint da loja na VTEX, simplesmente comunicando a mudança. Ao receber esse request o Marketplace vai buscar o preço e estoque no Seller no metodo de consulta politica comercial que vamos falar mais abaixo.
 
     _exemplo da chamada:_</br>
     ``` https://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller] ```
 
     [Exemplo Completo: Enviar Notificação de Mudança de Preço e Estoque de SKU](#a1)
 
-
-2. Implementar chamada de inserção de de sugestão de SKU -  Seller vai chamar endpoint da VTEX.
-    Toda vez que o serviço de notificação de mudança retornar SKU **não** encontrada (404), o Seller deve inserir a sugestão na loja da VTEX.
+2. Implementar chamada de inserção de de sugestão de SKU -  Seller vai chamar endpoint da VTEX. Toda vez que o serviço de notificação de mudança retornar SKU **não** encontrada (404), o Seller deve inserir a sugestão na loja da VTEX.
 
     _exemplo da chamada:_</br>
     ``` https://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/SuggestionInsertUpdatev2 ```
 
     [Exemplo Completo: Enviar Sugestão de SKU](#a2)
-
 
 3. Implementar endpoint para consulta de politica comercial (preço e estoque) - VTEX chama endpoint do Seller.
     A loja hospedada na VTEX usará esse metodo para buscar preço e estoque no Seller tanto na indexação (catalogar preço e estoque), quanto na simulação de carrinho.
@@ -40,26 +36,21 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
     [Exemplo Completo: Consultar Política Comercial](#a3) </br>
     [Exemplo Completo: Simulação de Carrinho](#a4)</br>
 
-
-4. Implementar endpoint para receber um pedido - VTEX chama endpoint do Seller.
-    A loja na VTEX irá usar esse enpoint para colocar um pedido no Seller.
+4. Implementar endpoint para receber um pedido - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse enpoint para colocar um pedido no Seller.
 
     _exemplo da chamada:_</br>
     ``` https://[seller].com.br/pvt/orders?sc=1&an=mechantname ```
 
     [Exemplo Completo: Colocar um Pedido no Seller](#a6)
 
-5. Implementar endpoint para autorizar despacho - VTEX chama endpoint do Seller.
-    A loja na VTEX irá usar esse endpoint para avisar o Seller que já pode entregar com o pedido.
+5. Implementar endpoint para autorizar despacho - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse endpoint para avisar o Seller que já pode entregar com o pedido.
 
     _exemplo da chamada:_</br>
     ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
 
     [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
 
-
-6. Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido.
-    Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
+6. Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido. Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
 
     _exemplo da chamada:_</br>
     ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```</br>
@@ -69,7 +60,7 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
     [Exemplo Completo: Informar tracking de um pedido](#a11)</br>
     [Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a12)</br>
 
-7. Rota de validação de cadastro - Auxiliar o diagnostico de problemas de integração que tenham causa, imcompatibilidade de configuração entre os envolvidos (Marketplace e Seller)
+7. Rota de validação de cadastro - Auxiliar o diagnostico de problemas de integração que tenham causa, imcompatibilidade de configuração entre os envolvidos (Marketplace e Seller) - para o futuro, desconsiderar
 
 ---
 
@@ -683,7 +674,7 @@ verb: **GET**</br>
 
 
 >POR LER ATE AQUI
->>Na ferramenta POSTMAN usando esse link ```https://www.getpostman.com/collections/ba95d70124bba8e05fe0``` é possivel importar uma coleção de requests. Nela tem um exemplo de cada request citado nesse documento.
+>>Na ferramenta POSTMAN usando esse link ``` https://www.getpostman.com/collections/ba95d70124bba8e05fe0 ``` é possivel importar uma coleção de requests. Nela tem um exemplo de cada request citado nesse documento.
 
 ---
 
