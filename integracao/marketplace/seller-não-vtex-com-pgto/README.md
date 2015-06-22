@@ -72,8 +72,8 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
 8. Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido. Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
 
  _exemplo da chamada:_</br>
- ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```</br>
- ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/cancel ```</br>
+ ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```</br>
+ ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/cancel ```</br>
 
  [Exemplo Completo: Informar nota fiscal de um pedido](#a10)</br>
  [Exemplo Completo: Informar tracking de um pedido](#a11)</br>
@@ -855,7 +855,7 @@ O MarketplaceServicesEndpoint serve para receber informações do Seller referen
 
 Quando o Seller emitir a nota fiscal, deve enviar as informações da nota fiscal - endpoint palataforma VTEX.
 
-endpoint: ```https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice```
+endpoint: ```https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice```
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**
@@ -898,7 +898,7 @@ _response:_
 
 Quando o Seller entregar o pedido para a transportadora, deve informar as informações de rastreamento - endpoint palataforma VTEX.
 
-endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice ```</br>
+endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -943,7 +943,7 @@ _response:_
 
 Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em um estado que se permita cancelar, o pedido será cancelado - endpoint palataforma VTEX.
 
-endpoint: ``` https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel ```</br>
+endpoint: ``` https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel ```</br>
 verb: **GET**</br>
 
 > Para cancelar um pedido com nota fiscal já informada, enviar uma Nota Fiscal do tipo Input com o valor cheio do pedido.
