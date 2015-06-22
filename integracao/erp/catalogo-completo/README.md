@@ -235,7 +235,7 @@ _response:_
 ### Produtos e SKUs
 
 
-[[Developer] - Ver Guia de Integração De Catalogo Expresso](..catalogo-expresso\README.md)
+[[Developer] - Ver Guia de Integração De Catalogo Expresso](http://vtex.github.io/docs/integracao/erp/catalogo-expresso/index.html)
 
 ###Fields (Campos de Especificão) de Produto ou SKU
 
