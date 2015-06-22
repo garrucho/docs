@@ -44,7 +44,7 @@
     
 
         
-    <div class="book" data-level="1.2.3" data-basepath="../../.." data-revision="Fri Jun 19 2015 17:10:09 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.3" data-basepath="../../.." data-revision="Mon Jun 22 2015 11:45:49 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -507,8 +507,8 @@ Este &#xE9; um dos principais metodos da integra&#xE7;&#xE3;o, precisa ter perfo
 </li>
 <li><p>Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido. Nos dados do pedido &#xE9; enviado uma endpoint de servi&#xE7;os do Marketplace, o Seller dever&#xE1; invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda n&#xE3;o enviou nota fiscal.</p>
 <p> <em>exemplo da chamada:</em><br>
- <code>https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice</code><br>
- <code>https://marketplaceServicesEndpoint/pub/orders/[orderId]/cancel</code><br></p>
+ <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code><br>
+ <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/cancel</code><br></p>
 <p> <a href="#a10">Exemplo Completo: Informar nota fiscal de um pedido</a><br>
  <a href="#a11">Exemplo Completo: Informar tracking de um pedido</a><br>
  <a href="#a12">Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal</a><br></p>
@@ -978,7 +978,7 @@ Accept: <strong>application/json</strong><br></p>
 <p><a name="a10"><a></a></a></p>
 <h3 id="informar-dados-de-nota-fiscal"><a name="informar-dados-de-nota-fiscal" class="plugin-anchor" href="#informar-dados-de-nota-fiscal"><span class="fa fa-link"></span></a>Informar Dados de Nota Fiscal</h3>
 <p>Quando o Seller emitir a nota fiscal, deve enviar as informa&#xE7;&#xF5;es da nota fiscal - endpoint palataforma VTEX.</p>
-<p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice</code>
+<p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code>
 verb: <strong>POST</strong>
 Content-Type: <strong>application/json</strong>
 Accept: <strong>application/json</strong>
@@ -1011,7 +1011,7 @@ Parametro: <strong>orderId</strong> // id do pedido no Seller</p>
 <p><a name="a11"><a></a></a></p>
 <h3 id="informar-rastreamento-de-entrega"><a name="informar-rastreamento-de-entrega" class="plugin-anchor" href="#informar-rastreamento-de-entrega"><span class="fa fa-link"></span></a>Informar Rastreamento de Entrega</h3>
 <p>Quando o Seller entregar o pedido para a transportadora, deve informar as informa&#xE7;&#xF5;es de rastreamento - endpoint palataforma VTEX.</p>
-<p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[orderId]/invoice</code><br>
+<p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br></p>
@@ -1046,7 +1046,7 @@ Accept: <strong>application/json</strong><br></p>
 <p><a name="a12"><a></a></a></p>
 <h3 id="enviar-solicita%C3%A7%C3%A3o-de-cancelamento"><a name="enviar-solicita%C3%A7%C3%A3o-de-cancelamento" class="plugin-anchor" href="#enviar-solicita%C3%A7%C3%A3o-de-cancelamento"><span class="fa fa-link"></span></a>Enviar Solicita&#xE7;&#xE3;o de Cancelamento</h3>
 <p>Uma solicita&#xE7;&#xE3;o de cancelamento pode ser enviada, caso o pedido se encontre em um estado que se permita cancelar, o pedido ser&#xE1; cancelado - endpoint palataforma VTEX.</p>
-<p>endpoint: <code>https://marketplaceServicesEndpoint/pvt/orders/[orderid]/cancel</code><br>
+<p>endpoint: <code>https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel</code><br>
 verb: <strong>GET</strong><br></p>
 <blockquote>
 <p>Para cancelar um pedido com nota fiscal j&#xE1; informada, enviar uma Nota Fiscal do tipo Input com o valor cheio do pedido.</p>
