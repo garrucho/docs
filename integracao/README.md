@@ -6,7 +6,7 @@
 
 ### Integração com os Markeplaces
 
-[[Guide] Modelo de integrações com Markeplaces] (http://vtex.github.io/docs/integracao/marketplace/index.html)
+[[Guide] Modelo de integrações com Markeplaces](http://vtex.github.io/docs/integracao/marketplace/index.html)
 
 ###Ferramentas de Apoio ao Integrador
 
