@@ -404,18 +404,18 @@ _request:_
 
 ```json
 {
-  "PaymentSystemsIds":[1,2], //ids das formas de pagamento na loja VTEX
-  "SubtotalAsInt":27280, //total que se deseja parcelar
-  "Items":[
-    {
-      	"PriceAsInt":24800, //preço do SKU
-     	"Quantity":1, //quantidade do SKU
-     	"Id":"1940388", //string, identificador do SKU
-     	"SellerId":"1",
-    	"SalesChannel":1 //id do canal de vendas no Seller, caso exista
-    }
-  ],
-  "postalCode":"22051030" //CEP
+    "PaymentSystemsIds":[1,2], //ids das formas de pagamento na loja VTEX
+    "SubtotalAsInt":27280, //total que se deseja parcelar
+    "Items":[
+        {
+        "PriceAsInt":24800, //preço do SKU
+        "Quantity":1, //quantidade do SKU
+        "Id":"1940388", //string, identificador do SKU
+        "SellerId":"1",
+        "SalesChannel":1 //identificador do canal de vendas no Seller, caso exista
+        }
+    ],
+    "postalCode":"22051030" //CEP
 }
 ```
 
