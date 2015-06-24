@@ -44,7 +44,7 @@
     
 
         
-    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Tue Jun 23 2015 13:54:29 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Wed Jun 24 2015 14:54:40 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -497,7 +497,7 @@ Este &#xE9; um dos principais metodos da integra&#xE7;&#xE3;o, precisa ter perfo
 </li>
 <li><p>Implementar endpoint para consultas de parcelamento - VTEX chama endpoint do Seller. A loja na VTEX ir&#xE1; usar esse endpoint para consultar os parcelamentos oferecidos pelo Seller.</p>
 <p><em>exemplo da chamada:</em><br>
-<code>https://[seller].com.br/installments/options?sc=1&amp;an=mechantname</code></p>
+<code>https://[seller].com.br/pvt/installments/options?sc=1&amp;an=mechantname</code></p>
 <blockquote>
 <p>NOTA:</p>
 <blockquote>
@@ -513,7 +513,7 @@ Este &#xE9; um dos principais metodos da integra&#xE7;&#xE3;o, precisa ter perfo
 </li>
 <li><p>Implementar endpoint para receber dados de pagamento - VTEX chama endpoint do Seller. A loja na VTEX ir&#xE1; usar esse endpoint para enviar o pagamento para o Seller</p>
 <p><em>exemplo da chamada:</em><br>
-<code>https://[seller].com.br/pvt/payment?sc=1&amp;an=mechantname</code></p>
+<code>https://[seller].com.br/pvt/payments?sc=1&amp;an=mechantname</code></p>
 <blockquote>
 <p>Nos dados de pagamento tem a url de retorno, onde o Seller ir&#xE1; notificar a loja na VTEX sobre o status do pagamento, ou seja, o Seller deve implementar rotina de informar status de pagamento na loja VTEX.</p>
 </blockquote>
@@ -534,6 +534,15 @@ Este &#xE9; um dos principais metodos da integra&#xE7;&#xE3;o, precisa ter perfo
 </li>
 </ol>
 <blockquote>
+<p>DETALHE IMPORTANT&#xCD;SSIMO:
+&#xC9; preciso que todos os paths do Seller estejam debaixo da mesmo host. Exemplo:</p>
+<blockquote>
+<p><code>https://HOSTDOSELLER/pvt/orderForms/simulation</code><br>
+<code>https://HOSTDOSELLER/pvt/installments/options</code><br>
+<code>https://HOSTDOSELLER/pvt/orders</code><br>
+<code>https://HOSTDOSELLER/pvt/payments</code><br>
+<code>https://HOSTDOSELLER/pvt/orders/[orderid]/fulfill</code><br></p>
+</blockquote>
 <p>ATEN&#xC7;&#xC3;O:</p>
 <blockquote>
 <p>Caso o Seller n&#xE3;o possua ambiente certificado para receber os dados de pagamento, um novo modelo dever&#xE1; ser usado, que &#xE9; a cria&#xE7;&#xE3;o de uma conta no gateway VTEX para o Seller receber as transa&#xE7;&#xF5;es de pagamento.</p>
@@ -828,7 +837,7 @@ No campo quantity, retornar o solicitado ou a quantidade que consegue atender.</
 4-Mastercard <br></p>
 </blockquote>
 </blockquote>
-<p>endpoint: <code>https://[sellerendpoint]/installments/options?sc=[idcanal]&amp;an=[mechantname]</code><br>
+<p>endpoint: <code>https://[sellerendpoint]/pvt/installments/options?sc=[idcanal]&amp;an=[mechantname]</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br></p>
@@ -840,7 +849,7 @@ Accept: <strong>application/json</strong><br></p>
         {
         <span class="hljs-string">&quot;PriceAsInt&quot;</span>:<span class="hljs-number">24800</span>, <span class="hljs-comment">//pre&#xE7;o do SKU</span>
         <span class="hljs-string">&quot;Quantity&quot;</span>:<span class="hljs-number">1</span>, <span class="hljs-comment">//quantidade do SKU</span>
-        <span class="hljs-string">&quot;Id&quot;</span>:<span class="hljs-string">&quot;1940388&quot;</span>, <span class="hljs-comment">//string, identificador do SKU</span>
+        <span class="hljs-string">&quot;Id&quot;</span>:<span class="hljs-string">&quot;1940388&quot;</span>, <span class="hljs-comment">//string, identificador do SKU no Seller.</span>
         <span class="hljs-string">&quot;SellerId&quot;</span>:<span class="hljs-string">&quot;1&quot;</span>,
         <span class="hljs-string">&quot;SalesChannel&quot;</span>:<span class="hljs-number">1</span> <span class="hljs-comment">//identificador do canal de vendas no Seller, caso exista</span>
         }
@@ -1112,7 +1121,7 @@ Accept: <strong>application/json</strong><br></p>
 <p><a name="a7"><a></a></a></p>
 <h3 id="enviar-pagamento"><a name="enviar-pagamento" class="plugin-anchor" href="#enviar-pagamento"><span class="fa fa-link"></span></a>Enviar Pagamento</h3>
 <p>Quando o pagamento do pedido &#xE9; informado no Marketplace hospedado na VTEX, um POST &#xE9; feito no Seller enviando os dados referente ao pagamento do respectivo pedido - endpoint do Seller.</p>
-<p>endpoint: <code>https://sellerendpoint/pvt/payment?sc=[idcanal]&amp;an=[mechantname]</code><br>
+<p>endpoint: <code>https://sellerendpoint/pvt/payments?sc=[idcanal]&amp;an=[mechantname]</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br></p>
