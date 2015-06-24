@@ -39,7 +39,7 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
 4. Implementar endpoint para consultas de parcelamento - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse endpoint para consultar os parcelamentos oferecidos pelo Seller.
 
  _exemplo da chamada:_</br>
- ``` https://[seller].com.br/installments/options?sc=1&an=mechantname ```
+ ``` https://[seller].com.br/pvt/installments/options?sc=1&an=mechantname ```
 
  > NOTA:
  >> Ah, também precisa ter performance e disponibilidade, pois tem impacto direto no fechamento da compra no Marketplace.
@@ -56,7 +56,7 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
 6. Implementar endpoint para receber dados de pagamento - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse endpoint para enviar o pagamento para o Seller
 
  _exemplo da chamada:_</br>
- ``` https://[seller].com.br/pvt/payment?sc=1&an=mechantname ```
+ ``` https://[seller].com.br/pvt/payments?sc=1&an=mechantname ```
 
  > Nos dados de pagamento tem a url de retorno, onde o Seller irá notificar a loja na VTEX sobre o status do pagamento, ou seja, o Seller deve implementar rotina de informar status de pagamento na loja VTEX.
 
@@ -78,6 +78,15 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
  [Exemplo Completo: Informar nota fiscal de um pedido](#a10)</br>
  [Exemplo Completo: Informar tracking de um pedido](#a11)</br>
  [Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a12)</br>
+
+
+ > DETALHE IMPORTANTÍSSIMO:
+ > É preciso que todos os paths do Seller estejam debaixo da mesmo host. Exemplo:
+ >> ``` https://HOSTDOSELLER/pvt/orderForms/simulation ```</br>
+ >> ``` https://HOSTDOSELLER/pvt/installments/options ```</br>
+ >> ``` https://HOSTDOSELLER/pvt/orders ```</br>
+ >> ``` https://HOSTDOSELLER/pvt/payments ```</br>
+ >> ``` https://HOSTDOSELLER/pvt/orders/[orderid]/fulfill ```</br>
 
 
  > ATENÇÃO:
@@ -395,7 +404,7 @@ Quando cliente for para a página de pagamento, uma chamada será feita no Selle
 >> 4-Mastercard </br>
 
 
-endpoint: ``` https://[sellerendpoint]/installments/options?sc=[idcanal]&an=[mechantname] ```</br>
+endpoint: ``` https://[sellerendpoint]/pvt/installments/options?sc=[idcanal]&an=[mechantname] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -410,7 +419,7 @@ _request:_
         {
         "PriceAsInt":24800, //preço do SKU
         "Quantity":1, //quantidade do SKU
-        "Id":"1940388", //string, identificador do SKU
+        "Id":"1940388", //string, identificador do SKU no Seller.
         "SellerId":"1",
         "SalesChannel":1 //identificador do canal de vendas no Seller, caso exista
         }
@@ -701,7 +710,7 @@ _retorno de erro:_
 
 Quando o pagamento do pedido é informado no Marketplace hospedado na VTEX, um POST é feito no Seller enviando os dados referente ao pagamento do respectivo pedido - endpoint do Seller.
 
-endpoint: ``` https://sellerendpoint/pvt/payment?sc=[idcanal]&an=[mechantname] ```</br>
+endpoint: ``` https://sellerendpoint/pvt/payments?sc=[idcanal]&an=[mechantname] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
