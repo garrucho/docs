@@ -899,7 +899,7 @@ Em breve, estará disponível a documentação completa deste objeto.
 
 ### Retorna
 
-`Promise` para as orders
+`Promise` para as orders.
 
 
 ### Argumentos
