@@ -1,5 +1,6 @@
 # Summary
 
+* [Introduction](README.md)
 * [Integração](integracao/README.md)
    * [ERP](integracao/erp/README.md)
        * [Catálogo Completo](integracao/erp/catalogo-completo/README.md)
@@ -13,7 +14,7 @@
        * [Seller não VTEX c/ pagto](integracao/marketplace/seller-não-vtex-com-pgto/README.md)
 * [Plugins](plugins/lib/latest/expiration/README.md)
 * [Search](search/api/beta/search/README.md)
-* [Vtex.js](vtex.js/latest/README.md)
+* [vtex.js](vtex.js/latest/README.md)
    * [Checkout](vtex.js/latest/checkout/README.md)
        * [OrderForm](vtex.js/latest/checkout/order-form.md)
    * [Catálogo](vtex.js/latest/catalog/README.md)
