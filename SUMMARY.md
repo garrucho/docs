@@ -1,6 +1,5 @@
 # Summary
 
-* [Introduction](README.md)
 * [Integração](integracao/README.md)
    * [ERP](integracao/erp/README.md)
        * [Catálogo Completo](integracao/erp/catalogo-completo/README.md)
