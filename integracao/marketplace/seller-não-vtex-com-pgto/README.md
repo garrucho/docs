@@ -440,7 +440,7 @@ _response:_
             {
                 "count": 1, // int, numero de parcelas
                 "value": 27280, // int, valor da parecela
-                "interestRate": 0, // int, taxa de juros
+                "interestRate": 0, // decimal(0.00), taxa de juros
                 "hasInterestRate": false // booleana - tem juros?
             },
             {
@@ -469,9 +469,9 @@ _response:_
             },
             {
                 "count": 6,
-                "value": 4547,
-                "interestRate": 0,
-                "hasInterestRate": false
+                "value": 4847,
+                "interestRate": 4.56,
+                "hasInterestRate": true
             }
         ]
     },
