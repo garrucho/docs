@@ -539,7 +539,7 @@ _request:_
 [
   {
     "marketplaceOrderId": "959311095", // identificador do pedido no market place
-    "marketplaceServicesEndpoint": "https://marketplaceservicesendpoint/", // leia o tópico Invocando MarketplaceServicesEndpoint Actions
+    "marketplaceServicesEndpoint":"http://sandboxintegracao.vtexcommercestable.com.br/api/oms", // leia o tópico Invocando MarketplaceServicesEndpoint Actions
     "marketplacePaymentValue": 11080, //valor que o marketplace se compromete a pagar para o Seller
     "items": [
       {
@@ -563,12 +563,12 @@ _request:_
     ],
     "clientProfileData": {
       "id": "clientProfileData",
-      "email": "32172239852@gmail.com.br", // e-mail do cliente
+      "email": "26e6a2f59cef4f8bb09882d7cf758d71@ct.vtex.com.br", // e-mail do cliente
       "firstName": "Jonas", // primeiro nome do ciente
       "lastName": "Alves de Oliveira", // sobrenome do cliente
       "documentType": null,
       "document": "3244239851", // documento
-      "phone": "399271258", // fone
+      "phone": "+552123232323", // fone
       "corporateName": null, // se pessoa juridica, razao social
       "tradeName": null, // se pessoa juridica, nome fantasia
       "corporateDocument": null, // se pessoa juridica, documento
