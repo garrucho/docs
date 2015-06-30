@@ -4,7 +4,7 @@
   display: none;
 }
 
-.book .book-summary ul.summary li:last-child {
+.book .book-summary ul.summary li:last-child:not(.chapter) {
   position: absolute;
   bottom: 0;
   font-size: 10px;
