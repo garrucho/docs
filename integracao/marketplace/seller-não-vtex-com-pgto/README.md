@@ -80,7 +80,7 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
  [Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a12)</br>
 
 
- > DETALHE IMPORTANTÍSSIMO:
+ > DETALHE IMPORTANTÍSSIMO: </br>
  > É preciso que todos os paths do Seller estejam debaixo da mesmo host. Exemplo:
  >> ``` https://HOSTDOSELLER/pvt/orderForms/simulation ```</br>
  >> ``` https://HOSTDOSELLER/pvt/installments/options ```</br>
@@ -424,7 +424,7 @@ _request:_
         "SalesChannel":1 //identificador do canal de vendas no Seller, caso exista
         }
     ],
-    "postalCode":"22051030" //CEP
+    "PostalCode":"22051030" //CEP
 }
 ```
 
