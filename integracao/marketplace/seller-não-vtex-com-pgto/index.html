@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Tue Jul 07 2015 16:52:07 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Wed Jul 08 2015 13:33:14 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -860,82 +860,124 @@ Accept: <strong>application/json</strong><br></p>
 }
 </code></pre>
 <p><em>response:</em></p>
-<pre><code class="lang-json">[
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;paymentSystems&quot;</span>: [
     {
-        <span class="hljs-string">&quot;paymentSystem&quot;</span>: <span class="hljs-number">2</span>, <span class="hljs-comment">// int -identificador da forma de pagamento</span>
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
-        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">27280</span>, <span class="hljs-comment">// int, valor solicitado para parcelar</span>
-        <span class="hljs-string">&quot;installments&quot;</span>: [
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">// int, numero de parcelas</span>
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">27280</span>, <span class="hljs-comment">// int, valor da parecela</span>
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">// decimal(0.00), taxa de juros</span>
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span> <span class="hljs-comment">// booleana - tem juros?</span>
-            },
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">2</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">13640</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            },
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">3</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">9093</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            },
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">4</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">6820</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            },
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">5</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">5456</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            },
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">6</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">4847</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">4.56</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">true</span>
-            }
-        ]
+      <span class="hljs-string">&quot;paymentSystem&quot;</span>: <span class="hljs-number">2</span>, <span class="hljs-comment">// int -identificador da forma de pagamento</span>
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Visa&quot;</span>,
+      <span class="hljs-string">&quot;groupName&quot;</span>: <span class="hljs-string">&quot;creditCard&quot;</span>,
+      <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">27280</span>, <span class="hljs-comment">// int, valor solicitado para parcelar</span>
+      <span class="hljs-string">&quot;installments&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">5</span>, <span class="hljs-comment">// int, numero de parcelas</span>
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">5556</span>, <span class="hljs-comment">// int, valor da parecela</span>
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">1.7</span>, <span class="hljs-comment">// decimal, taxa de juros</span>
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">true</span> <span class="hljs-comment">// boolean - tem juros?</span>
+        },
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">4</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">6820</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        },
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">3</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">9093</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        },
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">13640</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        },
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">27280</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        }
+      ]
     },
     {
-        <span class="hljs-string">&quot;paymentSystem&quot;</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
-        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">27280</span>,
-        <span class="hljs-string">&quot;installments&quot;</span>: [
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">1</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">27280</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            },
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">2</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">13640</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            },
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">3</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">9093</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            },
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">4</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">6820</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            }
-        ]
+      <span class="hljs-string">&quot;paymentSystem&quot;</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;American Express&quot;</span>,
+      <span class="hljs-string">&quot;groupName&quot;</span>: <span class="hljs-string">&quot;creditCard&quot;</span>,
+      <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">27280</span>,
+      <span class="hljs-string">&quot;installments&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">5</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">5456</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        },
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">4</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">6820</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        },
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">3</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">9093</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        },
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">13640</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        },
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">27280</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        }
+      ]
+    },
+    {
+      <span class="hljs-string">&quot;paymentSystem&quot;</span>: <span class="hljs-number">4</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Mastercard&quot;</span>,
+      <span class="hljs-string">&quot;groupName&quot;</span>: <span class="hljs-string">&quot;creditCard&quot;</span>,
+      <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">27280</span>,
+      <span class="hljs-string">&quot;installments&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">5</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">5456</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        },
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">4</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">6820</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        },
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">3</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">9093</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        },
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">13640</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        },
+        {
+          <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">27280</span>,
+          <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
+        }
+      ]
     }
-]
+  ]
+}
 </code></pre>
 <hr>
 <h3 id="enviar-pedido-e-informar-pagamento"><a name="enviar-pedido-e-informar-pagamento" class="plugin-anchor" href="#enviar-pedido-e-informar-pagamento"><span class="fa fa-link"></span></a>Enviar Pedido e Informar Pagamento</h3>
