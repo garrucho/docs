@@ -413,7 +413,7 @@ _request:_
 
 ```json
 {
-    "PaymentSystemsIds":[1,2], //ids das formas de pagamento na loja VTEX
+    "PaymentSystemsIds":[1,2,4], //ids das formas de pagamento na loja VTEX
     "SubtotalAsInt":27280, //total que se deseja parcelar
     "Items":[
         {
