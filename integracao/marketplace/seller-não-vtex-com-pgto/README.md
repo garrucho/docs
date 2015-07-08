@@ -442,7 +442,7 @@ _response:_
         {
           "count": 5, // int, numero de parcelas
           "value": 5556, // int, valor da parecela
-          "interestRate": 1.7, // decimal, taxa de juros
+          "interestRate": 170, // int, taxa de juros, será divido por 100
           "hasInterestRate": true // boolean - tem juros?
         },
         {
