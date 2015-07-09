@@ -431,124 +431,122 @@ _request:_
 _response:_
 
 ```json
-{
-  "paymentSystems": [
-    {
-      "paymentSystem": 2, // int -identificador da forma de pagamento
-      "name": "Visa",
-      "groupName": "creditCard",
-      "value": 27280, // int, valor solicitado para parcelar
-      "installments": [
-        {
-          "count": 5, // int, numero de parcelas
-          "value": 5556, // int, valor da parecela
-          "interestRate": 170, // int, taxa de juros, será divido por 100
-          "hasInterestRate": true // boolean - tem juros?
-        },
-        {
-          "count": 4,
-          "value": 6820,
-          "interestRate": 0,
-          "hasInterestRate": false
-        },
-        {
-          "count": 3,
-          "value": 9093,
-          "interestRate": 0,
-          "hasInterestRate": false
-        },
-        {
-          "count": 2,
-          "value": 13640,
-          "interestRate": 0,
-          "hasInterestRate": false
-        },
-        {
-          "count": 1,
-          "value": 27280,
-          "interestRate": 0,
-          "hasInterestRate": false
-        }
-      ]
-    },
-    {
-      "paymentSystem": 1,
-      "name": "American Express",
-      "groupName": "creditCard",
-      "value": 27280,
-      "installments": [
-        {
-          "count": 5,
-          "value": 5456,
-          "interestRate": 0,
-          "hasInterestRate": false
-        },
-        {
-          "count": 4,
-          "value": 6820,
-          "interestRate": 0,
-          "hasInterestRate": false
-        },
-        {
-          "count": 3,
-          "value": 9093,
-          "interestRate": 0,
-          "hasInterestRate": false
-        },
-        {
-          "count": 2,
-          "value": 13640,
-          "interestRate": 0,
-          "hasInterestRate": false
-        },
-        {
-          "count": 1,
-          "value": 27280,
-          "interestRate": 0,
-          "hasInterestRate": false
-        }
-      ]
-    },
-    {
-      "paymentSystem": 4,
-      "name": "Mastercard",
-      "groupName": "creditCard",
-      "value": 27280,
-      "installments": [
-        {
-          "count": 5,
-          "value": 5456,
-          "interestRate": 0,
-          "hasInterestRate": false
-        },
-        {
-          "count": 4,
-          "value": 6820,
-          "interestRate": 0,
-          "hasInterestRate": false
-        },
-        {
-          "count": 3,
-          "value": 9093,
-          "interestRate": 0,
-          "hasInterestRate": false
-        },
-        {
-          "count": 2,
-          "value": 13640,
-          "interestRate": 0,
-          "hasInterestRate": false
-        },
-        {
-          "count": 1,
-          "value": 27280,
-          "interestRate": 0,
-          "hasInterestRate": false
-        }
-      ]
-    }
-  ]
-}
+[
+	{
+	  "paymentSystem": 2, // int -identificador da forma de pagamento
+	  "name": "Visa",
+	  "groupName": "creditCard",
+	  "value": 27280, // int, valor solicitado para parcelar
+	  "installments": [
+		{
+		  "count": 5, // int, numero de parcelas
+		  "value": 5556, // int, valor da parecela
+		  "interestRate": 170, // int, taxa de juros, será divido por 100
+		  "hasInterestRate": true // boolean - tem juros?
+		},
+		{
+		  "count": 4,
+		  "value": 6820,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		},
+		{
+		  "count": 3,
+		  "value": 9093,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		},
+		{
+		  "count": 2,
+		  "value": 13640,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		},
+		{
+		  "count": 1,
+		  "value": 27280,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		}
+	  ]
+	},
+	{
+	  "paymentSystem": 1,
+	  "name": "American Express",
+	  "groupName": "creditCard",
+	  "value": 27280,
+	  "installments": [
+		{
+		  "count": 5,
+		  "value": 5456,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		},
+		{
+		  "count": 4,
+		  "value": 6820,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		},
+		{
+		  "count": 3,
+		  "value": 9093,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		},
+		{
+		  "count": 2,
+		  "value": 13640,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		},
+		{
+		  "count": 1,
+		  "value": 27280,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		}
+	  ]
+	},
+	{
+	  "paymentSystem": 4,
+	  "name": "Mastercard",
+	  "groupName": "creditCard",
+	  "value": 27280,
+	  "installments": [
+		{
+		  "count": 5,
+		  "value": 5456,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		},
+		{
+		  "count": 4,
+		  "value": 6820,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		},
+		{
+		  "count": 3,
+		  "value": 9093,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		},
+		{
+		  "count": 2,
+		  "value": 13640,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		},
+		{
+		  "count": 1,
+		  "value": 27280,
+		  "interestRate": 0,
+		  "hasInterestRate": false
+		}
+	  ]
+	}
+]
 ```
 
 ---
