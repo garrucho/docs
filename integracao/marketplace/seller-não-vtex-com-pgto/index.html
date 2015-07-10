@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Thu Jul 09 2015 12:12:08 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Fri Jul 10 2015 14:09:04 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -847,7 +847,7 @@ Accept: <strong>application/json</strong><br></p>
 <pre><code class="lang-json">{
     <span class="hljs-string">&quot;PaymentSystemsIds&quot;</span>:[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>], <span class="hljs-comment">//ids das formas de pagamento na loja VTEX</span>
     <span class="hljs-string">&quot;SubtotalAsInt&quot;</span>:<span class="hljs-number">27280</span>, <span class="hljs-comment">//total que se deseja parcelar</span>
-    <span class="hljs-string">&quot;Items&quot;</span>:[
+    <span class="hljs-string">&quot;Items&quot;</span>:[ <span class="hljs-comment">//opcional</span>
         {
         <span class="hljs-string">&quot;PriceAsInt&quot;</span>:<span class="hljs-number">24800</span>, <span class="hljs-comment">//pre&#xE7;o do SKU</span>
         <span class="hljs-string">&quot;Quantity&quot;</span>:<span class="hljs-number">1</span>, <span class="hljs-comment">//quantidade do SKU</span>
@@ -856,7 +856,7 @@ Accept: <strong>application/json</strong><br></p>
         <span class="hljs-string">&quot;SalesChannel&quot;</span>:<span class="hljs-number">1</span> <span class="hljs-comment">//identificador do canal de vendas no Seller, caso exista</span>
         }
     ],
-    <span class="hljs-string">&quot;PostalCode&quot;</span>:<span class="hljs-string">&quot;22051030&quot;</span> <span class="hljs-comment">//CEP</span>
+    <span class="hljs-string">&quot;PostalCode&quot;</span>:<span class="hljs-string">&quot;22051030&quot;</span> <span class="hljs-comment">//CEP, opcional</span>
 }
 </code></pre>
 <p><em>response:</em></p>
