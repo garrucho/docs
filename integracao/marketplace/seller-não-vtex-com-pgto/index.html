@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Fri Jul 10 2015 14:09:04 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Fri Jul 10 2015 18:45:02 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -1163,7 +1163,7 @@ Accept: <strong>application/json</strong><br></p>
 <p><a name="a7"><a></a></a></p>
 <h3 id="enviar-pagamento"><a name="enviar-pagamento" class="plugin-anchor" href="#enviar-pagamento"><span class="fa fa-link"></span></a>Enviar Pagamento</h3>
 <p>Quando o pagamento do pedido &#xE9; informado no Marketplace hospedado na VTEX, um POST &#xE9; feito no Seller enviando os dados referente ao pagamento do respectivo pedido - endpoint do Seller.</p>
-<p>endpoint: <code>https://sellerendpoint/pvt/payments?sc=[idcanal]&amp;an=[mechantname]</code><br>
+<p>endpoint: <code>https://sellerendpoint/pvt/payments/?sc=[idcanal]&amp;an=[mechantname]</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br></p>
@@ -1181,7 +1181,7 @@ Accept: <strong>application/json</strong><br></p>
         <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">11080</span>, <span class="hljs-comment">// valor do pagamento</span>
         <span class="hljs-string">&quot;installments&quot;</span>: <span class="hljs-number">3</span>, <span class="hljs-comment">// numero de parcelas</span>
         <span class="hljs-string">&quot;cvv2&quot;</span>: <span class="hljs-string">&quot;123&quot;</span>, <span class="hljs-comment">// codigo verificador</span>
-        <span class="hljs-string">&quot;billingAddress&quot;</span>: { <span class="hljs-comment">// endere&#xE7;o de cobran&#xE7;a</span>
+        <span class="hljs-string">&quot;billingAddress&quot;</span>: { <span class="hljs-comment">// endere&#xE7;o de cobran&#xE7;a, opcional</span>
             <span class="hljs-string">&quot;addressType&quot;</span>: <span class="hljs-string">&quot;residential&quot;</span>,
             <span class="hljs-string">&quot;street&quot;</span>: <span class="hljs-string">&quot;Rua Cinco De Julho&quot;</span>,
             <span class="hljs-string">&quot;number&quot;</span>: <span class="hljs-string">&quot;176&quot;</span>,
@@ -1193,7 +1193,7 @@ Accept: <strong>application/json</strong><br></p>
             <span class="hljs-string">&quot;neighborhood&quot;</span>: <span class="hljs-string">&quot;&quot;</span>
         }
     },
-    <span class="hljs-string">&quot;clientData&quot;</span>: { <span class="hljs-comment">// dados do cliente</span>
+    <span class="hljs-string">&quot;clientData&quot;</span>: { <span class="hljs-comment">// dados do cliente, opcional</span>
         <span class="hljs-string">&quot;firstName&quot;</span>: <span class="hljs-string">&quot;JONAS&quot;</span>,
         <span class="hljs-string">&quot;lastName&quot;</span>: <span class="hljs-string">&quot;ALVES DE OLIVEIRA&quot;</span>,
         <span class="hljs-string">&quot;document&quot;</span>: <span class="hljs-string">&quot;08081268731&quot;</span>,
