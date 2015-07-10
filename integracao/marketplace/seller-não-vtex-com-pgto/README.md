@@ -750,7 +750,7 @@ _retorno de erro:_
 
 Quando o pagamento do pedido é informado no Marketplace hospedado na VTEX, um POST é feito no Seller enviando os dados referente ao pagamento do respectivo pedido - endpoint do Seller.
 
-endpoint: ``` https://sellerendpoint/pvt/payments?sc=[idcanal]&an=[mechantname] ```</br>
+endpoint: ``` https://sellerendpoint/pvt/payments/?sc=[idcanal]&an=[mechantname] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -771,7 +771,7 @@ _request:_
 		"value": 11080, // valor do pagamento
 		"installments": 3, // numero de parcelas
 		"cvv2": "123", // codigo verificador
-		"billingAddress": { // endereço de cobrança
+		"billingAddress": { // endereço de cobrança, opcional
 			"addressType": "residential",
 			"street": "Rua Cinco De Julho",
 			"number": "176",
@@ -783,7 +783,7 @@ _request:_
 			"neighborhood": ""
 		}
 	},
-	"clientData": { // dados do cliente
+	"clientData": { // dados do cliente, opcional
 		"firstName": "JONAS",
 		"lastName": "ALVES DE OLIVEIRA",
 		"document": "08081268731",
