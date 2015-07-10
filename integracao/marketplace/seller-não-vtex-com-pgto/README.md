@@ -415,7 +415,7 @@ _request:_
 {
     "PaymentSystemsIds":[1,2,4], //ids das formas de pagamento na loja VTEX
     "SubtotalAsInt":27280, //total que se deseja parcelar
-    "Items":[
+    "Items":[ //opcional
         {
         "PriceAsInt":24800, //preço do SKU
         "Quantity":1, //quantidade do SKU
@@ -424,7 +424,7 @@ _request:_
         "SalesChannel":1 //identificador do canal de vendas no Seller, caso exista
         }
     ],
-    "PostalCode":"22051030" //CEP
+    "PostalCode":"22051030" //CEP, opcional
 }
 ```
 
