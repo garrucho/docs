@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Fri Jul 10 2015 18:45:02 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Mon Jul 13 2015 12:50:52 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -1169,84 +1169,44 @@ Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br></p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">{
-    <span class="hljs-string">&quot;referenceId&quot;</span>: <span class="hljs-string">&quot;123543123&quot;</span>, <span class="hljs-comment">// merchantPaymentReferenceId retornado no request do place order</span>
-    <span class="hljs-string">&quot;transactionId&quot;</span>: <span class="hljs-string">&quot;D3AA1FC8372E430E8236649DB5EBD08E&quot;</span>, <span class="hljs-comment">// identificador da transa&#xE7;&#xE3;o</span>
-    <span class="hljs-string">&quot;paymentData&quot;</span>: {
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;F5C1A4E20D3B4E07B7E871F5B5BC9F91&quot;</span>, <span class="hljs-comment">// identificador do pagamento</span>
-        <span class="hljs-string">&quot;paymentSystem&quot;</span>: <span class="hljs-number">2</span>, <span class="hljs-comment">// identificador da forma depagamento</span>
-        <span class="hljs-string">&quot;cardNumber&quot;</span>: <span class="hljs-string">&quot;4444333322221111&quot;</span>, <span class="hljs-comment">// numero do cart&#xE3;o</span>
-        <span class="hljs-string">&quot;cardHolder&quot;</span>: <span class="hljs-string">&quot;JONAS ALVES DE OLIVEIRA&quot;</span>, <span class="hljs-comment">// nome do cart&#xE3;o</span>
-        <span class="hljs-string">&quot;expiryMonth&quot;</span>: <span class="hljs-number">11</span>, <span class="hljs-comment">// mes de expira&#xE7;&#xE3;o</span>
-        <span class="hljs-string">&quot;expiryYear&quot;</span>: <span class="hljs-number">16</span>, <span class="hljs-comment">// ano de expira&#xE7;&#xE3;o</span>
-        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">11080</span>, <span class="hljs-comment">// valor do pagamento</span>
-        <span class="hljs-string">&quot;installments&quot;</span>: <span class="hljs-number">3</span>, <span class="hljs-comment">// numero de parcelas</span>
-        <span class="hljs-string">&quot;cvv2&quot;</span>: <span class="hljs-string">&quot;123&quot;</span>, <span class="hljs-comment">// codigo verificador</span>
-        <span class="hljs-string">&quot;billingAddress&quot;</span>: { <span class="hljs-comment">// endere&#xE7;o de cobran&#xE7;a, opcional</span>
-            <span class="hljs-string">&quot;addressType&quot;</span>: <span class="hljs-string">&quot;residential&quot;</span>,
-            <span class="hljs-string">&quot;street&quot;</span>: <span class="hljs-string">&quot;Rua Cinco De Julho&quot;</span>,
-            <span class="hljs-string">&quot;number&quot;</span>: <span class="hljs-string">&quot;176&quot;</span>,
-            <span class="hljs-string">&quot;complement&quot;</span>: <span class="hljs-string">&quot;801&quot;</span>,
-            <span class="hljs-string">&quot;postalCode&quot;</span>: <span class="hljs-string">&quot;22051-030&quot;</span>,
-            <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;Rio De Janeiro&quot;</span>,
-            <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;RJ&quot;</span>,
-            <span class="hljs-string">&quot;country&quot;</span>: <span class="hljs-string">&quot;BRA&quot;</span>,
-            <span class="hljs-string">&quot;neighborhood&quot;</span>: <span class="hljs-string">&quot;&quot;</span>
-        }
-    },
-    <span class="hljs-string">&quot;clientData&quot;</span>: { <span class="hljs-comment">// dados do cliente, opcional</span>
-        <span class="hljs-string">&quot;firstName&quot;</span>: <span class="hljs-string">&quot;JONAS&quot;</span>,
-        <span class="hljs-string">&quot;lastName&quot;</span>: <span class="hljs-string">&quot;ALVES DE OLIVEIRA&quot;</span>,
-        <span class="hljs-string">&quot;document&quot;</span>: <span class="hljs-string">&quot;08081268731&quot;</span>,
-        <span class="hljs-string">&quot;corporateName&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
-        <span class="hljs-string">&quot;tradeName&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
-        <span class="hljs-string">&quot;corporateDocument&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
-        <span class="hljs-string">&quot;isCorporate&quot;</span>: <span class="hljs-string">&quot;false&quot;</span>
-    },
-    <span class="hljs-string">&quot;shippingValue&quot;</span>: <span class="hljs-number">3691</span>, <span class="hljs-comment">// custo da entrega</span>
-    <span class="hljs-string">&quot;callbackUrl&quot;</span>: <span class="hljs-string">&quot;https://marketplace.vtexpayments.com.br/api/pvt/callback/vtxstd/transactions/D3AA1FC8372E430E8236649DB5EBD08E/payments/F5C1A4E20D3B4E07B7E871F5B5BC9F91/return&quot;</span>, <span class="hljs-comment">// url para falar de volta com o gateway de pagamento</span>
-    <span class="hljs-string">&quot;shoppingCart&quot;</span>: { <span class="hljs-comment">// carrinho</span>
-        <span class="hljs-string">&quot;items&quot;</span>: [
-          {
-            <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;2044360&quot;</span>, <span class="hljs-comment">// identificador do SKU no Seller</span>
-            <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Cal&#xE7;a com Rasgos Skinny Preto 36&quot;</span>, <span class="hljs-comment">// nome do SKU</span>
-            <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">6990</span>, <span class="hljs-comment">// pre&#xE7;o do SKU</span>
-            <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">// quantidade do item</span>
-            <span class="hljs-string">&quot;priceTags&quot;</span>: [
-              {
-                <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;discount@shipping-1e522efe-9638-4f93-81d7-b280cdbef920#8bacb546-ac99-4107-a54a-c17cf53034c6&quot;</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;-4,1&quot;</span>
-              }
-            ],
-            <span class="hljs-string">&quot;components&quot;</span>: <span class="hljs-literal">null</span>,
-            <span class="hljs-string">&quot;shippingDiscount&quot;</span>: <span class="hljs-number">0</span>,
-            <span class="hljs-string">&quot;discount&quot;</span>: <span class="hljs-number">0</span>,
-            <span class="hljs-string">&quot;refId&quot;</span>: <span class="hljs-string">&quot;7911105&quot;</span>,
-            <span class="hljs-string">&quot;productId&quot;</span>: <span class="hljs-string">&quot;2017257&quot;</span>
-          },
-          {
-            <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;2031300&quot;</span>,
-            <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Cal&#xE7;a Jeans Claro 38&quot;</span>,
-            <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">7990</span>,
-            <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
-            <span class="hljs-string">&quot;priceTags&quot;</span>: [
-              {
-                <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;discount@shipping-1e522efe-9638-4f93-81d7-b280cdbef920#8bacb546-ac99-4107-a54a-c17cf53034c6&quot;</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;-4,1&quot;</span>
-              }
-            ],
-            <span class="hljs-string">&quot;components&quot;</span>: <span class="hljs-literal">null</span>,
-            <span class="hljs-string">&quot;shippingDiscount&quot;</span>: <span class="hljs-number">0</span>,
-            <span class="hljs-string">&quot;discount&quot;</span>: <span class="hljs-number">0</span>,
-            <span class="hljs-string">&quot;refId&quot;</span>: <span class="hljs-string">&quot;7824867&quot;</span>,
-            <span class="hljs-string">&quot;productId&quot;</span>: <span class="hljs-string">&quot;2009639&quot;</span>
-          }
-        ],
-        <span class="hljs-string">&quot;freight&quot;</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">// frete</span>
-        <span class="hljs-string">&quot;orderUrl&quot;</span>: <span class="hljs-string">&quot;http://www.cea.com.br/admin/checkout/#/orders?q=v676163cea&quot;</span>,
-        <span class="hljs-string">&quot;tax&quot;</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-string">&quot;shippingdate&quot;</span>: <span class="hljs-literal">null</span>,
-        <span class="hljs-string">&quot;shippingestimated&quot;</span>: <span class="hljs-string">&quot;6bd&quot;</span> <span class="hljs-comment">// dias estimados para entrega</span>
+  <span class="hljs-string">&quot;referenceId&quot;</span>: <span class="hljs-string">&quot;1075&quot;</span>, <span class="hljs-comment">// merchantPaymentReferenceId retornado no request do place order</span>
+  <span class="hljs-string">&quot;transactionId&quot;</span>: <span class="hljs-string">&quot;9F8EDAE2DEB540ABB66D97E8C8E3975C&quot;</span>, <span class="hljs-comment">// identificador da transa&#xE7;&#xE3;o</span>
+  <span class="hljs-string">&quot;paymentData&quot;</span>: {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;8051344EF1D240839E408FFF79F847CE&quot;</span>, <span class="hljs-comment">// identificador do pagamento</span>
+    <span class="hljs-string">&quot;paymentSystem&quot;</span>: <span class="hljs-number">2</span>, <span class="hljs-comment">// identificador da forma depagamento</span>
+    <span class="hljs-string">&quot;cardNumber&quot;</span>: <span class="hljs-string">&quot;444433332221111&quot;</span>, <span class="hljs-comment">// numero do cart&#xE3;o</span>
+    <span class="hljs-string">&quot;cardHolder&quot;</span>: <span class="hljs-string">&quot;Jonas Bolognim&quot;</span>,  <span class="hljs-comment">// nome do cart&#xE3;o</span>
+    <span class="hljs-string">&quot;expiryMonth&quot;</span>: <span class="hljs-number">4</span>, <span class="hljs-comment">// mes de expira&#xE7;&#xE3;o</span>
+    <span class="hljs-string">&quot;expiryYear&quot;</span>: <span class="hljs-number">2021</span>, <span class="hljs-comment">// ano de expira&#xE7;&#xE3;o</span>
+    <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">33594</span>, <span class="hljs-comment">// valor do pagamento</span>
+    <span class="hljs-string">&quot;installments&quot;</span>: <span class="hljs-number">2</span>, <span class="hljs-comment">// numero de parcelas</span>
+    <span class="hljs-string">&quot;cvv2&quot;</span>: <span class="hljs-string">&quot;071&quot;</span>,  <span class="hljs-comment">// codigo verificador</span>
+    <span class="hljs-string">&quot;document&quot;</span>: <span class="hljs-string">&quot;088.965.818-85&quot;</span>, <span class="hljs-comment">//opcional, documento do pagador (ser&#xE1; enviado se antifraude ligado)</span>
+    <span class="hljs-string">&quot;documentType&quot;</span>: <span class="hljs-literal">null</span> <span class="hljs-comment">//opcicional</span>
+  },
+  <span class="hljs-string">&quot;callbackUrl&quot;</span>: <span class="hljs-string">&quot;https://shopfacilfastshop.vtexpayments.com.br/api/pvt/callback/vtxstd/transactions/9F8EDAE2DEB540ABB66D97E8C8E3975C/payments/8051344EF1D240839E408FFF79F847CE/return&quot;</span>, <span class="hljs-comment">//url para falar de volta com o gateway de pagamento.</span>
+  <span class="hljs-string">&quot;shoppingCart&quot;</span>: { <span class="hljs-comment">//resumo do carrinho</span>
+    <span class="hljs-string">&quot;items&quot;</span>: [
+      {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;OB7727437&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Capa Defender para Galaxy S4 em Policarbonato e TPU Cinza e Branca - Otter box - 7727437 CNZ/BCO&quot;</span>,
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">28113</span>,
+        <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">&quot;priceTags&quot;</span>: [],
+        <span class="hljs-string">&quot;components&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;shippingDiscount&quot;</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">&quot;discount&quot;</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">&quot;refId&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;productId&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;sellingPrice&quot;</span>: <span class="hljs-number">281.13</span>
       }
+    ],
+    <span class="hljs-string">&quot;freight&quot;</span>: <span class="hljs-number">4724</span>, <span class="hljs-comment">//valor do frete</span>
+    <span class="hljs-string">&quot;orderUrl&quot;</span>: <span class="hljs-string">&quot;http://sandboxintegracao.vtexcommercebeta.com.br/admin/checkout/#/orders?q=545843519913&quot;</span>,
+    <span class="hljs-string">&quot;tax&quot;</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">//opcional, impostos</span>
+    <span class="hljs-string">&quot;shippingdate&quot;</span>: <span class="hljs-literal">null</span>, <span class="hljs-comment">//opcional, data de entrega</span>
+    <span class="hljs-string">&quot;shippingestimated&quot;</span>: <span class="hljs-string">&quot;21bd&quot;</span> <span class="hljs-comment">//dias estimados para entrega</span>
+  }
 }
 </code></pre>
 <blockquote>
