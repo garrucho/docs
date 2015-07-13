@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Mon Jul 13 2015 12:50:52 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Mon Jul 13 2015 15:11:37 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -821,9 +821,10 @@ Accept: <strong>application/json</strong><br></p>
 <blockquote>
 <p>ATEN&#xC7;&#xC3;O!</p>
 <blockquote>
-<p>O valor do frete deve ser retornado por item consultado.
-Quando n&#xE3;o for passado CEP retornar o array de SLAs vazio []
-No campo quantity, retornar o solicitado ou a quantidade que consegue atender.</p>
+<p>O valor do frete deve ser retornado por item consultado. <br>
+Quando n&#xE3;o for passado CEP, ou o item n&#xE3;o puder ser entregue no CEP passado, retornar o array de SLAs vazio (slas[]). <br>
+No campo quantity, retornar o solicitado ou a quantidade que consegue atender. <br>
+No campo stockBalance retornar sempre a quantidade que  tiver em estoque.</p>
 </blockquote>
 </blockquote>
 <p><a name="a5"><a></a></a></p>
@@ -1265,8 +1266,8 @@ Accept: <strong>application/json</strong><br></p>
 <p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
-Accept: <strong>application/json</strong>
-Parametro: <strong>orderId</strong> // id do pedido no Seller<br></p>
+Accept: <strong>application/json</strong><br>
+Parametro: <strong>marketplaceorderId</strong> // identificador do pedido no Marketplace<br></p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">{
     <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Output&quot;</span>, <span class="hljs-comment">// Output|Input (venda|devolu&#xE7;&#xE3;o)</span>
