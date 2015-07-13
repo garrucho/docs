@@ -386,10 +386,10 @@ _response:_
 ```
 
 > ATENÇÃO!
-> > O valor do frete deve ser retornado por item consultado.
-> > Quando não for passado CEP retornar o array de SLAs vazio []
-> > No campo quantity, retornar o solicitado ou a quantidade que consegue atender.
-
+> > O valor do frete deve ser retornado por item consultado. </br>
+> > Quando não for passado CEP, ou o item não puder ser entregue no CEP passado, retornar o array de SLAs vazio (slas[]). </br>
+> > No campo quantity, retornar o solicitado ou a quantidade que consegue atender. </br>
+> > No campo stockBalance retornar sempre a quantidade que  tiver em estoque.
 
 <a name="a5"><a/>
 ###Consulta de Opções de Parcelamento.
@@ -867,8 +867,8 @@ Quando o Seller emitir a nota fiscal, deve enviar as informações da nota fisca
 endpoint: ```https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice```
 verb: **POST**</br>
 Content-Type: **application/json**</br>
-Accept: **application/json**
-Parametro: **orderId** // id do pedido no Seller</br>
+Accept: **application/json**</br>
+Parametro: **marketplaceorderId** // identificador do pedido no Marketplace</br>
 
 
 _request:_
