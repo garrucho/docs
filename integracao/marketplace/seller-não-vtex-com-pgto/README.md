@@ -759,84 +759,44 @@ _request:_
 
 ```json
 {
-	"referenceId": "123543123", // merchantPaymentReferenceId retornado no request do place order
-	"transactionId": "D3AA1FC8372E430E8236649DB5EBD08E", // identificador da transação
-	"paymentData": {
-		"id": "F5C1A4E20D3B4E07B7E871F5B5BC9F91", // identificador do pagamento
-		"paymentSystem": 2, // identificador da forma depagamento
-		"cardNumber": "4444333322221111", // numero do cartão
-		"cardHolder": "JONAS ALVES DE OLIVEIRA", // nome do cartão
-		"expiryMonth": 11, // mes de expiração
-		"expiryYear": 16, // ano de expiração
-		"value": 11080, // valor do pagamento
-		"installments": 3, // numero de parcelas
-		"cvv2": "123", // codigo verificador
-		"billingAddress": { // endereço de cobrança, opcional
-			"addressType": "residential",
-			"street": "Rua Cinco De Julho",
-			"number": "176",
-			"complement": "801",
-			"postalCode": "22051-030",
-			"city": "Rio De Janeiro",
-			"state": "RJ",
-			"country": "BRA",
-			"neighborhood": ""
-		}
-	},
-	"clientData": { // dados do cliente, opcional
-		"firstName": "JONAS",
-		"lastName": "ALVES DE OLIVEIRA",
-		"document": "08081268731",
-		"corporateName": "",
-		"tradeName": "",
-		"corporateDocument": "",
-		"isCorporate": "false"
-	},
-	"shippingValue": 3691, // custo da entrega
-	"callbackUrl": "https://marketplace.vtexpayments.com.br/api/pvt/callback/vtxstd/transactions/D3AA1FC8372E430E8236649DB5EBD08E/payments/F5C1A4E20D3B4E07B7E871F5B5BC9F91/return", // url para falar de volta com o gateway de pagamento
-	"shoppingCart": { // carrinho
-	    "items": [
-	      {
-	        "id": "2044360", // identificador do SKU no Seller
-	        "name": "Calça com Rasgos Skinny Preto 36", // nome do SKU
-	        "value": 6990, // preço do SKU
-	        "quantity": 1, // quantidade do item
-	        "priceTags": [
-	          {
-	            "name": "discount@shipping-1e522efe-9638-4f93-81d7-b280cdbef920#8bacb546-ac99-4107-a54a-c17cf53034c6",
-	            "value": "-4,1"
-	          }
-	        ],
-	        "components": null,
-	        "shippingDiscount": 0,
-	        "discount": 0,
-	        "refId": "7911105",
-	        "productId": "2017257"
-	      },
-	      {
-	        "id": "2031300",
-	        "name": "Calça Jeans Claro 38",
-	        "value": 7990,
-	        "quantity": 1,
-	        "priceTags": [
-	          {
-	            "name": "discount@shipping-1e522efe-9638-4f93-81d7-b280cdbef920#8bacb546-ac99-4107-a54a-c17cf53034c6",
-	            "value": "-4,1"
-	          }
-	        ],
-	        "components": null,
-	        "shippingDiscount": 0,
-	        "discount": 0,
-	        "refId": "7824867",
-	        "productId": "2009639"
-	      }
-	    ],
-	    "freight": 0, // frete
-	    "orderUrl": "http://www.cea.com.br/admin/checkout/#/orders?q=v676163cea",
-	    "tax": 0,
-	    "shippingdate": null,
-	    "shippingestimated": "6bd" // dias estimados para entrega
-	  }
+  "referenceId": "1075", // merchantPaymentReferenceId retornado no request do place order
+  "transactionId": "9F8EDAE2DEB540ABB66D97E8C8E3975C", // identificador da transação
+  "paymentData": {
+    "id": "8051344EF1D240839E408FFF79F847CE", // identificador do pagamento
+    "paymentSystem": 2, // identificador da forma depagamento
+    "cardNumber": "444433332221111", // numero do cartão
+    "cardHolder": "Jonas Bolognim",  // nome do cartão
+    "expiryMonth": 4, // mes de expiração
+    "expiryYear": 2021, // ano de expiração
+    "value": 33594, // valor do pagamento
+    "installments": 2, // numero de parcelas
+    "cvv2": "071",  // codigo verificador
+    "document": "088.965.818-85", //opcional, documento do pagador (será enviado se antifraude ligado)
+    "documentType": null //opcicional
+  },
+  "callbackUrl": "https://shopfacilfastshop.vtexpayments.com.br/api/pvt/callback/vtxstd/transactions/9F8EDAE2DEB540ABB66D97E8C8E3975C/payments/8051344EF1D240839E408FFF79F847CE/return", //url para falar de volta com o gateway de pagamento.
+  "shoppingCart": { //resumo do carrinho
+    "items": [
+      {
+        "id": "OB7727437",
+        "name": "Capa Defender para Galaxy S4 em Policarbonato e TPU Cinza e Branca - Otter box - 7727437 CNZ/BCO",
+        "value": 28113,
+        "quantity": 1,
+        "priceTags": [],
+        "components": null,
+        "shippingDiscount": 0,
+        "discount": 0,
+        "refId": null,
+        "productId": null,
+        "sellingPrice": 281.13
+      }
+    ],
+    "freight": 4724, //valor do frete
+    "orderUrl": "http://sandboxintegracao.vtexcommercebeta.com.br/admin/checkout/#/orders?q=545843519913",
+    "tax": 0, //opcional, impostos
+    "shippingdate": null, //opcional, data de entrega
+    "shippingestimated": "21bd" //dias estimados para entrega
+  }
 }
 ```
 >MUITO IMPORTANTE!
