@@ -17,7 +17,9 @@ Para rodar, use a versão 2.0.1. A versão 2.0.2 está com bug:
 $ gitbook serve -v 2.0.1
 ```
 
-Abra a URL: [http://localhost:4000/](http://localhost:4000/)
+Abra a URL: [localhost:4000](http://localhost:4000/)
+
+Todos os segredos do Gitbook estão em: [help.gitbook.com](http://help.gitbook.com)
 
 ### Publicando
 
