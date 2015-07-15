@@ -309,7 +309,7 @@ _request Por POST:_
 
 Na pratilheira e na página de detalhe de produto uma chamada **GET** será feita no Seller para checar a disponibilidade dos itens - Endpoint do Seller.
 
-endpoint: ``` https://[sellerendpoint]/pvt/orderForms/simulation?purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d&sc=1&an=shopfacilfastshop ```</br>
+endpoint: ``` https://[sellerendpoint]/pvt/orderForms/simulation?purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d&sc=idCanal&an=merchantName ```</br>
 verb: **GET**</br>
 Accept: **application/json**</br>
 Parametro: **purchaseContext** - Esse parametro na QueryString é o mesmo JSON do POST serializado e com URLEncode</br>
@@ -317,18 +317,18 @@ Parametro: **purchaseContext** - Esse parametro na QueryString é o mesmo JSON d
 _request Por GET:_
 
 QueryString com UrlEncode: </br>
-``` purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d&sc=1&an=shopfacilfastshop ```
+``` purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d&sc=1&an=shopfacilfastshop ``` </br>
 QueryString decodificada: </br>
-``` purchaseContext={"items":[{"id":"2002129","quantity":1,"seller":"1"}],"marketingData":null,"postalCode":"22011050","country":"BRA","selectedSla":null,"clientProfileData":null,"geoCoordinates":[]}&sc=1&an=shopfacilfastshop ```
+``` purchaseContext={"items":[{"id":"2002129","quantity":1,"seller":"1"}],"marketingData":null,"postalCode":"22011050","country":"BRA","selectedSla":null,"clientProfileData":null,"geoCoordinates":[]}&sc=1&an=shopfacilfastshop ``` </br>
 
 
-_Via POST:_
+_Via POST:_</br>
 ``` https://[sellerendpoint]/pvt/orderForms/simulation ```</br>
 ```json
 {"items":[{"id":"13","quantity":1,"seller":"1"}],"country":"BRA"}
 ```
 
-_Via GET:_
+_Via GET:_</br>
 ``` https://[sellerendpoint]/pvt/orderForms/simulation?purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d ```
 
 _response (GET e POST):_
