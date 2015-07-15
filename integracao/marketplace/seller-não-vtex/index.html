@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.3" data-basepath="../../.." data-revision="Wed Jul 15 2015 16:17:45 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.3" data-basepath="../../.." data-revision="Wed Jul 15 2015 17:01:36 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -490,12 +490,12 @@
 <blockquote>
 <p>NOTA:</p>
 <blockquote>
-<p>O metodo que consulta pre&#xE7;o e estoque e o metodo que simula carrinho s&#xE3;o os mesmos, logo requer somente uma implementa&#xE7;&#xE3;o por parte do integrador do Seller.
+<p>O metodo que consulta pre&#xE7;o e estoque e o metodo que simula carrinho s&#xE3;o os mesmos, mas por uma quest&#xE3;o de constru&#xE7;&#xE3;o de cache requer duas implementa&#xE7;&#xE3;oes, uma sendo GET e outra POST.
 Este &#xE9; um dos principais metodos da integra&#xE7;&#xE3;o, precisa ter performance e disponibilidade, pois tem impacto direto no fechamento da compra no Marketplace.</p>
 </blockquote>
 </blockquote>
-<p> <a href="#a3">Exemplo Completo: Consultar Pol&#xED;tica Comercial</a> <br>
- <a href="#a4">Exemplo Completo: Simula&#xE7;&#xE3;o de Carrinho</a><br></p>
+<p><a href="#a3">Exemplo Completo: Consultar Pol&#xED;tica Comercial</a> <br>
+<a href="#a4">Exemplo Completo: Simula&#xE7;&#xE3;o de Carrinho  - POST e GET</a> <br></p>
 </li>
 <li><p>Implementar endpoint para receber um pedido - VTEX chama endpoint do Seller. A loja na VTEX ir&#xE1; usar esse enpoint para colocar um pedido no Seller.</p>
 <p> <em>exemplo da chamada:</em><br>
@@ -620,7 +620,7 @@ Caso a loja retorne em seu servi&#xE7;o o <strong>response status 200 ou 202</st
 <h3 id="atualiza%C3%A7%C3%A3o-de-pre%C3%A7o-e-ou-estoque-de-sku"><a name="atualiza%C3%A7%C3%A3o-de-pre%C3%A7o-e-ou-estoque-de-sku" class="plugin-anchor" href="#atualiza%C3%A7%C3%A3o-de-pre%C3%A7o-e-ou-estoque-de-sku"><span class="fa fa-link"></span></a>Atualiza&#xE7;&#xE3;o de Pre&#xE7;o e ou Estoque de SKU</h3>
 <p>Toda vez que houver uma altera&#xE7;&#xE3;o no pre&#xE7;o ou estoque, o Seller deve enviar uma notifica&#xE7;&#xE3;o de mudan&#xE7;a de SKU para a loja hospedadana VTEX, caso a loja retorne em seu servi&#xE7;o o <strong>response status 200 ou 202</strong>, significa que a SKU <strong>existe</strong> na loja, ent&#xE3;o a loja vai no Seller consultar o novo pre&#xE7;o ou estoque.</p>
 <p><a title="busca de condi&#xE7;&#xF5;es comerciais no Seller" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/FULFILLMENT/FULFILLMENT_Simulation" target="_blank">[Developer] - Exemplo de Request de Busca de Condi&#xE7;&#xF5;es Comerciais - Endpoint do Seller</a></p>
-<p><em>exemplo do POST de dados:</em></p>
+<p><em>exemplo por POST:</em></p>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;items&quot;</span>: [
     {
@@ -642,6 +642,11 @@ Caso a loja retorne em seu servi&#xE7;o o <strong>response status 200 ou 202</st
   <span class="hljs-string">&quot;geoCoordinates&quot;</span>: []
 }
 </code></pre>
+<p><em>Exemplo por GET:</em></p>
+<p>QueryString com UrlEncode: <br>
+<code>purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d&amp;sc=1&amp;an=shopfacilfastshop</code> <br>
+QueryString decodificada: <br>
+<code>purchaseContext={&quot;items&quot;:[{&quot;id&quot;:&quot;2002129&quot;,&quot;quantity&quot;:1,&quot;seller&quot;:&quot;1&quot;}],&quot;marketingData&quot;:null,&quot;postalCode&quot;:&quot;22011050&quot;,&quot;country&quot;:&quot;BRA&quot;,&quot;selectedSla&quot;:null,&quot;clientProfileData&quot;:null,&quot;geoCoordinates&quot;:[]}&amp;sc=1&amp;an=shopfacilfastshop</code> <br></p>
 <blockquote>
 <p>ATEN&#xC7;&#xC2;O</p>
 <blockquote>
@@ -667,6 +672,11 @@ verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br></p>
 <blockquote>
+<p>ATEN&#xC7;&#xC2;O</p>
+<blockquote>
+<p>Este m&#xE9;todo tamb&#xE9;m requer uma implementa&#xE7;&#xE3;o em GET, que ser&#xE1; usada para constru&#xE7;&#xE3;o
+de cache do lado da plataforma VTEX, evitando tantos acessos ao POST. <br></p>
+</blockquote>
 <p>PARAMETROS</p>
 <blockquote>
 <p>?<strong>sc</strong>=[idcanal]<strong>an</strong>=[mechantname]. Esses parametros servem para o Seller fazer o controle de qual Marketplace est&#xE1; fazendo a chamada em seus servi&#xE7;os, pois, esse modelo, uma vez bem implementado servir&#xE1; para vender em qualquer Marketplace hospedado na VTEX, dando ao Seller a oportunidade de vender em N Marketplace ao mesmo tempo.</p>
@@ -675,7 +685,7 @@ Accept: <strong>application/json</strong><br></p>
 </blockquote>
 </blockquote>
 </blockquote>
-<p><em>request:</em></p>
+<p><em>request por POST:</em></p>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;items&quot;</span>: [
     {
@@ -697,7 +707,23 @@ Accept: <strong>application/json</strong><br></p>
   <span class="hljs-string">&quot;geoCoordinates&quot;</span>: []
 }
 </code></pre>
-<p><em>response:</em></p>
+<p>Na pratilheira e na p&#xE1;gina de detalhe de produto uma chamada <strong>GET</strong> ser&#xE1; feita no Seller para checar a disponibilidade dos itens - Endpoint do Seller.</p>
+<p>endpoint: <code>https://[sellerendpoint]/pvt/orderForms/simulation?purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d&amp;sc=idCanal&amp;an=merchantName</code><br>
+verb: <strong>GET</strong><br>
+Accept: <strong>application/json</strong><br>
+Parametro: <strong>purchaseContext</strong> - Esse parametro na QueryString &#xE9; o mesmo JSON do POST serializado e com URLEncode<br></p>
+<p><em>request Por GET:</em></p>
+<p>QueryString com UrlEncode: <br>
+<code>purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d&amp;sc=1&amp;an=shopfacilfastshop</code> <br>
+QueryString decodificada: <br>
+<code>purchaseContext={&quot;items&quot;:[{&quot;id&quot;:&quot;2002129&quot;,&quot;quantity&quot;:1,&quot;seller&quot;:&quot;1&quot;}],&quot;marketingData&quot;:null,&quot;postalCode&quot;:&quot;22011050&quot;,&quot;country&quot;:&quot;BRA&quot;,&quot;selectedSla&quot;:null,&quot;clientProfileData&quot;:null,&quot;geoCoordinates&quot;:[]}&amp;sc=1&amp;an=shopfacilfastshop</code> <br></p>
+<p><em>Via POST:</em><br>
+<code>https://[sellerendpoint]/pvt/orderForms/simulation</code><br></p>
+<pre><code class="lang-json">{<span class="hljs-string">&quot;items&quot;</span>:[{<span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-string">&quot;13&quot;</span>,<span class="hljs-string">&quot;quantity&quot;</span>:<span class="hljs-number">1</span>,<span class="hljs-string">&quot;seller&quot;</span>:<span class="hljs-string">&quot;1&quot;</span>}],<span class="hljs-string">&quot;country&quot;</span>:<span class="hljs-string">&quot;BRA&quot;</span>}
+</code></pre>
+<p><em>Via GET:</em><br>
+<code>https://[sellerendpoint]/pvt/orderForms/simulation?purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d</code></p>
+<p><em>response (POST e GET):</em></p>
 <pre><code class="lang-json">{
     <span class="hljs-string">&quot;items&quot;</span>: [ <span class="hljs-comment">//pode vir um array vazio caso item insidponivel</span>
         {
