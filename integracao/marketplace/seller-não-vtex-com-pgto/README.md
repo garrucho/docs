@@ -30,11 +30,11 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
  ``` https://[seller].com.br/pvt/orderForms/simulation?sc=1&an=mechantname ```
 
  > NOTA:
- >> O metodo que consulta preço e estoque e o metodo que simula carrinho são os mesmos, logo requer somente uma implementação por parte do integrador do Seller.
+ >> O metodo que consulta preço e estoque e o metodo que simula carrinho são os mesmos, maa por uma questão de construção de cache requer duas implementaçãoes, uma sendo GET e outra POST.
  >> Este é um dos principais metodos da integração, precisa ter performance e disponibilidade, pois tem impacto direto no fechamento da compra no Marketplace.
 
  [Exemplo Completo: Consultar Política Comercial](#a3) </br>
- [Exemplo Completo: Simulação de Carrinho](#a4)</br>
+ [Exemplo Completo: Simulação de Carrinho  - POST e GET](#a4) </br>
 
 4. Implementar endpoint para consultas de parcelamento - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse endpoint para consultar os parcelamentos oferecidos pelo Seller.
 
@@ -211,7 +211,7 @@ Toda vez que houver uma alteração no preço ou estoque, o Seller deve enviar u
 
 <a title="busca de condições comerciais no Seller" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/FULFILLMENT/FULFILLMENT_Simulation" target="_blank">[Developer] - Exemplo de Request de Busca de Condições Comerciais - Endpoint do Seller</a>
 
-_Exemplo do POST de dados:_
+_Exemplo por POST:_
 
 ```json
 {
@@ -236,6 +236,13 @@ _Exemplo do POST de dados:_
 }
 ```
 
+_Exemplo por GET:_
+
+QueryString com UrlEncode: </br>
+``` purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d&sc=1&an=shopfacilfastshop ```
+QueryString decodificada: </br>
+``` purchaseContext={"items":[{"id":"2002129","quantity":1,"seller":"1"}],"marketingData":null,"postalCode":"22011050","country":"BRA","selectedSla":null,"clientProfileData":null,"geoCoordinates":[]}&sc=1&an=shopfacilfastshop ```
+
 > ATENÇÂO
 >> O CEP e o país não são obrigatórios, mais quando tiver 1 deles o outro se torna obrigatório.
 
@@ -257,20 +264,25 @@ Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma 
 
 
 <a name="a4"><a/>
-###Simulação de Carrinho
+###Simulação de Carrinho (POST E GET)
 
-Quando ocorre uma edição no carrinho, uma chamada será feita no Seller para checar a disponibilidade dos itens - Endpoint do Seller.
+Quando ocorre uma edição no carrinho, uma chamada **POST** será feita no Seller para checar a disponibilidade dos itens - Endpoint do Seller.
 
 endpoint: ``` https://[sellerendpoint]/pvt/orderForms/simulation?sc=[idcanal]&an=[mechantname] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
 
->PARAMETROS
->>?**sc**=[idcanal]**an**=[mechantname]. Esses parametros servem para o Seller fazer o controle de qual Marketplace está fazendo a chamada em seus serviços, pois, esse modelo, uma vez bem implementado servirá para vender em qualquer Marketplace hospedado na VTEX, dando ao Seller a oportunidade de vender em N Marketplace ao mesmo tempo.
+> ATENÇÂO
+>> Este método também requer uma implementação em GET, que será usada para construção
+>> de cache do lado da plataforma VTEX, evitando tantos acessos ao POST. </br>
+
+
+> PARAMETROS
+>> ?**sc**=[idcanal]**an**=[mechantname]. Esses parametros servem para o Seller fazer o controle de qual Marketplace está fazendo a chamada em seus serviços, pois, esse modelo, uma vez bem implementado servirá para vender em qualquer Marketplace hospedado na VTEX, dando ao Seller a oportunidade de vender em N Marketplace ao mesmo tempo.
 >>>**sc**=1&**an**=marketplaceseller, onde **sc** seria a campanha (será enviado 1 como padrao) e **an** seria o identificador do marketplace (esse deverá ser retornado em algumas chamadas). Opcional o uso pelo Seller.
 
-_request:_
+_request Por POST:_
 
 ```json
 {
@@ -295,7 +307,31 @@ _request:_
 }
 ```
 
-_response:_
+Na pratilheira e na página de detalhe de produto uma chamada **GET** será feita no Seller para checar a disponibilidade dos itens - Endpoint do Seller.
+
+endpoint: ``` https://[sellerendpoint]/pvt/orderForms/simulation?purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d&sc=1&an=shopfacilfastshop ```</br>
+verb: **GET**</br>
+Accept: **application/json**</br>
+Parametro: **purchaseContext** - Esse parametro na QueryString é o mesmo JSON do POST serializado e com URLEncode</br>
+
+_request Por GET:_
+
+QueryString com UrlEncode: </br>
+``` purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d&sc=1&an=shopfacilfastshop ```
+QueryString decodificada: </br>
+``` purchaseContext={"items":[{"id":"2002129","quantity":1,"seller":"1"}],"marketingData":null,"postalCode":"22011050","country":"BRA","selectedSla":null,"clientProfileData":null,"geoCoordinates":[]}&sc=1&an=shopfacilfastshop ```
+
+
+_Via POST:_
+``` https://[sellerendpoint]/pvt/orderForms/simulation ```</br>
+```json
+{"items":[{"id":"13","quantity":1,"seller":"1"}],"country":"BRA"}
+```
+
+_Via GET:_
+``` https://[sellerendpoint]/pvt/orderForms/simulation?purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d ```
+
+_response (GET e POST):_
 
 ```json
 {
@@ -385,11 +421,13 @@ _response:_
 }
 ```
 
+
 > ATENÇÃO!
 > > O valor do frete deve ser retornado por item consultado. </br>
 > > Quando não for passado CEP, ou o item não puder ser entregue no CEP passado, retornar o array de SLAs vazio (slas[]). </br>
 > > No campo quantity, retornar o solicitado ou a quantidade que consegue atender. </br>
 > > No campo stockBalance retornar sempre a quantidade que  tiver em estoque.
+
 
 <a name="a5"><a/>
 ###Consulta de Opções de Parcelamento.
