@@ -1,8 +1,8 @@
-# Integração Rápida de Catálogo e Preço e Estoque
+# Integração Rápida de Catálogo, Preço e Estoque
 
-Este documento tem por objetivo auxiliar na integração de catálogo,preço e estoque do ERP para a uma loja hospedada na versão smartcheckout da VTEX, de uma maneira rápida.
+Este documento tem por objetivo auxiliar na integração de catálogo,preço e estoque do ERP para uma loja hospedada na versão smartcheckout da VTEX, de uma maneira rápida.
 
-Nesse tipo de integração a adminstração da loja está no admin da VTEX, sendo o ERP apenas uma fonte de onde nascem os produstos e SKUs.
+Nesse tipo de integração a administração da loja está no admin da VTEX, sendo o ERP apenas uma fonte de onde nascem os produtos e SKUs.
 
 ### Catalogo Fluxo Básico (Express)
 
@@ -25,7 +25,7 @@ Geralmente, os produtos são organizados dentro da loja em estruturas mercadoló
 _Exemplo:_
 
 * Departamento/Categoria/SubCategoria/Produto
-* Ferramentas/Eletricas/Furradeiras/Super Drill
+* Ferramentas/Eletricas/Furadeiras/Super Drill
 
 O cadastro da estrutura mercadologica deve ser feito diretamente no admin da própria loja (_http://sualoja.com.br/admin/Site/Categories.aspx_), e para atender a integração vinda do ERP, é criado um departamento padrão para produtos que vem do ERP, ou seja, todos os produtos caem no admin da loja nesse departamento padrão, e depois no momento do enriquecimento é colocado na categoria desejada.
 
@@ -37,16 +37,16 @@ A criação das marcas também deve ser feita pelo admin da VTEX. Para descida d
 
 > Qual é a diferença entre produto e SKU?
 
-  O **Produto** é uma definição mais genérica de algo que é ofertado ao cliente, por exemplo, *Geladeria*, *Camiseta*, *Bola*.
+  O **Produto** é uma definição mais genérica de algo que é ofertado ao cliente, por exemplo, *Geladeira*, *Camiseta*, *Bola*.
 
-  O **SKU** é uma sigla em ingles de "Stock Keeping Unit", em português Unidade de Manutenção de Estoque, ou seja, uma SKU define uma variação de um produto, por exemplo, *Geladeira Branca 110V*, *Camiseta Amarela Grande*
+  O **SKU** é uma sigla em inglês de "Stock Keeping Unit", em português Unidade de Manutenção de Estoque, ou seja, uma SKU define uma variação de um produto, por exemplo, *Geladeira Branca 110V*, *Camiseta Amarela Grande*
 
-  No modelo de cadastro de Produtos e SKUs da VTEX, um SKU sempre será filha de um Produto (não existe SKU sem produto), mesmo que esse produto não tenha variçãoes, e nesse caso será 1 SKU para 1 produto, por exemplo, produto *Bola Jabulani* com a *SKU Bola Jabulani*.
+  No modelo de cadastro de Produtos e SKUs da VTEX, um SKU sempre será filho de um Produto (não existe SKU sem produto), mesmo que esse produto não tenha variações, e nesse caso será 1 SKU para 1 produto, por exemplo, produto *Bola Jabulani* com a *SKU Bola Jabulani*.
 
 ###Integração de Produtos e SKUs
 
 
-Após definida as variações e a estrutura mecadológica da loja, o próximo passo é enviar os produtos e as SKUs do ERP para a loja VTEX.
+Após definida as variações e a estrutura mercadológica da loja, o próximo passo é enviar os produtos e as SKUs do ERP para a loja VTEX.
 
 _Fluxo:_
 
@@ -55,7 +55,7 @@ _Fluxo:_
 ###Produto
 
 
-Abaixo exemplo de chamada e resposta de uma inserção de produto usando o metodo "ProductInsertUpdate":
+Abaixo exemplo de chamada e resposta de uma inserção de produto usando o método "ProductInsertUpdate":
 
 _request:_
 
@@ -271,7 +271,7 @@ Uma vez cadastradas os produtos e as SKUs na loja da VTEX, é necessário alimen
 ###Preço
 
 
-Se no momento sa inserção da SKU não foi enviado um preço válido para a SKU é necessário inserir o preço da mesma. Isso pode ser feito direto no admin da loja na VTEX (_urldaloja/admin/Site/SkuTabelaValor.aspx_), ou usando a API REST do sistema de **Pricing**.
+Se no momento da inserção da SKU não foi enviado um preço válido para a SKU é necessário inserir o preço da mesma. Isso pode ser feito direto no admin da loja na VTEX (_urldaloja/admin/Site/SkuTabelaValor.aspx_), ou usando a API REST do sistema de **Pricing**.
 
 
 Através da API do Pricing, inserir ou atualizar preço na SKUs:
@@ -285,12 +285,12 @@ A documentação completa sobre a API de **Pricing** se encontra em: [http://lab
 
 Isso pode ser feito direto no admin da loja na VTEX (_urldaloja/admin/logistics/#/dashboard_), maneira rápida:
 
-1. Criar a transpotadora - <a title="criar a transpotadora" href="http://www.youtube.com/watch?v=IkIM53OXvVo" target="_blank">[Video]</a>,
+1. Criar a transportadora - <a title="criar a transportadora" href="http://www.youtube.com/watch?v=IkIM53OXvVo" target="_blank">[Video]</a>,
 2. Criar a doca <a title="criar a doca" href="https://www.youtube.com/watch?v=fNJ3JBoEoW0" target="_blank">[Video]</a>,
 3. Criar o estoque - <a title="criar o estoque" href="http://www.youtube.com/watch?v=FijZQoaWiDM" target="_blank">[Video]</a>.
 
 
-Criar o estoque, criar a transpotadora e criar a doca no admin da VTEX, e depois usar a API REST do **Logistics** para manipular o estoque.
+Criar o estoque, criar a transportadora e criar a doca no admin da VTEX, e depois usar a API REST do **Logistics** para manipular o estoque.
 
 
 Através da API do Logistics, inserir ou atualizar os estoques na SKUs:

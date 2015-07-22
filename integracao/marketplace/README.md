@@ -18,20 +18,20 @@ Extensão do navegador chrome, nesta ferramenta pode se testar, armazenar histó
 
 ####VTEX Bridge
 
-Essa ferramenta permite simular todos os metodos solicitados nas documentações do VTEX Lab, simulando request em uma loja real.
+Essa ferramenta permite simular todos os métodos solicitados nas documentações do VTEX Lab, simulando request em uma loja real.
 [sandboxintegracao](http://sandboxintegracao.vtexcommercestable.com.br).
 
 <a title="VTEX Bridge" href="http://bridge.vtexlab.com.br/" target="_blank">[Developer] - VTEX Bridge</a>
 
-É de suma importancia que o integrador tenha o conhecimento de ferramentas desse tipo, ou outras parecidas, antes de inciar um processo de integração usando as APIs REST VTEX.
+É de suma importância que o integrador tenha o conhecimento de ferramentas desse tipo, ou outras parecidas, antes de inciar um processo de integração usando as APIs REST VTEX.
 
 
-###Credenciais Para Acesso nas API REST
+###Credenciais Para Acesso nas APIs REST
 
 
-Toda chamada feita as APIs REST da VTEX devem ser feitas em "https" e devem conter em seu header as chaves de autenticação. As chaves de autenticação do header(para acessar as APIs REST) devem ser solicitados ao administrador da loja, ou ao time de operaçãoes que está implantando a loja.
+Toda chamada feita as APIs REST da VTEX devem ser feitas em "https" e devem conter em seu header as chaves de autenticação. As chaves de autenticação do header(para acessar as APIs REST) devem ser solicitados ao administrador da loja, ou ao time de operações que está implantando a loja.
 
-> ATENÇÂO
+> ATENÇÃO
 >> Deverá ser criada uma chave e token exclusivas para cada integrador, **não** se deve usar a chave da própria loja.
 
 - - -
@@ -76,13 +76,13 @@ Este modelo permite a um Marketplace **não** VTEX expor e vender os produtos (S
 ####Marketplace Hospedado na VTEX Vendendo para Sellers Hospedado na VTEX e Vice Versa
 
 
-Nativamente a plataforma VTEX oferece essa possibiidade, através de uma simples configuração no Seller, (criação do afiliado relacionado-o a uma política comercial) e outra configuração no Marketplace (criação do Seller).
+Nativamente a plataforma VTEX oferece essa possibilidade, através de uma simples configuração no Seller, (criação do afiliado relacionado-o a uma política comercial) e outra configuração no Marketplace (criação do Seller).
 
 - - -
 
 
 ##Versão Beta
-Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integrador. A idéia é que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas na comunidade, para chegarmos a um documento rico e funcional.
+Essa versão de documentação suporta a integração na versão da plataforma VTEX smartcheckout. Ela foi escrita para auxiliar um integrador. A ideia é que através dela, não  restem nenhuma dúvida de como se integrar com a VTEX. Se recebeu essa documentação e ainda restaram dúvidas, por favor, detalhe as suas dúvidas na comunidade, para chegarmos a um documento rico e funcional.
 
 ---
 

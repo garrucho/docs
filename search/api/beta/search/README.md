@@ -23,9 +23,9 @@ Essa é a busca mais simples do site.
 
 Modelo da url: http://{storeurl}/api/catalog_system/pub/products/search/{searchterms}
 
-{storeurl} será substituido pela url da loja, vamos supor www.nomedaloja.com
+{storeurl} será substituído pela url da loja, vamos supor www.nomedaloja.com
 
-{searchterms} sera substituido pela palavra a ser buscada, vamos buscar por "camisa"
+{searchterms} sera substituído pela palavra a ser buscada, vamos buscar por "camisa"
 
 Exemplo da url: http://www.nomedaloja.com/api/catalog_system/pub/products/search/camisa
 
@@ -34,9 +34,9 @@ Exemplo da url: http://www.nomedaloja.com/api/catalog_system/pub/products/search
 
 Modelo da url: http://{storeurl}/api/catalog_system/pub/products/search/{searchterms}
 
-{storeurl} será substituido pela url da loja, vamos supor www.nomedaloja.com.br
+{storeurl} será substituído pela url da loja, vamos supor www.nomedaloja.com.br
 
-{searchterms} sera substituido pela estrutura da categoria que a navegação normal do site já monta. Vamos entrar no departamento www.nomedaloja.com.br/eletrodomesticos/televisao na busca ficaria 
+{searchterms} sera substituído pela estrutura da categoria que a navegação normal do site já monta. Vamos entrar no departamento www.nomedaloja.com.br/eletrodomesticos/televisao na busca ficaria 
 
 Exemplo da url: http://www.nomedaloja.com.br/api/catalog_system/pub/products/search/eletrodomesticos/televisao
 
@@ -45,12 +45,12 @@ Exemplo da url: http://www.nomedaloja.com.br/api/catalog_system/pub/products/sea
 
 Modelo da url: http://{storeurl}/api/catalog_system/pub/products/search/?{searchquery}
 
-{storeurl} será substituido pela url da loja, vamos supor www.nomedaloja.com
+{storeurl} será substituído pela url da loja, vamos supor www.nomedaloja.com
 
-{searchquery} sera substituido pela estrutura da busca que pode ser montada com alguns parametros 
+{searchquery} sera substituído pela estrutura da busca que pode ser montada com alguns parâmetros 
 
 - fq=C:/{a}/{b}                             -    Filtra os resultados por um path por id de categorias Ex.: - -       fq=C:/1000041/1000049/
-- fq=specificationFilter_{a}:{b}    -    Filtro que esta sendo usado para a busca, {a} = id da especificacao {b} = valor selecioando Ex.: fq=specificationFilter_12:Masculino
+- fq=specificationFilter_{a}:{b}    -    Filtro que esta sendo usado para a busca, {a} = id da especificação {b} = valor selecionado Ex.: fq=specificationFilter_12:Masculino
 - fq=P:[{a} TO {b}]                      -    Filtro por preço onde o {a} é o preço "de" e o {b} é o preço "até" Ex.:   fq=P:[0 TO 20]   vai buscar produto de 0 a 20 reais.
 
 Exemplo da url: http://www.nomedaloja.com/api/catalog_system/pub/products/search/?fq=C:/1000041/1000049/&fq=specificationFilter_12:Masculino&fq=P:[0 TO 20]
@@ -68,7 +68,7 @@ Se desejar receber os 20 primeiros itens chame então
 Ex: resources 0-19
 
 No caso da página ter mais resultados o HTTP Code retornado será um 206 Partial Content
-Sempre o resultado voltará no header de resposta o mesmo parametro resources com os itens solicitados/total de registros
+Sempre o resultado voltará no header de resposta o mesmo parâmetro resources com os itens solicitados/total de registros
 
 Ex: resources 0-19/32
 

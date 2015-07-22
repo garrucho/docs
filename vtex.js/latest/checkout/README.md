@@ -2,7 +2,7 @@
 
 O módulo Checkout manipula dados referentes à compra do cliente.
 
-Naturalmente, o Checkout agrega os mais diversos dados necessários para o fechamento de uma compra: dados pessoais, de endereço, de frete, de items, entre outros.
+Naturalmente, o Checkout agrega os mais diversos dados necessários para o fechamento de uma compra: dados pessoais, de endereço, de frete, de itens, entre outros.
 
 O OrderForm é a estrutura responsável por esse aglomerado de dados.
 Ele é composto de diversas seções, cada uma com informações úteis que podem ser acessadas, manipuladas e (possivelmente) alteradas.
@@ -126,7 +126,7 @@ vtexjs.checkout.getOrderForm().then(function(orderForm){
 
 Adiciona itens no orderForm.
 
-Um item a ser adicionado é obrigatoriamente composto por: `id`, `quantity` e `seller`. A propriedade `id` pode ser obtida pelo [Catalog](../catalog/index.html), observando o itemId do item no Array de items do produto.
+Um item a ser adicionado é obrigatoriamente composto por: `id`, `quantity` e `seller`. A propriedade `id` pode ser obtida pelo [Catalog](../catalog/index.html), observando o itemId do item no Array de itens do produto.
 
 Itens que já estiverem no orderForm permanecerão inalterados.
 
@@ -139,7 +139,7 @@ Itens que já estiverem no orderForm permanecerão inalterados.
 
 | Nome                    | Tipo                          |
 | -----------------------:| :-----------------------------|
-| **items** | **Array** <br> o conjunto de items que vão ser adicionados. Mesmo que só haja um item, deve ser envolto num Array.|
+| **items** | **Array** <br> o conjunto de itens que vão ser adicionados. Mesmo que só haja um item, deve ser envolto num Array.|
 
 
 ### Exemplo
@@ -163,11 +163,11 @@ vtexjs.checkout.addToCart([item]).done(function(orderForm){
 
 Atualiza items no orderForm.
 
-Um item é identificado pela sua propriedade `index`. No orderForm, essa propriedade pode ser obtida observando o índice do item no Array de items.
+Um item é identificado pela sua propriedade `index`. No orderForm, essa propriedade pode ser obtida observando o índice do item no Array de itens.
 
 Veja a [documentação do OrderForm](order-form.html) para conhecer mais sobre o que compõe o objeto de item.
 
-Propriedades que não forem enviadas serão mantidas inalteradas, assim como items que estão no orderForm mas nao foram enviados.
+Propriedades que não forem enviadas serão mantidas inalteradas, assim como itens que estão no orderForm mas não foram enviados.
 
 Não se esqueça de usar getOrderForm anteriormente.
 
@@ -180,7 +180,7 @@ Não se esqueça de usar getOrderForm anteriormente.
 
 | Nome                    | Tipo                          |
 | -----------------------:| :-----------------------------|
-| **items** | **Array** <br> o conjunto de items que vão ser atualizados. Mesmo que só haja um item, deve ser envolto num Array.|
+| **items** | **Array** <br> o conjunto de itens que vão ser atualizados. Mesmo que só haja um item, deve ser envolto num Array.|
 
 
 ### Exemplo
@@ -203,9 +203,9 @@ vtexjs.checkout.getOrderForm().then(function(orderForm){
 
 ## removeItems(items, expectedOrderFormSections)
 
-Remove items no orderForm.
+Remove itens no orderForm.
 
-Um item é identificado pela sua propriedade `index`. No orderForm, essa propriedade pode ser obtida observando o índice do item no Array de items.
+Um item é identificado pela sua propriedade `index`. No orderForm, essa propriedade pode ser obtida observando o índice do item no Array de itens.
 
 Não se esqueça de usar getOrderForm anteriormente.
 
@@ -218,7 +218,7 @@ Não se esqueça de usar getOrderForm anteriormente.
 
 | Nome                    | Tipo                          |
 | -----------------------:| :-----------------------------|
-| **items** | **Array** <br> o conjunto de items que vão ser retirados. Mesmo que só haja um item, deve ser envolto num Array.|
+| **items** | **Array** <br> o conjunto de itens que vão ser retirados. Mesmo que só haja um item, deve ser envolto num Array.|
 
 ### Exemplo
 
@@ -238,7 +238,7 @@ vtexjs.checkout.getOrderForm().then(function(orderForm){
 
 ## removeAllItems(expectedOrderFormSections)
 
-Remove todos os items presentes no orderForm.
+Remove todos os itens presentes no orderForm.
 
 Não se esqueça de usar getOrderForm anteriormente.
 
@@ -297,12 +297,12 @@ vtexjs.checkout.getOrderForm().then(function(orderForm){
 
 ## simulateShipping(items, postalCode, country)
 
-Recebendo uma lista de items, seu postalCode e country, simula frete desses items para este endereço.
+Recebendo uma lista de itens, seu postalCode e country, simula frete desses itens para este endereço.
 
 A diferença em relação ao `calculateShipping` é que esta chamada é isolada.
-Pode ser usada para um conjunto arbitrário de items, e não vincula o endereço ao usuário.
+Pode ser usada para um conjunto arbitrário de itens, e não vincula o endereço ao usuário.
 
-O resultado dessa simualação inclui as diferentes transportadoras que podem ser usadas para cada item, acompanhadas
+O resultado dessa simulação inclui as diferentes transportadoras que podem ser usadas para cada item, acompanhadas
 de nome, prazo de entrega e preço.
 
 É ideal para simular frete na página de produto.
@@ -672,7 +672,7 @@ Esse método adiciona um anexo (attachment) a um item no carrinho. Com isso, voc
 
 Você pode associar um anexo ao sku pela interface administrativa. Para verificar quais anexos podem ser inseridos, verifique a propriedade `attachmentOfferings` do item.
 
-Por exemplo: ao adicionar uma camiseta do Brasil ao carrinho, você pode adicionar o anexo de 'personalizacao' para que o cliente possa escolher o número a ser impresso na camiseta.
+Por exemplo: ao adicionar uma camiseta do Brasil ao carrinho, você pode adicionar o anexo de 'personalização' para que o cliente possa escolher o número a ser impresso na camiseta.
 
 Não se esqueça de usar getOrderForm anteriormente.
 

@@ -10,7 +10,7 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
 
 ####Ações que deverão ser tomadas pelo Seller não hospedado na VTEX para implementação da integração:
 
-1. Implementar chamada de notificação de mudança de preço e estoque - Seller vai chamar endpoint da VTEX. Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint da loja na VTEX, simplesmente comunicando a mudança. Ao receber esse request o Marketplace vai buscar o preço e estoque no Seller no metodo de consulta politica comercial que vamos falar mais abaixo.
+1. Implementar chamada de notificação de mudança de preço e estoque - Seller vai chamar endpoint da VTEX. Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint da loja na VTEX, simplesmente comunicando a mudança. Ao receber esse request o Marketplace vai buscar o preço e estoque no Seller no método de consulta politica comercial que vamos falar mais abaixo.
 
  _exemplo da chamada:_</br>
  ``` https://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller] ```
@@ -24,14 +24,14 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
 
  [Exemplo Completo: Enviar Sugestão de SKU](#a2)
 
-3. Implementar endpoint para consulta de politica comercial (preço e estoque) - VTEX chama endpoint do Seller. A loja hospedada na VTEX usará esse metodo para buscar preço e estoque no Seller tanto na indexação (catalogar preço e estoque), quanto na simulação de carrinho.
+3. Implementar endpoint para consulta de politica comercial (preço e estoque) - VTEX chama endpoint do Seller. A loja hospedada na VTEX usará esse método para buscar preço e estoque no Seller tanto na indexação (catalogar preço e estoque), quanto na simulação de carrinho.
 
  _exemplo da chamada:_</br>
  ``` https://[seller].com.br/pvt/orderForms/simulation?sc=1&an=mechantname ```
 
  > NOTA:
- >> O metodo que consulta preço e estoque e o metodo que simula carrinho são os mesmos, maa por uma questão de construção de cache requer duas implementaçãoes, uma sendo GET e outra POST.
- >> Este é um dos principais metodos da integração, precisa ter performance e disponibilidade, pois tem impacto direto no fechamento da compra no Marketplace.
+ >> O método que consulta preço e estoque e o método que simula carrinho são os mesmos, mas por uma questão de construção de cache requer duas implementações, uma sendo GET e outra POST.
+ >> Este é um dos principais métodos da integração, precisa ter performance e disponibilidade, pois tem impacto direto no fechamento da compra no Marketplace.
 
  [Exemplo Completo: Consultar Política Comercial](#a3) </br>
  [Exemplo Completo: Simulação de Carrinho  - POST e GET](#a4) </br>
@@ -46,7 +46,7 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
 
  [Exemplo Completo: Consultar Formas de Parcelamento no Seller](#a5)
 
-5. Implementar endpoint para receber um pedido - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse enpoint para colocar um pedido no Seller.
+5. Implementar endpoint para receber um pedido - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse endpoint para colocar um pedido no Seller.
 
  _exemplo da chamada:_</br>
  ``` https://[seller].com.br/pvt/orders?sc=1&an=mechantname ```
@@ -62,14 +62,14 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
 
  [Exemplo Completo: Colocar um Pagamento no Seller](#a7)
 
-7. Implementar endpoint para fechar a transação e autorizar despacho - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse endpoint para avisar o Seller que já sabe do pagamento aprovado, e que o Seller já pode entegar com o pedido.
+7. Implementar endpoint para fechar a transação e autorizar despacho - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse endpoint para avisar o Seller que já sabe do pagamento aprovado, e que o Seller já pode entregar com o pedido.
 
  _exemplo da chamada:_</br>
  ``` https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&an=mechantname ```
 
  [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
 
-8. Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido. Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
+8. Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido. Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamento de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
 
  _exemplo da chamada:_</br>
  ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```</br>
@@ -101,8 +101,8 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
 Sugestão de SKU, atualização de preço e estoque. Toda vez que houver uma alteração no preço ou no estoque de um SKU no Seller, o Seller deve enviar uma notificação de mudança de SKU para a loja hospedada na VTEX, caso a loja retorne em seu serviço o **response status 404**, significa que a **SKU não existe na loja**, então o Seller deve enviar a sugestão de SKU para a loja.</br>
 Caso a loja retorne em seu serviço o **response status 200 ou 202**, significa que a **SKU existe** no Marketplace, então a Marketplace vai no Seller consultar o novo preço e ou estoque.
 
-> ATENÇÂO:
->> Este modelo **não** comtempla atualizações de imagens e descrição de um SKU depois de catalogado (aceito) no Marketplace, ou seja, depois do SKU mapeado e aceito pelo Marketplace, somente preço e estoque serão atualizados dinamicamente.
+> ATENÇÃO:
+>> Este modelo **não** contempla atualizações de imagens e descrição de um SKU depois de catalogado (aceito) no Marketplace, ou seja, depois do SKU mapeado e aceito pelo Marketplace, somente preço e estoque serão atualizados dinamicamente.
 
 _exemplo do fluxo:_
 
@@ -112,7 +112,7 @@ _exemplo do fluxo:_
 ###Enviar Notificação de Mudança de Preço e Estoque de SKU
 
 
-Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o Seller deve enviar uma notificação de mudança de SKU para a loja hospeada na VTEX.
+Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o Seller deve enviar uma notificação de mudança de SKU para a loja hospedada na VTEX.
 
 <a title="notificar mudança de sku no marketplace" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/CATALOG/CATALOG_Notification" target="_blank">[Developer] - Exemplo de Request de Notificação de Mudança - Endpoint da loja hospedada na VTEX</a>
 
@@ -121,7 +121,7 @@ Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o 
 ###Enviar Sugestão de SKU para Venda
 
 
-Quando o serviço de notificação descrito acima retornar um **response status 404**, significa que o SKU **NÂO existe** no Marketplace hospedado na VTEX, então o Seller envia um POST com os dados da SKU que deseja sugerir para vender no Marketplace.
+Quando o serviço de notificação descrito acima retornar um **response status 404**, significa que o SKU **NÃO existe** no Marketplace hospedado na VTEX, então o Seller envia um POST com os dados da SKU que deseja sugerir para vender no Marketplace.
 
 > O Seller faz as sugestões de suas SKUs e o administrador do Marketplace realiza o mapeamento de marcas e categorias através da pagina de administração do Marketplace, e aceita ou não a sugestão de SKU enviada pelo Seller.
 
@@ -253,10 +253,10 @@ QueryString decodificada: </br>
 Este tópico tem por objetivo auxiliar o integrador na simulação de carrinho, consultar parcelamento entre o marketplace VTEX com uma loja **não** VTEX. Simular um pedido e consultar as formas de parcelamento.
 
 > ATENÇÃO
->> Esses metodos são usados no momento do fechamento da compra no Marketplace, por isso, é de suma importancia para uma boa conversão, que esses metodos sejam perfomáticos e de alta disponibilidade.
+>> Esses métodos são usados no momento do fechamento da compra no Marketplace, por isso, é de suma importância para uma boa conversão, que esses métodos sejam performáticos e de alta disponibilidade.
 
 ###No Carrinho e no Pagamento
-Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma edição no carrinho, uma consulta de simulação de carrinho é feita no Seller para checar a validade das condiçoes comerciais (preço, estoque, frete e SLAs de entrega).
+Quando um produto é inserido no carrinho no marketplace VTEX, ou faz se alguma edição no carrinho, uma consulta de simulação de carrinho é feita no Seller para checar a validade das condições comerciais (preço, estoque, frete e SLAs de entrega).
 
 *Exemplo do fluxo de chamadas no carrinho:*
 
@@ -279,7 +279,7 @@ Accept: **application/json**</br>
 
 
 > PARAMETROS
->> ?**sc**=[idcanal]**an**=[mechantname]. Esses parametros servem para o Seller fazer o controle de qual Marketplace está fazendo a chamada em seus serviços, pois, esse modelo, uma vez bem implementado servirá para vender em qualquer Marketplace hospedado na VTEX, dando ao Seller a oportunidade de vender em N Marketplace ao mesmo tempo.
+>> ?**sc**=[idcanal]**an**=[mechantname]. Esses parâmetros servem para o Seller fazer o controle de qual Marketplace está fazendo a chamada em seus serviços, pois, esse modelo, uma vez bem implementado servirá para vender em qualquer Marketplace hospedado na VTEX, dando ao Seller a oportunidade de vender em N Marketplace ao mesmo tempo.
 >>>**sc**=1&**an**=marketplaceseller, onde **sc** seria a campanha (será enviado 1 como padrao) e **an** seria o identificador do marketplace (esse deverá ser retornado em algumas chamadas). Opcional o uso pelo Seller.
 
 _request por POST:_
@@ -312,7 +312,7 @@ Na pratilheira e na página de detalhe de produto uma chamada **GET** será feit
 endpoint: ``` https://[sellerendpoint]/pvt/orderForms/simulation?purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d&sc=idCanal&an=merchantName ```</br>
 verb: **GET**</br>
 Accept: **application/json**</br>
-Parametro: **purchaseContext** - Esse parametro na QueryString é o mesmo JSON do POST serializado e com URLEncode</br>
+Parametro: **purchaseContext** - Esse parâmetro na QueryString é o mesmo JSON do POST serializado e com URLEncode</br>
 
 _request Por GET:_
 
@@ -432,7 +432,7 @@ _response (GET e POST):_
 <a name="a5"><a/>
 ###Consulta de Opções de Parcelamento.
 
-Quando cliente for para a página de pagamento, uma chamada será feita no Seller para buscar as formas de parcelamento das formas de pagamento. O Seller **não** VTEX deverá conhecer préviamente os ids das formas de pagamento do marketplace VTEX - Endpoint do Seller.
+Quando cliente for para a página de pagamento, uma chamada será feita no Seller para buscar as formas de parcelamento das formas de pagamento. O Seller **não** VTEX deverá conhecer previamente os ids das formas de pagamento do marketplace VTEX - Endpoint do Seller.
 
 > Identificadores das formas de pagamento mais comuns no gateway das lojas VTEX:
 >> 1-American Express </br>
@@ -769,7 +769,7 @@ _response:_
 ```
 
 > NOTA:
->> Retonar no campo paymentData.merchantPaymentReferenceId um inteiro (numero) identificador que será usado futuramente na mapeamnto do pagamento com o pedido, ou seja, o valor que retornar nesse campo irá identificar o pagamento desse pedido. Pode até ser o "orderId" do Seller, caso este seja inteiro.
+>> Retornar no campo paymentData.merchantPaymentReferenceId um inteiro (numero) identificador que será usado futuramente na mapeamento do pagamento com o pedido, ou seja, o valor que retornar nesse campo irá identificar o pagamento desse pedido. Pode até ser o "orderId" do Seller, caso este seja inteiro.
 
 _retorno de erro:_
 
@@ -856,7 +856,7 @@ _exemplo do POST feito na CallbackUrl de pagamento :_
 ```
 
 > NOTA:
->> A resposta de POST de dados de pagamento deve ser sincrona (na hora).
+>> A resposta de POST de dados de pagamento deve ser síncrona (na hora).
 
 
 <a name="a8"><a/>
@@ -890,7 +890,7 @@ _response:_
 ```
 
 > PAGAMENTO NEGADO NO SELLER
->> Enviar na URL assincrona de retorno o POST com o status "denied", pagamento negado. :(
+>> Enviar na URL assíncrona de retorno o POST com o status "denied", pagamento negado. :(
 
 ##Invocando Marketplace Services Endpoint Actions
 
@@ -943,7 +943,7 @@ _response:_
 ###Informar Rastreamento de Entrega
 
 
-Quando o Seller entregar o pedido para a transportadora, deve informar as informações de rastreamento - endpoint palataforma VTEX.
+Quando o Seller entregar o pedido para a transportadora, deve informar as informações de rastreamento - endpoint plataforma VTEX.
 
 endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```</br>
 verb: **POST**</br>

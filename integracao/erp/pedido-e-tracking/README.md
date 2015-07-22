@@ -31,7 +31,7 @@ Caso necessário obter dados possíveis de transação de pagamento de um pedido
 
 No retorno, além de um resumo da transação, poderá obter se as URLs de acesso aos detalhes transação.  
 
-<a title="obter dados possiveis de pagamento" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/PCI/PCI_Get" target="_blank">[Developer] - Exemplo de chamada para obter dados possiveis de transação de pagamento de um pedido</a> 
+<a title="obter dados possíveis de pagamento" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/PCI/PCI_Get" target="_blank">[Developer] - Exemplo de chamada para obter dados possíveis de transação de pagamento de um pedido</a> 
 
 ###Pedido Está no ERP - Preparando Entrega
 

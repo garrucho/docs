@@ -7,7 +7,7 @@ Este modelo contempla troca de catalogo, atualização de condição comercial (
 >> _Seller_ = Dono do produto, responsável por cumprir com a entrega do SKU.</br>
 >> _Marketplace_ = Dono da vitrine (cara com o cliente final), responsável por expor e vender o SKU.</br>
 >> _SKU_ = Item a ser trocado e vendido entre Marketplace e Seller.</br>
->> _Endpoint_ = Ponto de acesso de um serviço ma internet, serviço pronto para receber um requisição e devolver uma resposta.</br>
+>> _Endpoint_ = Ponto de acesso de um serviço na internet, serviço pronto para receber uma requisição e devolver uma resposta.</br>
 
 
 ####Ações que deverão ser tomadas pelo Marketplace não hospedado na VTEX para implementação da integração:
@@ -88,7 +88,7 @@ Fluxo de troca de catalogo de SKU e atualização de preço, estoque, frete, SLA
 <a name="a1"></a>
 ###Notificação de Mudança
 
-Notifica o Marketplace Não VTEX que houve uma mudança nas condiçoes comerciais (preço, estoque, SLAs de entrega) de uma SKU - Endpoint do Afiliado (Marketplace)
+Notifica o Marketplace Não VTEX que houve uma mudança nas condições comerciais (preço, estoque, SLAs de entrega) de uma SKU - Endpoint do Afiliado (Marketplace)
 
 endpoint: ``` https://[endpointdoafiliado}/api/notification/ ```</br>
 verb: **POST**</br>
@@ -376,15 +376,15 @@ Este tópico tem por objetivo auxiliar o na simulação de carrinho entre um Mar
 
 ###No Carrinho e no Pagamento
 
-Quando um produto é inserido no carrinho no Marketplace Não VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho deverá ser feita na loja VTEX para checar a validade das condiçoes comerciais (preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento, uma outra simulçao de carrinho deverá ser realizada.
+Quando um produto é inserido no carrinho no Marketplace Não VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho deverá ser feita na loja VTEX para checar a validade das condições comerciais (preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento, uma outra simulação de carrinho deverá ser realizada.
 
 _Fluxo de chamadas no carrinho e no pagamento:_
 
 ![alt text](fechato-canal-nvtex.png "fechamento do pedido no marketplace")
 
-###Simulaçao de Carrinho
+###Simulação de Carrinho
 
-Acessa a loja VTEX simulando um carrinho, para checar as condiçoes comerciais e as SLAs de entrega - Endpoint loja VTEX
+Acessa a loja VTEX simulando um carrinho, para checar as condições comerciais e as SLAs de entrega - Endpoint loja VTEX
 
 endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado] ```
 verb: **POST**</br>
@@ -767,7 +767,7 @@ _response:_
 <a name="a13"></a>
 ###Informar Tracking de Transportadora
 
-Quando o pedido for entegue a uma transportadora, as informaçãoes de tracking serão enviadas para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace
+Quando o pedido for entregue a uma transportadora, as informações de tracking serão enviadas para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace
 
 endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```
 verb: **POST**</br>
@@ -815,7 +815,7 @@ endpoint: ``` https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId
 verb: **GET**</br>
 
 
->A nota fiscal e o tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST, cabendo ao receber controlar o fluxo de captura de pagamento.
+>A nota fiscal e o tracking podem ser enviados na mesma chamada, basta preencher todos os dados do POST, cabendo ao receber controlar o fluxo de captura de pagamento.
 
 ---
 Autor: _Jonas Bolognim_</br>

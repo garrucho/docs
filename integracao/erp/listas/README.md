@@ -1,13 +1,13 @@
 ##Integração de Listas (aniversário, casamento, chás, etc...)
 
-Este documento tem por objetivo auxiliar na integração de uma lista entre o ERP e uma loja hospedada na palataforma da VTEX. As listas na maioria do cenários são criadas pelo próprio cliente final no e-commerce da loja, mas existem cenários onde a lista é criada em outro ambiente, loja fisica, por exemplo, então deve se usar a sequenca de metodos abaixo para fianalizar esse tarefa:
+Este documento tem por objetivo auxiliar na integração de uma lista entre o ERP e uma loja hospedada na palataforma da VTEX. As listas na maioria dos cenários são criadas pelo próprio cliente final no e-commerce da loja, mas existem cenários onde a lista é criada em outro ambiente, loja fisica, por exemplo, então deve se usar a sequencia de métodos abaixo para finalizar esse tarefa:
 
 
 ###Inserir Cliente
 
-Para iniciar o processo de criação de listas, o primeito passo é inserir o dono da lista, aqui nomeado de cliente.
+Para iniciar o processo de criação de listas, o primeiro passo é inserir o dono da lista, aqui nomeado de cliente.
 
-Abaixo exemplos de chamada e resposta de inserção do cliente dono da lista através do metodo "ClientInsertUpdateV3":
+Abaixo exemplos de chamada e resposta de inserção do cliente dono da lista através do método "ClientInsertUpdateV3":
 
 _request:_  
 
@@ -74,7 +74,7 @@ _response:_
 
 Após inserir o cliente, é necessário inserir o endereço do cliente dono da lista.
 
-Abaixo exemplos de chamada e resposta de inserção de endereço do dono da lista através do metodo "AddressInsertUpdateV3":
+Abaixo exemplos de chamada e resposta de inserção de endereço do dono da lista através do método "AddressInsertUpdateV3":
 
 _request:_  
 
@@ -133,7 +133,7 @@ _response_:
 
 Após inserir o cliente e o endereço do dono da lista, este é o momento de criar a lista.
 
-Abaixo exemplos de chamada e resposta de criação de lista através do metodo "GiftListInsertUpdate":
+Abaixo exemplos de chamada e resposta de criação de lista através do método "GiftListInsertUpdate":
 
 _request:_  
 
@@ -250,12 +250,12 @@ _response_:
 </s:Envelope>
 ```
 
-###Inserir SKUS na Lista
+###Inserir SKUs na Lista
 
 
 Após criar a lista, agora é o momento de inserir a SKUs que formarão a lista.
 
-Abaixo exemplos de chamada e resposta de inserção de SKU numa lista através do metodo "GiftListSkuInsert":
+Abaixo exemplos de chamada e resposta de inserção de SKU numa lista através do método "GiftListSkuInsert":
 
 _request1:_  
 

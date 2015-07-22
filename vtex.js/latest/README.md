@@ -56,7 +56,7 @@ Por exemplo, ao incluir o módulo do Checkout, você agora tem o objeto `vtexjs.
 
 O módulo Checkout manipula dados referentes à compra do cliente.
 
-Naturalmente, o Checkout agrega os mais diversos dados necessários para o fechamento de uma compra: dados pessoais, de endereço, de frete, de items, entre outros.
+Naturalmente, o Checkout agrega os mais diversos dados necessários para o fechamento de uma compra: dados pessoais, de endereço, de frete, de itens, entre outros.
 
 O OrderForm é a estrutura responsável por esse aglomerado de dados.
 Ele é composto de diversas seções, cada uma com informações úteis que podem ser acessadas, manipuladas e (possivelmente) alteradas.

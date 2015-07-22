@@ -7,7 +7,7 @@ Este modelo contempla troca de catalogo, atualização de condição comercial (
 >> _Seller_ = Dono do produto, responsável por cumprir com a entrega do SKU.</br>
 >> _Marketplace_ = Dono da vitrine (cara com o cliente final), responsável por expor e vender o SKU.</br>
 >> _SKU_ = Item a ser trocado e vendido entre Marketplace e Seller.</br>
->> _Endpoint_ = Ponto de acesso de um serviço ma internet, serviço pronto para receber um requisição e devolver uma resposta.</br>
+>> _Endpoint_ = Ponto de acesso de um serviço ma internet, serviço pronto para receber uma requisição e devolver uma resposta.</br>
 
 
 ####Ações que deverão ser tomadas pelo Marketplace não hospedado na VTEX para implementação da integração:
@@ -19,7 +19,7 @@ Este modelo contempla troca de catalogo, atualização de condição comercial (
 
  [Exemplo Completo: Enviar Notificação de Mudança de Preço e Estoque de SKU](#a1)
 
-2. Implementar busca de dados de SKU no Seller - Marketplace vai chamar endpoint do Seller na VTEX. Toda vez que o serviço de notificação de mudança do Seller avisar sobre uma SKU, e o Marketplace ainda nao tem a SKU catalogada, o Marketplace vem no Seller buscar os dados da nova SKU.
+2. Implementar busca de dados de SKU no Seller - Marketplace vai chamar endpoint do Seller na VTEX. Toda vez que o serviço de notificação de mudança do Seller avisar sobre uma SKU, e o Marketplace ainda não tem a SKU catalogada, o Marketplace vem no Seller buscar os dados da nova SKU.
 
  _exemplo da chamada:_</br>
  ```http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/2000037 ```
@@ -47,15 +47,15 @@ Este modelo contempla troca de catalogo, atualização de condição comercial (
 
  [Exemplo Completo: Consultar Formas de Parcelamento no Seller](#a6)
 
-6. Implementar rotina que coloca um pedido no Seller - Marketplace vai chamar endpoint do Seller. O Marketplace irá usar esse enpoint para colocar um pedido no Seller.
+6. Implementar rotina que coloca um pedido no Seller - Marketplace vai chamar endpoint do Seller. O Marketplace irá usar esse endpoint para colocar um pedido no Seller.
 
  _exemplo da chamada:_</br>
  ``` https://sandboxintegracao.vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=1&affiliateId=LAB ```
 
  [Exemplo Completo: Colocar um Pedido no Seller](#a7)
 
-7. Implementar rotina que abre transacao de pagamento no Seller - Marketplace vai chamar endpoint do Seller.
-O Marketplace irá usar esse enpoint para abrir uma transacao pagamento para o Seller.
+7. Implementar rotina que abre transação de pagamento no Seller - Marketplace vai chamar endpoint do Seller.
+O Marketplace irá usar esse endpoint para abrir uma transação pagamento para o Seller.
 
  _exemplo da chamada:_</br>
  ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions ```
@@ -63,7 +63,7 @@ O Marketplace irá usar esse enpoint para abrir uma transacao pagamento para o S
  [Exemplo Completo: Abrir uma Trasação de Pagamento no Seller](#a8)
 
 8. Implementar rotina que coloca pagamento no Seller - Marketplace vai chamar endpoint do Seller.
-O Marketplace irá usar esse enpoint para colocar um pagamento no Seller.
+O Marketplace irá usar esse endpoint para colocar um pagamento no Seller.
 
  _exemplo da chamada:_</br>
  ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/payments ```
@@ -71,7 +71,7 @@ O Marketplace irá usar esse enpoint para colocar um pagamento no Seller.
  [Exemplo Completo: Colocar um Pagamento no Seller](#a9)
 
 9. Implementar rotina que coloca dados adicionais de pagamento no Seller - Marketplace vai chamar endpoint do Seller.
-O Marketplace irá usar esse enpoint para colocar informações adicionais de dados do pagamento  no Seller
+O Marketplace irá usar esse endpoint para colocar informações adicionais de dados do pagamento  no Seller
 
  _exemplo da chamada:_</br>
  ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionid]/additional-data ```
@@ -86,7 +86,7 @@ O Marketplace irá usar esse endpoint para autorizar o andamento do pagamento no
 
  [Exemplo Completo: Autorizar o Andamento do Pagamento no Seller](#a11)
 
-11. Implementar endpoint de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace.Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller vai invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
+11. Implementar endpoint de receber nota fiscal e rastreamento de entrega de um pedido - Seller vai chamar endpoint do Marketplace.Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller vai invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamento de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
 
  _exemplo da chamada:_</br>
  ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```</br>
@@ -100,7 +100,7 @@ O Marketplace irá usar esse endpoint para autorizar o andamento do pagamento no
  >> No POST do pedido feito pelo Marketplace, o campo "marketplaceserviceendpoint" deve vir preenchido com o url base de serviços do Marketplace.
 
 12. Implementar rotina que captura ou cancela o pagamento no Seller - Marketplace vai chamar endpoint do Seller.
-O Markeplace deve capturar o pagamento ao receber a nota fisca e deve cancelar o pagamento ao receber um cancelamento de pedido.
+O Marketplace deve capturar o pagamento ao receber a nota fiscal e deve cancelar o pagamento ao receber um cancelamento de pedido.
 
  _exemplo da chamada de captura:_</br>
  ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/[transactionId]/settlement-request ```
@@ -138,7 +138,7 @@ Fluxo de troca de catalogo de SKU e atualização de preço, estoque, frete, SLA
 <a name="a1"></a>
 ###Notificação de Mudança
 
-Notifica o Marketplace Não VTEX que houve uma mudança nas condiçoes comerciais (preço, estoque, SLAs de entrega) de uma SKU - Endpoint do Afiliado (Marketplace)
+Notifica o Marketplace Não VTEX que houve uma mudança nas condições comerciais (preço, estoque, SLAs de entrega) de uma SKU - Endpoint do Afiliado (Marketplace)
 
 endpoint: ``` https://[endpointdoafiliado}/api/notification/ ```</br>
 verb: **POST**</br>
@@ -428,7 +428,7 @@ Este tópico tem por objetivo auxiliar o na simulação de carrinho, e consulta 
 
 ###No Carrinho e no Pagamento
 
-Quando um produto é inserido no carrinho no Marketplace Não VTEX, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho deverá ser feita na loja VTEX para checar a validade das condiçoes comerciais (preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento, uma consulta as formas de pagamento, aos parcelmentos e uma outra simulçao de carrinho deverá ser realizada.
+Quando um produto é inserido no carrinho no Marketplace Não VTEX, ou faz se alguma edição no carrinho, uma consulta de simulação de carrinho deverá ser feita na loja VTEX para checar a validade das condições comerciais (preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento, uma consulta as formas de pagamento, aos parcelamentos e uma outra simulação de carrinho deverá ser realizada.
 
 _Fluxo de chamadas no carrinho e no pagamento:_
 
@@ -436,7 +436,7 @@ _Fluxo de chamadas no carrinho e no pagamento:_
 
 ###Simulaçao de Carrinho
 
-Acessa a loja VTEX simulando um carrinho, para checar as condiçoes comerciais e as SLAs de entrega - Endpoint loja VTEX
+Acessa a loja VTEX simulando um carrinho, para checar as condições comerciais e as SLAs de entrega - Endpoint loja VTEX
 
 endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado] ```
 verb: **POST**</br>
@@ -747,7 +747,7 @@ _response:_
 
 Este tópico tem por objetivo auxiliar um Marketplace não VTEX enviar um pedido, enviar uma transação de pagamento, e enviar autorização para despacho (proceder com o fulfillment do pedido).
 
-Caso se queira uma condição comercial diferenciada para o Marketplace não VTEX, na loja VTEX deverá ser criado uma nova politica comercial, podendo assim criar promoções diferenciadas (desconto, frete, etc) somente para o afiliado desejado. Caso **não** tenha politica comercial diferenciada, deve se usar apolitica comercial da loja principal (sc=1).
+Caso se queira uma condição comercial diferenciada para o Marketplace não VTEX, na loja VTEX deverá ser criado uma nova politica comercial, podendo assim criar promoções diferenciadas (desconto, frete, etc) somente para o afiliado desejado. Caso **não** tenha politica comercial diferenciada, deve se usar a política comercial da loja principal (sc=1).
 
 _Fluxo de chamadas de descida de pedido, pagamento e autorização para despachar:_
 
@@ -1203,7 +1203,7 @@ _response_
 <a name="a13"></a>
 ###Informar Tracking de Transportadora
 
-Quando o pedido for entegue a uma transportadora, as informaçãoes de tracking serão enviadas para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace
+Quando o pedido for entregue a uma transportadora, as informações de tracking serão enviadas para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace
 
 endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```
 verb: **POST**</br>
@@ -1267,7 +1267,7 @@ _response_
 
 ```
 
->A nota fiscal e o tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST, cabendo ao receber controlar o fluxo de captura de pagamento.
+>A nota fiscal e o tracking podem ser enviados na mesma chamada, basta preencher todos os dados do POST, cabendo ao receber controlar o fluxo de captura de pagamento.
 
 ---
 Autor: _Jonas Bolognim_</br>

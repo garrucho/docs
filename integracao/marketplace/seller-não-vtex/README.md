@@ -9,7 +9,7 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
 
 ####Ações que deverão ser tomadas pelo Seller não hospedado na VTEX para implementação da integração:
 
-1. Implementar chamada de notificação de mudança de preço e estoque - Seller vai chamar endpoint da VTEX.    Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint da loja na VTEX, simplesmente comunicando a mudança. Ao receber esse request o Marketplace vai buscar o preço e estoque no Seller no metodo de consulta politica comercial que vamos falar mais abaixo.
+1. Implementar chamada de notificação de mudança de preço e estoque - Seller vai chamar endpoint da VTEX.    Toda vez que o SKU mudar o preço e ou o estoque no Seller, o Seller tem que chamar esse endpoint da loja na VTEX, simplesmente comunicando a mudança. Ao receber esse request o Marketplace vai buscar o preço e estoque no Seller no método de consulta politica comercial que vamos falar mais abaixo.
 
     _exemplo da chamada:_</br>
     ``` https://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/skuSeller/changenotification/[idSeller]/[idskuSeller] ```
@@ -36,7 +36,7 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
  [Exemplo Completo: Consultar Política Comercial](#a3) </br>
  [Exemplo Completo: Simulação de Carrinho  - POST e GET](#a4) </br>
 
-4. Implementar endpoint para receber um pedido - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse enpoint para colocar um pedido no Seller.
+4. Implementar endpoint para receber um pedido - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse endpoint para colocar um pedido no Seller.
 
     _exemplo da chamada:_</br>
     ``` https://[seller].com.br/pvt/orders?sc=1&an=mechantname ```
@@ -50,7 +50,7 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
 
     [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
 
-6. Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido. Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamanto de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
+6. Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido. Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamento de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
 
     _exemplo da chamada:_</br>
     ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```</br>
@@ -60,7 +60,7 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
     [Exemplo Completo: Informar tracking de um pedido](#a11)</br>
     [Exemplo Completo: Solicitar cancelamento de um pedido sem nota fiscal](#a12)</br>
 
-7. Rota de validação de cadastro - Auxiliar o diagnostico de problemas de integração que tenham causa, imcompatibilidade de configuração entre os envolvidos (Marketplace e Seller) - para o futuro, desconsiderar
+7. Rota de validação de cadastro - Auxiliar o diagnostico de problemas de integração que tenham causa, incompatibilidade de configuração entre os envolvidos (Marketplace e Seller) - para o futuro, desconsiderar
 
 ---
 
@@ -71,8 +71,8 @@ Este documento tem por objetivo auxiliar na integração de um _Seller_ **não**
 Sugestão de SKU, atualização de preço e estoque. Toda vez que houver uma alteração no preço ou no estoque de um SKU no Seller, o Seller deve enviar uma notificação de mudança de SKU para a loja hospedada na VTEX, caso a loja retorne em seu serviço o **response status 404**, significa que a **SKU não existe na loja**, então o Seller deve enviar a sugestão de SKU para a loja.</br>
 Caso a loja retorne em seu serviço o **response status 200 ou 202**, significa que a **SKU existe** no Marketplace, então a Marketplace vai no Seller consultar o novo preço e ou estoque.
 
-> ATENÇÂO:
->> Este modelo **não** comtempla atualizações de imagens e descrição de um SKU depois de catalogado (aceito) no Marketplace, ou seja, depois do SKU mapeado e aceito pelo Marketplace, somente preço e estoque serão atualizados dinamicamente.
+> ATENÇÃO:
+>> Este modelo **não** contempla atualizações de imagens e descrição de um SKU depois de catalogado (aceito) no Marketplace, ou seja, depois do SKU mapeado e aceito pelo Marketplace, somente preço e estoque serão atualizados dinamicamente.
 
 
 _exemplo do fluxo:_
@@ -83,7 +83,7 @@ _exemplo do fluxo:_
 ###Enviar Notificação de Mudança de Preço e Estoque de SKU
 
 
-Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o Seller deve enviar uma notificação de mudança de SKU para a loja hospeada na VTEX.
+Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o Seller deve enviar uma notificação de mudança de SKU para a loja hospedada na VTEX.
 
 <a title="notificar mudança de sku no marketplace" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/CATALOG/CATALOG_Notification" target="_blank">[Developer] - Exemplo de Request de Notificação de Mudança - Endpoint da loja hospedada na VTEX</a>
 
@@ -92,7 +92,7 @@ Toda vez que houver uma alteração no preço ou estoque de um SKU no Seller, o 
 ###Enviar Sugestão de SKU para Venda
 
 
-Quando o serviço de notificação descrito acima retornar um **response status 404**, significa que o SKU **NÂO existe** no Marketplace hospedado na VTEX, então o Seller envia um POST com os dados da SKU que deseja sugerir para vender no Marketplace.
+Quando o serviço de notificação descrito acima retornar um **response status 404**, significa que o SKU **NÃO existe** no Marketplace hospedado na VTEX, então o Seller envia um POST com os dados da SKU que deseja sugerir para vender no Marketplace.
 
 > O Seller faz as sugestões de suas SKUs e o administrador do Marketplace realiza o mapeamento de marcas e categorias através da pagina de administração do Marketplace, e aceita ou não a sugestão de SKU enviada pelo Seller.
 
@@ -178,7 +178,7 @@ _exemplo do POST de dados:_
 <a name="a3"><a/>
 ###Atualização de Preço e ou Estoque de SKU
 
-Toda vez que houver uma alteração no preço ou estoque, o Seller deve enviar uma notificação de mudança de SKU para a loja hospedadana VTEX, caso a loja retorne em seu serviço o **response status 200 ou 202**, significa que a SKU **existe** na loja, então a loja vai no Seller consultar o novo preço ou estoque.
+Toda vez que houver uma alteração no preço ou estoque, o Seller deve enviar uma notificação de mudança de SKU para a loja hospedada na VTEX, caso a loja retorne em seu serviço o **response status 200 ou 202**, significa que a SKU **existe** na loja, então a loja vai no Seller consultar o novo preço ou estoque.
 
 <a title="busca de condições comerciais no Seller" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/FULFILLMENT/FULFILLMENT_Simulation" target="_blank">[Developer] - Exemplo de Request de Busca de Condições Comerciais - Endpoint do Seller</a>
 
@@ -242,13 +242,13 @@ verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
 
-> ATENÇÂO
+> ATENÇÃO
 >> Este método também requer uma implementação em GET, que será usada para construção
 >> de cache do lado da plataforma VTEX, evitando tantos acessos ao POST. </br>
 
-> PARAMETROS
+> PARÂMETROS
 >> ?**sc**=[idcanal]**an**=[mechantname]. Esses parametros servem para o Seller fazer o controle de qual Marketplace está fazendo a chamada em seus serviços, pois, esse modelo, uma vez bem implementado servirá para vender em qualquer Marketplace hospedado na VTEX, dando ao Seller a oportunidade de vender em N Marketplace ao mesmo tempo.
->>>**sc**=1&**an**=marketplaceseller, onde **sc** seria a campanha (será enviado 1 como padrao) e **an** seria o identificador do marketplace. Opcional o uso pelo Seller.
+>>>**sc**=1&**an**=marketplaceseller, onde **sc** seria a campanha (será enviado 1 como padrão) e **an** seria o identificador do marketplace. Opcional o uso pelo Seller.
 
 
 _request por POST:_
@@ -281,7 +281,7 @@ Na pratilheira e na página de detalhe de produto uma chamada **GET** será feit
 endpoint: ``` https://[sellerendpoint]/pvt/orderForms/simulation?purchaseContext=%7b%22items%22%3a%5b%7b%22id%22%3a%2213%22%2c%22quantity%22%3a1%2c%22seller%22%3a%221%22%7d%5d%2c%22country%22%3a%22BRA%22%7d&sc=idCanal&an=merchantName ```</br>
 verb: **GET**</br>
 Accept: **application/json**</br>
-Parametro: **purchaseContext** - Esse parametro na QueryString é o mesmo JSON do POST serializado e com URLEncode</br>
+Parametro: **purchaseContext** - Esse parâmetro na QueryString é o mesmo JSON do POST serializado e com URLEncode</br>
 
 _request Por GET:_
 
@@ -607,13 +607,13 @@ _response:_
 
 ##Invocando Marketplace Services Endpoint Actions
 
-O MarketplaceServicesEndpoint serve para receber informações do Seller referentes a nota fiscal e rastreamento de entrega de pedido. É permitido o envio de notas fiscais parciais, obrigando assim ao informador informar além dos valores da nota fiscal, os items ele está mandando na nota fiscal parcial. O pedido na VTEX só andará pra o status FATURADO quando o valor total de todas as notas fiscais de um pedido forem enviadas.
+O MarketplaceServicesEndpoint serve para receber informações do Seller referentes a nota fiscal e rastreamento de entrega de pedido. É permitido o envio de notas fiscais parciais, obrigando assim ao informador informar além dos valores da nota fiscal, os itens ele está mandando na nota fiscal parcial. O pedido na VTEX só andará pra o status FATURADO quando o valor total de todas as notas fiscais de um pedido forem enviadas.
 
 
 <a name="a10"><a/>
 ###Informar Dados de Nota Fiscal
 
-Quando o Seller emitir a nota fiscal, deve enviar as informações da nota fiscal - endpoint palataforma VTEX.
+Quando o Seller emitir a nota fiscal, deve enviar as informações da nota fiscal - endpoint plataforma VTEX.
 
 endpoint: ```https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice```
 verb: **POST**
@@ -655,7 +655,7 @@ _response:_
 ###Informar Rastreamento de Entrega
 
 
-Quando o Seller entregar o pedido para a transportadora, deve informar as informações de rastreamento - endpoint palataforma VTEX.
+Quando o Seller entregar o pedido para a transportadora, deve informar as informações de rastreamento - endpoint plataforma VTEX.
 
 endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```</br>
 verb: **POST**</br>
@@ -700,7 +700,7 @@ _response:_
 ###Enviar Solicitação de Cancelamento
 
 
-Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em um estado que se permita cancelar, o pedido será cancelado - endpoint palataforma VTEX.
+Uma solicitação de cancelamento pode ser enviada, caso o pedido se encontre em um estado que se permita cancelar, o pedido será cancelado - endpoint plataforma VTEX.
 
 endpoint: ``` https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel ```</br>
 verb: **GET**</br>
@@ -709,7 +709,7 @@ verb: **GET**</br>
 
 
 >POR LER ATE AQUI
->>Na ferramenta POSTMAN usando esse link ``` https://www.getpostman.com/collections/ba95d70124bba8e05fe0 ``` é possivel importar uma coleção de requests. Nela tem um exemplo de cada request citado nesse documento.
+>>Na ferramenta POSTMAN usando esse link ``` https://www.getpostman.com/collections/ba95d70124bba8e05fe0 ``` é possível importar uma coleção de requests. Nela tem um exemplo de cada request citado nesse documento.
 
 ---
 

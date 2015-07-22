@@ -279,7 +279,7 @@ Caso o email do cliente não tenha sido confirmado, vários dados pessoais serã
 
   - `value`: o valor
 
-  - `installments`: um array de objetos. Cada objeto representa uma opção de parcelamento para esse sistema de pagamento, conténdo informações como número de parcelas, juros e valores.
+  - `installments`: um array de objetos. Cada objeto representa uma opção de parcelamento para esse sistema de pagamento, contendo informações como número de parcelas, juros e valores.
 
 - `paymentSystems`: um array de objetos **paymentSystem**. Cada **paymentSystem** contém informações como identificador, tipo, nome e validadores de cartão de crédito.
 

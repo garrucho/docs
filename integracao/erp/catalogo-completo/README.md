@@ -1,13 +1,13 @@
 #Integração Completa de Catálogo, Preço e Estoque
 
-Este documento tem por objetivo auxiliar na integração de catálogo (departamento, categoria, marca, imagens, campos, valores de campos, ativação de SKUs), preço e estoque do ERP para a uma loja hospedada na versão smartcheckout da VTEX. Nesse tipo de integração a maioria da adminstração da loja está ERP.
+Este documento tem por objetivo auxiliar na integração de catálogo (departamento, categoria, marca, imagens, campos, valores de campos, ativação de SKUs), preço e estoque do ERP para a uma loja hospedada na versão smartcheckout da VTEX. Nesse tipo de integração a maioria da administração da loja está ERP.
 
 ![alt text](erp-catalogo-completo.PNG "Fluxo de catalogo completo")
 
 ###Catalogo Fluxo Completo
 
 
-Nesse cenário de fluxo completo, a maioria dos dados de produtos e SKUs são manipulados pelo ERP (marca, imagens, categoria, ativação, etc...). A manipulação de campos de especificação nesse modelo é possivel ser feita por API REST, mais a melhor prática seria pelo admin da VTEX.
+Nesse cenário de fluxo completo, a maioria dos dados de produtos e SKUs são manipulados pelo ERP (marca, imagens, categoria, ativação, etc...). A manipulação de campos de especificação nesse modelo é possível ser feita por API REST, mais a melhor prática seria pelo admin da VTEX.
 
 Para o ERP integrar o catálogo com um da loja na VTEX, deverá usar o webservice da própria loja, que por definição atenderá em [https://webservice-nomedaloja.vtexcommerce.com.br/service.svc?wsdl](https://webservice-nomedaloja.vtexcommerce.com.br/service.svc?wsdl "web service da loja"). As credenciais de acesso ao webservice deverão ser solicitadas junto ao administrador da loja.
 
@@ -24,12 +24,12 @@ Geralmente, os produtos são organizados dentro da loja em estruturas mercadoló
 
 *Exemplo:*
 *Departamento/Categoria/SubCategoria/Produto*
-*Ferramentas/Eletricas/Furradeiras/Super Drill*
+*Ferramentas/Eletricas/Furadeiras/Super Drill*
 
 ###Departamento
 
 
-Abaixo exemplos de chamada e resposta de inseção de Departamentos e as Categorias através do metodo "CategoryInsertUpdate":
+Abaixo exemplos de chamada e resposta de inserção de Departamentos e as Categorias através do método "CategoryInsertUpdate":
 
 _request:_
 
@@ -237,10 +237,10 @@ _response:_
 
 [[Developer] - Ver Guia de Integração De Catalogo Expresso](http://vtex.github.io/docs/integracao/erp/catalogo-expresso/index.html)
 
-###Fields (Campos de Especificão) de Produto ou SKU
+###Fields (Campos de Especificação) de Produto ou SKU
 
 
-Os campos de especificão genéricos dos produtos devem ser adicionado a categoria direta do produto e indicados com IsStockKeepingUnit = false, e os campos de especificação específicos de SKUs devem ser inseridos na categoria direta da SKU e indicados com IsStockKeepingUnit = true. Não temos metodos no webservice para inserir Fields (campos), uma API REST beta deve ser usada para isso. Ex. Prdouto camisa tem especificação obrigatória **cor** e **tamanho**, então insere o campo na categoria de camisas dizendo que toda produto que estiver em baixo dessa categoria, tem por obrigatoriedade de preencher os valores de **cor** e **tamanho**
+Os campos de especificação genéricos dos produtos devem ser adicionados a categoria direta do produto e indicados com IsStockKeepingUnit = false, e os campos de especificação específicos de SKUs devem ser inseridos na categoria direta da SKU e indicados com IsStockKeepingUnit = true. Não temos métodos no webservice para inserir Fields (campos), uma API REST beta deve ser usada para isso. Ex. Produto camisa tem especificação obrigatória **cor** e **tamanho**, então insere o campo na categoria de camisas dizendo que todo produto que estiver em baixo dessa categoria, tem por obrigatoriedade preencher os valores de **cor** e **tamanho**
 
 <!--a title="inserir um campo de especificação" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!//CATALOG/CATALOG_Sugestion_0" target="_blank">[Developer beta] - Exemplo de chamada para inserir inserir um campo de especificação de produto ou SKU</a-->
 
@@ -248,7 +248,7 @@ Enquanto não temos a API stable, a melhor maneira de inserir o campos é usando
 
 ###Valores dos Campos
 
-Adicionado os campos de produto ou SKU, é necessário preenche-los com valores. Abaixo exemplo de chamada e resposta de inseção de valores de campo através do metodo "ProductEspecificationInsert":
+Adicionado os campos de produto ou SKU, é necessário preenchê-los com valores. Abaixo exemplo de chamada e resposta de inserção de valores de campo através do método "ProductEspecificationInsert":
 
 _request:_
 
@@ -281,7 +281,7 @@ _response:_
 </s:Envelope>
 ```
 
-Caso queira inserir um valor de campo que foi definido como campo de SKU somente, usar o metodo "StockKeepingUnitEspecificationInsert":
+Caso queira inserir um valor de campo que foi definido como campo de SKU somente, usar o método "StockKeepingUnitEspecificationInsert":
 
 _request:_
 
@@ -317,7 +317,7 @@ _response:_
 ###Imagens das SKUs
 
 
-Exemplo de request para inserir Imagens para uma SKU no webservice. Lembrando que os metodo de remover imagens estão depreciados, por isso ao inserir as imagens, procure inserir as imagens o mais perto da imagem real possível.
+Exemplo de request para inserir Imagens para uma SKU no webservice. Lembrando que os método de remover imagens estão depreciados, por isso ao inserir as imagens, procure inserir as imagens o mais perto da imagem real possível.
 
 _request:_
 ```xml
@@ -381,7 +381,7 @@ Uma vez cadastradas os produtos e as SKUs na loja da VTEX, é necessário alimen
 ###Preço
 
 
-Se no momento sa inserção da SKU não foi enviado um preço válido para a SKU é necessário inserir o preço da mesma. Isso pode ser feito direto no admin da loja na VTEX (_urldaloja/admin/Site/SkuTabelaValor.aspx_), ou usando a API REST do sistema de **Pricing**.
+Se no momento da inserção da SKU não foi enviado um preço válido para a SKU é necessário inserir o preço da mesma. Isso pode ser feito direto no admin da loja na VTEX (_urldaloja/admin/Site/SkuTabelaValor.aspx_), ou usando a API REST do sistema de **Pricing**.
 
 
 Através da API do Pricing, inserir ou atualizar preço na SKUs:
@@ -404,7 +404,7 @@ A documentação completa sobre a API de **Logistics** se encontra em: [http://l
 ###Ativa SKUs
 
 
-Após as SKUs estarem inseridas debaixo de seus produtos agrupadores ou não, e com todos os pre requistos de ativação preenchidos (imagem, estoque, preço, especificações, se tiver) basta ativá-las. Exempos de chamadas de ativação de SKU.
+Após as SKUs estarem inseridas debaixo de seus produtos agrupadores ou não, e com todos os pre requisitos de ativação preenchidos (imagem, estoque, preço, especificações, se tiver) basta ativá-las. Exemplos de chamadas de ativação de SKU.
 
 _request:_
 
