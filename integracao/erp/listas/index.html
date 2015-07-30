@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.1.3" data-basepath="../../.." data-revision="Wed Jul 15 2015 17:01:36 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.1.3" data-basepath="../../.." data-revision="Thu Jul 30 2015 12:51:11 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -465,10 +465,10 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="integra%C3%A7%C3%A3o-de-listas-anivers%C3%A1rio-casamento-ch%C3%A1s-etc"><a name="integra%C3%A7%C3%A3o-de-listas-anivers%C3%A1rio-casamento-ch%C3%A1s-etc" class="plugin-anchor" href="#integra%C3%A7%C3%A3o-de-listas-anivers%C3%A1rio-casamento-ch%C3%A1s-etc"><span class="fa fa-link"></span></a>Integra&#xE7;&#xE3;o de Listas (anivers&#xE1;rio, casamento, ch&#xE1;s, etc...)</h2>
-<p>Este documento tem por objetivo auxiliar na integra&#xE7;&#xE3;o de uma lista entre o ERP e uma loja hospedada na palataforma da VTEX. As listas na maioria do cen&#xE1;rios s&#xE3;o criadas pelo pr&#xF3;prio cliente final no e-commerce da loja, mas existem cen&#xE1;rios onde a lista &#xE9; criada em outro ambiente, loja fisica, por exemplo, ent&#xE3;o deve se usar a sequenca de metodos abaixo para fianalizar esse tarefa:</p>
+<p>Este documento tem por objetivo auxiliar na integra&#xE7;&#xE3;o de uma lista entre o ERP e uma loja hospedada na palataforma da VTEX. As listas na maioria dos cen&#xE1;rios s&#xE3;o criadas pelo pr&#xF3;prio cliente final no e-commerce da loja, mas existem cen&#xE1;rios onde a lista &#xE9; criada em outro ambiente, loja fisica, por exemplo, ent&#xE3;o deve se usar a sequencia de m&#xE9;todos abaixo para finalizar esse tarefa:</p>
 <h3 id="inserir-cliente"><a name="inserir-cliente" class="plugin-anchor" href="#inserir-cliente"><span class="fa fa-link"></span></a>Inserir Cliente</h3>
-<p>Para iniciar o processo de cria&#xE7;&#xE3;o de listas, o primeito passo &#xE9; inserir o dono da lista, aqui nomeado de cliente.</p>
-<p>Abaixo exemplos de chamada e resposta de inser&#xE7;&#xE3;o do cliente dono da lista atrav&#xE9;s do metodo &quot;ClientInsertUpdateV3&quot;:</p>
+<p>Para iniciar o processo de cria&#xE7;&#xE3;o de listas, o primeiro passo &#xE9; inserir o dono da lista, aqui nomeado de cliente.</p>
+<p>Abaixo exemplos de chamada e resposta de inser&#xE7;&#xE3;o do cliente dono da lista atrav&#xE9;s do m&#xE9;todo &quot;ClientInsertUpdateV3&quot;:</p>
 <p><em>request:</em>  </p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Envelope</span> <span class="hljs-attribute">xmlns:soapenv</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> <span class="hljs-attribute">xmlns:tem</span>=<span class="hljs-value">&quot;http://tempuri.org/&quot;</span> <span class="hljs-attribute">xmlns:vtex</span>=<span class="hljs-value">&quot;http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts&quot;</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Header</span>/&gt;</span>
@@ -526,7 +526,7 @@
 </code></pre>
 <h3 id="criar-o-endere%C3%A7o-do-cliente"><a name="criar-o-endere%C3%A7o-do-cliente" class="plugin-anchor" href="#criar-o-endere%C3%A7o-do-cliente"><span class="fa fa-link"></span></a>Criar o Endere&#xE7;o do Cliente</h3>
 <p>Ap&#xF3;s inserir o cliente, &#xE9; necess&#xE1;rio inserir o endere&#xE7;o do cliente dono da lista.</p>
-<p>Abaixo exemplos de chamada e resposta de inser&#xE7;&#xE3;o de endere&#xE7;o do dono da lista atrav&#xE9;s do metodo &quot;AddressInsertUpdateV3&quot;:</p>
+<p>Abaixo exemplos de chamada e resposta de inser&#xE7;&#xE3;o de endere&#xE7;o do dono da lista atrav&#xE9;s do m&#xE9;todo &quot;AddressInsertUpdateV3&quot;:</p>
 <p><em>request:</em>  </p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Envelope</span> <span class="hljs-attribute">xmlns:soapenv</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> <span class="hljs-attribute">xmlns:tem</span>=<span class="hljs-value">&quot;http://tempuri.org/&quot;</span> <span class="hljs-attribute">xmlns:vtex</span>=<span class="hljs-value">&quot;http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts&quot;</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Header</span>/&gt;</span>
@@ -576,7 +576,7 @@
 </code></pre>
 <h3 id="criar-a-lista"><a name="criar-a-lista" class="plugin-anchor" href="#criar-a-lista"><span class="fa fa-link"></span></a>Criar a Lista</h3>
 <p>Ap&#xF3;s inserir o cliente e o endere&#xE7;o do dono da lista, este &#xE9; o momento de criar a lista.</p>
-<p>Abaixo exemplos de chamada e resposta de cria&#xE7;&#xE3;o de lista atrav&#xE9;s do metodo &quot;GiftListInsertUpdate&quot;:</p>
+<p>Abaixo exemplos de chamada e resposta de cria&#xE7;&#xE3;o de lista atrav&#xE9;s do m&#xE9;todo &quot;GiftListInsertUpdate&quot;:</p>
 <p><em>request:</em>  </p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Envelope</span> <span class="hljs-attribute">xmlns:soapenv</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> <span class="hljs-attribute">xmlns:tem</span>=<span class="hljs-value">&quot;http://tempuri.org/&quot;</span> <span class="hljs-attribute">xmlns:vtex</span>=<span class="hljs-value">&quot;http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts&quot;</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Header</span>/&gt;</span>
@@ -686,9 +686,9 @@
    <span class="hljs-tag">&lt;/<span class="hljs-title">s:Body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">s:Envelope</span>&gt;</span>
 </code></pre>
-<h3 id="inserir-skus-na-lista"><a name="inserir-skus-na-lista" class="plugin-anchor" href="#inserir-skus-na-lista"><span class="fa fa-link"></span></a>Inserir SKUS na Lista</h3>
+<h3 id="inserir-skus-na-lista"><a name="inserir-skus-na-lista" class="plugin-anchor" href="#inserir-skus-na-lista"><span class="fa fa-link"></span></a>Inserir SKUs na Lista</h3>
 <p>Ap&#xF3;s criar a lista, agora &#xE9; o momento de inserir a SKUs que formar&#xE3;o a lista.</p>
-<p>Abaixo exemplos de chamada e resposta de inser&#xE7;&#xE3;o de SKU numa lista atrav&#xE9;s do metodo &quot;GiftListSkuInsert&quot;:</p>
+<p>Abaixo exemplos de chamada e resposta de inser&#xE7;&#xE3;o de SKU numa lista atrav&#xE9;s do m&#xE9;todo &quot;GiftListSkuInsert&quot;:</p>
 <p><em>request1:</em>  </p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Envelope</span> <span class="hljs-attribute">xmlns:soapenv</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> <span class="hljs-attribute">xmlns:tem</span>=<span class="hljs-value">&quot;http://tempuri.org/&quot;</span> <span class="hljs-attribute">xmlns:vtex</span>=<span class="hljs-value">&quot;http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts&quot;</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Header</span>/&gt;</span>

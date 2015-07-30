@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.1" data-basepath="../../.." data-revision="Wed Jul 15 2015 17:01:36 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.1" data-basepath="../../.." data-revision="Thu Jul 30 2015 12:51:11 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -473,7 +473,7 @@ Este modelo contempla troca de catalogo, atualiza&#xE7;&#xE3;o de condi&#xE7;&#x
 <p><em>Seller</em> = Dono do produto, respons&#xE1;vel por cumprir com a entrega do SKU.<br>
 <em>Marketplace</em> = Dono da vitrine (cara com o cliente final), respons&#xE1;vel por expor e vender o SKU.<br>
 <em>SKU</em> = Item a ser trocado e vendido entre Marketplace e Seller.<br>
-<em>Endpoint</em> = Ponto de acesso de um servi&#xE7;o ma internet, servi&#xE7;o pronto para receber um requisi&#xE7;&#xE3;o e devolver uma resposta.<br></p>
+<em>Endpoint</em> = Ponto de acesso de um servi&#xE7;o na internet, servi&#xE7;o pronto para receber uma requisi&#xE7;&#xE3;o e devolver uma resposta.<br></p>
 </blockquote>
 </blockquote>
 <h4 id="a%C3%A7%C3%B5es-que-dever%C3%A3o-ser-tomadas-pelo-marketplace-n%C3%A3o-hospedado-na-vtex-para-implementa%C3%A7%C3%A3o-da-integra%C3%A7%C3%A3o"><a name="a%C3%A7%C3%B5es-que-dever%C3%A3o-ser-tomadas-pelo-marketplace-n%C3%A3o-hospedado-na-vtex-para-implementa%C3%A7%C3%A3o-da-integra%C3%A7%C3%A3o" class="plugin-anchor" href="#a%C3%A7%C3%B5es-que-dever%C3%A3o-ser-tomadas-pelo-marketplace-n%C3%A3o-hospedado-na-vtex-para-implementa%C3%A7%C3%A3o-da-integra%C3%A7%C3%A3o"><span class="fa fa-link"></span></a>A&#xE7;&#xF5;es que dever&#xE3;o ser tomadas pelo Marketplace n&#xE3;o hospedado na VTEX para implementa&#xE7;&#xE3;o da integra&#xE7;&#xE3;o:</h4>
@@ -542,7 +542,7 @@ Este modelo contempla troca de catalogo, atualiza&#xE7;&#xE3;o de condi&#xE7;&#x
 </ul>
 <p><a name="a1"></a></p>
 <h3 id="notifica%C3%A7%C3%A3o-de-mudan%C3%A7a"><a name="notifica%C3%A7%C3%A3o-de-mudan%C3%A7a" class="plugin-anchor" href="#notifica%C3%A7%C3%A3o-de-mudan%C3%A7a"><span class="fa fa-link"></span></a>Notifica&#xE7;&#xE3;o de Mudan&#xE7;a</h3>
-<p>Notifica o Marketplace N&#xE3;o VTEX que houve uma mudan&#xE7;a nas condi&#xE7;oes comerciais (pre&#xE7;o, estoque, SLAs de entrega) de uma SKU - Endpoint do Afiliado (Marketplace)</p>
+<p>Notifica o Marketplace N&#xE3;o VTEX que houve uma mudan&#xE7;a nas condi&#xE7;&#xF5;es comerciais (pre&#xE7;o, estoque, SLAs de entrega) de uma SKU - Endpoint do Afiliado (Marketplace)</p>
 <p>endpoint: <code>https://[endpointdoafiliado}/api/notification/</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
@@ -805,11 +805,11 @@ Parametro: <strong>idSku</strong> // identificador do SKU<br></p>
 <h3 id="simula%C3%A7%C3%A3o-de-carrinho-e-p%C3%A1gina-de-pagamento"><a name="simula%C3%A7%C3%A3o-de-carrinho-e-p%C3%A1gina-de-pagamento" class="plugin-anchor" href="#simula%C3%A7%C3%A3o-de-carrinho-e-p%C3%A1gina-de-pagamento"><span class="fa fa-link"></span></a>Simula&#xE7;&#xE3;o de Carrinho e P&#xE1;gina de Pagamento</h3>
 <p>Este t&#xF3;pico tem por objetivo auxiliar o na simula&#xE7;&#xE3;o de carrinho entre um Marketplace n&#xE3;o VTEX com uma loja VTEX.</p>
 <h3 id="no-carrinho-e-no-pagamento"><a name="no-carrinho-e-no-pagamento" class="plugin-anchor" href="#no-carrinho-e-no-pagamento"><span class="fa fa-link"></span></a>No Carrinho e no Pagamento</h3>
-<p>Quando um produto &#xE9; inserido no carrinho no Marketplace N&#xE3;o VTEX, ou faz se alguma edi&#xE7;&#xE3;o no carrinho, uma consulta de simula&#xE7;ao de carrinho dever&#xE1; ser feita na loja VTEX para checar a validade das condi&#xE7;oes comerciais (pre&#xE7;o, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento, uma outra simul&#xE7;ao de carrinho dever&#xE1; ser realizada.</p>
+<p>Quando um produto &#xE9; inserido no carrinho no Marketplace N&#xE3;o VTEX, ou faz se alguma edi&#xE7;&#xE3;o no carrinho, uma consulta de simula&#xE7;ao de carrinho dever&#xE1; ser feita na loja VTEX para checar a validade das condi&#xE7;&#xF5;es comerciais (pre&#xE7;o, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento, uma outra simula&#xE7;&#xE3;o de carrinho dever&#xE1; ser realizada.</p>
 <p><em>Fluxo de chamadas no carrinho e no pagamento:</em></p>
 <p><img src="fechato-canal-nvtex.png" alt="alt text" title="fechamento do pedido no marketplace"></p>
-<h3 id="simula%C3%A7ao-de-carrinho"><a name="simula%C3%A7ao-de-carrinho" class="plugin-anchor" href="#simula%C3%A7ao-de-carrinho"><span class="fa fa-link"></span></a>Simula&#xE7;ao de Carrinho</h3>
-<p>Acessa a loja VTEX simulando um carrinho, para checar as condi&#xE7;oes comerciais e as SLAs de entrega - Endpoint loja VTEX</p>
+<h3 id="simula%C3%A7%C3%A3o-de-carrinho"><a name="simula%C3%A7%C3%A3o-de-carrinho" class="plugin-anchor" href="#simula%C3%A7%C3%A3o-de-carrinho"><span class="fa fa-link"></span></a>Simula&#xE7;&#xE3;o de Carrinho</h3>
+<p>Acessa a loja VTEX simulando um carrinho, para checar as condi&#xE7;&#xF5;es comerciais e as SLAs de entrega - Endpoint loja VTEX</p>
 <p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]</code>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
@@ -1146,7 +1146,7 @@ Accept: <strong>application/json</strong><br></p>
 </code></pre>
 <p><a name="a13"></a></p>
 <h3 id="informar-tracking-de-transportadora"><a name="informar-tracking-de-transportadora" class="plugin-anchor" href="#informar-tracking-de-transportadora"><span class="fa fa-link"></span></a>Informar Tracking de Transportadora</h3>
-<p>Quando o pedido for entegue a uma transportadora, as informa&#xE7;&#xE3;oes de tracking ser&#xE3;o enviadas para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace</p>
+<p>Quando o pedido for entregue a uma transportadora, as informa&#xE7;&#xF5;es de tracking ser&#xE3;o enviadas para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace</p>
 <p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
@@ -1182,7 +1182,7 @@ Accept: <strong>application/json</strong><br></p>
 <p>endpoint: <code>https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel</code>
 verb: <strong>GET</strong><br></p>
 <blockquote>
-<p>A nota fiscal e o tracking podem ser enviados na mesma chamada, basta prenncher todos os dados do POST, cabendo ao receber controlar o fluxo de captura de pagamento.</p>
+<p>A nota fiscal e o tracking podem ser enviados na mesma chamada, basta preencher todos os dados do POST, cabendo ao receber controlar o fluxo de captura de pagamento.</p>
 </blockquote>
 <hr>
 <p>Autor: <em>Jonas Bolognim</em><br>

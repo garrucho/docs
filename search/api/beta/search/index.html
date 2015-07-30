@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="3" data-basepath="../../../.." data-revision="Wed Jul 15 2015 17:01:36 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="3" data-basepath="../../../.." data-revision="Thu Jul 30 2015 12:51:11 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -484,21 +484,21 @@
 <h2 id="busca-por-texto"><a name="busca-por-texto" class="plugin-anchor" href="#busca-por-texto"><span class="fa fa-link"></span></a>Busca por texto</h2>
 <p>Essa &#xE9; a busca mais simples do site.</p>
 <p>Modelo da url: <a href="http://{storeurl}/api/catalog_system/pub/products/search/{searchterms}" target="_blank">http://{storeurl}/api/catalog_system/pub/products/search/{searchterms}</a></p>
-<p>{storeurl} ser&#xE1; substituido pela url da loja, vamos supor www.nomedaloja.com</p>
-<p>{searchterms} sera substituido pela palavra a ser buscada, vamos buscar por &quot;camisa&quot;</p>
+<p>{storeurl} ser&#xE1; substitu&#xED;do pela url da loja, vamos supor www.nomedaloja.com</p>
+<p>{searchterms} sera substitu&#xED;do pela palavra a ser buscada, vamos buscar por &quot;camisa&quot;</p>
 <p>Exemplo da url: <a href="http://www.nomedaloja.com/api/catalog_system/pub/products/search/camisa" target="_blank">http://www.nomedaloja.com/api/catalog_system/pub/products/search/camisa</a></p>
 <h2 id="busca-por-categoria-simples"><a name="busca-por-categoria-simples" class="plugin-anchor" href="#busca-por-categoria-simples"><span class="fa fa-link"></span></a>Busca por categoria simples</h2>
 <p>Modelo da url: <a href="http://{storeurl}/api/catalog_system/pub/products/search/{searchterms}" target="_blank">http://{storeurl}/api/catalog_system/pub/products/search/{searchterms}</a></p>
-<p>{storeurl} ser&#xE1; substituido pela url da loja, vamos supor www.nomedaloja.com.br</p>
-<p>{searchterms} sera substituido pela estrutura da categoria que a navega&#xE7;&#xE3;o normal do site j&#xE1; monta. Vamos entrar no departamento www.nomedaloja.com.br/eletrodomesticos/televisao na busca ficaria </p>
+<p>{storeurl} ser&#xE1; substitu&#xED;do pela url da loja, vamos supor www.nomedaloja.com.br</p>
+<p>{searchterms} sera substitu&#xED;do pela estrutura da categoria que a navega&#xE7;&#xE3;o normal do site j&#xE1; monta. Vamos entrar no departamento www.nomedaloja.com.br/eletrodomesticos/televisao na busca ficaria </p>
 <p>Exemplo da url: <a href="http://www.nomedaloja.com.br/api/catalog_system/pub/products/search/eletrodomesticos/televisao" target="_blank">http://www.nomedaloja.com.br/api/catalog_system/pub/products/search/eletrodomesticos/televisao</a></p>
 <h2 id="busca-por-filtros-e-especifica%C3%A7%C3%B5es"><a name="busca-por-filtros-e-especifica%C3%A7%C3%B5es" class="plugin-anchor" href="#busca-por-filtros-e-especifica%C3%A7%C3%B5es"><span class="fa fa-link"></span></a>Busca por filtros e especifica&#xE7;&#xF5;es</h2>
 <p>Modelo da url: <a href="http://{storeurl}/api/catalog_system/pub/products/search/?{searchquery}" target="_blank">http://{storeurl}/api/catalog_system/pub/products/search/?{searchquery}</a></p>
-<p>{storeurl} ser&#xE1; substituido pela url da loja, vamos supor www.nomedaloja.com</p>
-<p>{searchquery} sera substituido pela estrutura da busca que pode ser montada com alguns parametros </p>
+<p>{storeurl} ser&#xE1; substitu&#xED;do pela url da loja, vamos supor www.nomedaloja.com</p>
+<p>{searchquery} sera substitu&#xED;do pela estrutura da busca que pode ser montada com alguns par&#xE2;metros </p>
 <ul>
 <li>fq=C:/{a}/{b}                             -    Filtra os resultados por um path por id de categorias Ex.: - -       fq=C:/1000041/1000049/</li>
-<li>fq=specificationFilter_{a}:{b}    -    Filtro que esta sendo usado para a busca, {a} = id da especificacao {b} = valor selecioando Ex.: fq=specificationFilter_12:Masculino</li>
+<li>fq=specificationFilter_{a}:{b}    -    Filtro que esta sendo usado para a busca, {a} = id da especifica&#xE7;&#xE3;o {b} = valor selecionado Ex.: fq=specificationFilter_12:Masculino</li>
 <li>fq=P:[{a} TO {b}]                      -    Filtro por pre&#xE7;o onde o {a} &#xE9; o pre&#xE7;o &quot;de&quot; e o {b} &#xE9; o pre&#xE7;o &quot;at&#xE9;&quot; Ex.:   fq=P:[0 TO 20]   vai buscar produto de 0 a 20 reais.</li>
 </ul>
 <p>Exemplo da url: <a href="http://www.nomedaloja.com/api/catalog_system/pub/products/search/?fq=C:/1000041/1000049/&amp;fq=specificationFilter_12:Masculino&amp;fq=P:[0" target="_blank">http://www.nomedaloja.com/api/catalog_system/pub/products/search/?fq=C:/1000041/1000049/&amp;fq=specificationFilter_12:Masculino&amp;fq=P:[0</a> TO 20]</p>
@@ -510,7 +510,7 @@ value: {a}-{b}  -  {a} registro inicial, {b} registro final</p>
 <p>Se desejar receber os 20 primeiros itens chame ent&#xE3;o</p>
 <p>Ex: resources 0-19</p>
 <p>No caso da p&#xE1;gina ter mais resultados o HTTP Code retornado ser&#xE1; um 206 Partial Content
-Sempre o resultado voltar&#xE1; no header de resposta o mesmo parametro resources com os itens solicitados/total de registros</p>
+Sempre o resultado voltar&#xE1; no header de resposta o mesmo par&#xE2;metro resources com os itens solicitados/total de registros</p>
 <p>Ex: resources 0-19/32</p>
 <p>Para pegar os outros itens fa&#xE7;a novamente o mesmo request alterando o header para</p>
 <p>resources 20-32</p>

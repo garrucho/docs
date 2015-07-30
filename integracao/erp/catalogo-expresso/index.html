@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.1.2" data-basepath="../../.." data-revision="Wed Jul 15 2015 17:01:36 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.1.2" data-basepath="../../.." data-revision="Thu Jul 30 2015 12:51:11 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -464,9 +464,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="integra%C3%A7%C3%A3o-r%C3%A1pida-de-cat%C3%A1logo-e-pre%C3%A7o-e-estoque"><a name="integra%C3%A7%C3%A3o-r%C3%A1pida-de-cat%C3%A1logo-e-pre%C3%A7o-e-estoque" class="plugin-anchor" href="#integra%C3%A7%C3%A3o-r%C3%A1pida-de-cat%C3%A1logo-e-pre%C3%A7o-e-estoque"><span class="fa fa-link"></span></a>Integra&#xE7;&#xE3;o R&#xE1;pida de Cat&#xE1;logo e Pre&#xE7;o e Estoque</h1>
-<p>Este documento tem por objetivo auxiliar na integra&#xE7;&#xE3;o de cat&#xE1;logo,pre&#xE7;o e estoque do ERP para a uma loja hospedada na vers&#xE3;o smartcheckout da VTEX, de uma maneira r&#xE1;pida.</p>
-<p>Nesse tipo de integra&#xE7;&#xE3;o a adminstra&#xE7;&#xE3;o da loja est&#xE1; no admin da VTEX, sendo o ERP apenas uma fonte de onde nascem os produstos e SKUs.</p>
+                        <h1 id="integra%C3%A7%C3%A3o-r%C3%A1pida-de-cat%C3%A1logo-pre%C3%A7o-e-estoque"><a name="integra%C3%A7%C3%A3o-r%C3%A1pida-de-cat%C3%A1logo-pre%C3%A7o-e-estoque" class="plugin-anchor" href="#integra%C3%A7%C3%A3o-r%C3%A1pida-de-cat%C3%A1logo-pre%C3%A7o-e-estoque"><span class="fa fa-link"></span></a>Integra&#xE7;&#xE3;o R&#xE1;pida de Cat&#xE1;logo, Pre&#xE7;o e Estoque</h1>
+<p>Este documento tem por objetivo auxiliar na integra&#xE7;&#xE3;o de cat&#xE1;logo,pre&#xE7;o e estoque do ERP para uma loja hospedada na vers&#xE3;o smartcheckout da VTEX, de uma maneira r&#xE1;pida.</p>
+<p>Nesse tipo de integra&#xE7;&#xE3;o a administra&#xE7;&#xE3;o da loja est&#xE1; no admin da VTEX, sendo o ERP apenas uma fonte de onde nascem os produtos e SKUs.</p>
 <h3 id="catalogo-fluxo-b%C3%A1sico-express"><a name="catalogo-fluxo-b%C3%A1sico-express" class="plugin-anchor" href="#catalogo-fluxo-b%C3%A1sico-express"><span class="fa fa-link"></span></a>Catalogo Fluxo B&#xE1;sico (Express)</h3>
 <p>Nesse cen&#xE1;rio de fluxo b&#xE1;sico, apenas os dados b&#xE1;sicos de produtos e SKUs s&#xE3;o manipulados pelo ERP, e todo o enriquecimento (marca, fornecedor, imagens, categoria, ativa&#xE7;&#xE3;o, etc.) ser&#xE1; feito pelo admin da loja na plataforma VTEX.</p>
 <p>Para o ERP integrar se ao cat&#xE1;logo da loja na VTEX, dever&#xE1; usar o webservice da pr&#xF3;pria loja, que por defini&#xE7;&#xE3;o atender&#xE1; em <a href="https://webservice-nomedaloja.vtexcommerce.com.br/service.svc?wsdl" title="web service da loja" target="_blank">https://webservice-nomedaloja.vtexcommerce.com.br/service.svc?wsdl</a>. As credenciais de acesso ao webservice dever&#xE3;o ser solicitadas junto ao administrador da loja.</p>
@@ -481,7 +481,7 @@
 <p><em>Exemplo:</em></p>
 <ul>
 <li>Departamento/Categoria/SubCategoria/Produto</li>
-<li>Ferramentas/Eletricas/Furradeiras/Super Drill</li>
+<li>Ferramentas/Eletricas/Furadeiras/Super Drill</li>
 </ul>
 <p>O cadastro da estrutura mercadologica deve ser feito diretamente no admin da pr&#xF3;pria loja (<em><a href="http://sualoja.com.br/admin/Site/Categories.aspx" target="_blank">http://sualoja.com.br/admin/Site/Categories.aspx</a></em>), e para atender a integra&#xE7;&#xE3;o vinda do ERP, &#xE9; criado um departamento padr&#xE3;o para produtos que vem do ERP, ou seja, todos os produtos caem no admin da loja nesse departamento padr&#xE3;o, e depois no momento do enriquecimento &#xE9; colocado na categoria desejada.</p>
 <p><strong>Marca</strong>
@@ -490,15 +490,15 @@ A cria&#xE7;&#xE3;o das marcas tamb&#xE9;m deve ser feita pelo admin da VTEX. Pa
 <blockquote>
 <p>Qual &#xE9; a diferen&#xE7;a entre produto e SKU?</p>
 </blockquote>
-<p>  O <strong>Produto</strong> &#xE9; uma defini&#xE7;&#xE3;o mais gen&#xE9;rica de algo que &#xE9; ofertado ao cliente, por exemplo, <em>Geladeria</em>, <em>Camiseta</em>, <em>Bola</em>.</p>
-<p>  O <strong>SKU</strong> &#xE9; uma sigla em ingles de &quot;Stock Keeping Unit&quot;, em portugu&#xEA;s Unidade de Manuten&#xE7;&#xE3;o de Estoque, ou seja, uma SKU define uma varia&#xE7;&#xE3;o de um produto, por exemplo, <em>Geladeira Branca 110V</em>, <em>Camiseta Amarela Grande</em></p>
-<p>  No modelo de cadastro de Produtos e SKUs da VTEX, um SKU sempre ser&#xE1; filha de um Produto (n&#xE3;o existe SKU sem produto), mesmo que esse produto n&#xE3;o tenha vari&#xE7;&#xE3;oes, e nesse caso ser&#xE1; 1 SKU para 1 produto, por exemplo, produto <em>Bola Jabulani</em> com a <em>SKU Bola Jabulani</em>.</p>
+<p>  O <strong>Produto</strong> &#xE9; uma defini&#xE7;&#xE3;o mais gen&#xE9;rica de algo que &#xE9; ofertado ao cliente, por exemplo, <em>Geladeira</em>, <em>Camiseta</em>, <em>Bola</em>.</p>
+<p>  O <strong>SKU</strong> &#xE9; uma sigla em ingl&#xEA;s de &quot;Stock Keeping Unit&quot;, em portugu&#xEA;s Unidade de Manuten&#xE7;&#xE3;o de Estoque, ou seja, uma SKU define uma varia&#xE7;&#xE3;o de um produto, por exemplo, <em>Geladeira Branca 110V</em>, <em>Camiseta Amarela Grande</em></p>
+<p>  No modelo de cadastro de Produtos e SKUs da VTEX, um SKU sempre ser&#xE1; filho de um Produto (n&#xE3;o existe SKU sem produto), mesmo que esse produto n&#xE3;o tenha varia&#xE7;&#xF5;es, e nesse caso ser&#xE1; 1 SKU para 1 produto, por exemplo, produto <em>Bola Jabulani</em> com a <em>SKU Bola Jabulani</em>.</p>
 <h3 id="integra%C3%A7%C3%A3o-de-produtos-e-skus"><a name="integra%C3%A7%C3%A3o-de-produtos-e-skus" class="plugin-anchor" href="#integra%C3%A7%C3%A3o-de-produtos-e-skus"><span class="fa fa-link"></span></a>Integra&#xE7;&#xE3;o de Produtos e SKUs</h3>
-<p>Ap&#xF3;s definida as varia&#xE7;&#xF5;es e a estrutura mecadol&#xF3;gica da loja, o pr&#xF3;ximo passo &#xE9; enviar os produtos e as SKUs do ERP para a loja VTEX.</p>
+<p>Ap&#xF3;s definida as varia&#xE7;&#xF5;es e a estrutura mercadol&#xF3;gica da loja, o pr&#xF3;ximo passo &#xE9; enviar os produtos e as SKUs do ERP para a loja VTEX.</p>
 <p><em>Fluxo:</em></p>
 <p><img src="ERP-catalogo-expresso.PNG" alt="alt text" title="Fluxo B&#xE1;sico"></p>
 <h3 id="produto"><a name="produto" class="plugin-anchor" href="#produto"><span class="fa fa-link"></span></a>Produto</h3>
-<p>Abaixo exemplo de chamada e resposta de uma inser&#xE7;&#xE3;o de produto usando o metodo &quot;ProductInsertUpdate&quot;:</p>
+<p>Abaixo exemplo de chamada e resposta de uma inser&#xE7;&#xE3;o de produto usando o m&#xE9;todo &quot;ProductInsertUpdate&quot;:</p>
 <p><em>request:</em></p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Envelope</span> <span class="hljs-attribute">xmlns:soapenv</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> <span class="hljs-attribute">xmlns:tem</span>=<span class="hljs-value">&quot;http://tempuri.org/&quot;</span> <span class="hljs-attribute">xmlns:vtex</span>=<span class="hljs-value">&quot;http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts&quot;</span> <span class="hljs-attribute">xmlns:arr</span>=<span class="hljs-value">&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Header</span>/&gt;</span>
@@ -690,18 +690,18 @@ O pre&#xE7;o da SKU pode N&#xC2;O ser enviado no momento da inser&#xE7;&#xE3;o d
 <h3 id="pre%C3%A7o-e-estoque"><a name="pre%C3%A7o-e-estoque" class="plugin-anchor" href="#pre%C3%A7o-e-estoque"><span class="fa fa-link"></span></a>Pre&#xE7;o e Estoque</h3>
 <p>Uma vez cadastradas os produtos e as SKUs na loja da VTEX, &#xE9; necess&#xE1;rio alimentar o estoque e acertar o pre&#xE7;o na tabela de pre&#xE7;o (se no momento de inserir a SKU n&#xE3;o enviou o pre&#xE7;o).</p>
 <h3 id="pre%C3%A7o"><a name="pre%C3%A7o" class="plugin-anchor" href="#pre%C3%A7o"><span class="fa fa-link"></span></a>Pre&#xE7;o</h3>
-<p>Se no momento sa inser&#xE7;&#xE3;o da SKU n&#xE3;o foi enviado um pre&#xE7;o v&#xE1;lido para a SKU &#xE9; necess&#xE1;rio inserir o pre&#xE7;o da mesma. Isso pode ser feito direto no admin da loja na VTEX (<em>urldaloja/admin/Site/SkuTabelaValor.aspx</em>), ou usando a API REST do sistema de <strong>Pricing</strong>.</p>
+<p>Se no momento da inser&#xE7;&#xE3;o da SKU n&#xE3;o foi enviado um pre&#xE7;o v&#xE1;lido para a SKU &#xE9; necess&#xE1;rio inserir o pre&#xE7;o da mesma. Isso pode ser feito direto no admin da loja na VTEX (<em>urldaloja/admin/Site/SkuTabelaValor.aspx</em>), ou usando a API REST do sistema de <strong>Pricing</strong>.</p>
 <p>Atrav&#xE9;s da API do Pricing, inserir ou atualizar pre&#xE7;o na SKUs:</p>
 <p><a title="inserir ou atualizar pre&#xE7;o na SKUs" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/PRICING/PRICING_Set" target="_blank">[Developer] - Exemplo de chamada para inserir ou atualizar pre&#xE7;o nas SKUs</a></p>
 <p>A documenta&#xE7;&#xE3;o completa sobre a API de <strong>Pricing</strong> se encontra em: <a href="http://lab.vtex.com/docs/pricing/api/latest/pricing/index.html" target="_blank">http://lab.vtex.com/docs/pricing/api/latest/pricing/index.html</a></p>
 <h3 id="estoque"><a name="estoque" class="plugin-anchor" href="#estoque"><span class="fa fa-link"></span></a>Estoque</h3>
 <p>Isso pode ser feito direto no admin da loja na VTEX (<em>urldaloja/admin/logistics/#/dashboard</em>), maneira r&#xE1;pida:</p>
 <ol>
-<li>Criar a transpotadora - <a title="criar a transpotadora" href="http://www.youtube.com/watch?v=IkIM53OXvVo" target="_blank">[Video]</a>,</li>
+<li>Criar a transportadora - <a title="criar a transportadora" href="http://www.youtube.com/watch?v=IkIM53OXvVo" target="_blank">[Video]</a>,</li>
 <li>Criar a doca <a title="criar a doca" href="https://www.youtube.com/watch?v=fNJ3JBoEoW0" target="_blank">[Video]</a>,</li>
 <li>Criar o estoque - <a title="criar o estoque" href="http://www.youtube.com/watch?v=FijZQoaWiDM" target="_blank">[Video]</a>.</li>
 </ol>
-<p>Criar o estoque, criar a transpotadora e criar a doca no admin da VTEX, e depois usar a API REST do <strong>Logistics</strong> para manipular o estoque.</p>
+<p>Criar o estoque, criar a transportadora e criar a doca no admin da VTEX, e depois usar a API REST do <strong>Logistics</strong> para manipular o estoque.</p>
 <p>Atrav&#xE9;s da API do Logistics, inserir ou atualizar os estoques na SKUs:</p>
 <p><a title="inserir ou atualizar os estoques na SKUs" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/LOGISTIC/LOGISTIC_SetBalance" target="_blank">[Developer] - Exemplo de chamada para inserir ou atualizar estoque nas SKUs</a></p>
 <p>A documenta&#xE7;&#xE3;o completa sobre a API de <strong>Logistics</strong> se encontra em: <a href="http://lab.vtex.com/docs/logistics/api/latest/warehouse/index.html" target="_blank">http://lab.vtex.com/docs/logistics/api/latest/warehouse/index.html</a></p>

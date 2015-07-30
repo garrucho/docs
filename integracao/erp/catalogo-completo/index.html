@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.1.1" data-basepath="../../.." data-revision="Wed Jul 15 2015 17:01:36 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.1.1" data-basepath="../../.." data-revision="Thu Jul 30 2015 12:51:11 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -465,10 +465,10 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="integra%C3%A7%C3%A3o-completa-de-cat%C3%A1logo-pre%C3%A7o-e-estoque"><a name="integra%C3%A7%C3%A3o-completa-de-cat%C3%A1logo-pre%C3%A7o-e-estoque" class="plugin-anchor" href="#integra%C3%A7%C3%A3o-completa-de-cat%C3%A1logo-pre%C3%A7o-e-estoque"><span class="fa fa-link"></span></a>Integra&#xE7;&#xE3;o Completa de Cat&#xE1;logo, Pre&#xE7;o e Estoque</h1>
-<p>Este documento tem por objetivo auxiliar na integra&#xE7;&#xE3;o de cat&#xE1;logo (departamento, categoria, marca, imagens, campos, valores de campos, ativa&#xE7;&#xE3;o de SKUs), pre&#xE7;o e estoque do ERP para a uma loja hospedada na vers&#xE3;o smartcheckout da VTEX. Nesse tipo de integra&#xE7;&#xE3;o a maioria da adminstra&#xE7;&#xE3;o da loja est&#xE1; ERP.</p>
+<p>Este documento tem por objetivo auxiliar na integra&#xE7;&#xE3;o de cat&#xE1;logo (departamento, categoria, marca, imagens, campos, valores de campos, ativa&#xE7;&#xE3;o de SKUs), pre&#xE7;o e estoque do ERP para a uma loja hospedada na vers&#xE3;o smartcheckout da VTEX. Nesse tipo de integra&#xE7;&#xE3;o a maioria da administra&#xE7;&#xE3;o da loja est&#xE1; ERP.</p>
 <p><img src="erp-catalogo-completo.PNG" alt="alt text" title="Fluxo de catalogo completo"></p>
 <h3 id="catalogo-fluxo-completo"><a name="catalogo-fluxo-completo" class="plugin-anchor" href="#catalogo-fluxo-completo"><span class="fa fa-link"></span></a>Catalogo Fluxo Completo</h3>
-<p>Nesse cen&#xE1;rio de fluxo completo, a maioria dos dados de produtos e SKUs s&#xE3;o manipulados pelo ERP (marca, imagens, categoria, ativa&#xE7;&#xE3;o, etc...). A manipula&#xE7;&#xE3;o de campos de especifica&#xE7;&#xE3;o nesse modelo &#xE9; possivel ser feita por API REST, mais a melhor pr&#xE1;tica seria pelo admin da VTEX.</p>
+<p>Nesse cen&#xE1;rio de fluxo completo, a maioria dos dados de produtos e SKUs s&#xE3;o manipulados pelo ERP (marca, imagens, categoria, ativa&#xE7;&#xE3;o, etc...). A manipula&#xE7;&#xE3;o de campos de especifica&#xE7;&#xE3;o nesse modelo &#xE9; poss&#xED;vel ser feita por API REST, mais a melhor pr&#xE1;tica seria pelo admin da VTEX.</p>
 <p>Para o ERP integrar o cat&#xE1;logo com um da loja na VTEX, dever&#xE1; usar o webservice da pr&#xF3;pria loja, que por defini&#xE7;&#xE3;o atender&#xE1; em <a href="https://webservice-nomedaloja.vtexcommerce.com.br/service.svc?wsdl" title="web service da loja" target="_blank">https://webservice-nomedaloja.vtexcommerce.com.br/service.svc?wsdl</a>. As credenciais de acesso ao webservice dever&#xE3;o ser solicitadas junto ao administrador da loja.</p>
 <p>Futuramente al&#xE9;m do servi&#xE7;o SOAP (webservice) estaremos tamb&#xE9;m oferecendo integra&#xE7;&#xE3;o de cat&#xE1;logo por APIs REST (JSON) bem definidas e de alta performance.</p>
 <h3 id="organiza%C3%A7%C3%A3o-dos-produtos-dentro-da-loja"><a name="organiza%C3%A7%C3%A3o-dos-produtos-dentro-da-loja" class="plugin-anchor" href="#organiza%C3%A7%C3%A3o-dos-produtos-dentro-da-loja"><span class="fa fa-link"></span></a>Organiza&#xE7;&#xE3;o dos Produtos Dentro da Loja</h3>
@@ -480,9 +480,9 @@
 </ol>
 <p><em>Exemplo:</em>
 <em>Departamento/Categoria/SubCategoria/Produto</em>
-<em>Ferramentas/Eletricas/Furradeiras/Super Drill</em></p>
+<em>Ferramentas/Eletricas/Furadeiras/Super Drill</em></p>
 <h3 id="departamento"><a name="departamento" class="plugin-anchor" href="#departamento"><span class="fa fa-link"></span></a>Departamento</h3>
-<p>Abaixo exemplos de chamada e resposta de inse&#xE7;&#xE3;o de Departamentos e as Categorias atrav&#xE9;s do metodo &quot;CategoryInsertUpdate&quot;:</p>
+<p>Abaixo exemplos de chamada e resposta de inser&#xE7;&#xE3;o de Departamentos e as Categorias atrav&#xE9;s do m&#xE9;todo &quot;CategoryInsertUpdate&quot;:</p>
 <p><em>request:</em></p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Envelope</span> <span class="hljs-attribute">xmlns:soapenv</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> <span class="hljs-attribute">xmlns:tem</span>=<span class="hljs-value">&quot;http://tempuri.org/&quot;</span> <span class="hljs-attribute">xmlns:vtex</span>=<span class="hljs-value">&quot;http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Header</span>/&gt;</span>
@@ -656,12 +656,12 @@
 </span></code></pre>
 <h3 id="produtos-e-skus"><a name="produtos-e-skus" class="plugin-anchor" href="#produtos-e-skus"><span class="fa fa-link"></span></a>Produtos e SKUs</h3>
 <p><a href="http://vtex.github.io/docs/integracao/erp/catalogo-expresso/index.html" target="_blank">[Developer] - Ver Guia de Integra&#xE7;&#xE3;o De Catalogo Expresso</a></p>
-<h3 id="fields-campos-de-especific%C3%A3o-de-produto-ou-sku"><a name="fields-campos-de-especific%C3%A3o-de-produto-ou-sku" class="plugin-anchor" href="#fields-campos-de-especific%C3%A3o-de-produto-ou-sku"><span class="fa fa-link"></span></a>Fields (Campos de Especific&#xE3;o) de Produto ou SKU</h3>
-<p>Os campos de especific&#xE3;o gen&#xE9;ricos dos produtos devem ser adicionado a categoria direta do produto e indicados com IsStockKeepingUnit = false, e os campos de especifica&#xE7;&#xE3;o espec&#xED;ficos de SKUs devem ser inseridos na categoria direta da SKU e indicados com IsStockKeepingUnit = true. N&#xE3;o temos metodos no webservice para inserir Fields (campos), uma API REST beta deve ser usada para isso. Ex. Prdouto camisa tem especifica&#xE7;&#xE3;o obrigat&#xF3;ria <strong>cor</strong> e <strong>tamanho</strong>, ent&#xE3;o insere o campo na categoria de camisas dizendo que toda produto que estiver em baixo dessa categoria, tem por obrigatoriedade de preencher os valores de <strong>cor</strong> e <strong>tamanho</strong></p>
+<h3 id="fields-campos-de-especifica%C3%A7%C3%A3o-de-produto-ou-sku"><a name="fields-campos-de-especifica%C3%A7%C3%A3o-de-produto-ou-sku" class="plugin-anchor" href="#fields-campos-de-especifica%C3%A7%C3%A3o-de-produto-ou-sku"><span class="fa fa-link"></span></a>Fields (Campos de Especifica&#xE7;&#xE3;o) de Produto ou SKU</h3>
+<p>Os campos de especifica&#xE7;&#xE3;o gen&#xE9;ricos dos produtos devem ser adicionados a categoria direta do produto e indicados com IsStockKeepingUnit = false, e os campos de especifica&#xE7;&#xE3;o espec&#xED;ficos de SKUs devem ser inseridos na categoria direta da SKU e indicados com IsStockKeepingUnit = true. N&#xE3;o temos m&#xE9;todos no webservice para inserir Fields (campos), uma API REST beta deve ser usada para isso. Ex. Produto camisa tem especifica&#xE7;&#xE3;o obrigat&#xF3;ria <strong>cor</strong> e <strong>tamanho</strong>, ent&#xE3;o insere o campo na categoria de camisas dizendo que todo produto que estiver em baixo dessa categoria, tem por obrigatoriedade preencher os valores de <strong>cor</strong> e <strong>tamanho</strong></p>
 <!--a title="inserir um campo de especificação" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!//CATALOG/CATALOG_Sugestion_0" target="_blank">[Developer beta] - Exemplo de chamada para inserir inserir um campo de especificação de produto ou SKU</a-->
 <p>Enquanto n&#xE3;o temos a API stable, a melhor maneira de inserir o campos &#xE9; usando o admin na loja VTEX na menu de categorias.</p>
 <h3 id="valores-dos-campos"><a name="valores-dos-campos" class="plugin-anchor" href="#valores-dos-campos"><span class="fa fa-link"></span></a>Valores dos Campos</h3>
-<p>Adicionado os campos de produto ou SKU, &#xE9; necess&#xE1;rio preenche-los com valores. Abaixo exemplo de chamada e resposta de inse&#xE7;&#xE3;o de valores de campo atrav&#xE9;s do metodo &quot;ProductEspecificationInsert&quot;:</p>
+<p>Adicionado os campos de produto ou SKU, &#xE9; necess&#xE1;rio preench&#xEA;-los com valores. Abaixo exemplo de chamada e resposta de inser&#xE7;&#xE3;o de valores de campo atrav&#xE9;s do m&#xE9;todo &quot;ProductEspecificationInsert&quot;:</p>
 <p><em>request:</em></p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Envelope</span> <span class="hljs-attribute">xmlns:soapenv</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> <span class="hljs-attribute">xmlns:tem</span>=<span class="hljs-value">&quot;http://tempuri.org/&quot;</span> <span class="hljs-attribute">xmlns:arr</span>=<span class="hljs-value">&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Header</span>/&gt;</span>
@@ -687,7 +687,7 @@
    <span class="hljs-tag">&lt;/<span class="hljs-title">s:Body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">s:Envelope</span>&gt;</span>
 </code></pre>
-<p>Caso queira inserir um valor de campo que foi definido como campo de SKU somente, usar o metodo &quot;StockKeepingUnitEspecificationInsert&quot;:</p>
+<p>Caso queira inserir um valor de campo que foi definido como campo de SKU somente, usar o m&#xE9;todo &quot;StockKeepingUnitEspecificationInsert&quot;:</p>
 <p><em>request:</em></p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Envelope</span> <span class="hljs-attribute">xmlns:soapenv</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> <span class="hljs-attribute">xmlns:tem</span>=<span class="hljs-value">&quot;http://tempuri.org/&quot;</span> <span class="hljs-attribute">xmlns:arr</span>=<span class="hljs-value">&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot;</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Header</span>/&gt;</span>
@@ -714,7 +714,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-title">s:Envelope</span>&gt;</span>
 </code></pre>
 <h3 id="imagens-das-skus"><a name="imagens-das-skus" class="plugin-anchor" href="#imagens-das-skus"><span class="fa fa-link"></span></a>Imagens das SKUs</h3>
-<p>Exemplo de request para inserir Imagens para uma SKU no webservice. Lembrando que os metodo de remover imagens est&#xE3;o depreciados, por isso ao inserir as imagens, procure inserir as imagens o mais perto da imagem real poss&#xED;vel.</p>
+<p>Exemplo de request para inserir Imagens para uma SKU no webservice. Lembrando que os m&#xE9;todo de remover imagens est&#xE3;o depreciados, por isso ao inserir as imagens, procure inserir as imagens o mais perto da imagem real poss&#xED;vel.</p>
 <p><em>request:</em></p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Envelope</span> <span class="hljs-attribute">xmlns:soapenv</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> <span class="hljs-attribute">xmlns:tem</span>=<span class="hljs-value">&quot;http://tempuri.org/&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Header</span>/&gt;</span>
@@ -760,7 +760,7 @@
 <h3 id="pre%C3%A7o-e-estoque"><a name="pre%C3%A7o-e-estoque" class="plugin-anchor" href="#pre%C3%A7o-e-estoque"><span class="fa fa-link"></span></a>Pre&#xE7;o e Estoque</h3>
 <p>Uma vez cadastradas os produtos e as SKUs na loja da VTEX, &#xE9; necess&#xE1;rio alimentar o estoque e acertar o pre&#xE7;o na tabela de pre&#xE7;o (se no momento de inserir a SKU n&#xE3;o enviou o pre&#xE7;o).</p>
 <h3 id="pre%C3%A7o"><a name="pre%C3%A7o" class="plugin-anchor" href="#pre%C3%A7o"><span class="fa fa-link"></span></a>Pre&#xE7;o</h3>
-<p>Se no momento sa inser&#xE7;&#xE3;o da SKU n&#xE3;o foi enviado um pre&#xE7;o v&#xE1;lido para a SKU &#xE9; necess&#xE1;rio inserir o pre&#xE7;o da mesma. Isso pode ser feito direto no admin da loja na VTEX (<em>urldaloja/admin/Site/SkuTabelaValor.aspx</em>), ou usando a API REST do sistema de <strong>Pricing</strong>.</p>
+<p>Se no momento da inser&#xE7;&#xE3;o da SKU n&#xE3;o foi enviado um pre&#xE7;o v&#xE1;lido para a SKU &#xE9; necess&#xE1;rio inserir o pre&#xE7;o da mesma. Isso pode ser feito direto no admin da loja na VTEX (<em>urldaloja/admin/Site/SkuTabelaValor.aspx</em>), ou usando a API REST do sistema de <strong>Pricing</strong>.</p>
 <p>Atrav&#xE9;s da API do Pricing, inserir ou atualizar pre&#xE7;o na SKUs:</p>
 <p><a title="inserir ou atualizar pre&#xE7;o na SKUs" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/PRICING/PRICING_Set" target="_blank">[Developer] - Exemplo de chamada para inserir ou atualizar pre&#xE7;o nas SKUs</a></p>
 <p>A documenta&#xE7;&#xE3;o completa sobre a API de <strong>Pricing</strong> se encontra em: <a href="http://lab.vtex.com/docs/pricing/api/latest/pricing/index.html" target="_blank">http://lab.vtex.com/docs/pricing/api/latest/pricing/index.html</a></p>
@@ -769,7 +769,7 @@
 <p><a title="inserir ou atualizar os estoques na SKUs" href="http://bridge.vtexlab.com.br/vtex.bridge.web_deploy/swagger/ui/index.html#!/LOGISTIC/LOGISTIC_SetBalance" target="_blank">[Developer] - Exemplo de chamada para inserir ou atualizar estoque nas SKUs</a></p>
 <p>A documenta&#xE7;&#xE3;o completa sobre a API de <strong>Logistics</strong> se encontra em: <a href="http://lab.vtex.com/docs/logistics/api/latest/warehouse/index.html" target="_blank">http://lab.vtex.com/docs/logistics/api/latest/warehouse/index.html</a></p>
 <h3 id="ativa-skus"><a name="ativa-skus" class="plugin-anchor" href="#ativa-skus"><span class="fa fa-link"></span></a>Ativa SKUs</h3>
-<p>Ap&#xF3;s as SKUs estarem inseridas debaixo de seus produtos agrupadores ou n&#xE3;o, e com todos os pre requistos de ativa&#xE7;&#xE3;o preenchidos (imagem, estoque, pre&#xE7;o, especifica&#xE7;&#xF5;es, se tiver) basta ativ&#xE1;-las. Exempos de chamadas de ativa&#xE7;&#xE3;o de SKU.</p>
+<p>Ap&#xF3;s as SKUs estarem inseridas debaixo de seus produtos agrupadores ou n&#xE3;o, e com todos os pre requisitos de ativa&#xE7;&#xE3;o preenchidos (imagem, estoque, pre&#xE7;o, especifica&#xE7;&#xF5;es, se tiver) basta ativ&#xE1;-las. Exemplos de chamadas de ativa&#xE7;&#xE3;o de SKU.</p>
 <p><em>request:</em></p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Envelope</span> <span class="hljs-attribute">xmlns:soapenv</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> <span class="hljs-attribute">xmlns:tem</span>=<span class="hljs-value">&quot;http://tempuri.org/&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Header</span>/&gt;</span>

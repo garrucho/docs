@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="4.1" data-basepath="../../.." data-revision="Wed Jul 15 2015 17:01:36 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="4.1" data-basepath="../../.." data-revision="Thu Jul 30 2015 12:51:11 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -466,7 +466,7 @@
                     
                         <h1 id="m%C3%B3dulo-checkout"><a name="m%C3%B3dulo-checkout" class="plugin-anchor" href="#m%C3%B3dulo-checkout"><span class="fa fa-link"></span></a>M&#xF3;dulo Checkout</h1>
 <p>O m&#xF3;dulo Checkout manipula dados referentes &#xE0; compra do cliente.</p>
-<p>Naturalmente, o Checkout agrega os mais diversos dados necess&#xE1;rios para o fechamento de uma compra: dados pessoais, de endere&#xE7;o, de frete, de items, entre outros.</p>
+<p>Naturalmente, o Checkout agrega os mais diversos dados necess&#xE1;rios para o fechamento de uma compra: dados pessoais, de endere&#xE7;o, de frete, de itens, entre outros.</p>
 <p>O OrderForm &#xE9; a estrutura respons&#xE1;vel por esse aglomerado de dados.
 Ele &#xE9; composto de diversas se&#xE7;&#xF5;es, cada uma com informa&#xE7;&#xF5;es &#xFA;teis que podem ser acessadas, manipuladas e (possivelmente) alteradas.
 Se tiver qualquer d&#xFA;vida quanto a suas se&#xE7;&#xF5;es, consulte a <a href="order-form.html">documenta&#xE7;&#xE3;o do OrderForm</a>.</p>
@@ -560,7 +560,7 @@ Consulte a <a href="order-form.html">documenta&#xE7;&#xE3;o do OrderForm</a> par
 </code></pre>
 <h2 id="addtocart-items-expectedorderformsections"><a name="addtocart-items-expectedorderformsections" class="plugin-anchor" href="#addtocart-items-expectedorderformsections"><span class="fa fa-link"></span></a>addToCart(items, expectedOrderFormSections)</h2>
 <p>Adiciona itens no orderForm.</p>
-<p>Um item a ser adicionado &#xE9; obrigatoriamente composto por: <code>id</code>, <code>quantity</code> e <code>seller</code>. A propriedade <code>id</code> pode ser obtida pelo <a href="../catalog/index.html">Catalog</a>, observando o itemId do item no Array de items do produto.</p>
+<p>Um item a ser adicionado &#xE9; obrigatoriamente composto por: <code>id</code>, <code>quantity</code> e <code>seller</code>. A propriedade <code>id</code> pode ser obtida pelo <a href="../catalog/index.html">Catalog</a>, observando o itemId do item no Array de itens do produto.</p>
 <p>Itens que j&#xE1; estiverem no orderForm permanecer&#xE3;o inalterados.</p>
 <h3 id="retorna"><a name="retorna" class="plugin-anchor" href="#retorna"><span class="fa fa-link"></span></a>Retorna</h3>
 <p><code>Promise</code> para o orderForm</p>
@@ -575,7 +575,7 @@ Consulte a <a href="order-form.html">documenta&#xE7;&#xE3;o do OrderForm</a> par
 <tbody>
 <tr>
 <td style="text-align:right"><strong>items</strong></td>
-<td style="text-align:left"><strong>Array</strong> <br> o conjunto de items que v&#xE3;o ser adicionados. Mesmo que s&#xF3; haja um item, deve ser envolto num Array.</td>
+<td style="text-align:left"><strong>Array</strong> <br> o conjunto de itens que v&#xE3;o ser adicionados. Mesmo que s&#xF3; haja um item, deve ser envolto num Array.</td>
 </tr>
 </tbody>
 </table>
@@ -593,9 +593,9 @@ vtexjs.checkout.addToCart([item]).done(<span class="hljs-function"><span class="
 </code></pre>
 <h2 id="updateitems-items-expectedorderformsections"><a name="updateitems-items-expectedorderformsections" class="plugin-anchor" href="#updateitems-items-expectedorderformsections"><span class="fa fa-link"></span></a>updateItems(items, expectedOrderFormSections)</h2>
 <p>Atualiza items no orderForm.</p>
-<p>Um item &#xE9; identificado pela sua propriedade <code>index</code>. No orderForm, essa propriedade pode ser obtida observando o &#xED;ndice do item no Array de items.</p>
+<p>Um item &#xE9; identificado pela sua propriedade <code>index</code>. No orderForm, essa propriedade pode ser obtida observando o &#xED;ndice do item no Array de itens.</p>
 <p>Veja a <a href="order-form.html">documenta&#xE7;&#xE3;o do OrderForm</a> para conhecer mais sobre o que comp&#xF5;e o objeto de item.</p>
-<p>Propriedades que n&#xE3;o forem enviadas ser&#xE3;o mantidas inalteradas, assim como items que est&#xE3;o no orderForm mas nao foram enviados.</p>
+<p>Propriedades que n&#xE3;o forem enviadas ser&#xE3;o mantidas inalteradas, assim como itens que est&#xE3;o no orderForm mas n&#xE3;o foram enviados.</p>
 <p>N&#xE3;o se esque&#xE7;a de usar getOrderForm anteriormente.</p>
 <h3 id="retorna"><a name="retorna" class="plugin-anchor" href="#retorna"><span class="fa fa-link"></span></a>Retorna</h3>
 <p><code>Promise</code> para o orderForm</p>
@@ -610,7 +610,7 @@ vtexjs.checkout.addToCart([item]).done(<span class="hljs-function"><span class="
 <tbody>
 <tr>
 <td style="text-align:right"><strong>items</strong></td>
-<td style="text-align:left"><strong>Array</strong> <br> o conjunto de items que v&#xE3;o ser atualizados. Mesmo que s&#xF3; haja um item, deve ser envolto num Array.</td>
+<td style="text-align:left"><strong>Array</strong> <br> o conjunto de itens que v&#xE3;o ser atualizados. Mesmo que s&#xF3; haja um item, deve ser envolto num Array.</td>
 </tr>
 </tbody>
 </table>
@@ -628,8 +628,8 @@ vtexjs.checkout.addToCart([item]).done(<span class="hljs-function"><span class="
 });
 </code></pre>
 <h2 id="removeitems-items-expectedorderformsections"><a name="removeitems-items-expectedorderformsections" class="plugin-anchor" href="#removeitems-items-expectedorderformsections"><span class="fa fa-link"></span></a>removeItems(items, expectedOrderFormSections)</h2>
-<p>Remove items no orderForm.</p>
-<p>Um item &#xE9; identificado pela sua propriedade <code>index</code>. No orderForm, essa propriedade pode ser obtida observando o &#xED;ndice do item no Array de items.</p>
+<p>Remove itens no orderForm.</p>
+<p>Um item &#xE9; identificado pela sua propriedade <code>index</code>. No orderForm, essa propriedade pode ser obtida observando o &#xED;ndice do item no Array de itens.</p>
 <p>N&#xE3;o se esque&#xE7;a de usar getOrderForm anteriormente.</p>
 <h3 id="retorna"><a name="retorna" class="plugin-anchor" href="#retorna"><span class="fa fa-link"></span></a>Retorna</h3>
 <p><code>Promise</code> para o orderForm</p>
@@ -644,7 +644,7 @@ vtexjs.checkout.addToCart([item]).done(<span class="hljs-function"><span class="
 <tbody>
 <tr>
 <td style="text-align:right"><strong>items</strong></td>
-<td style="text-align:left"><strong>Array</strong> <br> o conjunto de items que v&#xE3;o ser retirados. Mesmo que s&#xF3; haja um item, deve ser envolto num Array.</td>
+<td style="text-align:left"><strong>Array</strong> <br> o conjunto de itens que v&#xE3;o ser retirados. Mesmo que s&#xF3; haja um item, deve ser envolto num Array.</td>
 </tr>
 </tbody>
 </table>
@@ -660,7 +660,7 @@ vtexjs.checkout.addToCart([item]).done(<span class="hljs-function"><span class="
 });
 </code></pre>
 <h2 id="removeallitems-expectedorderformsections"><a name="removeallitems-expectedorderformsections" class="plugin-anchor" href="#removeallitems-expectedorderformsections"><span class="fa fa-link"></span></a>removeAllItems(expectedOrderFormSections)</h2>
-<p>Remove todos os items presentes no orderForm.</p>
+<p>Remove todos os itens presentes no orderForm.</p>
 <p>N&#xE3;o se esque&#xE7;a de usar getOrderForm anteriormente.</p>
 <h3 id="retorna"><a name="retorna" class="plugin-anchor" href="#retorna"><span class="fa fa-link"></span></a>Retorna</h3>
 <p><code>Promise</code> para o orderForm</p>
@@ -707,10 +707,10 @@ vtexjs.checkout.addToCart([item]).done(<span class="hljs-function"><span class="
 });
 </code></pre>
 <h2 id="simulateshipping-items-postalcode-country"><a name="simulateshipping-items-postalcode-country" class="plugin-anchor" href="#simulateshipping-items-postalcode-country"><span class="fa fa-link"></span></a>simulateShipping(items, postalCode, country)</h2>
-<p>Recebendo uma lista de items, seu postalCode e country, simula frete desses items para este endere&#xE7;o.</p>
+<p>Recebendo uma lista de itens, seu postalCode e country, simula frete desses itens para este endere&#xE7;o.</p>
 <p>A diferen&#xE7;a em rela&#xE7;&#xE3;o ao <code>calculateShipping</code> &#xE9; que esta chamada &#xE9; isolada.
-Pode ser usada para um conjunto arbitr&#xE1;rio de items, e n&#xE3;o vincula o endere&#xE7;o ao usu&#xE1;rio.</p>
-<p>O resultado dessa simuala&#xE7;&#xE3;o inclui as diferentes transportadoras que podem ser usadas para cada item, acompanhadas
+Pode ser usada para um conjunto arbitr&#xE1;rio de itens, e n&#xE3;o vincula o endere&#xE7;o ao usu&#xE1;rio.</p>
+<p>O resultado dessa simula&#xE7;&#xE3;o inclui as diferentes transportadoras que podem ser usadas para cada item, acompanhadas
 de nome, prazo de entrega e pre&#xE7;o.</p>
 <p>&#xC9; ideal para simular frete na p&#xE1;gina de produto.</p>
 <h3 id="retorna"><a name="retorna" class="plugin-anchor" href="#retorna"><span class="fa fa-link"></span></a>Retorna</h3>
@@ -1040,7 +1040,7 @@ vtexjs.checkout.getOrderForm().then(<span class="hljs-function"><span class="hlj
 <h2 id="additemattachment-itemindex-attachmentname-content-expectedorderformsections"><a name="additemattachment-itemindex-attachmentname-content-expectedorderformsections" class="plugin-anchor" href="#additemattachment-itemindex-attachmentname-content-expectedorderformsections"><span class="fa fa-link"></span></a>addItemAttachment(itemIndex, attachmentName, content, expectedOrderFormSections)</h2>
 <p>Esse m&#xE9;todo adiciona um anexo (attachment) a um item no carrinho. Com isso, voc&#xEA; pode adicionar informa&#xE7;&#xF5;es extras ao item.</p>
 <p>Voc&#xEA; pode associar um anexo ao sku pela interface administrativa. Para verificar quais anexos podem ser inseridos, verifique a propriedade <code>attachmentOfferings</code> do item.</p>
-<p>Por exemplo: ao adicionar uma camiseta do Brasil ao carrinho, voc&#xEA; pode adicionar o anexo de &apos;personalizacao&apos; para que o cliente possa escolher o n&#xFA;mero a ser impresso na camiseta.</p>
+<p>Por exemplo: ao adicionar uma camiseta do Brasil ao carrinho, voc&#xEA; pode adicionar o anexo de &apos;personaliza&#xE7;&#xE3;o&apos; para que o cliente possa escolher o n&#xFA;mero a ser impresso na camiseta.</p>
 <p>N&#xE3;o se esque&#xE7;a de usar getOrderForm anteriormente.</p>
 <h3 id="retorna"><a name="retorna" class="plugin-anchor" href="#retorna"><span class="fa fa-link"></span></a>Retorna</h3>
 <p><code>Promise</code> para o orderForm</p>
