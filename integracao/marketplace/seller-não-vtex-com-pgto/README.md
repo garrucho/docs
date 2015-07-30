@@ -87,6 +87,7 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
  >> ``` https://HOSTDOSELLER/pvt/orders ```</br>
  >> ``` https://HOSTDOSELLER/pvt/payments ```</br>
  >> ``` https://HOSTDOSELLER/pvt/orders/[orderid]/fulfill ```</br>
+ >> ``` https://HOSTDOSELLER/pvt/orders/[orderid]/cancel ```</br>
 
 
  > ATENÇÃO:
@@ -771,7 +772,11 @@ _response:_
 > NOTA:
 >> Retornar no campo paymentData.merchantPaymentReferenceId um inteiro (numero) identificador que será usado futuramente na mapeamento do pagamento com o pedido, ou seja, o valor que retornar nesse campo irá identificar o pagamento desse pedido. Pode até ser o "orderId" do Seller, caso este seja inteiro.
 
-_retorno de erro:_
+
+#####Tratamento de ERROS:
+Toda vez que ocoorer umerrode negócio, deverá ser retornado no um JSON no formato abaixo:
+
+_JSON de retorno de erro:_
 
 ```json
 {
@@ -782,6 +787,18 @@ _retorno de erro:_
 	}
 }
 ```
+>> Também deve se adicionar no header de retorno as seguintes chaves:</br>
+**x-vtex-error-code** com o codigo do erro e</br>
+**x-vtex-error-message** com a mensagem de erro</br>
+
+| code  |       message                                     |
+|:------|:--------------------------------------------------|
+|ORD021 |SKU não encontrado                                 |
+|FMT002 |Estoque indisponível                               |
+|FMT009 |Pedido duplicado                                   |
+|FMT010 |Forma de entrega enviada não disponível            |
+|ORD008 |Erro inesperado na criação do pedido + Mensagm     |
+
 
 <a name="a7"><a/>
 ###Enviar Pagamento
