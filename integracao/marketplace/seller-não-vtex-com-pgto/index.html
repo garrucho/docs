@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Thu Jul 30 2015 12:51:11 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Fri Jul 31 2015 17:11:53 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -525,6 +525,11 @@ Este &#xE9; um dos principais m&#xE9;todos da integra&#xE7;&#xE3;o, precisa ter 
 <p><em>exemplo da chamada:</em><br>
 <code>https://[seller].com.br/pvt/orders/[orderid]/fulfill?sc=1&amp;an=mechantname</code></p>
 <p><a href="#a8">Exemplo Completo: Autorizar o Seller a Despachar o Pedido</a></p>
+</li>
+<li><p>Implementar endpoint para receber uma solicita&#xE7;&#xE3;o de cancelamento de pedido - VTEX chama endpoint do Seller. A loja na VTEX ir&#xE1; usar esse endpoint para solicitar o cancelamento de um pedido no Seller.</p>
+<p><em>exemplo da chamada:</em><br>
+<code>https://[seller].com.br/pvt/orders/[orderId]/cancel?sc=1&amp;an=mechantname&apos;</code></p>
+<p><a href="#a81">Exemplo Completo: Solicitar Cancelamento de Pedido</a></p>
 </li>
 <li><p>Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido. Nos dados do pedido &#xE9; enviado uma endpoint de servi&#xE7;os do Marketplace, o Seller dever&#xE1; invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamento de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda n&#xE3;o enviou nota fiscal.</p>
 <p><em>exemplo da chamada:</em><br>
@@ -1302,6 +1307,26 @@ Ele agora vem como &quot;referenceId&quot; nos dados do pagamento, e serve para 
 <h3 id="enviar-autoriza%C3%A7%C3%A3o-para-despachar"><a name="enviar-autoriza%C3%A7%C3%A3o-para-despachar" class="plugin-anchor" href="#enviar-autoriza%C3%A7%C3%A3o-para-despachar"><span class="fa fa-link"></span></a>Enviar Autoriza&#xE7;&#xE3;o Para Despachar</h3>
 <p>Quando o pagamento do pedido &#xE9; conclu&#xED;do <strong>com sucesso</strong> no Seller (pagamento v&#xE1;lido), um POST dever&#xE1; ser feito na &quot;callbackUrl&quot; do pagamento, informando sucesso do pagamento (&quot;status&quot;:&quot;approved&quot;), nesse momento o Marketplace hospedado na VTEX envia uma autoriza&#xE7;&#xE3;o para despachar o respectivo pedido no Seller (2 fase coomited) - endpoint do Seller.</p>
 <p>endpoint: <code>https://Sellerendpoint/pvt/orders/[orderid]/fulfill?sc=[idcanal]&amp;an=[mechantname]</code><br>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br></p>
+<p><em>request:</em></p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;marketplaceOrderId&quot;</span>: <span class="hljs-string">&quot;959311095&quot;</span> <span class="hljs-comment">// identificador do pedido originado no Marketplace</span>
+}
+</code></pre>
+<p><em>response:</em></p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;date&quot;</span>: <span class="hljs-string">&quot;2014-10-06 18:52:00&quot;</span>,
+    <span class="hljs-string">&quot;marketplaceOrderId&quot;</span>: <span class="hljs-string">&quot;959311095&quot;</span>,
+    <span class="hljs-string">&quot;orderId&quot;</span>: <span class="hljs-string">&quot;123543123&quot;</span>,
+    <span class="hljs-string">&quot;receipt&quot;</span>: <span class="hljs-string">&quot;e39d05f9-0c54-4469-a626-8bb5cff169f8&quot;</span>,
+}
+</code></pre>
+<p><a name="a81"><a></a></a></p>
+<h3 id="enviar-solicita%C3%A7%C3%A3o-de-cancelamento-de-pedido"><a name="enviar-solicita%C3%A7%C3%A3o-de-cancelamento-de-pedido" class="plugin-anchor" href="#enviar-solicita%C3%A7%C3%A3o-de-cancelamento-de-pedido"><span class="fa fa-link"></span></a>Enviar Solicita&#xE7;&#xE3;o de Cancelamento de pedido</h3>
+<p>Quando o pagamento do pedido &#xE9; negado no Seller, um POST dever&#xE1; ser feito na &quot;callbackUrl&quot; do pagamento, informando n&#xE3;o sucesso do pagamento (&quot;status&quot;:&quot;denied&quot;), nesse momento o Marketplace hospedado na VTEX envia uma solicita&#xE7;&#xE3;o de cancelamento do respectivo pedido no Seller - endpoint do Seller.</p>
+<p>endpoint: <code>https://Sellerendpoint/pvt/orders/[orderid]/cancel?sc=[idcanal]&amp;an=[mechantname]</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br></p>
