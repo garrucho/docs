@@ -69,7 +69,14 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
 
  [Exemplo Completo: Autorizar o Seller a Despachar o Pedido](#a8)
 
-8. Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido. Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamento de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
+8. Implementar endpoint para receber uma solicitação de cancelamento de pedido - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse endpoint para solicitar o cancelamento de um pedido no Seller.
+
+ _exemplo da chamada:_</br>
+ ``` https://[seller].com.br/pvt/orders/[orderId]/cancel?sc=1&an=mechantname' ```
+
+ [Exemplo Completo: Solicitar Cancelamento de Pedido](#a81)
+
+9. Implementar rotina de informar dados de nota fiscal e rastreamento de entrega de um pedido. Nos dados do pedido é enviado uma endpoint de serviços do Marketplace, o Seller deverá invocar esse endpoint tanto pra informar dados de nota fiscal quanto dados de rastreamento de transportadora. O Seller ainda pode solicitar um cancelamento de um pedido que ainda não enviou nota fiscal.
 
  _exemplo da chamada:_</br>
  ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```</br>
@@ -905,6 +912,37 @@ _response:_
 	"receipt": "e39d05f9-0c54-4469-a626-8bb5cff169f8",
 }
 ```
+
+<a name="a81"><a/>
+###Enviar Solicitação de Cancelamento de pedido
+
+
+Quando o pagamento do pedido é negado no Seller, um POST deverá ser feito na "callbackUrl" do pagamento, informando não sucesso do pagamento ("status":"denied"), nesse momento o Marketplace hospedado na VTEX envia uma solicitação de cancelamento do respectivo pedido no Seller - endpoint do Seller.
+
+endpoint: ``` https://Sellerendpoint/pvt/orders/[orderid]/cancel?sc=[idcanal]&an=[mechantname] ```</br>
+verb: **POST**</br>
+Content-Type: **application/json**</br>
+Accept: **application/json**</br>
+
+_request:_
+
+```json
+{
+	"marketplaceOrderId": "959311095" // identificador do pedido originado no Marketplace
+}
+```
+
+_response:_
+
+```json
+{
+	"date": "2014-10-06 18:52:00",
+	"marketplaceOrderId": "959311095",
+	"orderId": "123543123",
+	"receipt": "e39d05f9-0c54-4469-a626-8bb5cff169f8",
+}
+```
+
 
 > PAGAMENTO NEGADO NO SELLER
 >> Enviar na URL assíncrona de retorno o POST com o status "denied", pagamento negado. :(
