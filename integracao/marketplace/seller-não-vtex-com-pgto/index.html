@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Fri Jul 31 2015 17:13:07 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Fri Jul 31 2015 17:18:49 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -1323,6 +1323,12 @@ Accept: <strong>application/json</strong><br></p>
     <span class="hljs-string">&quot;receipt&quot;</span>: <span class="hljs-string">&quot;e39d05f9-0c54-4469-a626-8bb5cff169f8&quot;</span>,
 }
 </code></pre>
+<blockquote>
+<p>PAGAMENTO NEGADO NO SELLER</p>
+<blockquote>
+<p>Enviar na URL ass&#xED;ncrona de retorno o POST com o status &quot;denied&quot;, pagamento negado. :(</p>
+</blockquote>
+</blockquote>
 <p><a name="a81"><a></a></a></p>
 <h3 id="enviar-solicita%C3%A7%C3%A3o-de-cancelamento-de-pedido"><a name="enviar-solicita%C3%A7%C3%A3o-de-cancelamento-de-pedido" class="plugin-anchor" href="#enviar-solicita%C3%A7%C3%A3o-de-cancelamento-de-pedido"><span class="fa fa-link"></span></a>Enviar Solicita&#xE7;&#xE3;o de Cancelamento de pedido</h3>
 <p>Quando o pagamento do pedido &#xE9; negado no Seller, um POST dever&#xE1; ser feito na &quot;callbackUrl&quot; do pagamento, informando n&#xE3;o sucesso do pagamento (&quot;status&quot;:&quot;denied&quot;), nesse momento o Marketplace hospedado na VTEX envia uma solicita&#xE7;&#xE3;o de cancelamento do respectivo pedido no Seller - endpoint do Seller.</p>
@@ -1343,12 +1349,6 @@ Accept: <strong>application/json</strong><br></p>
     <span class="hljs-string">&quot;receipt&quot;</span>: <span class="hljs-string">&quot;e39d05f9-0c54-4469-a626-8bb5cff169f8&quot;</span>,
 }
 </code></pre>
-<blockquote>
-<p>PAGAMENTO NEGADO NO SELLER</p>
-<blockquote>
-<p>Enviar na URL ass&#xED;ncrona de retorno o POST com o status &quot;denied&quot;, pagamento negado. :(</p>
-</blockquote>
-</blockquote>
 <h2 id="invocando-marketplace-services-endpoint-actions"><a name="invocando-marketplace-services-endpoint-actions" class="plugin-anchor" href="#invocando-marketplace-services-endpoint-actions"><span class="fa fa-link"></span></a>Invocando Marketplace Services Endpoint Actions</h2>
 <p>O MarketplaceServicesEndpoint serve para receber informa&#xE7;&#xF5;es do Seller referentes a nota fiscal e rastreamento de entrega de pedido. &#xC9; permitido o envio de notas fiscais parciais, obrigando assim ao informador informar al&#xE9;m dos valores da nota fiscal, os items ele est&#xE1; mandando na nota fiscal parcial. O pedido na VTEX s&#xF3; andar&#xE1; pra o status FATURADO quando o valor total de todas as notas fiscais de um pedido forem enviadas.</p>
 <p><a name="a10"><a></a></a></p>
