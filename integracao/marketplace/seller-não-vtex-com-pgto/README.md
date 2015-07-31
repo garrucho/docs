@@ -913,6 +913,9 @@ _response:_
 }
 ```
 
+> PAGAMENTO NEGADO NO SELLER
+>> Enviar na URL assíncrona de retorno o POST com o status "denied", pagamento negado. :(
+
 <a name="a81"><a/>
 ###Enviar Solicitação de Cancelamento de pedido
 
@@ -943,9 +946,6 @@ _response:_
 }
 ```
 
-
-> PAGAMENTO NEGADO NO SELLER
->> Enviar na URL assíncrona de retorno o POST com o status "denied", pagamento negado. :(
 
 ##Invocando Marketplace Services Endpoint Actions
 
