@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Fri Jul 31 2015 17:18:49 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Mon Aug 17 2015 17:26:45 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -515,7 +515,7 @@ Este &#xE9; um dos principais m&#xE9;todos da integra&#xE7;&#xE3;o, precisa ter 
 </li>
 <li><p>Implementar endpoint para receber dados de pagamento - VTEX chama endpoint do Seller. A loja na VTEX ir&#xE1; usar esse endpoint para enviar o pagamento para o Seller</p>
 <p><em>exemplo da chamada:</em><br>
-<code>https://[seller].com.br/pvt/payments?sc=1&amp;an=mechantname</code></p>
+<code>https://[seller].com.br/pvt/payments/?sc=1&amp;an=mechantname</code></p>
 <blockquote>
 <p>Nos dados de pagamento tem a url de retorno, onde o Seller ir&#xE1; notificar a loja na VTEX sobre o status do pagamento, ou seja, o Seller deve implementar rotina de informar status de pagamento na loja VTEX.</p>
 </blockquote>
@@ -547,7 +547,7 @@ Este &#xE9; um dos principais m&#xE9;todos da integra&#xE7;&#xE3;o, precisa ter 
 <p><code>https://HOSTDOSELLER/pvt/orderForms/simulation</code><br>
 <code>https://HOSTDOSELLER/pvt/installments/options</code><br>
 <code>https://HOSTDOSELLER/pvt/orders</code><br>
-<code>https://HOSTDOSELLER/pvt/payments</code><br>
+<code>https://HOSTDOSELLER/pvt/payments/</code><br>
 <code>https://HOSTDOSELLER/pvt/orders/[orderid]/fulfill</code><br>
 <code>https://HOSTDOSELLER/pvt/orders/[orderid]/cancel</code><br></p>
 </blockquote>
@@ -1098,8 +1098,15 @@ Accept: <strong>application/json</strong><br></p>
         }
       ]
     },
-    <span class="hljs-string">&quot;openTextField&quot;</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-string">&quot;marketingData&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;openTextField&quot;</span>: <span class="hljs-literal">null</span>, <span class="hljs-comment">//opcional, string</span>
+    <span class="hljs-string">&quot;marketingData&quot;</span>: {<span class="hljs-comment">//opcional, pode ser null</span>
+      <span class="hljs-string">&quot;utmSource&quot;</span>: <span class="hljs-string">&quot;buscape&quot;</span>,
+      <span class="hljs-string">&quot;utmMedium&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+      <span class="hljs-string">&quot;utmCampaign&quot;</span>: <span class="hljs-string">&quot;fretegratis&quot;</span>,
+      <span class="hljs-string">&quot;utmiPage&quot;</span>: <span class="hljs-string">&quot;_&quot;</span>,
+      <span class="hljs-string">&quot;utmiPart&quot;</span>: <span class="hljs-string">&quot;BuscaFullText&quot;</span>,
+      <span class="hljs-string">&quot;utmiCampaign&quot;</span>: <span class="hljs-string">&quot;capa artscase para iphone 5 e 5s slimfit rachel taylor contemporary colorida   padrao&quot;</span>
+    },
     <span class="hljs-string">&quot;paymentData&quot;</span>:{
         <span class="hljs-string">&quot;merchantName&quot;</span>:<span class="hljs-string">&quot;shopfacilfastshop&quot;</span> <span class="hljs-comment">//identificador do marketplaceseller</span>
     }
