@@ -56,7 +56,7 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
 6. Implementar endpoint para receber dados de pagamento - VTEX chama endpoint do Seller. A loja na VTEX irá usar esse endpoint para enviar o pagamento para o Seller
 
  _exemplo da chamada:_</br>
- ``` https://[seller].com.br/pvt/payments?sc=1&an=mechantname ```
+ ``` https://[seller].com.br/pvt/payments/?sc=1&an=mechantname ```
 
  > Nos dados de pagamento tem a url de retorno, onde o Seller irá notificar a loja na VTEX sobre o status do pagamento, ou seja, o Seller deve implementar rotina de informar status de pagamento na loja VTEX.
 
@@ -92,7 +92,7 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
  >> ``` https://HOSTDOSELLER/pvt/orderForms/simulation ```</br>
  >> ``` https://HOSTDOSELLER/pvt/installments/options ```</br>
  >> ``` https://HOSTDOSELLER/pvt/orders ```</br>
- >> ``` https://HOSTDOSELLER/pvt/payments ```</br>
+ >> ``` https://HOSTDOSELLER/pvt/payments/ ```</br>
  >> ``` https://HOSTDOSELLER/pvt/orders/[orderid]/fulfill ```</br>
  >> ``` https://HOSTDOSELLER/pvt/orders/[orderid]/cancel ```</br>
 
@@ -691,8 +691,15 @@ _request:_
         }
       ]
     },
-    "openTextField": null,
-    "marketingData": null,
+    "openTextField": null, //opcional, string
+    "marketingData": {//opcional, pode ser null
+      "utmSource": "buscape",
+      "utmMedium": "",
+      "utmCampaign": "fretegratis",
+      "utmiPage": "_",
+      "utmiPart": "BuscaFullText",
+      "utmiCampaign": "capa artscase para iphone 5 e 5s slimfit rachel taylor contemporary colorida   padrao"
+    },
     "paymentData":{
 		"merchantName":"shopfacilfastshop" //identificador do marketplaceseller
 	}

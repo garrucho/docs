@@ -484,8 +484,15 @@ _request:_
         }
       ]
     },
-    "openTextField": null,
-    "marketingData": null,
+    "openTextField": null, //opcional, string
+    "marketingData": {//opcional, pode ser null
+      "utmSource": "buscape",
+      "utmMedium": "",
+      "utmCampaign": "fretegratis",
+      "utmiPage": "_",
+      "utmiPart": "BuscaFullText",
+      "utmiCampaign": "capa artscase para iphone 5 e 5s slimfit rachel taylor contemporary colorida   padrao"
+    },
     "paymentData":null
   }
 ]
