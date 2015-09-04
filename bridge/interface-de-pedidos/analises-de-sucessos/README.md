@@ -6,4 +6,4 @@ Como dito inicialmente, este é um registro de sucesso, que é um dado apenas pa
 
 Para excluir o registro, primeiro clique na linha do pedido. Será ilustrado em seguida um box de nome **Ações**. Abra essa combo e selecione a única opção disponível de "*Remover Log*":
 
-![Removendo Log](V_removendolog.gif)
+![Removendo Log](V_produto_sucesso.gif)
