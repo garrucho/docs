@@ -1,6 +1,9 @@
 # Configurações de Marketplace
 
-A VTEX possui hoje integrações de caráter ativo (em que nós VTEX realizamos a integração) com os Marketplaces da **B2W**, **CNova**, **Walmart** (apenas para a parte de Catálogo) e **Rakuten**. Teremos em seguida para cada um temos onde e o que deve ser feito para ativar essas integrações.
+As movimentações que serão registrados no VETX Bridge serão apenas para aqueles Marketplaces que hoje integramos de forma **ativa**. Isto é, onde nós quem realizamos as exportações de Produtos, Preços e Estoque e/ou onde nós campturamos os Pedidos realizados no Marketplace. Os Marketplaces que temos hoje com a a integração ativa são: B2W, CNova, Rakuten, Buscapé e Walmart (apenas na parte de Protudos, Preços e Estoque. Pedidos o próprio Walmart quem insere na VTEX).
+
+Alguns destes Marketplaces, como B2W, CNova, Rakuten e Buscapé, demandam de configurações específicas para podermos nos comunicar com os mesmos, além das configurações necessárias nos demais módulos da VTEX.
+Teremos em seguida, para cada Marketplace acima comentado, o que deve ser feito para ativar essas integrações:
 
 ## Visão geral
 
@@ -9,7 +12,26 @@ A VTEX possui hoje integrações de caráter ativo (em que nós VTEX realizamos 
 > Para cada um destes Parceiro temos as seguintes configurações:
 
 * [B2W](b2w\README.md)
+>> [B2W - Demais configuraçÕes](http://help.vtex.com/hc/pt-br/articles/206105948-B2W-Configura%C3%A7%C3%B5es-de-Marketplace)
 
 * [CNova](cnova\README.md)
+>> [CNova - Demais configurações](http://help.vtex.com/hc/pt-br/articles/206859697-CNova-Configura%C3%A7%C3%B5es-de-Marketplace)
 
 * [Rakuten](rakuten\README.md)
+>> [Rakuten - Demais configurações](http://help.vtex.com/hc/pt-br/articles/206863767-Rakuten-Configura%C3%A7%C3%B5es-de-Marketplace)
+
+* [Buscapé](buscape\README.md)
+>> [Buscapé - Demais configurações](http://help.vtex.com/hc/pt-br/articles/209339198-Buscap%C3%A9-Configura%C3%A7%C3%B5es-de-Comparador-de-Pre%C3%A7o-com-o-fechamento-de-Pedido-na-VTEX)
+
+> E os outros Marketplaces, como configuro?
+
+Para Marketplaces como Walmart, MercadoLivre, CSU e entre Lojas VTEX, não são necessárias essas configurações pelo VTEX Bridge.
+Para casa um desses temos as seguintes configurações necessárias:
+
+* [Walmart](http://help.vtex.com/hc/pt-br/articles/206873737-Walmart-Configura%C3%A7%C3%B5es-de-Marketplace)
+
+* [MercadoLivre](http://help.vtex.com/hc/pt-br/articles/206866037-MercadoLivre-Configura%C3%A7%C3%B5es-de-Marketplace)
+
+* [CSU](http://help.vtex.com/hc/pt-br/articles/206164018-Opte-CSU-CSU-Vivo-CSU-Santos-Configura%C3%A7%C3%B5es-de-Marketplace)
+
+* [VTEX x VTEX](http://help.vtex.com/hc/pt-br/articles/206882247-VTEX-x-VTEX-Configura%C3%A7%C3%B5es-de-Marketplace)
