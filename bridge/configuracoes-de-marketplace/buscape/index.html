@@ -5,7 +5,7 @@
         <!-- head:start -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Análises de Erros | VTEX Lab Docs</title>
+        <title>Buscapé | VTEX Lab Docs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.1">
@@ -20,10 +20,10 @@
         
     
     
-    <link rel="next" href="../../../bridge/interface-de-produto/reprocessamento-de-produtos/index.html" />
+    <link rel="next" href="../../../bridge/interface-de-pedidos/index.html" />
     
     
-    <link rel="prev" href="../../../bridge/interface-de-produto/analises-de-sucessos/index.html" />
+    <link rel="prev" href="../../../bridge/configuracoes-de-marketplace/rakuten/index.html" />
     
 
         <!-- head:end -->
@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="4.3.2" data-basepath="../../.." data-revision="Thu Sep 17 2015 16:06:27 GMT-0300 (BRT)">
+    <div class="book" data-level="4.1.4" data-basepath="../../.." data-revision="Thu Sep 17 2015 16:06:27 GMT-0300 (BRT)">
     
 
 <div class="book-summary">
@@ -350,7 +350,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.4" data-path="bridge/configuracoes-de-marketplace/buscape/index.html">
+        <li class="chapter active" data-level="4.1.4" data-path="bridge/configuracoes-de-marketplace/buscape/index.html">
             
                 
                     <a href="../../../bridge/configuracoes-de-marketplace/buscape/index.html">
@@ -467,7 +467,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.3.2" data-path="bridge/interface-de-produto/analises-de-erros/index.html">
+        <li class="chapter " data-level="4.3.2" data-path="bridge/interface-de-produto/analises-de-erros/index.html">
             
                 
                     <a href="../../../bridge/interface-de-produto/analises-de-erros/index.html">
@@ -880,17 +880,27 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="an%C3%A1lises-de-erros"><a name="an%C3%A1lises-de-erros" class="plugin-anchor" href="#an%C3%A1lises-de-erros"><span class="fa fa-link"></span></a>An&#xE1;lises de Erros</h1>
-<p>Aqui teremos o controle dos <strong>Produtos</strong> que n&#xE3;o integraram no Marketplace desde a VTEX por algum erro. Como &#xE9; um registro de erro, aqui conseguiremos tomas a&#xE7;&#xF5;es sobre o esses que sofreram algum conflito!</p>
+                        <h2 id="buscap%C3%A9"><a name="buscap%C3%A9" class="plugin-anchor" href="#buscap%C3%A9"><span class="fa fa-link"></span></a>Buscap&#xE9;</h2>
 <blockquote>
-<p>A&#xE7;&#xF5;es poss&#xED;veis</p>
+<p>Vis&#xE3;o do painel de configura&#xE7;&#xE3;o:</p>
 </blockquote>
-<p>Quando com um registro de erro associado a um <strong>Produto</strong> n&#xE3;o integrado, basta clicar no mesmo registro para visulizar exatamente a origem que levou a este n&#xE3;o ser integrado:</p>
-<p><img src="V_produto_erro.gif" alt="An&#xE1;lise de Erro"></p>
-<p>Dependendo do erro, demandar&#xE1; de um tratamento pontual em algum valor de Estoque do SKU associado ao Pedido, ou um valor que n&#xE3;o teve tempo h&#xE1;bil para ser replicado para o Parceiro.</p>
-<p>Para entender os tipos de erros que podem ser ilustrados em rela&#xE7;&#xE3;o ao seu tratamento e reprocessamento, acesse:</p>
+<p><img src="V_config_buscape.gif" alt="Config Buscap&#xE9;"></p>
+<blockquote>
+<blockquote>
+<p>Para cada campo temos:</p>
+</blockquote>
+</blockquote>
 <ul>
-<li><a href="reprocessamento-de-produtos/README.md">Reprocessamento de Produtos com erro</a></li>
+<li><p><strong>Integra&#xE7;&#xE3;o de Produtos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Produtos</p>
+</li>
+<li><p><strong>Integra&#xE7;&#xE3;o de Pedidos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pedidos</p>
+</li>
+<li><p><strong>Integra&#xE7;&#xE3;o de Invent&#xE1;rio</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pre&#xE7;os e Estoques</p>
+</li>
+<li><p><strong>Chave de Acesso &#xE0; API</strong>: Chave fornecida pelo pr&#xF3;prio Buscap&#xE9; para identificar a Loja no sistema do Parceiro</p>
+</li>
+<li><p><strong>Id do Afiliado</strong>: No caso do Buscap&#xE9;, utilizar o padr&#xE3;o &quot;BSC&quot; (ser&#xE1; o mesmo indicado no OMS &gt; Afiliados)</p>
+</li>
 </ul>
 
                     
@@ -902,10 +912,10 @@
         </div>
 
         
-        <a href="../../../bridge/interface-de-produto/analises-de-sucessos/index.html" class="navigation navigation-prev " aria-label="Previous page: Análises de Sucessos"><i class="fa fa-angle-left"></i></a>
+        <a href="../../../bridge/configuracoes-de-marketplace/rakuten/index.html" class="navigation navigation-prev " aria-label="Previous page: Rakuten"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../../bridge/interface-de-produto/reprocessamento-de-produtos/index.html" class="navigation navigation-next " aria-label="Next page: Reprocessamento de produtos"><i class="fa fa-angle-right"></i></a>
+        <a href="../../../bridge/interface-de-pedidos/index.html" class="navigation navigation-next " aria-label="Next page: Interface de Pedidos"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
