@@ -25,3 +25,7 @@
 * **Mapeamento de Especificações de SKU**:  Essa função, se ativa, surge efeito apenas se acordado sua necessidade com a B2W. Por exemplo para uma Loja que vende anéis e usa uma especificação de nome "Aro". Este precisa ser mapeado de "Aro" para "TAMANHO" para atender o consuma do Parceiro
 
 * **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s)
+
+Feitas as devidas configurações no VTEX Bridge, basta finalizar o restante das configurações nos demais módulos da VTEX:
+
+>> [B2W - Demais configuraçÕes](http://help.vtex.com/hc/pt-br/articles/206105948-B2W-Configura%C3%A7%C3%B5es-de-Marketplace)

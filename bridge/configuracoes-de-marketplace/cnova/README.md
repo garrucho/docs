@@ -21,3 +21,7 @@
 * **Nome do campo de Especificação de Produto que contém sua Descrição**: Será aqui mapeado, nas Especificações do Produto, o campo que contém o conteúdo utilizado como Descrição do mesmo.
 
 * **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s)
+
+Feitas as devidas configurações no VTEX Bridge, basta finalizar o restante das configurações nos demais módulos da VTEX:
+
+>> [CNova - Demais configurações](http://help.vtex.com/hc/pt-br/articles/206859697-CNova-Configura%C3%A7%C3%B5es-de-Marketplace)

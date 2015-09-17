@@ -37,3 +37,7 @@
 * **Mapeamento de Transportadoras**: Caso for usar o sistema de Frete da VTEX, nos fornecer um De-Para com o ID do serviço de frete da Rakuten (o ID precisa que ser NUMÉRICO, NÃO INICIADO POR ZERO) e o ID da transportadora. Se **não**, também deve nos fornecer esse De-Para, mas além disto, dar frete grátis para o Marketplace da Rakuten para não conflitar com os valores usados pelo Parceiro. Maiores dúvida, acesse o 6º passo da seguinte documentaçã: [Rakuten - Configurações iniciais](http://help.vtex.com/hc/pt-br/articles/206863767-Rakuten-Configura%C3%A7%C3%B5es-iniciais)
 
 * **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s)
+
+Feitas as devidas configurações no VTEX Bridge, basta finalizar o restante das configurações nos demais módulos da VTEX:
+
+* [Demais configurações com Marketplace da Rakuten](http://help.vtex.com/hc/pt-br/articles/206863767-Rakuten-Configura%C3%A7%C3%B5es-de-Marketplace)
