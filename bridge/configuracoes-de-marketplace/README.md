@@ -12,16 +12,12 @@ Teremos em seguida, para cada Marketplace acima comentado, o que deve ser feito 
 > Para cada um destes Parceiro temos as seguintes configurações:
 
 * [B2W](b2w\README.md)
->> [B2W - Demais configuraçÕes](http://help.vtex.com/hc/pt-br/articles/206105948-B2W-Configura%C3%A7%C3%B5es-de-Marketplace)
 
 * [CNova](cnova\README.md)
->> [CNova - Demais configurações](http://help.vtex.com/hc/pt-br/articles/206859697-CNova-Configura%C3%A7%C3%B5es-de-Marketplace)
 
 * [Rakuten](rakuten\README.md)
->> [Rakuten - Demais configurações](http://help.vtex.com/hc/pt-br/articles/206863767-Rakuten-Configura%C3%A7%C3%B5es-de-Marketplace)
 
 * [Buscapé](buscape\README.md)
->> [Buscapé - Demais configurações](http://help.vtex.com/hc/pt-br/articles/209339198-Buscap%C3%A9-Configura%C3%A7%C3%B5es-de-Comparador-de-Pre%C3%A7o-com-o-fechamento-de-Pedido-na-VTEX)
 
 > E os outros Marketplaces, como configuro?
 
