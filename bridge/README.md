@@ -1,7 +1,7 @@
-#  VTEX Bridge 
+#  VTEX Bridge
 O **VTEX Bridge** é o módulo responsável por intermediar e gerenciar todas as comunicações entre a sua loja VTEX e os Marketplaces. Nele você controla os possíveis erros e os sucessos que ocorrer nas diversas interfaces de **Pedidos**, **Produtos**, **Preço**, **Estoque** e **Tracking**. Além de poder tratar esses erros e reprocessar você mesmo a reintegração na interface que se encontrar. Também terá as configurações que ativam essa integração diretamente em sua Loja.
 
->>As movimentações que serão registradas no VETX Bridge serão apenas para aqueles Marketplaces que hoje integramos de forma **ativa**. Isto é, onde nós quem realizamos as exportações de Produtos, Preços e Estoque e/ou onde nós campturamos os Pedidos realizados no Marketplace. Os Marketplaces que temos hoje com a integração ativa são: B2W, CNova, Rakuten, Buscapé e Walmart (apenas na parte de Protudos, Preços e Estoque. Pedidos o próprio Walmart quem insere na VTEX).
+>>As movimentações que serão registradas no VTEX Bridge serão apenas para aqueles Marketplaces que hoje integramos de forma **ativa**. Isto é, onde nós quem realizamos as exportações de Produtos, Preços e Estoque e/ou onde nós campturamos os Pedidos realizados no Marketplace. Os Marketplaces que temos hoje com a integração ativa são: B2W, CNova, Rakuten, Buscapé e Walmart (apenas na parte de Protudos, Preços e Estoque. Pedidos o próprio Walmart quem insere na VTEX).
 
 ## Visão geral
 

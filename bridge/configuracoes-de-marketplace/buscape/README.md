@@ -14,6 +14,6 @@
 
 * **Id do Afiliado**: No caso do Buscapé, utilizar o padrão "BSC" (será o mesmo indicado no OMS > Afiliados)
 
-Feitas as devidas configurações no VTEX Bridge, basta finalizar o restante das configurações nos demais módulos da VTEX:
+>>>Feitas as devidas configurações no VTEX Bridge, basta finalizar o restante das configurações nos demais módulos da VTEX:
 
->> [Demais configurações com Marketplace do Buscapé](http://help.vtex.com/hc/pt-br/articles/209339198-Buscap%C3%A9-Configura%C3%A7%C3%B5es-de-Comparador-de-Pre%C3%A7o-com-o-fechamento-de-Pedido-na-VTEX)
+* [Demais configurações para o Marketplace do Buscapé](http://help.vtex.com/hc/pt-br/articles/209339198-Buscap%C3%A9-Configura%C3%A7%C3%B5es-de-Comparador-de-Pre%C3%A7o-com-o-fechamento-de-Pedido-na-VTEX)

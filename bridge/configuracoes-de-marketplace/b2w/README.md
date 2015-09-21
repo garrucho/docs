@@ -26,6 +26,6 @@
 
 * **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s)
 
-Feitas as devidas configurações no VTEX Bridge, basta finalizar o restante das configurações nos demais módulos da VTEX:
+>>>Feitas as devidas configurações no VTEX Bridge, basta finalizar o restante das configurações nos demais módulos da VTEX:
 
->> [B2W - Demais configuraçÕes](http://help.vtex.com/hc/pt-br/articles/206105948-B2W-Configura%C3%A7%C3%B5es-de-Marketplace)
+* [Demais configurações para o Marketplace da B2W](http://help.vtex.com/hc/pt-br/articles/206105948-B2W-Configura%C3%A7%C3%B5es-de-Marketplace)
