@@ -1106,7 +1106,7 @@ Parametro: **idpagamento** //identificador do pagamento</br>
 _response:_
 
 ```json
-302
+
 ```
 
 <a name="a9"></a>
