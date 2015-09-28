@@ -1136,8 +1136,14 @@ http://lab.vtex.com/docs/oms/api/latest/feed/index.html
 >> R.: Eles devem ser descartados confirmado os mesmo na fila.
 
 
->POR LER ATE AQUI
->>Na ferramenta POSTMAN usando esse link ``` https://www.getpostman.com/collections/00738f3e2732d6aa736a ``` é possível importar uma coleção de requests. Nela tem um exemplo de cada request citado nesse documento.
+Esses são os passos que dever ser seguidos para a integração com o VTEX Marketplace Switch.
+
+
+> POR LER ATE AQUI
+>> Na ferramenta POSTMAN usando esse link ``` https://www.getpostman.com/collections/00738f3e2732d6aa736a ``` é possível importar uma coleção de requests. Nela tem um exemplo de cada request citado nesse documento.
+
+
+
 ---
 Autor: _Jonas Bolognim_</br>
 Propriedade:_VTEX &copy;_</br>
