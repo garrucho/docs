@@ -35,7 +35,6 @@ Este documento tem por finalidade auxiliar na integração de aplicativos com o 
 
  >Os metodos de buscar condições comerciais e simular carrinho são os mesmos.
 
-
 4. Implementar rotina que coloca um pedido no VTEX Marketplace Switch - Aplicativo vai chamar endpoint do VTEX Marketplace Switch. O Aplicativo irá usar esse enpoint para colocar um pedido no VTEX Marketplace Switch.
 
  _exemplo da chamada:_</br>
