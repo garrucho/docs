@@ -4,7 +4,7 @@ Este documento tem por finalidade auxiliar na integração de aplicativos com o 
 
 > ALGUNS CONCEITOS:
 >> _VTEX Marketplace Switch_ = Concentrador de Sellers (lojas integradas ao Switch).</br>
->> _Aplicativos_ = Dono da vitrine (cara com o cliente final), responsável por expor e vender o SKU.</br>
+>> _Aplicativos_ = Afiliado, dono da vitrine (cara com o cliente final), responsável por expor e vender o SKU.</br>
 >> _SKU_ = Item a ser trocado e vendido entre Marketplace e Seller.</br>
 >> _Endpoint_ = Ponto de acesso de um serviço na internet, serviço pronto para receber uma requisição e devolver uma resposta.</br>
 
@@ -33,7 +33,8 @@ Este documento tem por finalidade auxiliar na integração de aplicativos com o 
  [Exemplo Completo: Consultar Política Comercial no VTEX Marketplace Switch](#a3)
  [Exemplo Completo: simula Carrinho no VTEX Marketplace Switch](#a8)
 
->Os metodos de buscar condições comerciais e simular carrinho são os mesmos.
+ >Os metodos de buscar condições comerciais e simular carrinho são os mesmos.
+
 
 4. Implementar rotina que coloca um pedido no VTEX Marketplace Switch - Aplicativo vai chamar endpoint do VTEX Marketplace Switch. O Aplicativo irá usar esse enpoint para colocar um pedido no VTEX Marketplace Switch.
 
@@ -70,15 +71,9 @@ Este documento tem por finalidade auxiliar na integração de aplicativos com o 
 
  - - -
 
-##Abaixo segue o passo a passo detalhado de cada fluxo:
+###Abaixo segue o exemplo detalhado de cada fluxo:
 
 ###Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU
-
-Fluxo de troca de catalogo de SKU e atualização de preço, estoque, frete, SLAs de entrega:
-
-![alt text](sku-sugestion-canal-nao-vtex.png "Title")
-
-###Inserção e Atualização de SKU - Fluxo
 
 * Dentro do VTEX Marketplace Switch, será criado um *afiliado, que é o interessado em receber o catálogo e as atualizações de condições comerciais.
 
@@ -93,12 +88,12 @@ Fluxo de troca de catalogo de SKU e atualização de preço, estoque, frete, SLA
   * **Caso NÃO**: O afiliado busca a SKU no VTEX Marketplace Switch, insere no seu catalogo, e depois repete o cenário do "Caso SIM".
 
 
-> As requisições de notificação de mudança devem ser tratadas assincronamente, ou seja, recebe a notificação, enfileira, e depois processa, evitando assim a honeração dos sistemas envolvidos.
+> As requisições de notificação de mudança devem ser tratadas assincronamente, ou seja, recebe a notificação, coloca se numa fila, e depois processa, evitando assim a honeração dos sistemas envolvidos.
 
 <a name="a1"></a>
 ###Notificação de Mudança
 
-Notifica o Marketplace Não VTEX que houve uma mudança nas condições comerciais (preço, estoque, SLAs de entrega) de uma SKU - Endpoint do Afiliado (Aplicativo)
+Notifica o aplicativo que houve uma mudança nas condições comerciais (preço, estoque, SLAs de entrega) de uma SKU - Endpoint do Afiliado (Aplicativo)
 
 endpoint: ``` https://[endpointdoafiliado}/api/notification/ ```</br>
 verb: **POST**</br>
@@ -120,14 +115,14 @@ _request:_
 <a name="a3"></a>
 ###Busca de Condições Comerciais
 
-Acessa a loja VTEX pegando as condições comerciais (preço, estoque, SLAs de entrega) de uma SKU  - Endpoint do VTEX Marketplace Switch
+Acessa o VTEX Marketplace Switch pegando as condições comerciais (preço, estoque, SLAs de entrega) de uma SKU  - Endpoint do VTEX Marketplace Switch
 
-endpoint: ``` https://sandboxintegracao.vtexcommercestable.com.br/api/checkout/pub/orderForms/simulation?sc=[idpoliticacomercial]&affiliateId=[idafiliado] ```
+endpoint: ``` https://sandboxintegracao.vtexcommercestable.com.br/api/checkout/pub/orderForms/simulation?sc=[idpoliticacomercial]&affiliateId=[idafiliado] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
 Parametro: **sc** // sc é a politica comercial praticada</br>
-Parametro: **affiliateId** // o id do afiliado cadastrado na loja VTEX</br>
+Parametro: **affiliateId** // o id do afiliado cadastrado no VTEX Marketplace Switch</br>
 
 _request:_
 
@@ -285,9 +280,9 @@ _response:_
 <a name="a2"></a>
 ###Busca Informações de uma SKU
 
-Acessa uma loja VTEX e busca dados de uma SKU - Endpoint do VTEX Marketplace Switch
+Acessa o VTEX Marketplace Switch e busca dados de uma SKU - Endpoint do VTEX Marketplace Switch
 
-endpoint: ``` http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku] ```
+endpoint: ``` http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku] ```</br>
 verb: **GET**</br>
 Accept: **application/json**</br>
 Parametro: **idSku** // identificador do SKU</br>
@@ -432,14 +427,11 @@ Este tópico tem por objetivo auxiliar o na simulação de carrinho entre um apl
 
 Quando um produto é inserido no carrinho do aplicativo, ou faz se alguma edição no carrinho, uma consulta de simulaçao de carrinho deverá ser feita no VTEX Marketplace Switch para checar a validade das condições comerciais (preço, estoque, frete e SLAs de entrega). Quando o cliente vai para o pagamento, uma outra simulação de carrinho deverá ser realizada.
 
-_Fluxo de chamadas no carrinho e no pagamento:_
-
-![alt text](fechato-canal-nvtex.png "fechamento do pedido no marketplace")
 
 <a name="a8"></a>
 ###Simulação de Carrinho
 
-Acessa a loja VTEX simulando um carrinho, para checar as condições comerciais e as SLAs de entrega - Endpoint do VTEX Marketplace Switch
+Acessao VTEX Marketplace Switch simulando um carrinho, para checar as condições comerciais e as SLAs de entrega - Endpoint do VTEX Marketplace Switch
 
 endpoint: ``` https://[loja].vtexcommercestable.com.br/api/checkout/pub/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado] ```
 verb: **POST**</br>
@@ -630,12 +622,12 @@ Este tópico tem por objetivo auxiliar um aplicativo enviar um pedido, iformar u
 
 Quando o pedido é fechado em um aplicativo, um POST deve ser feito no VTEX Marketplace Switch, para que essa possa receber a ordem de pedido - Endpoint do VTEX Marketplace Switch
 
-endpoint: ``` https://[loja].vtexcommercestable.com.br/api/checkout/pub/orders?sc=1&affiliateId=LBB ```
+endpoint: ``` https://[loja].vtexcommercestable.com.br/api/checkout/pub/orders?sc=1&affiliateId=LBB ```</br>
 verb: **PUT**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
 Parametro: **sc** // sc é o canal de vendas cadastrado na VTEX.</br>
-Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado n loja VTEX</br>
+Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado no VTEX Marketplace Switch</br>
 
 _request:_
 
@@ -789,7 +781,7 @@ _response:_
           "unitMultiplier": 1
         }
       ],
-      "sellers": [ //seller que vendem essa SKU
+      "sellers": [ //sellers que vendem essa SKU
         {
           "id": "1",
           "name": "Sandbox-integracao",
@@ -1026,7 +1018,7 @@ _retorno de erro:_
 Informa o pagamento do pedido - Endpoint do VTEX Marketplace Switch. Nesse modelo um pagamento customizado dever
 ser enviado, para que se complete o fluxo do pedido.
 
-endpoint: ``` https://sandboxintegracao.vtexpayments.com.br/split/[iddogrupodopedido]/payments ```
+endpoint: ``` https://sandboxintegracao.vtexpayments.com.br/split/[iddogrupodopedido]/payments ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -1080,7 +1072,7 @@ _response:_
 
 Fecha o fluxo de fechamento de pedido - Endpoint do VTEX Marketplace Switch. Esta chamada serve para fechar o fluxo de fechamento do pedido no VTEX Marketplace Switch. O retorno de sucesso desse metodo é um status code 302.
 
-endpoint: ``` https://sandboxintegracao.vtexcommercestable.com.br/checkout/gatewayCallback/[iddogrupodopedido]/Success ```
+endpoint: ``` https://sandboxintegracao.vtexcommercestable.com.br/checkout/gatewayCallback/[iddogrupodopedido]/Success ```</br>
 verb: **GET**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -1097,7 +1089,7 @@ _response:_
 
 Informa o pagamento do pedido - Endpoint do VTEX Marketplace Switch
 
-endpoint: ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/payments/[idpagamento]/payment-notification ```
+endpoint: ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/payments/[idpagamento]/payment-notification ```</br>
 verb: **GET**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -1112,7 +1104,7 @@ _response:_
 <a name="a9"></a>
 ###Ouvir o Feed de Status de Pedido
 
-Ouve o feed de status de pedido - Endpoint do VTEX Marketplace Switch. O aplicativo deve se increver no feed de status de pedidos, ouvir e tratar o status que lhe interessa e confirmar. Os tatus que vai ignorar devem somente ser confirmados.
+Ouvir o feed de status de pedido - Endpoint do VTEX Marketplace Switch. O aplicativo deve se increver no feed de status de pedidos, ouvir e tratar o status que lhe interessa e confirmar. Os status que vai ignorar devem somente ser confirmados.
 
 http://lab.vtex.com/docs/oms/api/latest/feed/index.html
 
@@ -1136,7 +1128,7 @@ http://lab.vtex.com/docs/oms/api/latest/feed/index.html
 >> R.: Eles devem ser descartados confirmado os mesmo na fila.
 
 
-Esses são os passos que dever ser seguidos para a integração com o VTEX Marketplace Switch.
+Esses são os passos que devem ser seguidos para a integração com o VTEX Marketplace Switch.
 
 
 > POR LER ATE AQUI
