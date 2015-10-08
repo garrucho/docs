@@ -732,7 +732,7 @@ endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
-
+Paramentro: **marketplaceorderId**</br> //identificador do pedido do Marketplace
 _request:_
 
 ```json
@@ -773,7 +773,7 @@ endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
-
+Paramentro: **marketplaceorderId**</br> //identificador do pedido do Marketplace
 
 _request:_
 
@@ -812,7 +812,25 @@ _response:_
 Uma solicitação de cancelamento pode ser enviada para o para o Marketplace no marketplaceServicesEndpoint - Endpoint do Marketplace
 
 endpoint: ``` https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel ```
-verb: **GET**</br>
+verb: **POST**</br>
+Paramentro: **marketplaceorderId**</br> //identificador do pedido do Marketplace
+
+
+_request:_
+
+```json
+
+```
+
+_response:_
+
+```json
+{
+  "orderId": "564041714680-01",
+  "receipt": "5342fde6-86d1-4220-a83b-9a992145b547",
+  "date": "2015-10-08T20:36:51.2390821+00:00"
+}
+```
 
 
 >A nota fiscal e o tracking podem ser enviados na mesma chamada, basta preencher todos os dados do POST, cabendo ao receber controlar o fluxo de captura de pagamento.
