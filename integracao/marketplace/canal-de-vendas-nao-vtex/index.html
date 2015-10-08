@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.1" data-basepath="../../.." data-revision="Tue Sep 29 2015 17:30:48 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.1" data-basepath="../../.." data-revision="Thu Oct 08 2015 18:55:21 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -1565,8 +1565,9 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
 <p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
-Accept: <strong>application/json</strong><br></p>
-<p><em>request:</em></p>
+Accept: <strong>application/json</strong><br>
+Paramentro: <strong>marketplaceorderId</strong><br> //identificador do pedido do Marketplace
+<em>request:</em></p>
 <pre><code class="lang-json">{
     <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Output&quot;</span>, <span class="hljs-comment">//Output(venda)|Input(devolu&#xE7;&#xE3;o)</span>
     <span class="hljs-string">&quot;invoiceNumber&quot;</span>: <span class="hljs-string">&quot;NFe-00001&quot;</span>, <span class="hljs-comment">//numero da nota fiscal</span>
@@ -1597,7 +1598,8 @@ Accept: <strong>application/json</strong><br></p>
 <p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
-Accept: <strong>application/json</strong><br></p>
+Accept: <strong>application/json</strong><br>
+Paramentro: <strong>marketplaceorderId</strong><br> //identificador do pedido do Marketplace</p>
 <p><em>request:</em></p>
 <pre><code class="lang-json">{
     &quot;type&quot;: &quot;Output&quot;,
@@ -1627,7 +1629,19 @@ Accept: <strong>application/json</strong><br></p>
 <h3 id="enviar-solicita%C3%A7%C3%A3o-de-cancelamento"><a name="enviar-solicita%C3%A7%C3%A3o-de-cancelamento" class="plugin-anchor" href="#enviar-solicita%C3%A7%C3%A3o-de-cancelamento"><span class="fa fa-link"></span></a>Enviar Solicita&#xE7;&#xE3;o de Cancelamento</h3>
 <p>Uma solicita&#xE7;&#xE3;o de cancelamento pode ser enviada para o para o Marketplace no marketplaceServicesEndpoint - Endpoint do Marketplace</p>
 <p>endpoint: <code>https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel</code>
-verb: <strong>GET</strong><br></p>
+verb: <strong>POST</strong><br>
+Paramentro: <strong>marketplaceorderId</strong><br> //identificador do pedido do Marketplace</p>
+<p><em>request:</em></p>
+<pre><code class="lang-json">
+
+</code></pre>
+<p><em>response:</em></p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;orderId&quot;</span>: <span class="hljs-string">&quot;564041714680-01&quot;</span>,
+  <span class="hljs-string">&quot;receipt&quot;</span>: <span class="hljs-string">&quot;5342fde6-86d1-4220-a83b-9a992145b547&quot;</span>,
+  <span class="hljs-string">&quot;date&quot;</span>: <span class="hljs-string">&quot;2015-10-08T20:36:51.2390821+00:00&quot;</span>
+}
+</code></pre>
 <blockquote>
 <p>A nota fiscal e o tracking podem ser enviados na mesma chamada, basta preencher todos os dados do POST, cabendo ao receber controlar o fluxo de captura de pagamento.</p>
 </blockquote>

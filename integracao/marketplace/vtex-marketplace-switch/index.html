@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.5" data-basepath="../../.." data-revision="Tue Sep 29 2015 17:30:48 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.5" data-basepath="../../.." data-revision="Thu Oct 08 2015 18:55:21 GMT-0300 (E. South America Standard Time)">
     
 
 <div class="book-summary">
@@ -958,10 +958,15 @@
 <code>https://sandboxintegracao.vtexcommercestable.com.br/checkout/gatewayCallback/564032167396/Success</code></p>
 <p><a href="#a6">Exemplo Completo: Finaliza Fluxo de Fechamento de Pedido no VTEX Marketplace Switch</a></p>
 </li>
+<li><p>Implementar rotina que busca dados do pagamento no PCI gateway do VTEX Marketplace Switch - Aplicativo vai chamar endpoint do PCI gateway do VTEX Marketplace Switch. O aplicativo ir&#xE1; usar esse enpoint para buscar dados do pagamento no PCI gateway do VTEX Marketplace Switch. Dentro do dados de pagamento recuperar o id do pagamento para ser usado no passo 8 abaixo.</p>
+<p><em>exemplo da chamada:</em><br>
+<code>https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/CE0C550E892044D3BDDA435984D73860/payments</code></p>
+<p><a href="#a7">Exemplo Completo: Informa sucesso do pagamento PCI gateway do do VTEX Marketplace Switch</a></p>
+</li>
 <li><p>Implementar rotina que informa sucesso na aprova&#xE7;&#xE3;o do pagamento no PCI gateway do VTEX Marketplace Switch - Aplicativo vai chamar endpoint do PCI gateway do VTEX Marketplace Switch. O aplicativo ir&#xE1; usar esse enpoint para aprovar o pagamento no PCI gateway do VTEX Marketplace Switch.</p>
 <p><em>exemplo da chamada:</em><br>
 <code>https://sandboxintegracao.vtexpayments.com.br/api/pvt/payments/C75C19DDC66F41A6B8EF8E06CBCC5C5F/payment-notification</code></p>
-<p><a href="#a7">Exemplo Completo: Informa sucesso do pagamento PCI gateway do do VTEX Marketplace Switch</a></p>
+<p><a href="#a8">Exemplo Completo: Informa sucesso do pagamento no PCI gateway do VTEX Marketplace Switch</a></p>
 </li>
 <li><p>Ouve o feed de status de pedido - Endpoint do VTEX Marketplace Switch. O aplicativo deve se subescrever no feed de status de pedidos, ouvir e tratar o status que lhe interessa e confirmar os status que vai ignorar.</p>
 <p><a href="#a9">Exemplo Completo: Ouvir feed de status de pedido</a><br></p>
@@ -1008,7 +1013,7 @@ Accept: <strong>application/json</strong><br></p>
 <p><a name="a3"></a></p>
 <h3 id="busca-de-condi%C3%A7%C3%B5es-comerciais"><a name="busca-de-condi%C3%A7%C3%B5es-comerciais" class="plugin-anchor" href="#busca-de-condi%C3%A7%C3%B5es-comerciais"><span class="fa fa-link"></span></a>Busca de Condi&#xE7;&#xF5;es Comerciais</h3>
 <p>Acessa o VTEX Marketplace Switch pegando as condi&#xE7;&#xF5;es comerciais (pre&#xE7;o, estoque, SLAs de entrega) de uma SKU  - Endpoint do VTEX Marketplace Switch</p>
-<p>endpoint: <code>https://sandboxintegracao.vtexcommercestable.com.br/api/checkout/pub/orderForms/simulation?sc=[idpoliticacomercial]&amp;affiliateId=[idafiliado]</code><br>
+<p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/checkout/pub/orderForms/simulation?sc=[idpoliticacomercial]&amp;affiliateId=[idafiliado]</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br>
@@ -1479,7 +1484,7 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
 <p>Este t&#xF3;pico tem por objetivo auxiliar um aplicativo enviar um pedido, iformar um pagamento e fechar o processo de pedido no VTEX Marketplace Switch.</p>
 <p><a name="a4"></a></p>
 <h3 id="enviar-pedido"><a name="enviar-pedido" class="plugin-anchor" href="#enviar-pedido"><span class="fa fa-link"></span></a>Enviar Pedido</h3>
-<p>Quando o pedido &#xE9; fechado em um aplicativo, um POST deve ser feito no VTEX Marketplace Switch, para que essa possa receber a ordem de pedido - Endpoint do VTEX Marketplace Switch</p>
+<p>Quando o pedido &#xE9; fechado em um aplicativo, um PUT deve ser feito no VTEX Marketplace Switch, para que essa possa receber a ordem de pedido - Endpoint do VTEX Marketplace Switch</p>
 <p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/checkout/pub/orders?sc=1&amp;affiliateId=LBB</code><br>
 verb: <strong>PUT</strong><br>
 Content-Type: <strong>application/json</strong><br>
@@ -1864,7 +1869,7 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
 <h3 id="informa-pagamento"><a name="informa-pagamento" class="plugin-anchor" href="#informa-pagamento"><span class="fa fa-link"></span></a>Informa Pagamento</h3>
 <p>Informa o pagamento do pedido - Endpoint do VTEX Marketplace Switch. Nesse modelo um pagamento customizado dever
 ser enviado, para que se complete o fluxo do pedido.</p>
-<p>endpoint: <code>https://sandboxintegracao.vtexpayments.com.br/split/[iddogrupodopedido]/payments</code><br>
+<p>endpoint: <code>https://[loja].vtexpayments.com.br/split/[iddogrupodopedido]/payments</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br>
@@ -1915,16 +1920,109 @@ Parametro: <strong>iddogrupodopedido</strong> //identificador retornado no inser
 <pre><code class="lang-json"><span class="hljs-number">302</span>
 </code></pre>
 <p><a name="a7"></a></p>
-<h3 id="aprovar-o-pagamento"><a name="aprovar-o-pagamento" class="plugin-anchor" href="#aprovar-o-pagamento"><span class="fa fa-link"></span></a>Aprovar o Pagamento</h3>
-<p>Informa o pagamento do pedido - Endpoint do VTEX Marketplace Switch</p>
-<p>endpoint: <code>https://sandboxintegracao.vtexpayments.com.br/api/pvt/payments/[idpagamento]/payment-notification</code><br>
+<h3 id="recuperar-e-aprovar-o-pagamento"><a name="recuperar-e-aprovar-o-pagamento" class="plugin-anchor" href="#recuperar-e-aprovar-o-pagamento"><span class="fa fa-link"></span></a>Recuperar e Aprovar o Pagamento</h3>
+<p>Recupera o identificador do pagamento e informa o sucesso no pagamento do pedido - Endpoint do VTEX Marketplace Switch</p>
+<p>Recupera dados de pagamento:<br></p>
+<p>endpoint: <code>https://[loja].vtexpayments.com.br/api/pvt/transactions/[idtransacao]/payments</code><br>
+verb: <strong>GET</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br>
+Parametro: <strong>idtransacao</strong> //identificador do transa&#xE7;&#xE3;o do pagamento<br></p>
+<p><em>response:</em></p>
+<pre><code class="lang-json">[
+  {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;929FDCB1C9FB4111875F2863A47FF8D2&quot;</span>, <span class="hljs-comment">//identificador do pagamento, usado para manipular o pagamento</span>
+    <span class="hljs-string">&quot;paymentSystem&quot;</span>: <span class="hljs-number">201</span>,
+    <span class="hljs-string">&quot;paymentSystemName&quot;</span>: <span class="hljs-string">&quot;FastShop Money F$&quot;</span>,
+    <span class="hljs-string">&quot;group&quot;</span>: <span class="hljs-string">&quot;promissory&quot;</span>,
+    <span class="hljs-string">&quot;isCustom&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">&quot;allowInstallments&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">&quot;allowIssuer&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">&quot;allowNotification&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">&quot;isAvailable&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;self&quot;</span>: {
+      <span class="hljs-string">&quot;href&quot;</span>: <span class="hljs-string">&quot;/api/pvt/transactions/CE0C550E892044D3BDDA435984D73860/payments/929FDCB1C9FB4111875F2863A47FF8D2&quot;</span>
+    },
+    <span class="hljs-string">&quot;tid&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;returnCode&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;returnMessage&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;Settling&quot;</span>,
+    <span class="hljs-string">&quot;connector&quot;</span>: <span class="hljs-string">&quot;Promissory&quot;</span>,
+    <span class="hljs-string">&quot;ConnectorResponses&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;connectorResponse&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;ShowConnectorResponses&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">90500</span>,
+    <span class="hljs-string">&quot;installmentsInterestRate&quot;</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-string">&quot;installmentsValue&quot;</span>: <span class="hljs-number">90500</span>,
+    <span class="hljs-string">&quot;referenceValue&quot;</span>: <span class="hljs-number">90500</span>,
+    <span class="hljs-string">&quot;installments&quot;</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">&quot;currencyCode&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;provider&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;fields&quot;</span>: [
+      {
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;affiliationId&quot;</span>,
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;65216163-55ff-4224-982e-01fe6bcf8184&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;callbackUrl&quot;</span>,
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;baseUrl&quot;</span>,
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;https://FASTSHOP.vtexpayments.com.br:443&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;currencyCode&quot;</span>,
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;connector&quot;</span>,
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;Vtex.PaymentGateway.Connectors.PromissoryConnector&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;sequence&quot;</span>,
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;500001-0&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;notified&quot;</span>,
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;True&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;waitingForAutoSettle&quot;</span>,
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;06/10/2015 16:16:32 P UTC&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;settlement&quot;</span>,
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;[{\&quot;Id\&quot;:\&quot;8c53c854-1b64-430e-a9fb-cfcda8987f78\&quot;,\&quot;Token\&quot;:\&quot;06FF3567FEA14E8582BC6DF39026EB12\&quot;,\&quot;SettlementDate\&quot;:\&quot;2015-10-06T16:16:35.8276913Z\&quot;,\&quot;ValueAsInt\&quot;:90500,\&quot;Value\&quot;:905.0,\&quot;SettlementType\&quot;:1}]&quot;</span>
+      }
+    ],
+    <span class="hljs-string">&quot;sheets&quot;</span>: <span class="hljs-literal">null</span>
+  }
+]
+</code></pre>
+<p>Aprovando um pagamento:<br></p>
+<p>endpoint: <code>https://[loja].vtexpayments.com.br/api/pvt/payments/[idpagamento]/payment-notification</code><br>
 verb: <strong>GET</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br>
 Parametro: <strong>idpagamento</strong> //identificador do pagamento<br></p>
 <p><em>response:</em></p>
-<pre><code class="lang-json">
-
+<pre><code class="lang-json"><span class="hljs-number">200</span>
+</code></pre>
+<p>Cancelando uma transa&#xE7;&#xE3;o de pagamento:<br></p>
+<p>endpoint: <code>https://[loja].vtexpayments.com.br/api/pvt/transactions/[idtransacao]/cancellation-request</code><br>
+verb: <strong>POST</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br>
+Parametro: <strong>idtransacao</strong> //identificador do transa&#xE7;&#xE3;o do pagamento<br></p>
+<p><em>response:</em></p>
+<pre><code class="lang-json"> {
+    value: <span class="hljs-number">90500</span> <span class="hljs-comment">//valor do pagamento</span>
+ }
+</code></pre>
+<p><em>response:</em></p>
+<pre><code class="lang-json"><span class="hljs-number">200</span>
 </code></pre>
 <p><a name="a9"></a></p>
 <h3 id="ouvir-o-feed-de-status-de-pedido"><a name="ouvir-o-feed-de-status-de-pedido" class="plugin-anchor" href="#ouvir-o-feed-de-status-de-pedido"><span class="fa fa-link"></span></a>Ouvir o Feed de Status de Pedido</h3>
@@ -1957,6 +2055,571 @@ Parametro: <strong>idpagamento</strong> //identificador do pagamento<br></p>
 <p>R.: Eles devem ser descartados confirmado os mesmo na fila.</p>
 </blockquote>
 </blockquote>
+<p><a name="a10"></a></p>
+<h3 id="buscar-detalhe-de-pedido"><a name="buscar-detalhe-de-pedido" class="plugin-anchor" href="#buscar-detalhe-de-pedido"><span class="fa fa-link"></span></a>Buscar Detalhe de Pedido</h3>
+<p>Uma outra op&#xE7;&#xE3;o para acompanhar e buscar os dados de pedido, como nota fiscal e trackiing, &#xE9; buscar pontualmente o grupo de pedidos e respectivamente os detalhes dos pedidos.</p>
+<p>Busca grupo de pedidos:</p>
+<p>endpoint: <code>https://[loja].vtexpayments.com.br/api/oms/pvt/orders?orderGroup=[idgrupo]</code><br>
+verb: <strong>GET</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br>
+Parametro: <strong>idgrupo</strong> //identificador do grupo retornado no insert do pedido<br></p>
+<p><em>response:</em></p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;list&quot;</span>: [ <span class="hljs-comment">//lista de pedidos do grupo</span>
+    {
+      <span class="hljs-string">&quot;orderId&quot;</span>: <span class="hljs-string">&quot;566880726117-02&quot;</span>,
+      <span class="hljs-string">&quot;creationDate&quot;</span>: <span class="hljs-string">&quot;2015-10-06T16:12:19.0000000+00:00&quot;</span>,
+      <span class="hljs-string">&quot;clientName&quot;</span>: <span class="hljs-string">&quot;Jonas Bolognim&quot;</span>,
+      <span class="hljs-string">&quot;items&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;seller&quot;</span>: <span class="hljs-string">&quot;parceiro01&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Produto Exemplo 1 Modelo B&quot;</span>,
+          <span class="hljs-string">&quot;ean&quot;</span>: <span class="hljs-string">&quot;1234567&quot;</span>,
+          <span class="hljs-string">&quot;refId&quot;</span>: <span class="hljs-string">&quot;Cod-Ref-Item-ModeloB&quot;</span>
+        }
+      ],
+      <span class="hljs-string">&quot;totalValue&quot;</span>: <span class="hljs-number">10000</span>,
+      <span class="hljs-string">&quot;paymentNames&quot;</span>: <span class="hljs-string">&quot;FastShop Money F$&quot;</span>,
+      <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;payment-approved&quot;</span>,
+      <span class="hljs-string">&quot;statusDescription&quot;</span>: <span class="hljs-string">&quot;Pagamento Aprovado&quot;</span>,
+      <span class="hljs-string">&quot;marketPlaceOrderId&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-string">&quot;sequence&quot;</span>: <span class="hljs-string">&quot;500003&quot;</span>,
+      <span class="hljs-string">&quot;salesChannel&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>,
+      <span class="hljs-string">&quot;affiliateId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+      <span class="hljs-string">&quot;origin&quot;</span>: <span class="hljs-string">&quot;Marketplace&quot;</span>,
+      <span class="hljs-string">&quot;workflowInErrorState&quot;</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-string">&quot;workflowInRetry&quot;</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-string">&quot;lastMessageUnread&quot;</span>: <span class="hljs-string">&quot;fastshop Seu pagamento foi aprovado! pedido realizado em: 06/10/2015 Ol&#xE1;, Jonas. Seu pagamento foi efetuado com sucesso. Voc&#xEA; receber&#xE1; outro&quot;</span>,
+      <span class="hljs-string">&quot;ShippingEstimatedDate&quot;</span>: <span class="hljs-string">&quot;2015-10-09T16:16:50.0000000+00:00&quot;</span>,
+      <span class="hljs-string">&quot;orderIsComplete&quot;</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-string">&quot;listId&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-string">&quot;listType&quot;</span>: <span class="hljs-literal">null</span>
+    },
+    {
+      <span class="hljs-string">&quot;orderId&quot;</span>: <span class="hljs-string">&quot;566880726117-01&quot;</span>,
+      <span class="hljs-string">&quot;creationDate&quot;</span>: <span class="hljs-string">&quot;2015-10-06T16:12:14.0000000+00:00&quot;</span>,
+      <span class="hljs-string">&quot;clientName&quot;</span>: <span class="hljs-string">&quot;Jonas Bolognim&quot;</span>,
+      <span class="hljs-string">&quot;items&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;seller&quot;</span>: <span class="hljs-string">&quot;sandboxintegracao&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;TV LED 24\&quot; Full HD 2 HDMI Conversor Digital LE24D1440 AOC 110&quot;</span>,
+          <span class="hljs-string">&quot;ean&quot;</span>: <span class="hljs-string">&quot;0123456789127&quot;</span>,
+          <span class="hljs-string">&quot;refId&quot;</span>: <span class="hljs-string">&quot;AJHDAOdh&quot;</span>
+        }
+      ],
+      <span class="hljs-string">&quot;totalValue&quot;</span>: <span class="hljs-number">80500</span>,
+      <span class="hljs-string">&quot;paymentNames&quot;</span>: <span class="hljs-string">&quot;FastShop Money F$&quot;</span>,
+      <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;invoiced&quot;</span>,
+      <span class="hljs-string">&quot;statusDescription&quot;</span>: <span class="hljs-string">&quot;Faturado&quot;</span>,
+      <span class="hljs-string">&quot;marketPlaceOrderId&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-string">&quot;sequence&quot;</span>: <span class="hljs-string">&quot;500001&quot;</span>,
+      <span class="hljs-string">&quot;salesChannel&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>,
+      <span class="hljs-string">&quot;affiliateId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+      <span class="hljs-string">&quot;origin&quot;</span>: <span class="hljs-string">&quot;Marketplace&quot;</span>,
+      <span class="hljs-string">&quot;workflowInErrorState&quot;</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-string">&quot;workflowInRetry&quot;</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-string">&quot;lastMessageUnread&quot;</span>: <span class="hljs-string">&quot;fastshop Seu pedido foi faturado! realizado em: 06/10/2015 Ol&#xE1;, Jonas. Os produtos abaixo j&#xE1; foram faturados s&#xF3; aguardando envio para a tran&quot;</span>,
+      <span class="hljs-string">&quot;ShippingEstimatedDate&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-string">&quot;orderIsComplete&quot;</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-string">&quot;listId&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-string">&quot;listType&quot;</span>: <span class="hljs-literal">null</span>
+    }
+  ],
+  <span class="hljs-string">&quot;facets&quot;</span>: [
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;SalesChannelName&quot;</span>,
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;multiple&quot;</span>,
+      <span class="hljs-string">&quot;items&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Loja Principal&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;Loja Principal&quot;</span>
+        }
+      ],
+      <span class="hljs-string">&quot;rangeUrlTemplate&quot;</span>: <span class="hljs-string">&quot;f_salesChannel&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;SellerNames&quot;</span>,
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;multiple&quot;</span>,
+      <span class="hljs-string">&quot;items&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Parceiro01&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;Parceiro01&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Sandbox-integracao&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;Sandbox-integracao&quot;</span>
+        }
+      ],
+      <span class="hljs-string">&quot;rangeUrlTemplate&quot;</span>: <span class="hljs-string">&quot;f_sellerNames&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;PaymentNames&quot;</span>,
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;multiple&quot;</span>,
+      <span class="hljs-string">&quot;items&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;FastShop Money F$&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;FastShop Money F$&quot;</span>
+        }
+      ],
+      <span class="hljs-string">&quot;rangeUrlTemplate&quot;</span>: <span class="hljs-string">&quot;f_paymentNames&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;StatusDescription&quot;</span>,
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;multiple&quot;</span>,
+      <span class="hljs-string">&quot;items&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Faturado&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;Faturado&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Pagamento Aprovado&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;Pagamento Aprovado&quot;</span>
+        }
+      ],
+      <span class="hljs-string">&quot;rangeUrlTemplate&quot;</span>: <span class="hljs-string">&quot;f_statusDescription&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;ShippingEstimatedDate&quot;</span>,
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;single&quot;</span>,
+      <span class="hljs-string">&quot;items&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Atrasadas&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;-1.days&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Hoje&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;0.days&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Amanh&#xE3;&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;1.days&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Pr&#xF3;ximos 7 dias&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;7.days&quot;</span>
+        }
+      ],
+      <span class="hljs-string">&quot;rangeUrlTemplate&quot;</span>: <span class="hljs-string">&quot;f_shippingEstimate&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;invoicedDate&quot;</span>,
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>,
+      <span class="hljs-string">&quot;items&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Ontem&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;invoicedDate:[2015-10-07T12:00:00Z TO 2015-10-08T12:00:00Z]&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Hoje&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;invoicedDate:[2015-10-08T12:00:00Z TO 2015-10-09T12:00:00Z]&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#xDA;ltimos 7 dias&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;invoicedDate:[2015-10-02T12:00:00Z TO 2015-10-09T12:00:00Z]&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#xDA;ltimos 15 dias&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;invoicedDate:[2015-09-24T12:00:00Z TO 2015-10-09T12:00:00Z]&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#xDA;ltimos 30 dias&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;invoicedDate:[2015-09-09T12:00:00Z TO 2015-10-09T12:00:00Z]&quot;</span>
+        }
+      ],
+      <span class="hljs-string">&quot;rangeUrlTemplate&quot;</span>: <span class="hljs-string">&quot;f_invoicedDate&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;creationDate&quot;</span>,
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>,
+      <span class="hljs-string">&quot;items&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Ontem&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;creationDate:[2015-10-07T12:00:00Z TO 2015-10-08T12:00:00Z]&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Hoje&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;creationDate:[2015-10-08T12:00:00Z TO 2015-10-09T12:00:00Z]&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#xDA;ltimos 7 dias&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;creationDate:[2015-10-02T12:00:00Z TO 2015-10-09T12:00:00Z]&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#xDA;ltimos 15 dias&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;creationDate:[2015-09-24T12:00:00Z TO 2015-10-09T12:00:00Z]&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#xDA;ltimos 30 dias&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;creationDate:[2015-09-09T12:00:00Z TO 2015-10-09T12:00:00Z]&quot;</span>
+        }
+      ],
+      <span class="hljs-string">&quot;rangeUrlTemplate&quot;</span>: <span class="hljs-string">&quot;f_creationDate&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;authorizedDate&quot;</span>,
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>,
+      <span class="hljs-string">&quot;items&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Ontem&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;authorizedDate:[2015-10-07T12:00:00Z TO 2015-10-08T12:00:00Z]&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Hoje&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;authorizedDate:[2015-10-08T12:00:00Z TO 2015-10-09T12:00:00Z]&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#xDA;ltimos 7 dias&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;authorizedDate:[2015-10-02T12:00:00Z TO 2015-10-09T12:00:00Z]&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#xDA;ltimos 15 dias&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;authorizedDate:[2015-09-24T12:00:00Z TO 2015-10-09T12:00:00Z]&quot;</span>
+        },
+        {
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#xDA;ltimos 30 dias&quot;</span>,
+          <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;authorizedDate:[2015-09-09T12:00:00Z TO 2015-10-09T12:00:00Z]&quot;</span>
+        }
+      ],
+      <span class="hljs-string">&quot;rangeUrlTemplate&quot;</span>: <span class="hljs-string">&quot;f_authorizedDate&quot;</span>
+    }
+  ],
+  <span class="hljs-string">&quot;paging&quot;</span>: {
+    <span class="hljs-string">&quot;total&quot;</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">&quot;pages&quot;</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">&quot;currentPage&quot;</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">&quot;perPage&quot;</span>: <span class="hljs-number">15</span>
+  },
+  <span class="hljs-string">&quot;stats&quot;</span>: {
+    <span class="hljs-string">&quot;stats&quot;</span>: {
+      <span class="hljs-string">&quot;totalItems&quot;</span>: {
+        <span class="hljs-string">&quot;Count&quot;</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-string">&quot;Max&quot;</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">&quot;Mean&quot;</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">&quot;Min&quot;</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">&quot;Missing&quot;</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">&quot;StdDev&quot;</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">&quot;Sum&quot;</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-string">&quot;SumOfSquares&quot;</span>: <span class="hljs-number">2</span>
+      },
+      <span class="hljs-string">&quot;totalValue&quot;</span>: {
+        <span class="hljs-string">&quot;Count&quot;</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-string">&quot;Max&quot;</span>: <span class="hljs-number">80500</span>,
+        <span class="hljs-string">&quot;Mean&quot;</span>: <span class="hljs-number">45250</span>,
+        <span class="hljs-string">&quot;Min&quot;</span>: <span class="hljs-number">10000</span>,
+        <span class="hljs-string">&quot;Missing&quot;</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">&quot;StdDev&quot;</span>: <span class="hljs-number">49851.0280736516</span>,
+        <span class="hljs-string">&quot;Sum&quot;</span>: <span class="hljs-number">90500</span>,
+        <span class="hljs-string">&quot;SumOfSquares&quot;</span>: <span class="hljs-number">6580250000</span>
+      }
+    }
+  }
+}
+</code></pre>
+<blockquote>
+<blockquote>
+<p>Neste retorno o que realmente interessa &#xE9; a lista de pedidos, ignorar o resto.</p>
+</blockquote>
+</blockquote>
+<p>Busca detalhe de um pedido:</p>
+<p>endpoint: <code>https://[loja].vtexpayments.com.br/api/oms/pvt/orders/[orderId]</code><br>
+verb: <strong>GET</strong><br>
+Content-Type: <strong>application/json</strong><br>
+Accept: <strong>application/json</strong><br>
+Parametro: <strong>orderId</strong> //identificador do pedido<br></p>
+<p><em>response:</em></p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;orderId&quot;</span>: <span class="hljs-string">&quot;566880726117-01&quot;</span>,
+  <span class="hljs-string">&quot;sequence&quot;</span>: <span class="hljs-string">&quot;500001&quot;</span>,
+  <span class="hljs-string">&quot;marketplaceOrderId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+  <span class="hljs-string">&quot;marketplaceServicesEndpoint&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;sellerOrderId&quot;</span>: <span class="hljs-string">&quot;FSH-566880726117-01&quot;</span>,
+  <span class="hljs-string">&quot;origin&quot;</span>: <span class="hljs-string">&quot;Marketplace&quot;</span>,
+  <span class="hljs-string">&quot;affiliateId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+  <span class="hljs-string">&quot;salesChannel&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>,
+  <span class="hljs-string">&quot;merchantName&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;invoiced&quot;</span>,
+  <span class="hljs-string">&quot;statusDescription&quot;</span>: <span class="hljs-string">&quot;Faturado&quot;</span>,
+  <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">80500</span>,
+  <span class="hljs-string">&quot;creationDate&quot;</span>: <span class="hljs-string">&quot;2015-10-06T16:12:14.8938894+00:00&quot;</span>,
+  <span class="hljs-string">&quot;lastChange&quot;</span>: <span class="hljs-string">&quot;2015-10-08T02:56:00.5943566+00:00&quot;</span>,
+  <span class="hljs-string">&quot;orderGroup&quot;</span>: <span class="hljs-string">&quot;566880726117&quot;</span>,
+  <span class="hljs-string">&quot;totals&quot;</span>: [
+    {
+      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;Items&quot;</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Total dos Itens&quot;</span>,
+      <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">80000</span>
+    },
+    {
+      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;Discounts&quot;</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Total dos Descontos&quot;</span>,
+      <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">0</span>
+    },
+    {
+      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;Shipping&quot;</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Total do Frete&quot;</span>,
+      <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">500</span>
+    },
+    {
+      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;Tax&quot;</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Total da Taxa&quot;</span>,
+      <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">0</span>
+    }
+  ],
+  <span class="hljs-string">&quot;items&quot;</span>: [
+    {
+      <span class="hljs-string">&quot;uniqueId&quot;</span>: <span class="hljs-string">&quot;39281E5A994E4136AC5D4B090830F6FA&quot;</span>,
+      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;15&quot;</span>,
+      <span class="hljs-string">&quot;productId&quot;</span>: <span class="hljs-string">&quot;4&quot;</span>,
+      <span class="hljs-string">&quot;ean&quot;</span>: <span class="hljs-string">&quot;0123456789127&quot;</span>,
+      <span class="hljs-string">&quot;lockId&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-string">&quot;itemAttachment&quot;</span>: {
+        <span class="hljs-string">&quot;content&quot;</span>: {},
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-literal">null</span>
+      },
+      <span class="hljs-string">&quot;attachments&quot;</span>: [],
+      <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-string">&quot;seller&quot;</span>: <span class="hljs-string">&quot;sandboxintegracao&quot;</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;TV LED 24\&quot; Full HD 2 HDMI Conversor Digital LE24D1440 AOC 110&quot;</span>,
+      <span class="hljs-string">&quot;refId&quot;</span>: <span class="hljs-string">&quot;AJHDAOdh&quot;</span>,
+      <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">80000</span>,
+      <span class="hljs-string">&quot;listPrice&quot;</span>: <span class="hljs-number">82000</span>,
+      <span class="hljs-string">&quot;manualPrice&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-string">&quot;priceTags&quot;</span>: [],
+      <span class="hljs-string">&quot;imageUrl&quot;</span>: <span class="hljs-string">&quot;http://fastshop.vteximg.com.br/arquivos/ids/155347-55-55/110_0.jpg&quot;</span>,
+      <span class="hljs-string">&quot;detailUrl&quot;</span>: <span class="hljs-string">&quot;/tv-led-24--full-hd-2-hdmi-conversor-digital-le24d1440-aoc-4/p&quot;</span>,
+      <span class="hljs-string">&quot;components&quot;</span>: [],
+      <span class="hljs-string">&quot;bundleItems&quot;</span>: [],
+      <span class="hljs-string">&quot;params&quot;</span>: [],
+      <span class="hljs-string">&quot;offerings&quot;</span>: [
+        {
+          <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Garantia Extendida SMARTIA 12 Meses&quot;</span>,
+          <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>,
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Garantia Extendida SMARTIA 12 Meses&quot;</span>,
+          <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">12000</span>
+        },
+        {
+          <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Garantia Extendida SMARTIA 24 Meses&quot;</span>,
+          <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;3&quot;</span>,
+          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Garantia Extendida SMARTIA 24 Meses&quot;</span>,
+          <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">21000</span>
+        }
+      ],
+      <span class="hljs-string">&quot;sellerSku&quot;</span>: <span class="hljs-string">&quot;2000037&quot;</span>,
+      <span class="hljs-string">&quot;priceValidUntil&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-string">&quot;commission&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-string">&quot;tax&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-string">&quot;preSaleDate&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-string">&quot;additionalInfo&quot;</span>: {
+        <span class="hljs-string">&quot;brandName&quot;</span>: <span class="hljs-string">&quot;AOC&quot;</span>,
+        <span class="hljs-string">&quot;brandId&quot;</span>: <span class="hljs-string">&quot;2000000&quot;</span>,
+        <span class="hljs-string">&quot;categoriesIds&quot;</span>: <span class="hljs-string">&quot;/8/9/10/&quot;</span>,
+        <span class="hljs-string">&quot;productClusterId&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+        <span class="hljs-string">&quot;commercialConditionId&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>,
+        <span class="hljs-string">&quot;dimension&quot;</span>: {
+          <span class="hljs-string">&quot;cubicweight&quot;</span>: <span class="hljs-number">0.1667</span>,
+          <span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">10</span>,
+          <span class="hljs-string">&quot;length&quot;</span>: <span class="hljs-number">10</span>,
+          <span class="hljs-string">&quot;weight&quot;</span>: <span class="hljs-number">10</span>,
+          <span class="hljs-string">&quot;width&quot;</span>: <span class="hljs-number">10</span>
+        },
+        <span class="hljs-string">&quot;offeringInfo&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;offeringType&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;offeringTypeId&quot;</span>: <span class="hljs-literal">null</span>
+      },
+      <span class="hljs-string">&quot;measurementUnit&quot;</span>: <span class="hljs-string">&quot;un&quot;</span>,
+      <span class="hljs-string">&quot;unitMultiplier&quot;</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-string">&quot;sellingPrice&quot;</span>: <span class="hljs-number">80000</span>,
+      <span class="hljs-string">&quot;isGift&quot;</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-string">&quot;shippingPrice&quot;</span>: <span class="hljs-literal">null</span>
+    }
+  ],
+  <span class="hljs-string">&quot;marketplaceItems&quot;</span>: [],
+  <span class="hljs-string">&quot;clientProfileData&quot;</span>: {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;clientProfileData&quot;</span>,
+    <span class="hljs-string">&quot;email&quot;</span>: <span class="hljs-string">&quot;84e7100d66364ab3834cfe54c672ebb1@ct.vtex.com.br&quot;</span>,
+    <span class="hljs-string">&quot;firstName&quot;</span>: <span class="hljs-string">&quot;Jonas&quot;</span>,
+    <span class="hljs-string">&quot;lastName&quot;</span>: <span class="hljs-string">&quot;Bolognim&quot;</span>,
+    <span class="hljs-string">&quot;documentType&quot;</span>: <span class="hljs-string">&quot;cpf&quot;</span>,
+    <span class="hljs-string">&quot;document&quot;</span>: <span class="hljs-string">&quot;08896581885&quot;</span>,
+    <span class="hljs-string">&quot;phone&quot;</span>: <span class="hljs-string">&quot;999981488&quot;</span>,
+    <span class="hljs-string">&quot;corporateName&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;tradeName&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;corporateDocument&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;stateInscription&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;corporatePhone&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">&quot;isCorporate&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">&quot;userProfileId&quot;</span>: <span class="hljs-string">&quot;4cc1f644-69ba-4619-92bc-1d9af0c6deeb&quot;</span>
+  },
+  <span class="hljs-string">&quot;giftRegistryData&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;marketingData&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;ratesAndBenefitsData&quot;</span>: {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;ratesAndBenefitsData&quot;</span>,
+    <span class="hljs-string">&quot;rateAndBenefitsIdentifiers&quot;</span>: []
+  },
+  <span class="hljs-string">&quot;shippingData&quot;</span>: {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;shippingData&quot;</span>,
+    <span class="hljs-string">&quot;address&quot;</span>: {
+      <span class="hljs-string">&quot;addressType&quot;</span>: <span class="hljs-string">&quot;residential&quot;</span>,
+      <span class="hljs-string">&quot;receiverName&quot;</span>: <span class="hljs-string">&quot;Jonas Alves de Oliveira&quot;</span>,
+      <span class="hljs-string">&quot;addressId&quot;</span>: <span class="hljs-string">&quot;Casa&quot;</span>,
+      <span class="hljs-string">&quot;postalCode&quot;</span>: <span class="hljs-string">&quot;13476103&quot;</span>,
+      <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;Americana&quot;</span>,
+      <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;SP&quot;</span>,
+      <span class="hljs-string">&quot;country&quot;</span>: <span class="hljs-string">&quot;BRA&quot;</span>,
+      <span class="hljs-string">&quot;street&quot;</span>: <span class="hljs-string">&quot;JO&#xC3;O DAM&#xC1;ZIO GOMES&quot;</span>,
+      <span class="hljs-string">&quot;number&quot;</span>: <span class="hljs-string">&quot;311&quot;</span>,
+      <span class="hljs-string">&quot;neighborhood&quot;</span>: <span class="hljs-string">&quot;S&#xC3;O JOS&#xC9;&quot;</span>,
+      <span class="hljs-string">&quot;complement&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-string">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Bairro Praia Azul / Posto de Sa&#xFA;de 17&quot;</span>
+    },
+    <span class="hljs-string">&quot;logisticsInfo&quot;</span>: [
+      {
+        <span class="hljs-string">&quot;itemIndex&quot;</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">&quot;selectedSla&quot;</span>: <span class="hljs-string">&quot;Normal&quot;</span>,
+        <span class="hljs-string">&quot;lockTTL&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">500</span>,
+        <span class="hljs-string">&quot;listPrice&quot;</span>: <span class="hljs-number">500</span>,
+        <span class="hljs-string">&quot;sellingPrice&quot;</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">&quot;deliveryWindow&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;deliveryCompany&quot;</span>: <span class="hljs-string">&quot;Normal&quot;</span>,
+        <span class="hljs-string">&quot;shippingEstimate&quot;</span>: <span class="hljs-string">&quot;4bd&quot;</span>,
+        <span class="hljs-string">&quot;shippingEstimateDate&quot;</span>: <span class="hljs-string">&quot;2015-10-12T16:16:56.7561604+00:00&quot;</span>,
+        <span class="hljs-string">&quot;slas&quot;</span>: [
+          {
+            <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;Normal&quot;</span>,
+            <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Normal&quot;</span>,
+            <span class="hljs-string">&quot;shippingEstimate&quot;</span>: <span class="hljs-string">&quot;4bd&quot;</span>,
+            <span class="hljs-string">&quot;deliveryWindow&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">500</span>
+          },
+          {
+            <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;Entrega Agendada&quot;</span>,
+            <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Entrega Agendada&quot;</span>,
+            <span class="hljs-string">&quot;shippingEstimate&quot;</span>: <span class="hljs-string">&quot;4bd&quot;</span>,
+            <span class="hljs-string">&quot;deliveryWindow&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">1500</span>
+          }
+        ],
+        <span class="hljs-string">&quot;shipsTo&quot;</span>: [],
+        <span class="hljs-string">&quot;deliveryIds&quot;</span>: [
+          {
+            <span class="hljs-string">&quot;courierId&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>,
+            <span class="hljs-string">&quot;courierName&quot;</span>: <span class="hljs-string">&quot;Normal&quot;</span>,
+            <span class="hljs-string">&quot;dockId&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>,
+            <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">&quot;warehouseId&quot;</span>: <span class="hljs-string">&quot;1_1&quot;</span>
+          }
+        ]
+      }
+    ]
+  },
+  <span class="hljs-string">&quot;paymentData&quot;</span>: {
+    <span class="hljs-string">&quot;transactions&quot;</span>: [
+      {
+        <span class="hljs-string">&quot;isActive&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">&quot;transactionId&quot;</span>: <span class="hljs-string">&quot;CE0C550E892044D3BDDA435984D73860&quot;</span>,
+        <span class="hljs-string">&quot;payments&quot;</span>: [
+          {
+            <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;929FDCB1C9FB4111875F2863A47FF8D2&quot;</span>,
+            <span class="hljs-string">&quot;paymentSystem&quot;</span>: <span class="hljs-string">&quot;201&quot;</span>,
+            <span class="hljs-string">&quot;paymentSystemName&quot;</span>: <span class="hljs-string">&quot;FastShop Money F$&quot;</span>,
+            <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">90500</span>,
+            <span class="hljs-string">&quot;installments&quot;</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">&quot;referenceValue&quot;</span>: <span class="hljs-number">90500</span>,
+            <span class="hljs-string">&quot;cardHolder&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;cardNumber&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;firstDigits&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;lastDigits&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;cvv2&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;expireMonth&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;expireYear&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;giftCardId&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;giftCardName&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;giftCardCaption&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;redemptionCode&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;group&quot;</span>: <span class="hljs-string">&quot;promissory&quot;</span>,
+            <span class="hljs-string">&quot;tid&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;dueDate&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-string">&quot;connectorResponses&quot;</span>: {}
+          }
+        ]
+      }
+    ]
+  },
+  <span class="hljs-string">&quot;packageAttachment&quot;</span>: {
+    <span class="hljs-string">&quot;packages&quot;</span>: [
+      {
+        <span class="hljs-string">&quot;items&quot;</span>: [
+          {
+            <span class="hljs-string">&quot;itemIndex&quot;</span>: <span class="hljs-number">0</span>,
+            <span class="hljs-string">&quot;quantity&quot;</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">80000</span>,
+            <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-literal">null</span>
+          }
+        ],
+        <span class="hljs-string">&quot;courier&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;invoiceNumber&quot;</span>: <span class="hljs-string">&quot;500617&quot;</span>,
+        <span class="hljs-string">&quot;invoiceValue&quot;</span>: <span class="hljs-number">80500</span>,
+        <span class="hljs-string">&quot;invoiceUrl&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;issuanceDate&quot;</span>: <span class="hljs-string">&quot;2015-10-07T03:00:00.0000000+00:00&quot;</span>,
+        <span class="hljs-string">&quot;trackingNumber&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;invoiceKey&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;trackingUrl&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;embeddedInvoice&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Output&quot;</span>,
+        <span class="hljs-string">&quot;courierStatus&quot;</span>: {
+          <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;unknown&quot;</span>,
+          <span class="hljs-string">&quot;finished&quot;</span>: <span class="hljs-literal">false</span>,
+          <span class="hljs-string">&quot;data&quot;</span>: []
+        }
+      }
+    ]
+  },
+  <span class="hljs-string">&quot;sellers&quot;</span>: [
+    {
+      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;sandboxintegracao&quot;</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Sandbox-integracao&quot;</span>,
+      <span class="hljs-string">&quot;logo&quot;</span>: <span class="hljs-string">&quot;http://portal.vtexcommercestable.com.br/arquivos/logo.jpg&quot;</span>
+    }
+  ],
+  <span class="hljs-string">&quot;callCenterOperatorData&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;followUpEmail&quot;</span>: <span class="hljs-string">&quot;9aa35cf23be347688fc20446d31371b2@ct.vtex.com.br&quot;</span>,
+  <span class="hljs-string">&quot;lastMessage&quot;</span>: <span class="hljs-string">&quot;fastshop Seu pedido foi faturado! realizado em: 06/10/2015 Ol&#xE1;, Jonas. Os produtos abaixo j&#xE1; foram faturados s&#xF3; aguardando envio para a tran&quot;</span>,
+  <span class="hljs-string">&quot;hostname&quot;</span>: <span class="hljs-string">&quot;fastshop&quot;</span>,
+  <span class="hljs-string">&quot;changesAttachment&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;openTextField&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-string">&quot;roundingError&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
 <p>Esses s&#xE3;o os passos que devem ser seguidos para a integra&#xE7;&#xE3;o com o VTEX Marketplace Switch.</p>
 <blockquote>
 <p>POR LER ATE AQUI</p>
