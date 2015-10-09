@@ -112,7 +112,7 @@ _request:_
 
 Acessa a loja VTEX pegando as condições comerciais (preço, estoque, SLAs de entrega) de uma SKU  - Endpoint da Loja VTEX
 
-endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado] ```
+endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -233,7 +233,7 @@ _response:_
 
 Acessa uma loja VTEX e busca dados de uma SKU - Endpoint da Loja VTEX
 
-endpoint: ``` http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku] ```
+endpoint: ``` http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku] ```</br>
 verb: **GET**</br>
 Accept: **application/json**</br>
 Parametro: **idSku** // identificador do SKU</br>
@@ -386,7 +386,7 @@ _Fluxo de chamadas no carrinho e no pagamento:_
 
 Acessa a loja VTEX simulando um carrinho, para checar as condições comerciais e as SLAs de entrega - Endpoint loja VTEX
 
-endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado] ```
+endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&affiliateId=[idafiliado] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -521,7 +521,7 @@ _Fluxo de chamadas de descida de pedido, pagamento e autorização para despacha
 
 Quando o pedido é fechado em um Marketplace não VTEX, um POST deve ser feito na loja VTEX, para que essa possa receber a ordem de pedido - Endpoint Loja VTEX
 
-endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado] ```
+endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&affiliateId=[idafiliado] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -693,7 +693,7 @@ _retorno de erro:_
 
 Quando o pagamento do pedido é concluído no canal de vendas não VTEX, um POST deverá ser feito na loja VTEX, para que o pedido possa prosseguir para tratamento - Endpoint da Seller
 
-endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=[idcanal]&affiliateId=[idafiliado] ```
+endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=[idcanal]&affiliateId=[idafiliado] ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -728,7 +728,7 @@ O MarketplaceServicesEndpoint serve para o Seller VTEX informar ao canal de vend
 
 Quando a Nota Fiscal for emitida pelo Seller VTEX, está será enviada para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace
 
-endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```
+endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -769,7 +769,7 @@ _response:_
 
 Quando o pedido for entregue a uma transportadora, as informações de tracking serão enviadas para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace
 
-endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ```
+endpoint: ``` https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice ``` </br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -811,7 +811,7 @@ _response:_
 
 Uma solicitação de cancelamento pode ser enviada para o para o Marketplace no marketplaceServicesEndpoint - Endpoint do Marketplace
 
-endpoint: ``` https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel ```
+endpoint: ``` https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel ``` </br>
 verb: **POST**</br>
 Paramentro: **marketplaceorderId**</br> //identificador do pedido do Marketplace
 

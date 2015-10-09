@@ -3,15 +3,15 @@
 Este documento tem por finalidade auxiliar na integração de aplicativos com o _VTEX Marketplace Switch_. Este modelo contempla troca de catalogo, atualização de condição comercial (preço, estoque) de um _SKU_, além de auxiliar na descida de pedido e traking de entrega.
 
 > ALGUNS CONCEITOS:
->> _VTEX Marketplace Switch_ = Concentrador de Sellers (lojas integradas ao Switch).</br>
+>> _VTEX Marketplace Switch_ = Concentrador de Sellers e SKUs (lojas integradas ao Switch).</br>
 >> _Aplicativos_ = Afiliado, dono da vitrine (cara com o cliente final), responsável por expor e vender o SKU.</br>
 >> _SKU_ = Item a ser trocado e vendido entre Marketplace e Seller.</br>
 >> _Endpoint_ = Ponto de acesso de um serviço na internet, serviço pronto para receber uma requisição e devolver uma resposta.</br>
 
 
-####Ações que deverão ser tomadas pelo aplicativo não hospedado na VTEX para implementação da integração:
+####Ações que deverão ser tomadas pelo aplicativo para implementação da integração:
 
-1. Implementar o endpoint para receber notificação de mudança de preço e estoque - VTEX Marketplace Switch vai chamar endpoint do aplicativo. Toda vez que o SKU mudar o preço e ou o estoque no VTEX Marketplace Switch, o VTEX Marketplace Switch vai chamar esse endpoint do aplicativo, simplesmente comunicando a mudança. Ao receber esse request o aplicativo vem buscar o preço e estoque no VTEX Marketplace Switch no metodo de consulta politica comercial que vamos falar mais abaixo.
+1. Implementar o endpoint para receber notificação de mudança de preço e estoque - VTEX Marketplace Switch vai chamar endpoint do aplicativo. Toda vez que o SKU mudar no VTEX Marketplace Switch, o VTEX Marketplace Switch vai chamar esse endpoint do aplicativo, simplesmente comunicando a mudança. Ao receber esse request o aplicativo vem buscar o preço e estoque no VTEX Marketplace Switch no metodo de consulta politica comercial que vamos falar mais abaixo.
 
  _exemplo da chamada:_</br>
  ``` https://marketplace.com.br/api/notification/ ```
@@ -21,7 +21,8 @@ Este documento tem por finalidade auxiliar na integração de aplicativos com o 
 2. Implementar busca de dados de SKU no VTEX Marketplace Switch - Aplicativo vai chamar endpoint do VTEX Marketplace Switch. Toda vez que o serviço de notificação de mudança do VTEX Marketplace Switch avisar sobre uma SKU, e o aplicativo ainda nao tem a SKU catalogada, o aplicativo vem no VTEX Marketplace Switch buscar os dados da SKU.
 
  _exemplo da chamada:_</br>
- ```http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/310118183 ```
+ ```http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/310118210 ```</br>
+ ```http://sandboxintegracao.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/310118190 ```</br>
 
  [Exemplo Completo: Buscar Dados de SKU](#a2)
 
@@ -45,11 +46,12 @@ Este documento tem por finalidade auxiliar na integração de aplicativos com o 
 5. Implementar rotina que informa pagamento no VTEX Marketplace Switch - Aplicativo vai chamar endpoint do VTEX Marketplace Switch. O aplicativo irá usar esse enpoint para informar um pagamento no PCI gateway do VTEX Marketplace Switch.
 
  _exemplo da chamada:_</br>
- ``` https://sandboxintegracao.vtexpayments.com.br/split/564031077937/payments ```
+ ``` https://sandboxintegracao.vtexpayments.com.br/split/564031077937/payments ``` </br></br>
+ _564031077937=identificador do grupo do pedido_  </br>
 
  [Exemplo Completo: Informa Pagamento no VTEX Marketplace Switch](#a5)
 
-6. Implementar rotina que informa sucesso na criação do pedido no VTEX Marketplace Switch - Aplicativo vai chamar endpoint do VTEX Marketplace Switch. O aplicativo irá usar esse enpoint para fechar o processo de criação de pedido do VTEX Marketplace Switch.
+6. Implementar rotina que informa sucesso no processo de criação do pedido no VTEX Marketplace Switch - Aplicativo vai chamar endpoint do VTEX Marketplace Switch. O aplicativo irá usar esse enpoint para fechar o processo de criação de pedido do VTEX Marketplace Switch.
 
  _exemplo da chamada:_</br>
  ``` https://sandboxintegracao.vtexcommercestable.com.br/checkout/gatewayCallback/564032167396/Success ```
@@ -59,14 +61,18 @@ Este documento tem por finalidade auxiliar na integração de aplicativos com o 
 7. Implementar rotina que busca dados do pagamento no PCI gateway do VTEX Marketplace Switch - Aplicativo vai chamar endpoint do PCI gateway do VTEX Marketplace Switch. O aplicativo irá usar esse enpoint para buscar dados do pagamento no PCI gateway do VTEX Marketplace Switch. Dentro do dados de pagamento recuperar o id do pagamento para ser usado no passo 8 abaixo.
 
  _exemplo da chamada:_</br>
- ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/CE0C550E892044D3BDDA435984D73860/payments ```
+ ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/transactions/4497E676DD3544CFAD27D0FB9201D3F4/payments ```</br>
+ </br>
+ _4497E676DD3544CFAD27D0FB9201D3F4=identificador da transação_ </br>
 
  [Exemplo Completo: Informa sucesso do pagamento PCI gateway do do VTEX Marketplace Switch](#a7)
 
 8. Implementar rotina que informa sucesso na aprovação do pagamento no PCI gateway do VTEX Marketplace Switch - Aplicativo vai chamar endpoint do PCI gateway do VTEX Marketplace Switch. O aplicativo irá usar esse enpoint para aprovar o pagamento no PCI gateway do VTEX Marketplace Switch.
 
  _exemplo da chamada:_</br>
- ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/payments/C75C19DDC66F41A6B8EF8E06CBCC5C5F/payment-notification ```
+ ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/payments/0BBE8A2A3B81477587AC1C3726369794/payment-notification ```</br>
+ </br>
+ _0BBE8A2A3B81477587AC1C3726369794=identificador do pagamento_ </br>
 
  [Exemplo Completo: Informa sucesso do pagamento no PCI gateway do VTEX Marketplace Switch](#a8)
 
@@ -81,25 +87,24 @@ Este documento tem por finalidade auxiliar na integração de aplicativos com o 
 
 ###Troca de Catalogo de SKU e Atualização de Condição Comercial de SKU
 
-* Dentro do VTEX Marketplace Switch, será criado um *afiliado, que é o interessado em receber o catálogo e as atualizações de condições comerciais.
+* Dentro do VTEX Marketplace Switch, será criado um afiliado, que é o interessado em receber o catálogo e as atualizações de condições comerciais.
 
-* O afiliado, deverá implementar um endpoint onde receberá informações sobre alterações de condição comercial de SKUs.
+* O afiliado, deverá implementar um endpoint onde receberá informações sobre alterações de SKUs.
 
 * Na loja VTEX, cada vez que uma SKU comercializado pelo afiliado sofrer uma alteração na condição comercial, ou for reindexado, o endpoint de notificação do afiliado será chamado.
 
-* Quando o afiliado recebe uma notificação que um SKU mudou a condição comercial, o afiliado deve checar se já comercializa aquela SKU daquela loja que comunicou.
+* Quando o afiliado recebe uma notificação que um SKU mudou, o afiliado deve checar se já comercializa aquela SKU daquela loja que comunicou.
 
   * **Caso SIM**: O afiliado consulta a condição comercial no VTEX Marketplace Switch e se atualiza.
 
   * **Caso NÃO**: O afiliado busca a SKU no VTEX Marketplace Switch, insere no seu catalogo, e depois repete o cenário do "Caso SIM".
 
-
 > As requisições de notificação de mudança devem ser tratadas assincronamente, ou seja, recebe a notificação, coloca se numa fila, e depois processa, evitando assim a honeração dos sistemas envolvidos.
 
 <a name="a1"></a>
-###Notificação de Mudança
+###Notificação de Mudança de SKU
 
-Notifica o aplicativo que houve uma mudança nas condições comerciais (preço, estoque, SLAs de entrega) de uma SKU - Endpoint do Afiliado (Aplicativo)
+Notifica o aplicativo que houve uma mudança de uma SKU - Endpoint do Afiliado (Aplicativo). Onotificação de SKu vai com duas flags. indicando se a mudança foi de preço ou estoque. Caso essas 2 flags foram enviadas como falsas, é porque uma outra mudança ocorreu na SKU - descrição, peso, etc (nesses casos o aplicativo pode optar por buscar a SKU no VTEX Marketplace Switch para se atualizar).
 
 endpoint: ``` https://[endpointdoafiliado}/api/notification/ ```</br>
 verb: **POST**</br>
@@ -110,9 +115,9 @@ _request:_
 
 ```json
 {
-	"IdSku" : "1634", //id da sku da VTEX
+	"IdSku" : "310118183", //identificador da SKU
 	"An" : "sandboxintegracao", //loja vtex
-	"IdAffiliate":"PRT", // id do afilado cadastrado na loja vtex
+	"IdAffiliate":"LBB", // id do afilado cadastrado na loja vtex
 	"StockModified": true, //mudou estoque?
 	"PriceModified": true //mudou preço?
 }
