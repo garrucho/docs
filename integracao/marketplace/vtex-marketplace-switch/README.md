@@ -46,7 +46,8 @@ Este documento tem por finalidade auxiliar na integração de aplicativos com o 
 5. Implementar rotina que informa pagamento no VTEX Marketplace Switch - Aplicativo vai chamar endpoint do VTEX Marketplace Switch. O aplicativo irá usar esse enpoint para informar um pagamento no PCI gateway do VTEX Marketplace Switch.
 
  _exemplo da chamada:_</br>
- ``` https://sandboxintegracao.vtexpayments.com.br/split/564031077937/payments ``` </br></br>
+ ``` https://sandboxintegracao.vtexpayments.com.br/split/564031077937/payments ``` </br>
+ </br>
  _564031077937=identificador do grupo do pedido_  </br>
 
  [Exemplo Completo: Informa Pagamento no VTEX Marketplace Switch](#a5)
@@ -141,14 +142,14 @@ _request:_
 {
   "items": [ // lista de itens
     {
-      "id": "310118183", //identificado do SKU no Marketplace Switch
+      "id": "310118190", //identificado do SKU no Marketplace Switch
       "quantity": 1, // quantidade solicitada
-      "seller": "netshoes" //identificado do Seller no Marketplace Switch
+      "seller": "walmartv5" //identificado do Seller no Marketplace Switch
     },
     {
-      "id": "310118171",
+      "id": "310118210",
       "quantity": 1,
-      "seller": "fastshop"
+      "seller": "parceiro01"
     }
   ],
   "postalCode": null, //opcional, CEP
@@ -160,33 +161,97 @@ _response:_
 
 ```json
 {
-  "items": [ //lista de itens, caso os itens estiverem indispoíveis o retorn será uma lisat vazia []
+  "items": [
     {
-      "id": "310118183", //identificado do SKU no Marketplace Switch
+      "id": "310118190",
       "requestIndex": 0,
-      "quantity": 1, //quantidade que consegue atender
-      "seller": "netshoes", //identificado do Seller no Marketplace Switch
+      "quantity": 1,
+      "seller": "walmartv5",
       "tax": 0,
       "priceValidUntil": null,
-      "price": 31490, //preço POR, pode ser nulo
-      "listPrice": 31490, //preço DE, pode ser nulo
-      "sellingPrice": 31490, //preço de venda
-      "offerings": [],
+      "price": 39901,
+      "listPrice": 52900,
+      "sellingPrice": 39901,
+      "offerings": [
+        {
+          "type": "servico",
+          "id": "38",
+          "name": "servico",
+          "allowGiftMessage": false,
+          "attachmentOfferings": [
+            {
+              "name": "Informações",
+              "required": false,
+              "schema": {
+                "texto": {
+                  "maximumNumberOfCharacters": 23,
+                  "domain": [
+                    "teste1",
+                    " teste2",
+                    " teste3"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "placa",
+              "required": false,
+              "schema": {
+                "Número": {
+                  "maximumNumberOfCharacters": 1,
+                  "domain": []
+                },
+                "Município": {
+                  "maximumNumberOfCharacters": 30,
+                  "domain": [
+                    "RIO DE JANEIRO"
+                  ]
+                },
+                "País": {
+                  "maximumNumberOfCharacters": 3,
+                  "domain": []
+                }
+              }
+            }
+          ],
+          "price": 1000
+        }
+      ],
       "priceTags": [],
       "measurementUnit": "un",
       "unitMultiplier": 1
     },
     {
-      "id": "310118171",
+      "id": "310118210",
       "requestIndex": 1,
       "quantity": 1,
-      "seller": "fastshop",
+      "seller": "parceiro01",
       "tax": 0,
       "priceValidUntil": null,
-      "price": 28284,
-      "listPrice": 28284,
-      "sellingPrice": 28284,
-      "offerings": [],
+      "price": 249,
+      "listPrice": 3000,
+      "sellingPrice": 249,
+      "offerings": [
+        {
+          "type": "Embalagem Simples",
+          "id": "1",
+          "name": "Embalagem Simples",
+          "allowGiftMessage": true,
+          "attachmentOfferings": [
+            {
+              "name": "message",
+              "required": false,
+              "schema": {
+                "text": {
+                  "maximumNumberOfCharacters": 300,
+                  "domain": []
+                }
+              }
+            }
+          ],
+          "price": 250
+        }
+      ],
       "priceTags": [],
       "measurementUnit": "un",
       "unitMultiplier": 1
@@ -200,34 +265,86 @@ _response:_
   "paymentData": {
     "installmentOptions": [
       {
-        "paymentSystem": "2",
+        "paymentSystem": "1",
         "bin": null,
-        "paymentName": "Visa",
+        "paymentName": "American Express",
         "paymentGroupName": "creditCardPaymentGroup",
-        "value": 59774,
+        "value": 40150,
         "installments": [
           {
             "count": 1,
             "hasInterestRate": false,
             "interestRate": 0,
-            "value": 59774,
-            "total": 59774,
+            "value": 40150,
+            "total": 40150,
             "sellerMerchantInstallments": [
               {
-                "id": "SHOPFACILNETSHOES",
+                "id": "SANDBOXINTEGRACAO",
                 "count": 1,
                 "hasInterestRate": false,
                 "interestRate": 0,
-                "value": 31490,
-                "total": 31490
-              },
+                "value": 40150,
+                "total": 40150
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paymentSystem": "2",
+        "bin": null,
+        "paymentName": "Visa",
+        "paymentGroupName": "creditCardPaymentGroup",
+        "value": 40150,
+        "installments": [
+          {
+            "count": 1,
+            "hasInterestRate": false,
+            "interestRate": 0,
+            "value": 40150,
+            "total": 40150,
+            "sellerMerchantInstallments": [
               {
-                "id": "SHOPFACILFASTSHOP",
+                "id": "SANDBOXINTEGRACAO",
                 "count": 1,
                 "hasInterestRate": false,
                 "interestRate": 0,
-                "value": 28284,
-                "total": 28284
+                "value": 40150,
+                "total": 40150
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "hasInterestRate": false,
+            "interestRate": 0,
+            "value": 20075,
+            "total": 40150,
+            "sellerMerchantInstallments": [
+              {
+                "id": "SANDBOXINTEGRACAO",
+                "count": 2,
+                "hasInterestRate": false,
+                "interestRate": 0,
+                "value": 20075,
+                "total": 40150
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "hasInterestRate": false,
+            "interestRate": 0,
+            "value": 13383,
+            "total": 40150,
+            "sellerMerchantInstallments": [
+              {
+                "id": "SANDBOXINTEGRACAO",
+                "count": 3,
+                "hasInterestRate": false,
+                "interestRate": 0,
+                "value": 13383,
+                "total": 40150
               }
             ]
           }
@@ -236,13 +353,25 @@ _response:_
     ],
     "paymentSystems": [
       {
+        "id": 1,
+        "name": "American Express",
+        "groupName": "creditCardPaymentGroup",
+        "validator": null,
+        "stringId": "1",
+        "template": "creditCardPaymentGroup-template",
+        "requiresDocument": false,
+        "isCustom": false,
+        "description": null,
+        "requiresAuthentication": false
+      },
+      {
         "id": 2,
         "name": "Visa",
         "groupName": "creditCardPaymentGroup",
         "validator": null,
         "stringId": "2",
         "template": "creditCardPaymentGroup-template",
-        "requiresDocument": true,
+        "requiresDocument": false,
         "isCustom": false,
         "description": null,
         "requiresAuthentication": false
@@ -255,25 +384,25 @@ _response:_
   },
   "selectableGifts": [],
   "marketingData": null,
-  "postalCode": "05577000", //CEP
-  "country": "BRA", //sigla do país
-  "logisticsInfo": [ // lista de informaçãoes de lojistica
+  "postalCode": null,
+  "country": null,
+  "logisticsInfo": [
     {
       "itemIndex": 0,
-      "stockBalance": 10, //estoque
-      "quantity": 1, //quantidade atendida
+      "stockBalance": 2080,
+      "quantity": 1,
       "shipsTo": [],
-      "slas": [] // só retorna quando vier o CEP
+      "slas": []
     },
     {
       "itemIndex": 1,
-      "stockBalance": 20,
+      "stockBalance": 8780,
       "quantity": 1,
       "shipsTo": [],
       "slas": []
     }
   ],
-  "messages": [] //mensagens de não conformidade.
+  "messages": []
 }
 ```
 
@@ -457,14 +586,14 @@ _request:_
 {
   "items": [ // lista de itens
     {
-      "id": "310118183", //identificado do SKU no Marketplace Switch
+      "id": "310118190", //identificado do SKU no Marketplace Switch
       "quantity": 1, // quantidade solicitada
-      "seller": "netshoes" //identificado do Seller no Marketplace Switch
+      "seller": "walmartv5" //identificado do Seller no Marketplace Switch
     },
     {
-      "id": "310118171",
+      "id": "310118210",
       "quantity": 1,
-      "seller": "fastshop"
+      "seller": "parceiro01"
     }
   ],
   "postalCode": "05577000", //opcional, CEP
@@ -476,33 +605,77 @@ _response:_
 
 ```json
 {
-  "items": [ //lista de itens, caso os itens estiverem indispoíveis o retorn será uma lisat vazia []
+  "items": [
     {
-      "id": "310118183", //identificado do SKU no Marketplace Switch
+      "id": "310118190",
       "requestIndex": 0,
-      "quantity": 1, //quantidade que consegue atender
-      "seller": "netshoes", //identificado do Seller no Marketplace Switch
+      "quantity": 1,
+      "seller": "walmartv5",
       "tax": 0,
       "priceValidUntil": null,
-      "price": 31490, //preço POR, pode ser nulo
-      "listPrice": 31490, //preço DE, pode ser nulo
-      "sellingPrice": 31490, //preço de venda
-      "offerings": [],
+      "price": 39901,
+      "listPrice": 52900,
+      "sellingPrice": 39901,
+      "offerings": [
+        {
+          "type": "servico",
+          "id": "38",
+          "name": "servico",
+          "allowGiftMessage": false,
+          "attachmentOfferings": [
+            {
+              "name": "Informações",
+              "required": false,
+              "schema": {
+                "texto": {
+                  "maximumNumberOfCharacters": 23,
+                  "domain": [
+                    "teste1",
+                    " teste2",
+                    " teste3"
+                  ]
+                }
+              }
+            }
+          ],
+          "price": 1000
+        }
+      ],
       "priceTags": [],
       "measurementUnit": "un",
       "unitMultiplier": 1
     },
     {
-      "id": "310118171",
+      "id": "310118210",
       "requestIndex": 1,
       "quantity": 1,
-      "seller": "fastshop",
+      "seller": "parceiro01",
       "tax": 0,
       "priceValidUntil": null,
-      "price": 28284,
-      "listPrice": 28284,
-      "sellingPrice": 28284,
-      "offerings": [],
+      "price": 249,
+      "listPrice": 3000,
+      "sellingPrice": 249,
+      "offerings": [
+        {
+          "type": "Embalagem Simples",
+          "id": "1",
+          "name": "Embalagem Simples",
+          "allowGiftMessage": true,
+          "attachmentOfferings": [
+            {
+              "name": "message",
+              "required": false,
+              "schema": {
+                "text": {
+                  "maximumNumberOfCharacters": 300,
+                  "domain": []
+                }
+              }
+            }
+          ],
+          "price": 250
+        }
+      ],
       "priceTags": [],
       "measurementUnit": "un",
       "unitMultiplier": 1
@@ -516,34 +689,86 @@ _response:_
   "paymentData": {
     "installmentOptions": [
       {
-        "paymentSystem": "2",
+        "paymentSystem": "1",
         "bin": null,
-        "paymentName": "Visa",
+        "paymentName": "American Express",
         "paymentGroupName": "creditCardPaymentGroup",
-        "value": 59774,
+        "value": 40150,
         "installments": [
           {
             "count": 1,
             "hasInterestRate": false,
             "interestRate": 0,
-            "value": 59774,
-            "total": 59774,
+            "value": 40150,
+            "total": 40150,
             "sellerMerchantInstallments": [
               {
-                "id": "SHOPFACILNETSHOES",
+                "id": "SANDBOXINTEGRACAO",
                 "count": 1,
                 "hasInterestRate": false,
                 "interestRate": 0,
-                "value": 31490,
-                "total": 31490
-              },
+                "value": 40150,
+                "total": 40150
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "paymentSystem": "2",
+        "bin": null,
+        "paymentName": "Visa",
+        "paymentGroupName": "creditCardPaymentGroup",
+        "value": 40150,
+        "installments": [
+          {
+            "count": 1,
+            "hasInterestRate": false,
+            "interestRate": 0,
+            "value": 40150,
+            "total": 40150,
+            "sellerMerchantInstallments": [
               {
-                "id": "SHOPFACILFASTSHOP",
+                "id": "SANDBOXINTEGRACAO",
                 "count": 1,
                 "hasInterestRate": false,
                 "interestRate": 0,
-                "value": 28284,
-                "total": 28284
+                "value": 40150,
+                "total": 40150
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "hasInterestRate": false,
+            "interestRate": 0,
+            "value": 20075,
+            "total": 40150,
+            "sellerMerchantInstallments": [
+              {
+                "id": "SANDBOXINTEGRACAO",
+                "count": 2,
+                "hasInterestRate": false,
+                "interestRate": 0,
+                "value": 20075,
+                "total": 40150
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "hasInterestRate": false,
+            "interestRate": 0,
+            "value": 13383,
+            "total": 40150,
+            "sellerMerchantInstallments": [
+              {
+                "id": "SANDBOXINTEGRACAO",
+                "count": 3,
+                "hasInterestRate": false,
+                "interestRate": 0,
+                "value": 13383,
+                "total": 40150
               }
             ]
           }
@@ -552,13 +777,25 @@ _response:_
     ],
     "paymentSystems": [
       {
+        "id": 1,
+        "name": "American Express",
+        "groupName": "creditCardPaymentGroup",
+        "validator": null,
+        "stringId": "1",
+        "template": "creditCardPaymentGroup-template",
+        "requiresDocument": false,
+        "isCustom": false,
+        "description": null,
+        "requiresAuthentication": false
+      },
+      {
         "id": 2,
         "name": "Visa",
         "groupName": "creditCardPaymentGroup",
         "validator": null,
         "stringId": "2",
         "template": "creditCardPaymentGroup-template",
-        "requiresDocument": true,
+        "requiresDocument": false,
         "isCustom": false,
         "description": null,
         "requiresAuthentication": false
@@ -571,53 +808,168 @@ _response:_
   },
   "selectableGifts": [],
   "marketingData": null,
-  "postalCode": "05577000", //CEP
-  "country": "BRA", //sigla do país
-  "logisticsInfo": [ // lista de informaçãoes de lojistica
+  "postalCode": "05577000",
+  "country": "BRA",
+  "logisticsInfo": [
     {
       "itemIndex": 0,
-      "stockBalance": 10, //estoque
-      "quantity": 1, //quantidade atendida
+      "stockBalance": 2080,
+      "quantity": 1,
       "shipsTo": [],
-      "slas": [ //lista de acordos de entrega, caso não enviado CEP retorna lista vazia[]
+      "slas": [
         {
-          "id": "Normal", //identificador do tipo de entrega
-          "name": "Normal",
-          "deliveryIds": [],
-          "shippingEstimate": "15bd", //dias uteis estimados para a entrega.
+          "id": "performance",
+          "name": "performance",
+          "deliveryIds": [
+            {
+              "courierId": "1427277",
+              "warehouseId": "1_1",
+              "dockId": "1_1_1",
+              "courierName": "Teste de Performance",
+              "quantity": 1
+            }
+          ],
+          "shippingEstimate": "3bd",
           "shippingEstimateDate": null,
           "lockTTL": null,
           "availableDeliveryWindows": [],
           "deliveryWindow": null,
-          "price": 0, //preco da entrega
-          "listPrice": 0,
+          "price": 286,
+          "listPrice": 286,
+          "tax": 0
+        },
+        {
+          "id": "Entrega Agendada",
+          "name": "Entrega Agendada",
+          "deliveryIds": [
+            {
+              "courierId": "58",
+              "warehouseId": "1_1",
+              "dockId": "1_1_1",
+              "courierName": "Entrega Agendada QA [Não mexer]",
+              "quantity": 1
+            }
+          ],
+          "shippingEstimate": "1d",
+          "shippingEstimateDate": null,
+          "lockTTL": null,
+          "availableDeliveryWindows": [
+            {
+              "startDateUtc": "2015-10-14T08:00:00+00:00",
+              "endDateUtc": "2015-10-14T12:00:00+00:00",
+              "price": 800,
+              "lisPrice": 800,
+              "tax": 0
+            },
+            {
+              "startDateUtc": "2015-10-14T13:00:00+00:00",
+              "endDateUtc": "2015-10-14T20:00:00+00:00",
+              "price": 800,
+              "lisPrice": 800,
+              "tax": 0
+            }
+          ],
+          "deliveryWindow": null,
+          "price": 550,
+          "listPrice": 550,
+          "tax": 0
+        },
+        {
+          "id": "normal",
+          "name": "normal",
+          "deliveryIds": [
+            {
+              "courierId": "1a574b3",
+              "warehouseId": "1_1",
+              "dockId": "1_1_1",
+              "courierName": "Mundo",
+              "quantity": 1
+            }
+          ],
+          "shippingEstimate": "16bd",
+          "shippingEstimateDate": null,
+          "lockTTL": null,
+          "availableDeliveryWindows": [],
+          "deliveryWindow": null,
+          "price": 1370,
+          "listPrice": 1370,
+          "tax": 0
+        },
+        {
+          "id": "PAC",
+          "name": "PAC",
+          "deliveryIds": [
+            {
+              "courierId": "56",
+              "warehouseId": "1_1",
+              "dockId": "1_1_1",
+              "courierName": "PAC",
+              "quantity": 1
+            }
+          ],
+          "shippingEstimate": "8bd",
+          "shippingEstimateDate": null,
+          "lockTTL": null,
+          "availableDeliveryWindows": [],
+          "deliveryWindow": null,
+          "price": 1540,
+          "listPrice": 1540,
+          "tax": 0
+        },
+        {
+          "id": "Expressa",
+          "name": "Expressa",
+          "deliveryIds": [
+            {
+              "courierId": "55",
+              "warehouseId": "1_1",
+              "dockId": "1_1_1",
+              "courierName": "Sedex",
+              "quantity": 1
+            }
+          ],
+          "shippingEstimate": "7bd",
+          "shippingEstimateDate": null,
+          "lockTTL": null,
+          "availableDeliveryWindows": [],
+          "deliveryWindow": null,
+          "price": 1650,
+          "listPrice": 1650,
           "tax": 0
         }
       ]
     },
     {
       "itemIndex": 1,
-      "stockBalance": 20,
+      "stockBalance": 8780,
       "quantity": 1,
       "shipsTo": [],
       "slas": [
         {
-          "id": "Normal",
-          "name": "Entrega Normal",
-          "deliveryIds": [],
-          "shippingEstimate": "2bd",
+          "id": "PAC",
+          "name": "PAC",
+          "deliveryIds": [
+            {
+              "courierId": "19c9acd",
+              "warehouseId": "1_1",
+              "dockId": "16f4d65",
+              "courierName": "[TESTE QA] Não mexer",
+              "quantity": 1
+            }
+          ],
+          "shippingEstimate": "3bd",
           "shippingEstimateDate": null,
           "lockTTL": null,
           "availableDeliveryWindows": [],
           "deliveryWindow": null,
-          "price": 240,
-          "listPrice": 240,
+          "price": 0,
+          "listPrice": 0,
           "tax": 0
         }
       ]
     }
   ],
-  "messages": [] //mensagens de não conformidade.
+  "messages": []
 }
 ```
 
@@ -644,61 +996,75 @@ _request:_
 
 ```json
 {
-  "items": [ //lista de itens
+  "items": [
     {
-      "id": "310117693", //identificador da SKU
-      "quantity": 1, //quantidade desejada
-      "seller": "1", //identificador do Seller
-      "price": 2690, //preço da SKU
-      "bundleItems": [] //serviços
+      "id": "310118190",
+      "quantity": 1,
+      "seller": "walmartv5",
+      "price": 39901,
+      "bundleItems": []
+    },
+    {
+      "id": "310118210",
+      "quantity": 1,
+      "seller": "parceiro01",
+      "price": 249,
+      "bundleItems": []
     }
   ],
-  "clientProfileData": { // dados do cliente
-    "email": "jonasrj@hotmail.com.br", //e-mail do cliente final
-    "firstName": "Jonas", //nome do cliente final
-    "lastName": "Alves de Oliveira", //sobrenome do cliente final
-    "document": "08896581885", //documento do cliente final
-    "phone": "399271258", //fone do cliente final
-    "corporateName": null, //opcional, razão social
-    "tradeName": null, //opcional, nome fantasia
-    "corporateDocument": null, //opcional, CNPJ
-    "stateInscription": null, //opcional, inscrição estadual
-    "corporatePhone": null, //opcional, fone
-    "isCorporate": false //opcional, é pessoa jurídica
+  "clientProfileData": {
+    "email": "jonasrj@hotmail.com.br",
+    "firstName": "Jonas",
+    "lastName": "Bolognim",
+    "document": "13402886561",
+    "phone": "999981477",
+    "corporateName": null,
+    "tradeName": null,
+    "corporateDocument": null,
+    "stateInscription": null,
+    "corporatePhone": null,
+    "isCorporate": false
   },
-  "shippingData": { //dados de entrega
+  "shippingData": {
     "id": "shippingData",
     "address": {
-      "addressType": "1", //tipos endereço, 1=residencial
-      "receiverName": "Jonas Alves de Oliveira", //nome do destinatário
-      "addressId": "Casa", //identificador do endereço
-      "postalCode": "13476103", //CEP
-      "city": "Americana", //cidade
-      "state": "SP", //UF
-      "country": "BRA", //país
-      "street": "JOÃO DAMÁZIO GOMES", //rua
-      "number": "311", //número na rua
-      "neighborhood": "SÃO JOSÉ", //bairro
-      "complement": null, //complemento do endereço
-      "reference": "Bairro Praia Azul / Posto de Saúde 17" //referencia do endereço
+      "addressType": "1",
+      "receiverName": "Jonas Alves de Oliveira",
+      "addressId": "Casa",
+      "postalCode": "13476103",
+      "city": "Americana",
+      "state": "SP",
+      "country": "BRA",
+      "street": "JOÃO DAMÁZIO GOMES",
+      "number": "311",
+      "neighborhood": "SÃO JOSÉ",
+      "complement": null,
+      "reference": "Bairro Praia Azul / Posto de Saúde 17"
     },
-    "logisticsInfo": [ //dados de entrega
+    "logisticsInfo": [
       {
         "itemIndex": 0,
-        "selectedSla": "Normal", //tipo da entrega
-        "lockTTL": "7d", //dias para segurar a reserva
-        "price": 500, //custo da entrega
-        "deliveryWindow": null //opcional, janela de entrega
+        "selectedSla": "normal",
+        "lockTTL": "16bd",
+        "price": 1370,
+        "deliveryWindow": null
+      },
+      {
+        "itemIndex": 0,
+        "selectedSla": "PAC",
+        "lockTTL": "3bd",
+        "price": 0,
+        "deliveryWindow": null
       }
     ]
   },
-  "paymentData": { //dados do pagamento
-    "payments": [ //pagamento
+  "paymentData": {
+    "payments": [
       {
-        "value": 3190, //valor do pagamento
-        "referenceValue": 3190, //valor do pagamento sem juros
-        "installments": 1, //numero de parcelas
-        "paymentSystem": "201" //identificador do pagamento customizado
+        "value": 41520,
+        "referenceValue": 41520,
+        "installments": 1,
+        "paymentSystem": "201"
       }
     ]
   },
@@ -711,19 +1077,19 @@ _response:_
 ```json
 {
   "orderForm": null,
-  "transactionData": { //dados da transação de pagamento
+  "transactionData": {
     "merchantTransactions": [
       {
         "id": "SANDBOXINTEGRACAO",
-        "transactionId": "055D31E878604BA2B9091F9B1959B9CF", //identificador da transação de pagamento
+        "transactionId": "AA11D2427D57456B8B2499532C32F893",
         "merchantName": "SANDBOXINTEGRACAO",
         "payments": [
           {
-            "paymentSystem": "201", //identificador do pagamento customizado
+            "paymentSystem": "201",
             "bin": null,
             "accountId": null,
-            "value": 3190, //valor do pagamento
-            "referenceValue": 3190, //valor do pagamento sem juros
+            "value": 41520,
+            "referenceValue": 41520,
             "giftCardRedemptionCode": null,
             "giftCardProvider": null,
             "giftCardId": null
@@ -731,52 +1097,51 @@ _response:_
         ]
       }
     ],
-    "receiverUri": "https://sandboxintegracao.vtexpayments.com.br/split/563790004322/payments", // url para colocar o pagamento
-    "gatewayCallbackTemplatePath": "/checkout/gatewayCallback/563790004322/{messageCode}"
+    "receiverUri": "https://sandboxintegracao.vtexpayments.com.br/split/568600722512/payments",
+    "gatewayCallbackTemplatePath": "/checkout/gatewayCallback/568600722512/{messageCode}"
   },
   "orders": [
     {
-      "orderId": "563790004322-01", // identificador do pedido gerado
-      "orderGroup": "563790004322", // agrupador do pedido
-      "state": "payment-pending", // status do pagamento
-      "value": 3190, //valor do pagamento
-      "items": [ //dados dos itens do pedido
+      "orderId": "568600722512-01",
+      "orderGroup": "568600722512",
+      "state": "payment-pending",
+      "value": 41271,
+      "items": [
         {
-          "uniqueId": "D4AA40DCE43B407C95569F9793E3C0DC",
-          "id": "310117693", // identificador da SKU
-          "productId": "310116559", // agrupador da SKU
-          "refId": "004966", // codigo de referencia
-          "name": "Il Frutteto Romã com Pêssego Nesti Dante - Sabonete Frutal em Barra 250g", //nome do item
-          "skuName": "250g", //nome da SKU
+          "uniqueId": "11A9F2B976A243CFAD9C99D7FBE44E78",
+          "id": "310118190",
+          "productId": "310116836",
+          "refId": "0896e250-df2c-4dab-a6de-bf8c5e248f7b",
+          "name": "Irrigador Oral e Fio Dental de Água Waterpik Ultra 110 volts - Excepcional Para Limpeza Profunda em Pontes, Coroas, Aparelhos Ortodônticos e Implantes Irrigador Dental Waterpik Ultra 100W 110v",
+          "skuName": "Irrigador Dental Waterpik Ultra 100W 110v",
           "modalType": null,
           "priceValidUntil": null,
           "tax": 0,
-          "price": 2690, //preço POR
-          "listPrice": 2690, //preço DE
+          "price": 39901,
+          "listPrice": 52900,
           "manualPrice": null,
-          "sellingPrice": 2690, //preço de vendido
+          "sellingPrice": 39901,
           "rewardValue": 0,
-          "isGift": false, //é presente?
-          "additionalInfo": { // informações adicionais
-            "brandName": "Nesti Dante", // nome da marca
-            "brandId": "2000070", //identificador da marca
+          "isGift": false,
+          "additionalInfo": {
+            "brandName": "Marca",
+            "brandId": "2000012",
             "offeringInfo": null,
             "offeringType": null,
             "offeringTypeId": null
           },
           "preSaleDate": null,
-          "productCategoryIds": "/1000023/1000111/", arvóre de categoria
-          "productCategories": { //identificador das categorias
-            "1000023": "Corpo e Banho",
-            "1000111": "Sabonete e Gel de Banho"
+          "productCategoryIds": "/1000010/",
+          "productCategories": {
+            "1000010": "Higiene e Beleza"
           },
           "defaultPicker": null,
           "handlerSequence": 0,
           "handling": false,
-          "quantity": 1, //quantidade vendida
-          "seller": "1",
-          "imageUrl": "http://sandboxintegracao.vteximg.com.br/arquivos/ids/155728-55-55/il-frutteto-250g-nesti-dante.jpg",
-          "detailUrl": "/il-frutteto-roma-com-pessego-nesti-dante-sabonete-frutal-em-barra/p",
+          "quantity": 1,
+          "seller": "walmartv5",
+          "imageUrl": "http://sandboxintegracao.vteximg.com.br/arquivos/ids/156755-55-55/Irrigador-Dental-Waterpik-Ultra-100W-110v_0.jpg",
+          "detailUrl": "/irrigador-oral-e-fio-dental-de-agua-waterpik-ultra-110-volts---excepcional-para-limpeza-profunda-em-pontes-coroas-aparelhos-ortodonticos-e-implantes-310116836/p",
           "components": [],
           "bundleItems": [],
           "attachments": [],
@@ -785,25 +1150,49 @@ _response:_
             "content": {}
           },
           "attachmentOfferings": [],
-          "offerings": [],
+          "offerings": [
+            {
+              "type": "servico",
+              "id": "38",
+              "name": "servico",
+              "allowGiftMessage": false,
+              "attachmentOfferings": [
+                {
+                  "name": "Informações",
+                  "required": false,
+                  "schema": {
+                    "texto": {
+                      "maximumNumberOfCharacters": 23,
+                      "domain": [
+                        "teste1",
+                        " teste2",
+                        " teste3"
+                      ]
+                    }
+                  }
+                }
+              ],
+              "price": 1000
+            }
+          ],
           "priceTags": [],
           "availability": "available",
           "measurementUnit": "un",
           "unitMultiplier": 1
         }
       ],
-      "sellers": [ //sellers que vendem essa SKU
+      "sellers": [
         {
-          "id": "1",
-          "name": "Sandbox-integracao",
+          "id": "walmartv5",
+          "name": "VTEX MKP - QA",
           "logo": "http://portal.vtexcommercestable.com.br/arquivos/logo.jpg"
         }
       ],
-      "totals": [ //totais dos pedidos
+      "totals": [
         {
           "id": "Items",
           "name": "Total dos Itens",
-          "value": 2690
+          "value": 39901
         },
         {
           "id": "Discounts",
@@ -813,7 +1202,7 @@ _response:_
         {
           "id": "Shipping",
           "name": "Total do Frete",
-          "value": 500
+          "value": 1370
         },
         {
           "id": "Tax",
@@ -821,14 +1210,14 @@ _response:_
           "value": 0
         }
       ],
-      "clientProfileData": { //dados do cliente
+      "clientProfileData": {
         "attachmentId": "clientProfileData",
         "email": "jonasrj@hotmail.com.br",
-        "firstName": "Jon**",
-        "lastName": "Alv** ** ********",
-        "document": "*8*9*5*1*8*",
+        "firstName": "Jonas",
+        "lastName": "Bolognim",
+        "document": "13402886561",
         "documentType": "cpf",
-        "phone": "*****1258",
+        "phone": "999981477",
         "corporateName": null,
         "tradeName": null,
         "corporateDocument": null,
@@ -841,47 +1230,47 @@ _response:_
         "rateAndBenefitsIdentifiers": [],
         "teaser": []
       },
-      "shippingData": { //dados de entrega
+      "shippingData": {
         "attachmentId": "shippingData",
         "address": {
           "addressType": "residential",
-          "receiverName": "Jon** ***** ** ********",
+          "receiverName": "Jonas Alves de Oliveira",
           "addressId": "Casa",
-          "postalCode": "*****103",
-          "city": "Ame******",
+          "postalCode": "13476103",
+          "city": "Americana",
           "state": "SP",
           "country": "BRA",
-          "street": "JOÃ* ******* **MES",
-          "number": "***",
-          "neighborhood": "SÃO ****",
+          "street": "JOÃO DAMÁZIO GOMES",
+          "number": "311",
+          "neighborhood": "SÃO JOSÉ",
           "complement": null,
-          "reference": "****** ***** **** * ***** ** ***** **",
+          "reference": "Bairro Praia Azul / Posto de Saúde 17",
           "geoCoordinates": []
         },
-        "logisticsInfo": [ //todos os dados de entrega dessa SKU
+        "logisticsInfo": [
           {
             "itemIndex": 0,
-            "selectedSla": "Normal",
+            "selectedSla": "normal",
             "slas": [
               {
-                "id": "Normal",
-                "name": "Normal",
+                "id": "performance",
+                "name": "performance",
                 "deliveryIds": [
                   {
-                    "courierId": "2",
+                    "courierId": "1427277",
                     "warehouseId": "1_1",
-                    "dockId": "1",
-                    "courierName": "Normal",
+                    "dockId": "1_1_1",
+                    "courierName": "Teste de Performance",
                     "quantity": 1
                   }
                 ],
-                "shippingEstimate": "4bd",
+                "shippingEstimate": "3bd",
                 "shippingEstimateDate": null,
-                "lockTTL": "14d",
+                "lockTTL": "15d",
                 "availableDeliveryWindows": [],
                 "deliveryWindow": null,
-                "price": 500,
-                "listPrice": 500,
+                "price": 286,
+                "listPrice": 286,
                 "tax": 0
               },
               {
@@ -889,83 +1278,132 @@ _response:_
                 "name": "Entrega Agendada",
                 "deliveryIds": [
                   {
-                    "courierId": "1",
+                    "courierId": "58",
                     "warehouseId": "1_1",
-                    "dockId": "1",
-                    "courierName": "Transportadora",
+                    "dockId": "1_1_1",
+                    "courierName": "Entrega Agendada QA [Não mexer]",
                     "quantity": 1
                   }
                 ],
-                "shippingEstimate": "4bd",
+                "shippingEstimate": "1d",
                 "shippingEstimateDate": null,
-                "lockTTL": "14d",
+                "lockTTL": "15d",
                 "availableDeliveryWindows": [
                   {
-                    "startDateUtc": "2015-09-30T07:00:00+00:00",
-                    "endDateUtc": "2015-09-30T12:00:00+00:00",
-                    "price": 1,
-                    "lisPrice": 1,
+                    "startDateUtc": "2015-10-14T08:00:00+00:00",
+                    "endDateUtc": "2015-10-14T12:00:00+00:00",
+                    "price": 800,
+                    "lisPrice": 800,
                     "tax": 0
                   },
                   {
-                    "startDateUtc": "2015-10-05T07:00:00+00:00",
-                    "endDateUtc": "2015-10-05T12:00:00+00:00",
-                    "price": 1,
-                    "lisPrice": 1,
-                    "tax": 0
-                  },
-                  {
-                    "startDateUtc": "2015-10-07T07:00:00+00:00",
-                    "endDateUtc": "2015-10-07T12:00:00+00:00",
-                    "price": 1,
-                    "lisPrice": 1,
-                    "tax": 0
-                  },
-                  {
-                    "startDateUtc": "2015-10-12T07:00:00+00:00",
-                    "endDateUtc": "2015-10-12T12:00:00+00:00",
-                    "price": 1,
-                    "lisPrice": 1,
+                    "startDateUtc": "2015-10-14T13:00:00+00:00",
+                    "endDateUtc": "2015-10-14T20:00:00+00:00",
+                    "price": 800,
+                    "lisPrice": 800,
                     "tax": 0
                   }
                 ],
                 "deliveryWindow": null,
-                "price": 1500,
-                "listPrice": 1500,
+                "price": 550,
+                "listPrice": 550,
+                "tax": 0
+              },
+              {
+                "id": "normal",
+                "name": "normal",
+                "deliveryIds": [
+                  {
+                    "courierId": "1a574b3",
+                    "warehouseId": "1_1",
+                    "dockId": "1_1_1",
+                    "courierName": "Mundo",
+                    "quantity": 1
+                  }
+                ],
+                "shippingEstimate": "16bd",
+                "shippingEstimateDate": null,
+                "lockTTL": "15d",
+                "availableDeliveryWindows": [],
+                "deliveryWindow": null,
+                "price": 1370,
+                "listPrice": 1370,
+                "tax": 0
+              },
+              {
+                "id": "PAC",
+                "name": "PAC",
+                "deliveryIds": [
+                  {
+                    "courierId": "56",
+                    "warehouseId": "1_1",
+                    "dockId": "1_1_1",
+                    "courierName": "PAC",
+                    "quantity": 1
+                  }
+                ],
+                "shippingEstimate": "8bd",
+                "shippingEstimateDate": null,
+                "lockTTL": "15d",
+                "availableDeliveryWindows": [],
+                "deliveryWindow": null,
+                "price": 1540,
+                "listPrice": 1540,
+                "tax": 0
+              },
+              {
+                "id": "Expressa",
+                "name": "Expressa",
+                "deliveryIds": [
+                  {
+                    "courierId": "55",
+                    "warehouseId": "1_1",
+                    "dockId": "1_1_1",
+                    "courierName": "Sedex",
+                    "quantity": 1
+                  }
+                ],
+                "shippingEstimate": "7bd",
+                "shippingEstimateDate": null,
+                "lockTTL": "15d",
+                "availableDeliveryWindows": [],
+                "deliveryWindow": null,
+                "price": 1650,
+                "listPrice": 1650,
                 "tax": 0
               }
             ],
             "shipsTo": [],
-            "itemId": "310117693"
+            "itemId": "310118190"
           }
         ],
-        "availableAddresses": [ //todos os endereços desse cliente
+        "availableAddresses": [
           {
             "addressType": "residential",
-            "receiverName": "Jon** ***** ** ********",
+            "receiverName": "Jonas Alves de Oliveira",
             "addressId": "Casa",
-            "postalCode": "*****103",
-            "city": "Ame******",
+            "postalCode": "13476103",
+            "city": "Americana",
             "state": "SP",
             "country": "BRA",
-            "street": "JOÃ* ******* **MES",
-            "number": "***",
-            "neighborhood": "SÃO ****",
+            "street": "JOÃO DAMÁZIO GOMES",
+            "number": "311",
+            "neighborhood": "SÃO JOSÉ",
             "complement": null,
-            "reference": "****** ***** **** * ***** ** ***** **",
+            "reference": "Bairro Praia Azul / Posto de Saúde 17",
             "geoCoordinates": []
           }
         ]
       },
       "paymentData": {
         "attachmentId": "paymentData",
-        "transactionId": "055D31E878604BA2B9091F9B1959B9CF",
+        "transactionId": "AA11D2427D57456B8B2499532C32F893",
         "payments": [],
         "giftCards": [],
         "transactions": [
           {
             "isActive": true,
-            "transactionId": "055D31E878604BA2B9091F9B1959B9CF",
+            "transactionId": "AA11D2427D57456B8B2499532C32F893",
             "merchantName": "SANDBOXINTEGRACAO",
             "payments": []
           }
@@ -996,11 +1434,252 @@ _response:_
       "openTextField": null,
       "changeData": null,
       "salesChannel": "1",
-      "followUpEmail": "dda5e0841f3b4c7299e5c9c5e04aa8f7@ct.vtex.com.br",
-      "creationDate": "2015-09-23T19:00:06.4499638Z",
-      "lastChange": "2015-09-23T19:00:11.7539981Z",
-      "timeZoneCreationDate": "2015-09-23T16:00:06.4499638",
-      "timeZoneLastChange": "2015-09-23T16:00:11.7539981",
+      "followUpEmail": "83e33f638b5d4d3f9a00bb3062801487@ct.vtex.com.br",
+      "creationDate": "2015-10-13T20:12:03.6383629Z",
+      "lastChange": "2015-10-13T20:12:12.9046797Z",
+      "timeZoneCreationDate": "2015-10-13T17:12:03.6383629",
+      "timeZoneLastChange": "2015-10-13T17:12:12.9046797",
+      "isCompleted": false,
+      "hostName": "sandboxintegracao",
+      "merchantName": null,
+      "userType": "",
+      "roundingError": 0
+    },
+    {
+      "orderId": "568600722512-02",
+      "orderGroup": "568600722512",
+      "state": "payment-pending",
+      "value": 249,
+      "items": [
+        {
+          "uniqueId": "EE5DB23686494286A2FFCDD689051804",
+          "id": "310118210",
+          "productId": "310116844",
+          "refId": "Cod-Ref-Item-ModeloC",
+          "name": "Produto Exemplo 2 Exemplo 2",
+          "skuName": "Exemplo 2",
+          "modalType": null,
+          "priceValidUntil": null,
+          "tax": 0,
+          "price": 249,
+          "listPrice": 3000,
+          "manualPrice": null,
+          "sellingPrice": 249,
+          "rewardValue": 0,
+          "isGift": false,
+          "additionalInfo": {
+            "brandName": "Marca Exemplo",
+            "brandId": "1",
+            "offeringInfo": null,
+            "offeringType": null,
+            "offeringTypeId": null
+          },
+          "preSaleDate": null,
+          "productCategoryIds": "/3/",
+          "productCategories": {
+            "3": "Moda"
+          },
+          "defaultPicker": null,
+          "handlerSequence": 0,
+          "handling": false,
+          "quantity": 1,
+          "seller": "parceiro01",
+          "imageUrl": "http://sandboxintegracao.vteximg.com.br/arquivos/ids/156894-55-55/Exemplo-2_0.jpg",
+          "detailUrl": "/produto-exemplo-2-310116844/p",
+          "components": [],
+          "bundleItems": [],
+          "attachments": [],
+          "itemAttachment": {
+            "name": null,
+            "content": {}
+          },
+          "attachmentOfferings": [],
+          "offerings": [
+            {
+              "type": "Embalagem Simples",
+              "id": "1",
+              "name": "Embalagem Simples",
+              "allowGiftMessage": true,
+              "attachmentOfferings": [
+                {
+                  "name": "message",
+                  "required": false,
+                  "schema": {
+                    "text": {
+                      "maximumNumberOfCharacters": 300,
+                      "domain": []
+                    }
+                  }
+                }
+              ],
+              "price": 250
+            }
+          ],
+          "priceTags": [],
+          "availability": "available",
+          "measurementUnit": "un",
+          "unitMultiplier": 1
+        }
+      ],
+      "sellers": [
+        {
+          "id": "parceiro01",
+          "name": "Parceiro01",
+          "logo": "http://portal.vtexcommercestable.com.br/arquivos/logo.jpg"
+        }
+      ],
+      "totals": [
+        {
+          "id": "Items",
+          "name": "Total dos Itens",
+          "value": 249
+        },
+        {
+          "id": "Discounts",
+          "name": "Total dos Descontos",
+          "value": 0
+        },
+        {
+          "id": "Shipping",
+          "name": "Total do Frete",
+          "value": 0
+        },
+        {
+          "id": "Tax",
+          "name": "Total da Taxa",
+          "value": 0
+        }
+      ],
+      "clientProfileData": {
+        "attachmentId": "clientProfileData",
+        "email": "jonasrj@hotmail.com.br",
+        "firstName": "Jonas",
+        "lastName": "Bolognim",
+        "document": "13402886561",
+        "documentType": "cpf",
+        "phone": "999981477",
+        "corporateName": null,
+        "tradeName": null,
+        "corporateDocument": null,
+        "stateInscription": null,
+        "corporatePhone": null,
+        "isCorporate": false
+      },
+      "ratesAndBenefitsData": {
+        "attachmentId": "ratesAndBenefitsData",
+        "rateAndBenefitsIdentifiers": [],
+        "teaser": []
+      },
+      "shippingData": {
+        "attachmentId": "shippingData",
+        "address": {
+          "addressType": "residential",
+          "receiverName": "Jonas Alves de Oliveira",
+          "addressId": "Casa",
+          "postalCode": "13476103",
+          "city": "Americana",
+          "state": "SP",
+          "country": "BRA",
+          "street": "JOÃO DAMÁZIO GOMES",
+          "number": "311",
+          "neighborhood": "SÃO JOSÉ",
+          "complement": null,
+          "reference": "Bairro Praia Azul / Posto de Saúde 17",
+          "geoCoordinates": []
+        },
+        "logisticsInfo": [
+          {
+            "itemIndex": 0,
+            "selectedSla": "PAC",
+            "slas": [
+              {
+                "id": "PAC",
+                "name": "PAC",
+                "deliveryIds": [
+                  {
+                    "courierId": "19c9acd",
+                    "warehouseId": "1_1",
+                    "dockId": "16f4d65",
+                    "courierName": "[TESTE QA] Não mexer",
+                    "quantity": 1
+                  }
+                ],
+                "shippingEstimate": "3bd",
+                "shippingEstimateDate": null,
+                "lockTTL": "23d",
+                "availableDeliveryWindows": [],
+                "deliveryWindow": null,
+                "price": 0,
+                "listPrice": 0,
+                "tax": 0
+              }
+            ],
+            "shipsTo": [],
+            "itemId": "310118210"
+          }
+        ],
+        "availableAddresses": [
+          {
+            "addressType": "residential",
+            "receiverName": "Jonas Alves de Oliveira",
+            "addressId": "Casa",
+            "postalCode": "13476103",
+            "city": "Americana",
+            "state": "SP",
+            "country": "BRA",
+            "street": "JOÃO DAMÁZIO GOMES",
+            "number": "311",
+            "neighborhood": "SÃO JOSÉ",
+            "complement": null,
+            "reference": "Bairro Praia Azul / Posto de Saúde 17",
+            "geoCoordinates": []
+          }
+        ]
+      },
+      "paymentData": {
+        "attachmentId": "paymentData",
+        "transactionId": "AA11D2427D57456B8B2499532C32F893",
+        "payments": [],
+        "giftCards": [],
+        "transactions": [
+          {
+            "isActive": true,
+            "transactionId": "AA11D2427D57456B8B2499532C32F893",
+            "merchantName": "SANDBOXINTEGRACAO",
+            "payments": []
+          }
+        ],
+        "merchantName": "SANDBOXINTEGRACAO"
+      },
+      "clientPreferencesData": null,
+      "giftRegistryData": null,
+      "marketingData": null,
+      "storePreferencesData": {
+        "countryCode": "BRA",
+        "checkToSavePersonDataByDefault": false,
+        "templateOptions": {
+          "toggleCorporate": false
+        },
+        "timeZone": "E. South America Standard Time",
+        "currencyCode": "BRL",
+        "currencyLocale": 1046,
+        "currencySymbol": "R$",
+        "currencyFormatInfo": {
+          "currencyDecimalDigits": 2,
+          "currencyDecimalSeparator": ",",
+          "currencyGroupSeparator": ".",
+          "currencyGroupSize": 3,
+          "startsWithCurrencySymbol": true
+        }
+      },
+      "openTextField": null,
+      "changeData": null,
+      "salesChannel": "1",
+      "followUpEmail": "e5c3e9ac0364456bbdd3ea8dea14db0b@ct.vtex.com.br",
+      "creationDate": "2015-10-13T20:12:07.7099271Z",
+      "lastChange": "2015-10-13T20:12:12.9202808Z",
+      "timeZoneCreationDate": "2015-10-13T17:12:07.7099271",
+      "timeZoneLastChange": "2015-10-13T17:12:12.9202808",
       "isCompleted": false,
       "hostName": "sandboxintegracao",
       "merchantName": null,
@@ -1045,10 +1724,10 @@ _request:_
                       \"groupName\": \"\",
                       \"currencyCode\":\"BRL\", //moeda
                       \"installments\": 1, //numero de parcelas
-                      \"value\": 3190, //valor total do pagamento
+                      \"value\": 41520, //valor total do pagamento
                       \"installmentsInterestRate\": 0, //taxa de juros
-                      \"installmentsValue\": 3190, //valor da parcela
-                      \"referenceValue\": 3190, //valer sem juros
+                      \"installmentsValue\": 41520, //valor da parcela
+                      \"referenceValue\": 41520, //valer sem juros
                       \"fields\": //quando cartão
                                     { \"document\": \"\", //documento do cartão
                                     \"accountId\": \"\", //identificador do profile do cartão
@@ -1057,7 +1736,7 @@ _request:_
                                     \"holderName\": \"\", //nome do cartão
                                     \"dueDate\": \"\", //data de validade do cartão
                                     \"validationCode\": \"\" }, //código de segurança do cartão
-                      \"transaction\": { \"id\": \"DC55BE31E64B47999ED2FFD001725D07\", //identificador da transação retornado no insert do pedido
+                      \"transaction\": { \"id\": \"AA11D2427D57456B8B2499532C32F893\", //identificador da transação retornado no insert do pedido
                                          \"merchantName\": \"SANDBOXINTEGRACAO\", //merchant name retornado no insert do pedido
                                          \"payments\": null}}]"
 }
@@ -1068,7 +1747,7 @@ _exemplo sem comentários:_
 ```json
 {
   "callbackUrl": "",
-  "paymentsArray": "[{\"paymentSystem\": 201, \"paymentSystemName\": \"FastShop\", \"groupName\": \"\",\"currencyCode\":\"\",\"installments\": 1, \"value\": 3190, \"installmentsInterestRate\": 0, \"installmentsValue\": 3190, \"referenceValue\": 3190, \"fields\": { \"document\": \"\", \"accountId\": \"\",\"addressId\": \"\",\"cardNumber\":\"\", \"holderName\": \"\", \"dueDate\": \"\", \"validationCode\": \"\" },\"transaction\": { \"id\": \"DC55BE31E64B47999ED2FFD001725D07\", \"merchantName\": \"SANDBOXINTEGRACAO\", \"payments\": null}}]"
+  "paymentsArray": "[{\"paymentSystem\": 201, \"paymentSystemName\": \"FastShop\", \"groupName\": \"\",\"currencyCode\":\"\",\"installments\": 1, \"value\": 41520, \"installmentsInterestRate\": 0, \"installmentsValue\": 41520, \"referenceValue\": 41520, \"fields\": { \"document\": \"\", \"accountId\": \"\",\"addressId\": \"\",\"cardNumber\":\"\", \"holderName\": \"\", \"dueDate\": \"\", \"validationCode\": \"\" },\"transaction\": { \"id\": \"AA11D2427D57456B8B2499532C32F893\", \"merchantName\": \"SANDBOXINTEGRACAO\", \"payments\": null}}]"
 }
 ```
 
