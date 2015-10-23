@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.1" data-basepath="../../.." data-revision="Thu Oct 08 2015 18:55:21 GMT-0300 (E. South America Standard Time)">
+    <div class="book" data-level="1.2.1" data-basepath="../../.." data-revision="Fri Oct 23 2015 16:52:40 GMT-0200 (E. South America Daylight Time)">
     
 
 <div class="book-summary">
@@ -1006,7 +1006,7 @@ Accept: <strong>application/json</strong><br></p>
 <p><a name="a3"></a></p>
 <h3 id="busca-de-condi%C3%A7%C3%B5es-comerciais"><a name="busca-de-condi%C3%A7%C3%B5es-comerciais" class="plugin-anchor" href="#busca-de-condi%C3%A7%C3%B5es-comerciais"><span class="fa fa-link"></span></a>Busca de Condi&#xE7;&#xF5;es Comerciais</h3>
 <p>Acessa a loja VTEX pegando as condi&#xE7;&#xF5;es comerciais (pre&#xE7;o, estoque, SLAs de entrega) de uma SKU  - Endpoint da Loja VTEX</p>
-<p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]</code>
+<p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br>
@@ -1118,7 +1118,7 @@ Parametro: <strong>affiliateId</strong> // o id do afiliado cadastrado na loja V
 <p><a name="a2"></a></p>
 <h3 id="busca-informa%C3%A7%C3%B5es-de-uma-sku"><a name="busca-informa%C3%A7%C3%B5es-de-uma-sku" class="plugin-anchor" href="#busca-informa%C3%A7%C3%B5es-de-uma-sku"><span class="fa fa-link"></span></a>Busca Informa&#xE7;&#xF5;es de uma SKU</h3>
 <p>Acessa uma loja VTEX e busca dados de uma SKU - Endpoint da Loja VTEX</p>
-<p>endpoint: <code>http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku]</code>
+<p>endpoint: <code>http://[loja].vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/[idsku]</code><br>
 verb: <strong>GET</strong><br>
 Accept: <strong>application/json</strong><br>
 Parametro: <strong>idSku</strong> // identificador do SKU<br></p>
@@ -1257,7 +1257,7 @@ Parametro: <strong>idSku</strong> // identificador do SKU<br></p>
 <p><img src="fechato-canal-nvtex.png" alt="alt text" title="fechamento do pedido no marketplace"></p>
 <h3 id="simula%C3%A7%C3%A3o-de-carrinho"><a name="simula%C3%A7%C3%A3o-de-carrinho" class="plugin-anchor" href="#simula%C3%A7%C3%A3o-de-carrinho"><span class="fa fa-link"></span></a>Simula&#xE7;&#xE3;o de Carrinho</h3>
 <p>Acessa a loja VTEX simulando um carrinho, para checar as condi&#xE7;&#xF5;es comerciais e as SLAs de entrega - Endpoint loja VTEX</p>
-<p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]</code>
+<p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orderForms/simulation?sc=[idcanal]&amp;affiliateId=[idafiliado]</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br>
@@ -1377,7 +1377,7 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
 <p><a name="a7"></a></p>
 <h3 id="enviar-pedido"><a name="enviar-pedido" class="plugin-anchor" href="#enviar-pedido"><span class="fa fa-link"></span></a>Enviar Pedido</h3>
 <p>Quando o pedido &#xE9; fechado em um Marketplace n&#xE3;o VTEX, um POST deve ser feito na loja VTEX, para que essa possa receber a ordem de pedido - Endpoint Loja VTEX</p>
-<p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&amp;affiliateId=[idafiliado]</code>
+<p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders?sc=[idcanal]&amp;affiliateId=[idafiliado]</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br>
@@ -1538,7 +1538,7 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
 <p><a name="a8"></a></p>
 <h3 id="enviar-autoria%C3%A7%C3%A3o-para-despachar"><a name="enviar-autoria%C3%A7%C3%A3o-para-despachar" class="plugin-anchor" href="#enviar-autoria%C3%A7%C3%A3o-para-despachar"><span class="fa fa-link"></span></a>Enviar Autoria&#xE7;&#xE3;o Para Despachar</h3>
 <p>Quando o pagamento do pedido &#xE9; conclu&#xED;do no canal de vendas n&#xE3;o VTEX, um POST dever&#xE1; ser feito na loja VTEX, para que o pedido possa prosseguir para tratamento - Endpoint da Seller</p>
-<p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=[idcanal]&amp;affiliateId=[idafiliado]</code>
+<p>endpoint: <code>https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/orders/[orderid]/fulfill?sc=[idcanal]&amp;affiliateId=[idafiliado]</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br>
@@ -1562,7 +1562,7 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
 <p><a name="a12"></a></p>
 <h3 id="informar-nota-fiscal"><a name="informar-nota-fiscal" class="plugin-anchor" href="#informar-nota-fiscal"><span class="fa fa-link"></span></a>Informar Nota Fiscal</h3>
 <p>Quando a Nota Fiscal for emitida pelo Seller VTEX, est&#xE1; ser&#xE1; enviada para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace</p>
-<p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code>
+<p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br>
@@ -1595,7 +1595,7 @@ Paramentro: <strong>marketplaceorderId</strong><br> //identificador do pedido do
 <p><a name="a13"></a></p>
 <h3 id="informar-tracking-de-transportadora"><a name="informar-tracking-de-transportadora" class="plugin-anchor" href="#informar-tracking-de-transportadora"><span class="fa fa-link"></span></a>Informar Tracking de Transportadora</h3>
 <p>Quando o pedido for entregue a uma transportadora, as informa&#xE7;&#xF5;es de tracking ser&#xE3;o enviadas para o Marketplace no marketplaceServicesEndpoint enviado nos dados de pedido - Endpoint do Marketplace</p>
-<p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code>
+<p>endpoint: <code>https://marketplaceServicesEndpoint/pub/orders/[marketplaceorderId]/invoice</code> <br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br>
@@ -1628,7 +1628,7 @@ Paramentro: <strong>marketplaceorderId</strong><br> //identificador do pedido do
 <p><a name="a14"></a></p>
 <h3 id="enviar-solicita%C3%A7%C3%A3o-de-cancelamento"><a name="enviar-solicita%C3%A7%C3%A3o-de-cancelamento" class="plugin-anchor" href="#enviar-solicita%C3%A7%C3%A3o-de-cancelamento"><span class="fa fa-link"></span></a>Enviar Solicita&#xE7;&#xE3;o de Cancelamento</h3>
 <p>Uma solicita&#xE7;&#xE3;o de cancelamento pode ser enviada para o para o Marketplace no marketplaceServicesEndpoint - Endpoint do Marketplace</p>
-<p>endpoint: <code>https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel</code>
+<p>endpoint: <code>https://marketplaceServicesEndpoint/pvt/orders/[marketplaceorderId]/cancel</code> <br>
 verb: <strong>POST</strong><br>
 Paramentro: <strong>marketplaceorderId</strong><br> //identificador do pedido do Marketplace</p>
 <p><em>request:</em></p>
