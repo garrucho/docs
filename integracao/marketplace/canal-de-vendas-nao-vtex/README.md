@@ -116,7 +116,7 @@ endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/order
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
-Parametro: **sc** // sc é o canal de vendas cadastrado no marketplace</br>
+Parametro: **sc** // sc é o canal de vendas cadastrado  na loja VTEX</br>
 Parametro: **affiliateId** // o id do afiliado cadastrado na loja VTEX</br>
 
 _request:_
@@ -390,7 +390,7 @@ endpoint: ``` https://[loja].vtexcommercestable.com.br/api/fulfillment/pvt/order
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
-Parametro: **sc** // sc é o canal de vendas</br>
+Parametro: **sc** // sc é o canal de vendas cadastrado na loja VTEX</br>
 Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado na loja VTEX</br>
 
 _request:_
