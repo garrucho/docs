@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Mon Nov 09 2015 12:04:34 GMT-0200 (E. South America Daylight Time)">
+    <div class="book" data-level="1.2.4" data-basepath="../../.." data-revision="Wed Nov 11 2015 16:22:24 GMT-0200 (E. South America Daylight Time)">
     
 
 <div class="book-summary">
@@ -913,7 +913,7 @@
                     
                         <h2 id="seller-n%C3%A3o-vtex-vendendo-em-marketplace-hospedado-na-vtex-recebendo-pagamento"><a name="seller-n%C3%A3o-vtex-vendendo-em-marketplace-hospedado-na-vtex-recebendo-pagamento" class="plugin-anchor" href="#seller-n%C3%A3o-vtex-vendendo-em-marketplace-hospedado-na-vtex-recebendo-pagamento"><span class="fa fa-link"></span></a>Seller N&#xE3;o VTEX Vendendo em Marketplace Hospedado na VTEX Recebendo Pagamento</h2>
 <p>Este documento tem por finalidade auxiliar na integra&#xE7;&#xE3;o de um <em>Seller</em> <strong>n&#xE3;o</strong> hospedado na plataforma VTEX para uma <em>Marketplace</em> hospedado na plataforma VTEX. <br>
-Nesse modelo s&#xE3;o integrados produtos (<em>SKUs</em>), atualiza&#xE7;&#xE3;o de condi&#xE7;&#xE3;o comercial (pre&#xE7;o, estoque) de um SKU, al&#xE9;m de descida de pedido, dados de pagamento e envio de autoriza&#xE7;&#xE3;o de despacho de pedido para o Seller.</p>
+Nesse modelo s&#xE3;o integrados produtos (<em>SKUs</em>), atualiza&#xE7;&#xE3;o de condi&#xE7;&#xE3;o comercial (pre&#xE7;o, estoque) de um SKU, al&#xE9;m de descida de pedido, dados de pagamento (para Sellers com PCI) e envio de autoriza&#xE7;&#xE3;o de despacho de pedido para o Seller.</p>
 <blockquote>
 <p><em>Seller</em> = Dono do produto, respons&#xE1;vel por fazer a entrega.<br>
 <em>Marketplace</em> = Dono da vitrine, respons&#xE1;vel por expor e vender o SKU.<br>
@@ -1000,7 +1000,7 @@ Este &#xE9; um dos principais m&#xE9;todos da integra&#xE7;&#xE3;o, precisa ter 
 </blockquote>
 <p>ATEN&#xC7;&#xC3;O:</p>
 <blockquote>
-<p>Caso o Seller n&#xE3;o possua ambiente certificado para receber os dados de pagamento, um novo modelo dever&#xE1; ser usado, que &#xE9; a cria&#xE7;&#xE3;o de uma conta no gateway VTEX para o Seller receber as transa&#xE7;&#xF5;es de pagamento.</p>
+<p>Caso o Seller n&#xE3;o possua ambiente certificado PCI para receber os dados de pagamento, um novo modelo dever&#xE1; ser usado, que &#xE9; a cria&#xE7;&#xE3;o de uma conta no gateway VTEX para o Seller receber as transa&#xE7;&#xF5;es de pagamento. Nesse modelo n&#xE3;o h&#xE1; a necessidade do Seller implementar os passos 4 e 6 do fluxo.</p>
 </blockquote>
 </blockquote>
 <hr>
@@ -1303,11 +1303,14 @@ QueryString decodificada: <br>
 <p>O valor do frete deve ser retornado por item consultado. <br>
 Quando n&#xE3;o for passado CEP, ou o item n&#xE3;o puder ser entregue no CEP passado, retornar o array de SLAs vazio (slas[]). <br>
 No campo quantity, retornar o solicitado ou a quantidade que consegue atender. <br>
-No campo stockBalance retornar sempre a quantidade que  tiver em estoque.</p>
+No campo stockBalance retornar sempre a quantidade que tiver em estoque.</p>
 </blockquote>
 </blockquote>
 <p><a name="a5"><a></a></a></p>
 <h3 id="consulta-de-op%C3%A7%C3%B5es-de-parcelamento"><a name="consulta-de-op%C3%A7%C3%B5es-de-parcelamento" class="plugin-anchor" href="#consulta-de-op%C3%A7%C3%B5es-de-parcelamento"><span class="fa fa-link"></span></a>Consulta de Op&#xE7;&#xF5;es de Parcelamento.</h3>
+<blockquote>
+<p>S&#xF3; implementar esse m&#xE9;todo Sellers que possuirem o certificado PCI</p>
+</blockquote>
 <p>Quando cliente for para a p&#xE1;gina de pagamento, uma chamada ser&#xE1; feita no Seller para buscar as formas de parcelamento das formas de pagamento. O Seller <strong>n&#xE3;o</strong> VTEX dever&#xE1; conhecer previamente os ids das formas de pagamento do marketplace VTEX - Endpoint do Seller.</p>
 <blockquote>
 <p>Identificadores das formas de pagamento mais comuns no gateway das lojas VTEX:</p>
@@ -1688,6 +1691,9 @@ Accept: <strong>application/json</strong><br></p>
 </table>
 <p><a name="a7"><a></a></a></p>
 <h3 id="enviar-pagamento"><a name="enviar-pagamento" class="plugin-anchor" href="#enviar-pagamento"><span class="fa fa-link"></span></a>Enviar Pagamento</h3>
+<blockquote>
+<p>S&#xF3; implementar esse m&#xE9;todo Sellers que possuirem o certificado PCI</p>
+</blockquote>
 <p>Quando o pagamento do pedido &#xE9; informado no Marketplace hospedado na VTEX, um POST &#xE9; feito no Seller enviando os dados referente ao pagamento do respectivo pedido - endpoint do Seller.</p>
 <p>endpoint: <code>https://sellerendpoint/pvt/payments/?sc=[idcanal]&amp;an=[mechantname]</code><br>
 verb: <strong>POST</strong><br>
