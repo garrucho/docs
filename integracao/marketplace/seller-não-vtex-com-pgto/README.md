@@ -1,7 +1,7 @@
 ##Seller Não VTEX Vendendo em Marketplace Hospedado na VTEX Recebendo Pagamento
 
 Este documento tem por finalidade auxiliar na integração de um _Seller_ **não** hospedado na plataforma VTEX para uma _Marketplace_ hospedado na plataforma VTEX. </br>
-Nesse modelo são integrados produtos (_SKUs_), atualização de condição comercial (preço, estoque) de um SKU, além de descida de pedido, dados de pagamento e envio de autorização de despacho de pedido para o Seller.
+Nesse modelo são integrados produtos (_SKUs_), atualização de condição comercial (preço, estoque) de um SKU, além de descida de pedido, dados de pagamento (para Sellers com PCI) e envio de autorização de despacho de pedido para o Seller.
 
 > _Seller_ = Dono do produto, responsável por fazer a entrega.</br>
 > _Marketplace_ = Dono da vitrine, responsável por expor e vender o SKU.</br>
@@ -98,7 +98,7 @@ Nesse modelo são integrados produtos (_SKUs_), atualização de condição come
 
 
  > ATENÇÃO:
- >> Caso o Seller não possua ambiente certificado para receber os dados de pagamento, um novo modelo deverá ser usado, que é a criação de uma conta no gateway VTEX para o Seller receber as transações de pagamento.
+ >> Caso o Seller não possua ambiente certificado PCI para receber os dados de pagamento, um novo modelo deverá ser usado, que é a criação de uma conta no gateway VTEX para o Seller receber as transações de pagamento. Nesse modelo não há a necessidade do Seller implementar os passos 4 e 6 do fluxo.
 
 ---
 
@@ -434,11 +434,13 @@ _response (GET e POST):_
 > > O valor do frete deve ser retornado por item consultado. </br>
 > > Quando não for passado CEP, ou o item não puder ser entregue no CEP passado, retornar o array de SLAs vazio (slas[]). </br>
 > > No campo quantity, retornar o solicitado ou a quantidade que consegue atender. </br>
-> > No campo stockBalance retornar sempre a quantidade que  tiver em estoque.
+> > No campo stockBalance retornar sempre a quantidade que tiver em estoque.
 
 
 <a name="a5"><a/>
 ###Consulta de Opções de Parcelamento.
+
+> Só implementar esse método Sellers que possuirem o certificado PCI
 
 Quando cliente for para a página de pagamento, uma chamada será feita no Seller para buscar as formas de parcelamento das formas de pagamento. O Seller **não** VTEX deverá conhecer previamente os ids das formas de pagamento do marketplace VTEX - Endpoint do Seller.
 
@@ -816,6 +818,8 @@ _JSON de retorno de erro:_
 
 <a name="a7"><a/>
 ###Enviar Pagamento
+
+> Só implementar esse método Sellers que possuirem o certificado PCI
 
 Quando o pagamento do pedido é informado no Marketplace hospedado na VTEX, um POST é feito no Seller enviando os dados referente ao pagamento do respectivo pedido - endpoint do Seller.
 
