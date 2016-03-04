@@ -9,7 +9,7 @@ Teremos em seguida, para cada Marketplace acima comentado, o que deve ser feito 
 
 ![Visão geral_config](V_newconfig.gif)
 
-> Para cada um destes Parceiro temos as seguintes configurações:
+> Para cada um destes Parceiro temos as seguintes configurações temos:
 
 * [B2W](b2w\README.md)
 
