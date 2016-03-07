@@ -54,7 +54,7 @@ Criado para oferecer a flexibilidade máxima em relação às Configurações de
 
 * [Configurações de Marketplaces](configuracoes-de-marketplace\README.md)
 
-* [Interface de Pedidos](interface-de-pedidos\README.md)
+* [Interface de Pedidos](./interface-de-pedidos/README.md)
 
 * [Interface de Produtos](interface-de-produto\README.md)
 
