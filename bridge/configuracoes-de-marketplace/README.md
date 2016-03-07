@@ -11,13 +11,13 @@ Teremos em seguida, para cada Marketplace acima comentado, o que deve ser feito 
 
 > Para cada um destes Parceiro temos as seguintes configurações temos:
 
-* [B2W](b2w\README.md)
+* [B2W](b2w/index.html)
 
-* [CNova](cnova\README.md)
+* [CNova](cnova/index.html)
 
-* [Rakuten](rakuten\README.md)
+* [Rakuten](rakuten/index.html)
 
-* [Buscapé](buscape\README.md)
+* [Buscapé](buscape/index.html)
 
 > E os outros Marketplaces, como configuro?
 

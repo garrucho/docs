@@ -13,8 +13,8 @@ O Workflow dos Pedidos da VTEX seguem até o status de **Faturado**, onde é for
 O **VTEX Bridge** lhe permitirá realizar o controle daquelas atualizações que integraram com sucesso tanto quanto as que não integraram por algum erro além de poder trata-los e reprocessa-los para reverter o cenário de erro e exportar esses Status. Para essa interface temos as seguinte ações possíveis:
 
 
-* [Análises de Sucessos](analises-de-sucessos\README.md)
+* [Análises de Sucessos](analises-de-sucessos/index.html)
 
-* [Análises de Erros](analises-de-erros\README.md)
+* [Análises de Erros](analises-de-erros/index.html)
 
-* [Reprocessamento de Tracking com erro](reprocessamento-de-tracking\README.md)
+* [Reprocessamento de Tracking com erro](reprocessamento-de-tracking/index.html)

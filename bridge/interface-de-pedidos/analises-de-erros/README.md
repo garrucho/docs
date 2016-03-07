@@ -10,4 +10,4 @@ Dependendo do erro, demandará de um tratamento pontual em algum valor de Estoqu
 
 Para entender os tipos de erros que podem ser ilustrados em relação ao seu tratamento e reprocessamento, acesse:
 
-*  [Reprocessamento de Pedidos com erro](reprocessamento-de-pedidos\README.md)
+*  [Reprocessamento de Pedidos com erro](reprocessamento-de-pedidos/index.html)

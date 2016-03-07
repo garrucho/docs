@@ -8,8 +8,8 @@ Teremos aqui toda a relação de Sucessos e de Erros que podem ocorrer nas integ
 ## O que posso fazer com isso?
 O **VTEX Bridge** lhe permitirá realizar o controle daqueles Produtos que integraram com sucesso tanto quanto os que não integraram por algum erro além de poder trata-los e reprocessa-los para reverter o cenário de erro e exportar esses Produtos. Para essa interface temos as seguinte ações possíveis:
 
-* [Análises de Sucessos](analises-de-sucessos\README.md)
+* [Análises de Sucessos](analises-de-sucessos/index.html)
 
-* [Análises de Erros](analises_de_erros\README.md)
+* [Análises de Erros](analises-de-erros/index.html)
 
-* [Reprocessamento de Produto com erro](reprocessamento-de-produtos\README.md)
+* [Reprocessamento de Produto com erro](reprocessamento-de-produtos/index.html)

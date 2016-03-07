@@ -8,8 +8,8 @@ Teremos aqui toda a relação de Sucessos e de Erros que ocorrem nas integraçõ
 ## O que posso fazer com isso?
 O **VTEX Bridge** lhe permitirá realizar o controle daqueles Pedidos que integraram com sucesso tanto quanto os que não integraram por algum erro além de poder trata-los e reprocessa-los para reverter o cenário de erro e consumir esses Pedidos. Para essa interface temos as seguinte ações possíveis:
 
-* [Análises de Sucessos](analises-de-sucessos\README.md)
+* [Análises de Sucessos](analises-de-sucessos/index.html)
 
-* [Análises de Erros](analises-de-erros\README.md)
+* [Análises de Erros](analises-de-erros/index.html)
 
-* [Reprocessamento de Pedidos com erro](reprocessamento-de-pedidos\README.md)
+* [Reprocessamento de Pedidos com erro](reprocessamento-de-pedidos/index.html)

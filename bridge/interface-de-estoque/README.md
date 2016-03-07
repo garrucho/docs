@@ -12,8 +12,8 @@ Teremos aqui toda a relação de Sucessos e de Erros que podem ocorrer nas atual
 ## O que posso fazer com isso?
 O **VTEX Bridge** lhe permitirá realizar o controle daqueles Estoques que integraram com sucesso tanto quanto os que não integraram por algum erro além de poder trata-los e reprocessa-los para reverter o cenário de erro e exportar esses Produtos. Para essa interface temos as seguinte ações possíveis:
 
-* [Análises de Sucessos](analises-de-sucessos\README.md)
+* [Análises de Sucessos](analises-de-sucessos/index.html)
 
-* [Análises de Erros](analises_de_erro\README.md)
+* [Análises de Erros](analises-de-erros/index.html)
 
-* [Reprocessamento de Estoque com erro](reprocessamento-de-estoque-com-erro\README.md)
+* [Reprocessamento de Estoque com erro](reprocessamento-de-estoque-com-erro/index.html)
