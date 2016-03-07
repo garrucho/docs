@@ -52,11 +52,11 @@ Todas as integrações, tanto de Produto, Preço, Estoque e Tracking, quanto do 
 
 Criado para oferecer a flexibilidade máxima em relação às Configurações de Marketplace e controle do fluxo de integração tanto do Catálogo quanto de Pedidos, o VTEX Bridge também fornece a possibilidade de reprocessar eventuais erros que podem surgir durante essa comunicação com esses Parceiros. Entenda cada um deles:
 
-* [Configurações de Marketplaces](configuracoes-de-marketplace\README.md)
+* [Configurações de Marketplaces](./configuracoes-de-marketplace/README.md)
 
 * [Interface de Pedidos](./interface-de-pedidos/README.md)
 
-* [Interface de Produtos](interface-de-produto\README.md)
+* [Interface de Produtos](./interface-de-produto/README.md)
 
 * [Interface de Tracking](interface-de-tracking\README.md)
 
