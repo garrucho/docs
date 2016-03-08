@@ -1,4 +1,4 @@
-## B2W
+##Configurações B2W
 >Visão do painel de configuração:
 
 ![Config B2W](V_newconfig_b2w.gif)

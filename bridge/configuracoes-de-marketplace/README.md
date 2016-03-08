@@ -24,14 +24,3 @@ Teremos em seguida, para cada Marketplace acima comentado, o que deve ser feito 
 * [MercadoLivre](mercadolivre/index.html)
 
 * [CSU](csu/index.html)
-
-> E os outros Marketplaces, como configuro?
-
-Para Marketplaces como Walmart, MercadoLivre, CSU e entre Lojas VTEX, não são necessárias essas configurações pelo VTEX Bridge.
-Para casa um desses temos as seguintes configurações necessárias:
-
-* [Walmart](http://help.vtex.com/hc/pt-br/articles/206873737-Walmart-Configura%C3%A7%C3%B5es-de-Marketplace)
-
-* [MercadoLivre](http://help.vtex.com/hc/pt-br/articles/206866037-MercadoLivre-Configura%C3%A7%C3%B5es-de-Marketplace)
-
-* [CSU](http://help.vtex.com/hc/pt-br/articles/206164018-Opte-CSU-CSU-Vivo-CSU-Santos-Configura%C3%A7%C3%B5es-de-Marketplace)
