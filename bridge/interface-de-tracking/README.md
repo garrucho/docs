@@ -3,8 +3,8 @@ Temos aqui todas as relações de sucessos e de erros que ocorrem nas integraç�
 
 > IMPORTANTE!
 
-O Workflow dos tracking da VTEX seguem até o status de **Faturado**, onde é fornecida a Nota Fiscal e os dados de rastreio.
-Marketplaces que possuem Status além do Faturado, **que atendem ao processo logístico do Pedido** como Entregue à Transportador e Entregue ao cliente final, precisarão do tratamento pela interface dos Parceiros.
+O Workflow do pedido na VTEX segue até o status de **Faturado**, onde é fornecida a Nota Fiscal e os dados de rastreio.
+Marketplaces que possuem Status além do Faturado, **que atendem ao processo logístico do Pedido** como Entregue ao cliente final, precisão de tratamento pela interface dos Parceiros.
 
 ## Visão geral
 

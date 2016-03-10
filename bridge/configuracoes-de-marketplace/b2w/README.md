@@ -1,7 +1,29 @@
-##Configurações B2W
->Visão do painel de configuração:
+##Configurações iniciais com a  B2W
+
+## Primeiros Passos
+
+1. A B2W não precisa de contratação de Channel.
+
+2. [Seleção de política comercial.](http://help.vtex.com/hc/pt-br/articles/214166227)
+
+3. [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
+
+4. Entrar em contato com o respectivo Parceiro B2W:
+
+ http://www.submarino.com.br/marketplace
+
+## Bridge - Visão geral
+
+>Importante: As configurações realizadas no Bridge para este Marketplace criam automaticamente o Afiliado no OMS e libera o Perfil de Acesso ao usuário deste Parceiro.
+
+###Exemplo de como se acessa as Configurações de Marketplace
 
 ![Config B2W](V_newconfig_b2w.gif)
+
+##Campos
+
+![Campos B2W](b2wcampos.png)
+
 >>Para cada campo temos:
 
 * **Integração de Produtos**: Liga ou Desliga a exportação de Produtos
