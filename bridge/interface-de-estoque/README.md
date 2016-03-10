@@ -1,26 +1,29 @@
 # Interface de Estoque
-Teremos aqui toda a relação de Sucessos e de Erros que ocorrem nas integrações dos **Estoque** desde a VTEX para o respectivo Marketplace. Além da visualização dos erros e sucessos é possível reprocessá-los manualmente pela própria interface ou limpar essa informação.
+Teremos aqui todas as relações de sucessos e de erros que ocorrem nas integrações de **Estoque**, desde a VTEX até o respectivo Marketplace. Além da visualização dos erros e sucessos é possível reprocessá-los manualmente pela própria interface ou limpar essa informação.
 
 
-**Importante**: Quando houver **apenas alterações do Estoque** no SKU na VTEX, entrará na seguinte regra de que, só serão consideradas mudanças a serem exportadas, onde o saldo "De" ou saldo "Por" for menor ou igual a 5 unidades: [Atualização de Estoque entre Marketplace e VTEX](http://help.vtex.com/hc/pt-br/articles/206572797-Atualiza%C3%A7%C3%A3o-de-Estoque-entre-Marketplace-e-VTEX)
+**Importante**: Quando houver **apenas alterações de Estoque** do SKU na VTEX, a seguinte regra será aplicada: Só serão consideradas mudanças a serem exportadas, onde o saldo "De" ou saldo "Por" for menor ou igual a 5 unidades.
 
-> Lembrando que, as movimentações entre a VTEX e os Marketplaces atuam por uma interface Web que possui protocolo HTTP que impede a ter uma unidade de tempo definida para o reflexo no Parceiro. Identificaremos como anormal, aqueles atualizações que levaram mais de 1 (uma) hora após a alteração.
+[Atualização de Estoque entre Marketplace e VTEX](http://help.vtex.com/hc/pt-br/articles/206572797-Atualiza%C3%A7%C3%A3o-de-Estoque-entre-Marketplace-e-VTEX)
+
+> Lembrando que, as movimentações entre a VTEX e os Marketplaces atuam por uma interface Web, que possui protocolo HTTP, impedindo de ter uma unidade de tempo definida para o reflexo no Parceiro. Identificaremos como anormal, aquelas atualizações que levaram mais de 1 (uma) hora após a alteração.
 
 ## Visão geral
 
 ![Estoque - Visão geral](V_visaogeral_estoque.gif)
 
 ## Estoque integrado com sucesso
-Aqui teremos o controle dos estoque que integraram com sucesso no matketplace desde a VTEX. Como é um registro de sucesso, é um dado apenas para métrica, onde, a única ação possível sobre este é excluir esse registro de sucesso que serve unicamente para limpar esse registro na tela.
+
+Aqui temos o controle dos estoque que integraram com sucesso no maketplace. Por ser um registro de sucesso, apenas uma única ação é possível, a de excluir registro. Essa ação permite limpar esse registro da tela.
 Exemplo:
 
 ![Remover Pedido](V_estoque_remoçao_sucesso.gif)
 
-Para excluir o registro, primeiro clique na linha do estoque. Será ilustrado em seguida um box de nome Ações. Abra essa combo e selecione a única opção disponível de "Remover Log".
+Para excluir o registro, primeiro clique na linha do estoque. Em seguida clique no box de nome Ações. Uma nova opção chamada "Remover Log" irá surgir, clique nela.
 
 ## Estoque não integrado com erro
 
-AAqui teremos o controle dos estoque que não integraram no marketplace desde a VTEX por algum erro. Como é um registro de erro, nesta tela conseguiremos tomar ações sobre o esses.
+Aqui teremos o controle dos estoque que não integraram no marketplace desde a VTEX por algum erro. Como é um registro de erro, nesta tela conseguiremos tomar ações sobre o esses.
 Para isso, basta clicar no mesmo registro para visualizar a origem que levou a este não ser integrado.
 Exemplo:
 
