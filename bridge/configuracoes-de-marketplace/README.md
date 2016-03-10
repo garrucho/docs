@@ -1,15 +1,15 @@
 # Configurações de Marketplace
 
-As movimentações que serão registrados no VETX Bridge serão apenas para aqueles Marketplaces que hoje integramos de forma **ativa**. Isto é, onde nós quem realizamos as exportações de Produtos, Preços e Estoque e/ou onde nós campturamos os Pedidos realizados no Marketplace. Os Marketplaces que temos hoje com a a integração ativa são: B2W, CNova, Rakuten, Buscapé e Walmart (apenas na parte de Protudos, Preços e Estoque. Pedidos o próprio Walmart quem insere na VTEX).
+No Vtex Bridge existe a opção de Configurações de Marketplaces, nela é possivel acessar todas as configurações dos Marketplaces, ligar, editar ou desativar novas integrações.Hoje temos os seguintes Marketplaces com integração ativa: B2W, CNova, Rakuten, Buscapé, CSU, Mercado Livre e Walmart (este apenas na parte de Produtos, Preços e Estoque. Pedidos o próprio Walmart que insere na VTEX). As movimentações que serão registrados no VETX Bridge serão apenas para aqueles Marketplaces que hoje integramos de forma **ativa**.  Onde a VTEX quem realiza as exportações de Produtos, Preços e Estoque e/ou onde é capturado os Pedidos realizados no Marketplace.
 
-Alguns destes Marketplaces, como B2W, CNova, Rakuten e Buscapé, demandam de configurações específicas para podermos nos comunicar com os mesmos, além das configurações necessárias nos demais módulos da VTEX.
-Teremos em seguida, para cada Marketplace acima comentado, o que deve ser feito para ativar essas integrações:
+
 
 ## Visão geral
 
 ![Visão geral_config](V_newconfig.gif)
 
-> Para cada um destes Parceiro temos as seguintes configurações temos:
+
+> A seguir temos instruções específicas para cada Marketplace acima comentado :
 
 * [B2W](b2w/index.html)
 

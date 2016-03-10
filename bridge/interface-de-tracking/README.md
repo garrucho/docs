@@ -1,5 +1,5 @@
 # Interface de Tracking
-Temos aqui todas as relações de sucessos e de erros que ocorrem nas integrações de **Tracking**, desde a VTEX até o respectivo Marketplace. Além da visualização dos erros e sucessos é possível reprocessá-los manualmente pela própria interface ou limpar essa informação.
+Temos aqui todas as relações de sucessos e de erros que ocorrem nas integrações de **Tracking**, desde a VTEX até o respectivo Marketplace. Além da visualização dos erros e sucessos, é possível reprocessá-los manualmente pela própria interface ou limpar essa informação.
 
 > IMPORTANTE!
 
@@ -22,8 +22,8 @@ Para excluir um registro, primeiro clique na linha do tracking. Em seguida cliqu
 
 ## Tracking não integrado com erro
 
-Controlamos a visualização dos tracking que não integraram no marketplace desde a VTEX por algum erro. Como é um registro de erro, nesta tela conseguiremos tomar mais ações sobre esses.
-Para visualizar o motivo do erro, basta clicar no mesmo registro e visualizar a origem que levou a este não ser integrado.
+Controlamos a visualização dos tracking que não integraram no marketplace a VTEX por algum erro. Como é um registro de erro, nesta tela conseguiremos tomar mais ações sobre esses.
+Para visualizar o motivo do erro, basta clicar no mesmo registro e visualizar a origem que o levou a não ser integrado.
 Exemplo:
 
 ![Visão de erro Tracking](V_analiseerro_tracking.gif)
