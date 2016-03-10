@@ -1,22 +1,25 @@
 # Interface de Pedidos
-Teremos aqui toda a relação de Sucessos e de Erros que ocorrem nas integrações dos **Pedidos** desde a VTEX para o respectivo Marketplace. Além da visualização dos erros e sucessos é possível reprocessá-los manualmente pela própria interface ou limpar essa informação.
+Temos aqui todas as relações de sucessos e de erros que ocorrem nas integrações de **Pedidos**, desde a VTEX até o respectivo Marketplace. Além da visualização dos erros e sucessos é possível reprocessá-los manualmente pela própria interface ou limpar essa informação.
 
 ## Visão geral
 
 ![Visão geral Bridge](V_visaogeral_pedido.gif)
 
 ## Pedido integrado com sucesso
-Aqui teremos o controle dos pedidos que integraram com sucesso no matketplace desde a VTEX. Como é um registro de sucesso, é um dado apenas para métrica, onde, a única ação possível sobre este é excluir esse registro de sucesso que serve unicamente para limpar esse registro na tela.
+
+Controlamos a visualização dos pedidos que integraram com sucesso no maketplace. Por ser um registro de sucesso, apenas uma única ação é possível, a de excluir registro. Essa ação consiste em limpar o registro da tela.
+
 Exemplo:
 
 ![Remover Pedido](RemoverLog_Pedidos.gif)
 
-Para excluir o registro, primeiro clique na linha do pedidos. Será ilustrado em seguida um box de nome Ações. Abra essa combo e selecione a única opção disponível de "Remover Log".
+Para excluir um registro, primeiro clique na linha do pedido. Em seguida clique no box de nome Ações. Uma nova opção chamada "Remover Log" irá surgir, clique nela.
 
 ## Pedido não integrado com erro
 
-AAqui teremos o controle dos pedidos que não integraram no marketplace desde a VTEX por algum erro. Como é um registro de erro, nesta tela conseguiremos tomar ações sobre o esses.
-Para isso, basta clicar no mesmo registro para visualizar a origem que levou a este não ser integrado.
+Controlamos a visualização dos pedidos que não integraram no marketplace desde a VTEX por algum erro. Como é um registro de erro, nesta tela conseguiremos tomar mais ações sobre esses.
+Para visualizar o motivo do erro, basta clicar no mesmo registro e visualizar a origem que levou a este não ser integrado.
+
 Exemplo:
 
 ![Visão geral Bridge](RemoverLog_Pedidos.gif)
@@ -24,16 +27,18 @@ Exemplo:
 
 ## Reprocessamento de Pedidos
 
->> Atenção: O reprocessamento não necessariamente consegue mudar o status para "sucesso". A ação de reprocessar também não é instantânea, ela demora para ser concluida pois é colocada em uma fila de ações.
+>>> Atenção: O reprocessamento não necessariamente consegue mudar o status do registro para "sucesso". A ação de reprocessar também não é instantânea, ela demora para ser concluida pois é colocada em uma fila de ações.
 
+Para solicitar o reprocessamento, clique no registro sinalizado com erro, abra a combo de ações e selecione a opção "Reprocessar".
 
-
-Para solicitar o reprocessamento, clique no pedido sinalizado com erro, abra a combo da ações posicionada à esquerda do registro e selecione "Reprocessar".
 Exemplo:
+[Pedido erro Pedido](V_peidodo_erro.gif)
 
 ## Remover Log
 
-Essa ação nada mais é do que retirar o log da interface, a fim de "limpar" a tela. Para remover o log, clique sobre a linha e em seguida no botão "Ações" e então em "Remover Log". Esta ação pode ser feita nas integrações com ambos os status (sucesso e erro).
+Essa ação nada mais é do que retirar o log da interface, a fim de "limpar" a tela.
+Para remover o log, clique no registro, abra a combo de ações e selecione a opção "Remover Log". Esta ação pode ser feita nas integrações com ambos os status (sucesso ou erro).
+
 Exemplo:
 
-![Visão geral Bridge](RemoverLog_Pedidos.gif)
+![Removendo log Pedido](RemoverLog_Pedidos.gif)
