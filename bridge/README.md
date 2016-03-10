@@ -33,8 +33,9 @@ Todas as interfaces do VTEX Bridge contém as colunas de **Código**, **Afiliado
 
 **Data de Processamento**: Indica quando a captura do sucesso ou do erro foi realizada. Como por exemplo, para os pedidos com sucesso, onde esta será a data que indicará a criação do Pedido.
 
-## Configurações de Marketplaces(rever conteúdo)
-Temos hoje integrações de caráter nativo, onde parte da VTEX a exportação do Catálogo e o consumo dos Pedidos dos Parceiros, com os Marketplaces da **B2W**, da **CNova**, da **Csu**, do **Mercado Livre**, do **Buscapé**, do **Walmart** (apenas para catálogo) e o da **Rakuten**:
+## Configurações de Marketplaces
+Temos hoje integrações de caráter nativo, onde parte da VTEX a exportação do Catálogo e o consumo dos Pedidos de seus Parceiros, para os Marketplaces da **B2W**, da **CNova**, da **Csu**, do **Buscapé** e o da **Rakuten**.
+Os Marketplaces que isso não occorre são o do **Mercado Livre** (pois realiza sua propria importação de catálogo) e o **Walmart** (que insere seus pedidos e o Vtex exporta).  
 
 ![Configurações de Marketplaces](V_newconfig.gif)
 
