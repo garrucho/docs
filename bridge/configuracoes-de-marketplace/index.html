@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="4.1" data-basepath="../.." data-revision="Thu Mar 10 2016 13:19:06 GMT-0300 (Hora oficial do Brasil)">
+    <div class="book" data-level="4.1" data-basepath="../.." data-revision="Thu Mar 10 2016 16:07:23 GMT-0300 (Hora oficial do Brasil)">
     
 
 <div class="book-summary">
@@ -657,9 +657,35 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="configura%C3%A7%C3%B5es-de-marketplace"><a name="configura%C3%A7%C3%B5es-de-marketplace" class="plugin-anchor" href="#configura%C3%A7%C3%B5es-de-marketplace"><span class="fa fa-link"></span></a>Configura&#xE7;&#xF5;es de Marketplace</h1>
-<p>No Vtex Bridge existe a op&#xE7;&#xE3;o de Configura&#xE7;&#xF5;es de Marketplaces, nela &#xE9; possivel acessar todas as configura&#xE7;&#xF5;es dos Marketplaces, ligar, editar ou desativar novas integra&#xE7;&#xF5;es.Hoje temos os seguintes Marketplaces com integra&#xE7;&#xE3;o ativa: B2W, CNova, Rakuten, Buscap&#xE9;, CSU, Mercado Livre e Walmart (este apenas na parte de Produtos, Pre&#xE7;os e Estoque. Pedidos o pr&#xF3;prio Walmart que insere na VTEX). As movimenta&#xE7;&#xF5;es que ser&#xE3;o registrados no VETX Bridge ser&#xE3;o apenas para aqueles Marketplaces que hoje integramos de forma <strong>ativa</strong>.  Onde a VTEX quem realiza as exporta&#xE7;&#xF5;es de Produtos, Pre&#xE7;os e Estoque e/ou onde &#xE9; capturado os Pedidos realizados no Marketplace.</p>
+<p>No Vtex Bridge existe a op&#xE7;&#xE3;o de Configura&#xE7;&#xF5;es de Marketplaces, nela &#xE9; possivel acessar todas as configura&#xE7;&#xF5;es dos Marketplaces, ligar, editar ou desativar novas integra&#xE7;&#xF5;es.Hoje temos os seguintes Marketplaces com integra&#xE7;&#xE3;o ativa: <strong>B2W</strong>, <strong>CNova</strong>, <strong>Rakuten</strong>, <strong>Buscap&#xE9;</strong>, <strong>CSU</strong>, <strong>Mercado Livre</strong> e <strong>Walmart</strong> (este apenas na parte de Produtos, Pre&#xE7;os e Estoque. Pedidos o pr&#xF3;prio Walmart que insere na VTEX).
+As movimenta&#xE7;&#xF5;es que ser&#xE3;o registrados no VETX Bridge ser&#xE3;o apenas para aqueles Marketplaces que hoje integramos de forma <strong>ativa</strong>.<br>Onde a VTEX quem realiza as exporta&#xE7;&#xF5;es de Produtos, Pre&#xE7;os e Estoque e/ou onde &#xE9; capturado os Pedidos realizados no Marketplace.</p>
 <h2 id="vis%C3%A3o-geral"><a name="vis%C3%A3o-geral" class="plugin-anchor" href="#vis%C3%A3o-geral"><span class="fa fa-link"></span></a>Vis&#xE3;o geral</h2>
 <p><img src="V_newconfig.gif" alt="Vis&#xE3;o geral_config"></p>
+<h2 id="integra%C3%A7%C3%B5es"><a name="integra%C3%A7%C3%B5es" class="plugin-anchor" href="#integra%C3%A7%C3%B5es"><span class="fa fa-link"></span></a>Integra&#xE7;&#xF5;es</h2>
+<p>Hoje a VTEX realiza desde integra&#xE7;&#xF5;es 100% (onde se exportamos o cat&#xE1;logo de produtos, atualizamos Pre&#xE7;os e Estoques e consumimos os Pedidos
+fechados no Marketplace)  at&#xE9; integra&#xE7;&#xF5;es parcialmente ou totalmente Passival (onde apenas notificamos o Parceiro sobre novos produtos e altera&#xE7;&#xF5;es de Pre&#xE7;o e Estoque).</p>
+<p>Como exemplo das integra&#xE7;&#xF5;es que temos e do que cuidamos, temos o seguinte quadro:</p>
+<p><img src="MarketPlace.png" alt="Mkt Bridge"></p>
+<blockquote>
+<p>Para integra&#xE7;&#xF5;es 100% Vtex, temos</p>
+</blockquote>
+<p><strong>Sugest&#xE3;o de venda</strong>
+Todo produto que &#xE9; enviado ao marketplace, ele &#xE9; analisado e mapeado,
+S&#xF3; depois o marketplace aprova a sua venda de acordo com a suas regras.</p>
+<p><strong>Atualiza&#xE7;&#xF5;es de Pre&#xE7;o e Estoque</strong>
+As atualiza&#xE7;&#xF5;es de Pre&#xE7;o e Estoque demoram entre de 1 a 10 minutos ap&#xF3;s a indexa&#xE7;&#xE3;o do Produto na Vtex.
+Tamb&#xE9;m pode ocorrer de haver um grande volume de indexa&#xE7;&#xE3;o que cause a demora par avisar ao Parceiro.</p>
+<p><strong>Disponibilidade dos Pedidos</strong>
+Cada marketplace tem a sua regra para disponibilizar um pedido, n&#xE3;o necessariamente um pedido &#xE9; disponibilizado no momento do fechamento da compra.</p>
+<p><strong>Problemas comuns</strong></p>
+<ul>
+<li><p>Erro na falta de disponibilidade (no estoque) do item. Isto &#xE9;, se tem um item mas em estoque raso e ainda assim o mesmo item aparecer em varios Marketplace al&#xE9;m da Loja principal.</p>
+</li>
+<li><p>Conflito  de disponibilidade de estoque com um pedido ja fechado.</p>
+</li>
+<li><p>Erro no valor do produto e/ou CEP comercializado no Marketplace n&#xE3;o ser o mesmo cadastrado na Loja.Onde normalmente isso ocorre porque o markeplace usa uma tabela de frete propria n&#xE3;o levando em considera&#xE7;&#xE3;o o valor retornado da simula&#xE7;&#xE3;o do seller.</p>
+</li>
+</ul>
 <blockquote>
 <p>A seguir temos instru&#xE7;&#xF5;es espec&#xED;ficas para cada Marketplace acima comentado :</p>
 </blockquote>
