@@ -575,6 +575,193 @@ _response:_
 </s:Envelope>
 ```
 
+###Serviço
+
+Existem serviços(embalagem para presente, garantia extendida, etc.) que podem ser relacionados as SKUs. Para isso, primeiramente, o serviço tem que ser criado. Após ser criado, deve-se inserir um preço neste serviço e então relacionar o serviço com as SKUs. Por exemplo:
+
+_Criando o serviço._
+
+_request:_
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ServiceInsertUpdate>
+         <tem:service>
+		    <!--number, id do serviço -->
+            <vtex:Id>134</vtex:Id>
+		    <!--bool, está ativo ? -->
+            <vtex:IsActive>true</vtex:IsActive>
+		    <!--bool, é um arquivo ? -->
+            <vtex:IsFile>false</vtex:IsFile>
+		    <!--bool, é GiftCard ? -->
+            <vtex:IsGiftCard>false</vtex:IsGiftCard>
+		    <!--bool, é obrigatório ? -->
+            <vtex:IsRequired>false</vtex:IsRequired>
+		    <!--bool, está visível no carrinho ? -->
+            <vtex:IsVisibleOnCart>true</vtex:IsVisibleOnCart>
+		    <!--bool, exibe no Produto ? -->
+            <vtex:IsVisibleOnProduct>true</vtex:IsVisibleOnProduct>
+		    <!--bool, exibe no Serviço ? -->
+            <vtex:IsVisibleOnService>true</vtex:IsVisibleOnService>
+		    <!--bool, nome do serviço -->
+            <vtex:Name>Embalagem para presente</vtex:Name>
+         </tem:service>
+      </tem:ServiceInsertUpdate>
+   </soapenv:Body>
+</soapenv:Envelope>
+```
+*É altamente recomendado que o integrador informe um id para o serviço. Caso seja passado nulo, iremos fazer o auto-incremento autimaticamente.
+
+_response:_
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+   <s:Body>
+      <ServiceInsertUpdateResponse xmlns="http://tempuri.org/">
+         <ServiceInsertUpdateResult xmlns:a="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+            <a:Id>134</a:Id>
+            <a:IsActive>true</a:IsActive>
+            <a:IsFile>false</a:IsFile>
+            <a:IsGiftCard>false</a:IsGiftCard>
+            <a:IsRequired>false</a:IsRequired>
+            <a:IsVisibleOnCart>true</a:IsVisibleOnCart>
+            <a:IsVisibleOnProduct>true</a:IsVisibleOnProduct>
+            <a:IsVisibleOnService>true</a:IsVisibleOnService>
+            <a:Name>Embalagem para presente</a:Name>
+         </ServiceInsertUpdateResult>
+         <serviceId>134</serviceId>
+      </ServiceInsertUpdateResponse>
+   </s:Body>
+</s:Envelope>
+```
+
+_Inserindo preço no serviço._
+
+_request:_
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ServicePriceInsertUpdate>
+         <tem:servicePrice>
+			<!-- number, id de preço do serviço -->
+            <vtex:Id>1</vtex:Id>
+			<!-- decimal, preço "POR" do serviço  -->
+            <vtex:ListPrice>5.0</vtex:ListPrice>
+			<!-- string, nome do serviço -->
+            <vtex:Name>Embalagem para presente</vtex:Name>
+			<!-- decimal, preço "DE" do serviço -->
+            <vtex:Price>10.0</vtex:Price>
+			<!-- number, id do serviço -->
+            <vtex:ServiceId>134</vtex:ServiceId>
+         </tem:servicePrice>
+      </tem:ServicePriceInsertUpdate>
+   </soapenv:Body>
+</soapenv:Envelope>
+```
+
+_response:_
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+   <s:Body>
+      <ServicePriceInsertUpdateResponse xmlns="http://tempuri.org/">
+         <ServicePriceInsertUpdateResult xmlns:a="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+            <a:Id>1</a:Id>
+            <a:ListPrice>5.0</a:ListPrice>
+            <a:Name>Embalagem para presente</a:Name>
+            <a:Price>10.0</a:Price>
+            <a:Service>
+               <a:Id>134</a:Id>
+               <a:IsActive>true</a:IsActive>
+               <a:IsFile>false</a:IsFile>
+               <a:IsGiftCard>false</a:IsGiftCard>
+               <a:IsRequired>false</a:IsRequired>
+               <a:IsVisibleOnCart>true</a:IsVisibleOnCart>
+               <a:IsVisibleOnProduct>true</a:IsVisibleOnProduct>
+               <a:IsVisibleOnService>true</a:IsVisibleOnService>
+               <a:Name>Embalagem para presente</a:Name>
+            </a:Service>
+            <a:ServiceId>134</a:ServiceId>
+         </ServicePriceInsertUpdateResult>
+         <servicePriceId>1</servicePriceId>
+      </ServicePriceInsertUpdateResponse>
+   </s:Body>
+</s:Envelope>
+```
+
+_Relacionando o serviço com uma SKU._
+
+_request:_
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:vtex="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:StockKeepingUnitServiceInsertUpdate>
+         <tem:stockKeepingUnitService>
+			<!-- string, descrição do serviço -->
+            <vtex:Description>Embalagem para presente</vtex:Description>
+			<!-- number, id da inserção de serviço no SKU -->
+            <vtex:Id>123</vtex:Id>
+			<!-- bool, está ativo ? -->
+            <vtex:IsActive>true</vtex:IsActive>
+			<!-- string, nome do serviço -->
+            <vtex:Name>Embalagem para presente</vtex:Name>
+			<!-- number, id do serviço -->
+            <vtex:ServiceId>134</vtex:ServiceId>
+			<!-- number, id do preço do serviço -->
+            <vtex:ServicePriceId>1</vtex:ServicePriceId>
+			<!-- number, id do SKU -->
+            <vtex:StockKeepingUnitId>31018371</vtex:StockKeepingUnitId>
+         </tem:stockKeepingUnitService>
+      </tem:StockKeepingUnitServiceInsertUpdate>
+   </soapenv:Body>
+</soapenv:Envelope>
+```
+
+_response:_
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+   <s:Body>
+      <StockKeepingUnitServiceInsertUpdateResponse xmlns="http://tempuri.org/">
+         <StockKeepingUnitServiceInsertUpdateResult xmlns:a="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+            <a:Description>Embalagem para presente</a:Description>
+            <a:Id>123</a:Id>
+            <a:IsActive>true</a:IsActive>
+            <a:Name>Embalagem para presente</a:Name>
+            <a:ServiceId>134</a:ServiceId>
+            <a:ServicePrice>
+               <a:Id>1</a:Id>
+               <a:ListPrice>5.0000</a:ListPrice>
+               <a:Name>Embalagem para presente</a:Name>
+               <a:Price>10.0000</a:Price>
+               <a:Service>
+                  <a:Id>134</a:Id>
+                  <a:IsActive>true</a:IsActive>
+                  <a:IsFile>false</a:IsFile>
+                  <a:IsGiftCard>false</a:IsGiftCard>
+                  <a:IsRequired>false</a:IsRequired>
+                  <a:IsVisibleOnCart>true</a:IsVisibleOnCart>
+                  <a:IsVisibleOnProduct>true</a:IsVisibleOnProduct>
+                  <a:IsVisibleOnService>true</a:IsVisibleOnService>
+                  <a:Name>Embalagem para presente</a:Name>
+               </a:Service>
+               <a:ServiceId>134</a:ServiceId>
+            </a:ServicePrice>
+            <a:ServicePriceId>1</a:ServicePriceId>
+            <a:StockKeepingUnitId>31018371</a:StockKeepingUnitId>
+         </StockKeepingUnitServiceInsertUpdateResult>
+         <stockKeepingUnitServiceId>123</stockKeepingUnitServiceId>
+      </StockKeepingUnitServiceInsertUpdateResponse>
+   </s:Body>
+</s:Envelope>
+```
+
 
 ###Pedidos e Tracking
 
