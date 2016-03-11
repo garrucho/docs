@@ -1,43 +1,56 @@
-## Rakuten
->Visão do painel de configuração:
+## Configurações iniciais com a Rakuten
+
+## Primeiros Passos
+
+
+> A Rakuten **não** precisa de contratação de Channel.
+
+1. [Seleção de política comercial.](http://help.vtex.com/hc/pt-br/articles/214166227)
+
+2. [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
+
+3. Entrar em contato com a Rakuten e obtenha o Token de acesso a API:
+
+http://ecservice.rakuten.com.br/rakuten-shopping/
+
+## Bridge - Visão geral
+
+>**Importante: As configurações realizadas no Bridge para Rakuten realiza a criação automatica do Afiliado no OMS e libera o Perfil de Acesso no E-Commerce.**
+
+###Exemplo de acesso as Configurações de Marketplace
 
 ![Config RKT](V_newconfig_rkt.gif)
+
+##Campos
+
+![Campos B2W](rakuten.png)
+
 >>Para cada campo temos:
 
-* **Integração de Produtos**: Liga ou Desliga a exportação de Produtos
-
-
-* **Integração de Pedidos**: Liga ou Desliga a exportação de Pedidos
-
-
-* **Integração de Estoque e Preço**: Liga ou Desliga a exportação de Preços
-
-* **Id do License Manager**: Id da sua Loja presente no campo "ID*" dentro do LicenseManager
-
-* **Estoque mínimo**: Define a quantidade mínima em Estoque para o SKU ficar indisponível na Rakuten
-
-* **Série da Nota Fiscal**: Número de série da Nota Fiscal utilizada na atualização de Tracking
-
-* **Taxa da Divergência de Preço**: Taxa de aceitação da divergência de valor no Pedido integrado
-
-* **Esperar a Url de Tracking**: Atualiza o status do Pedido no Marketplace para "Despachado" quando com o Tracking preenchido
-
+* **Integração de Produtos**: Liga ou Desliga a exportação de Produtos;
+* **Integração de Pedidos**: Liga ou Desliga a exportação de Pedidos;
+* **Integração de Estoque e Preço**: Liga ou Desliga a exportação de estoque e preço;
+* **Estoque mínimo**: Define a quantidade mínima em Estoque para o SKU ficar indisponível na Rakuten;
+* **Série da Nota Fiscal**: Número de série da Nota Fiscal utilizada na atualização de Tracking;
+* **Taxa da Divergência de Preço**: Taxa de aceitação da divergência de valor no Pedido integrado;
+ Qualquer pedido que possua uma divergência entre o preço que veio do marketplace e o preço praticado na plantaforma, será comparado com esse valor. Se a divergência (em porcentagem) for menor que o valor definido nesse campo, o pedido será integrado. Caso contrário, o pedido será negado e lojista, notificado.
+* **Esperar a Url de Tracking**: A integração atualiza o status do Pedido no Marketplace para "Despachado" quando os campos da nota fiscal "Numero de Rastreio" e "URL de Rastreio" forem preenchidos.
 * **CNPJ da loja**: CNPJ da Loja
-
-* **Código da loja na Rakuten**: Código da Loja que identifica sua Loja no sistema da Rakuten
-
-* **Código de integração da loja na Rakuten**: Código da integração cadastrada em sua Loja na Rakuten
-
-* **E-mail de acesso ao webservice Rakuten**: E-mail utilizado pela integraçõa para a atualização de Tracking dos Pedidos
-
-* **Senha do e-mail**: Senha utilizada pela integração, junto ao email acima, para a atualização de Tracking dos Pedidos
-
-* **Id do Afiliado**: ID do Afiliado da Rakuten cadastrado em OMS > Configurações > Afiliados > ID
-
-* **Mapeamento de Transportadoras**: Caso for usar o sistema de Frete da VTEX, nos fornecer um De-Para com o ID do serviço de frete da Rakuten (o ID precisa que ser NUMÉRICO, NÃO INICIADO POR ZERO) e o ID da transportadora. Se **não**, também deve nos fornecer esse De-Para, mas além disto, dar frete grátis para o Marketplace da Rakuten para não conflitar com os valores usados pelo Parceiro. Maiores dúvida, acesse o 6º passo da seguinte documentaçã: [Rakuten - Configurações iniciais](http://help.vtex.com/hc/pt-br/articles/206863767-Rakuten-Configura%C3%A7%C3%B5es-iniciais)
-
+* **Código da loja na Rakuten**: Código da Loja na Rakuten;
+* **Código de integração da loja na Rakuten**: Código da integração na Rakuten;
+* **E-mail de acesso ao webservice Rakuten**: E-mail utilizado pela integraçõa para a atualização de Tracking dos Pedidos;
+* **Senha do e-mail**: Senha utilizada pela integração, junto ao email acima, para a atualização de Tracking dos Pedidos;
+* **Id do Afiliado**: ID do Afiliado da Rakuten que será cadastrado no modulo do OMS;
+* **Mapeamento de Transportadoras**: Mapeamente de frete entre a Vtex e a Rakuten.
 * **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s)
 
->>>Feitas as devidas configurações no VTEX Bridge, basta finalizar o restante das configurações nos demais módulos da VTEX:
 
-* [Demais configurações com Marketplace da Rakuten](http://help.vtex.com/hc/pt-br/articles/206863767-Rakuten-Configura%C3%A7%C3%B5es-de-Marketplace)
+###Parceiro Rakuten
+
+Realizadas essas configurações, deve-se enviar os seguintes dados para o suporte da Rakuten, Thasmine Colen <thasmine.colen@rakuten.com.br>, realizar consultas de Frete aqui na VTEX:
+
+* Nome da Loja
+* Rakuten StoreCode
+* URL de Frete: http://rakutenintegration.vtexcommerce.com.br/wcfservice/ShippingService.svc
+
+**Pronto! Em questão de tempo os produtos irão ser exportados para o Marketplace da Rakuten.**

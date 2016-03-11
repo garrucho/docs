@@ -2,21 +2,23 @@
 
 ## Primeiros Passos
 
-1. A B2W não precisa de contratação de Channel.
 
-2. [Seleção de política comercial.](http://help.vtex.com/hc/pt-br/articles/214166227)
+> A B2W **não** precisa de contratação de Channel.
 
-3. [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
+1. [Seleção de política comercial.](http://help.vtex.com/hc/pt-br/articles/214166227)
 
-4. Entrar em contato com o respectivo Parceiro B2W:
+2. [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
+
+3. Entrar em contato com a B2W e obtenha o Token de acesso a API:
 
  http://www.submarino.com.br/marketplace
 
 ## Bridge - Visão geral
 
->Importante: As configurações realizadas no Bridge para este Marketplace criam automaticamente o Afiliado no OMS e libera o Perfil de Acesso ao usuário deste Parceiro.
 
-###Exemplo de como se acessa as Configurações de Marketplace
+>**Importante: As configurações realizadas no Bridge para B2W realiza a criação automatica do Afiliado no OMS e libera o Perfil de Acesso no E-Commerce.**
+
+###Exemplo de acesso as Configurações de Marketplace
 
 ![Config B2W](V_newconfig_b2w.gif)
 
@@ -26,28 +28,17 @@
 
 >>Para cada campo temos:
 
-* **Integração de Produtos**: Liga ou Desliga a exportação de Produtos
-
-* **Integração de Pedidos**: Liga ou Desliga a exportação de Pedidos
-
-* **Integração de Preço**: Liga ou Desliga a exportação de Preços
-
-* **Integração de Estoques**: Liga ou Desliga a exportação de Estoque
-
-* **ApiKey**: Chave de identificação da sua Loja no Marketplace fornecida diretamente pela B2W
-
-* **Id do Afiliado**: ID do Afiliado da Rakuten cadastrado em OMS > Configurações > Afiliados > ID
-
-* **Taxa da Divergência de Preço**: Taxa de aceitação da divergência de valor no Pedido integrado
-
-* **Estrutura Mercadológica Genérica**: Quando ativada essa função, caso o dado de EAN cadastrado no SKU seja inválido ou esteja nulo, não enviaremos a tag deste campo no objeto do SKU.
-
-* **Concatenar nome de Produto com nome do SKU**: Quando ativada essa função, a exportação dos SKUs para a B2W terá um tratamento onde o nome do Produto irá concatenar com o nome do SKU
-
-* **Mapeamento de Especificações de SKU**:  Essa função, se ativa, surge efeito apenas se acordado sua necessidade com a B2W. Por exemplo para uma Loja que vende anéis e usa uma especificação de nome "Aro". Este precisa ser mapeado de "Aro" para "TAMANHO" para atender o consuma do Parceiro
-
-* **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s)
-
->>>Feitas as devidas configurações no VTEX Bridge, basta finalizar o restante das configurações nos demais módulos da VTEX:
-
-* [Demais configurações para o Marketplace da B2W](http://help.vtex.com/hc/pt-br/articles/206105948-B2W-Configura%C3%A7%C3%B5es-de-Marketplace)
+* **Integração de Produtos**: Liga ou Desliga a exportação de Produtos;
+* **Integração de Pedidos**: Liga ou Desliga a exportação de Pedidos;
+* **Integração de Preço**: Liga ou Desliga a exportação de Preços;
+* **Integração de Estoques**: Liga ou Desliga a exportação de Estoque;
+* **Id do Afiliado**: ID do Afiliado da B2W que irá ser cadastrado no OMS 
+* **Política Comercial**: ID da Política Comercial da B2W cadastrada
+* **ApiKey**: Chave de identificação da sua Loja no Marketplace fornecida diretamente pela B2W;
+* **Estrutura Mercadológica Genérica**:
+Quando essa função estiver ativa, o produto será enviado na categoria 9999 da B2W, caso o EAN (codigo de barra) cadastrado no SKU seja inválido ou  nulo, não o enviaremos;
+* **Concatenar nome de Produto com nome do SKU**: Quando ativada essa função, a exportação dos SKUs para a B2W terá um tratamento onde o titulo do SKU será formado pelo nome do produto acrescido do nome do SKU (Exemplo : Sapato Social Nike - 38, onde o Sapato Social Nike é o nome do produto e  o 38 numero do SKU).
+* **Exportar catálogo como produtos únicos**: Quando ativada essa opção todos os SKUS serão enviados como produtos, ou seja, não haverá agrupamento de produto;
+* **Taxa da Divergência de Preço**: Taxa de tolerancia de diferença de preço entre a Vtex e o Parceiro nos Pedidos integrados [padrão: até 10% de diferença];
+* **Mapeamento de Atributos (Nome B2W -> Nome VTEX)**: serve para lojistas que possuem suas especificações diferentes da B2W (Marca, tamanho, etc.).No primeiro campo deve-se colocar o nome da especificação, na B2W, que deseja mapear. No segundo campo deve colocar o nome da especificação aqui na VTEX. Exemplo: Tamanho -> TAM. Lembrando que atualmente a B2W só aceita duas especificações, COR e TAMANHO. Qualquer outro mapeamento será ignorado;
+* **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s).

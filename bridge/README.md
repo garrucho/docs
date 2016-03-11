@@ -14,8 +14,6 @@ O módulo também é encarregado das configurações que ativam as integrações
 - O Bridge **não** tem integração com os ERP’s.
 
 
-
-
 ## Visão geral
 
 ![VTEX Bridge](VTEX Bridge3.png)
