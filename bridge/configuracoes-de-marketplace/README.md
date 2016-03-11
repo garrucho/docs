@@ -55,6 +55,6 @@ Cada marketplace tem a sua regra para disponibilizar um pedido. Assim, um pedido
 
 * [Walmart](walmart/index.html)
 
-* [MercadoLivre](mercadolivre/index.html)
+* [Mercado Livre](mercadolivre/index.html)
 
 * [CSU](csu/index.html)

@@ -3,13 +3,13 @@
 ## Primeiros Passos
 
 
-> A Rakuten **não** precisa de contratação de Channel.
+1. [Contrate o channel.](http://help.vtex.com/hc/pt-br/articles/213517308-Channel)
 
-1. [Seleção de política comercial.](http://help.vtex.com/hc/pt-br/articles/214166227)
+2. [Seleção de política comercial.](http://help.vtex.com/hc/pt-br/articles/214166227)
 
-2. [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
+4. [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
 
-3. Entrar em contato com a Rakuten e obtenha o Token de acesso a API:
+5. Entrar em contato com a Rakuten e obtenha o Token de acesso a API:
 
 http://ecservice.rakuten.com.br/rakuten-shopping/
 

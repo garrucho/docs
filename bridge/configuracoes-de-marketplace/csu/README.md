@@ -1,27 +1,37 @@
-## CNova
->Visão do painel de configuração:
+## Configurações iniciais com o CSU
 
-![Config CNova](V_newconfig_cnova2.gif)
+## Primeiros Passos
+
+> A CSU **não** precisa de contratação de Channel.
+
+1. [Seleção de política comercial.](http://help.vtex.com/hc/pt-br/articles/214166227)
+
+2. [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
+
+3. Entrar em contato com a Buscapé e obtenha o Token de acesso a API:
+
+ contato@optemais.com.br
+
+## Bridge - Visão geral
+
+### Exemplo de acesso as Configurações de Marketplace
+
+![Config CSU](Marketplace_Config.gif)
+
+##Campos
+
+![Config CSU](CSU.png)
+
 >>Para cada campo temos:
 
-* **Integração de Produtos**: Liga ou Desliga a exportação de Produtos
+* **Id do LicenseManager**: Id da sua Loja presente no campo "ID*" dentro do LicenseManager;
+* **Política Comercial**: ID da Política Comercial do Walmart cadastrada em OMS > Configurações > Afiliados > Política Comercial;
+* **Id do Afiliado**: ID do Afiliado da B2W cadastrado em OMS > Configurações > Afiliados > ID.
 
-* **Integração de Pedidos**: Liga ou Desliga a exportação de Pedidos
+## OMS
 
-* **Integração de Preços**: Liga ou Desliga a exportação de Preços
+Acessar: Configurações > Afiliados > Novo Afiliado
 
-* **Integração de Estoques**: Liga ou Desliga a exportação de Estoque
+![Config CSU](rakuten_novo_afiliado.gif)
 
-* **ApiKey**: Chave de identificação da sua Loja no Marketplace fornecida diretamente pela B2W
-
-* **Id do Afiliado**: ID do Afiliado da Rakuten cadastrado em OMS > Configurações > Afiliados > ID
-
-* **Taxa da Divergência de Preço**: Taxa de aceitação da divergência de valor no Pedido integrado
-
-* **Nome do campo de Especificação de Produto que contém sua Descrição**: Será aqui mapeado, nas Especificações do Produto, o campo que contém o conteúdo utilizado como Descrição do mesmo.
-
-* **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s)
-
->>>Feitas as devidas configurações no VTEX Bridge, basta finalizar o restante das configurações nos demais módulos da VTEX:
-
-* [Demais configurações para o Marketplace do CNova](http://help.vtex.com/hc/pt-br/articles/206859697-CNova-Configura%C3%A7%C3%B5es-de-Marketplace)
+Aqui você terá os seguintes campos para serem preenchidos:
