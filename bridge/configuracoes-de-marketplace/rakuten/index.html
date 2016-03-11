@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="4.1.3" data-basepath="../../.." data-revision="Thu Mar 10 2016 16:36:02 GMT-0300 (Hora oficial do Brasil)">
+    <div class="book" data-level="4.1.3" data-basepath="../../.." data-revision="Fri Mar 11 2016 15:29:50 GMT-0300 (Hora oficial do Brasil)">
     
 
 <div class="book-summary">
@@ -656,62 +656,58 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rakuten"><a name="rakuten" class="plugin-anchor" href="#rakuten"><span class="fa fa-link"></span></a>Rakuten</h2>
+                        <h2 id="configura%C3%A7%C3%B5es-iniciais-com-a-rakuten"><a name="configura%C3%A7%C3%B5es-iniciais-com-a-rakuten" class="plugin-anchor" href="#configura%C3%A7%C3%B5es-iniciais-com-a-rakuten"><span class="fa fa-link"></span></a>Configura&#xE7;&#xF5;es iniciais com a Rakuten</h2>
+<h2 id="primeiros-passos"><a name="primeiros-passos" class="plugin-anchor" href="#primeiros-passos"><span class="fa fa-link"></span></a>Primeiros Passos</h2>
+<ol>
+<li><p><a href="http://help.vtex.com/hc/pt-br/articles/213517308-Channel" target="_blank">Contrate o channel.</a></p>
+</li>
+<li><p><a href="http://help.vtex.com/hc/pt-br/articles/214166227" target="_blank">Sele&#xE7;&#xE3;o de pol&#xED;tica comercial.</a></p>
+</li>
+<li><p><a href="http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque" target="_blank">Configure a log&#xED;stica para essa pol&#xED;tica comercial.</a></p>
+</li>
+<li><p>Entrar em contato com a Rakuten e obtenha o Token de acesso a API:</p>
+</li>
+</ol>
+<p><a href="http://ecservice.rakuten.com.br/rakuten-shopping/" target="_blank">http://ecservice.rakuten.com.br/rakuten-shopping/</a></p>
+<h2 id="bridge-vis%C3%A3o-geral"><a name="bridge-vis%C3%A3o-geral" class="plugin-anchor" href="#bridge-vis%C3%A3o-geral"><span class="fa fa-link"></span></a>Bridge - Vis&#xE3;o geral</h2>
 <blockquote>
-<p>Vis&#xE3;o do painel de configura&#xE7;&#xE3;o:</p>
+<p><strong>Importante: As configura&#xE7;&#xF5;es realizadas no Bridge para Rakuten realiza a cria&#xE7;&#xE3;o automatica do Afiliado no OMS e libera o Perfil de Acesso no E-Commerce.</strong></p>
 </blockquote>
+<h3 id="exemplo-de-acesso-as-configura%C3%A7%C3%B5es-de-marketplace"><a name="exemplo-de-acesso-as-configura%C3%A7%C3%B5es-de-marketplace" class="plugin-anchor" href="#exemplo-de-acesso-as-configura%C3%A7%C3%B5es-de-marketplace"><span class="fa fa-link"></span></a>Exemplo de acesso as Configura&#xE7;&#xF5;es de Marketplace</h3>
 <p><img src="V_newconfig_rkt.gif" alt="Config RKT"></p>
+<h2 id="campos"><a name="campos" class="plugin-anchor" href="#campos"><span class="fa fa-link"></span></a>Campos</h2>
+<p><img src="rakuten.png" alt="Campos B2W"></p>
 <blockquote>
 <blockquote>
 <p>Para cada campo temos:</p>
 </blockquote>
 </blockquote>
 <ul>
-<li><strong>Integra&#xE7;&#xE3;o de Produtos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Produtos</li>
+<li><strong>Integra&#xE7;&#xE3;o de Produtos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Produtos;</li>
+<li><strong>Integra&#xE7;&#xE3;o de Pedidos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pedidos;</li>
+<li><strong>Integra&#xE7;&#xE3;o de Estoque e Pre&#xE7;o</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de estoque e pre&#xE7;o;</li>
+<li><strong>Estoque m&#xED;nimo</strong>: Define a quantidade m&#xED;nima em Estoque para o SKU ficar indispon&#xED;vel na Rakuten;</li>
+<li><strong>S&#xE9;rie da Nota Fiscal</strong>: N&#xFA;mero de s&#xE9;rie da Nota Fiscal utilizada na atualiza&#xE7;&#xE3;o de Tracking;</li>
+<li><strong>Taxa da Diverg&#xEA;ncia de Pre&#xE7;o</strong>: Taxa de aceita&#xE7;&#xE3;o da diverg&#xEA;ncia de valor no Pedido integrado;
+Qualquer pedido que possua uma diverg&#xEA;ncia entre o pre&#xE7;o que veio do marketplace e o pre&#xE7;o praticado na plantaforma, ser&#xE1; comparado com esse valor. Se a diverg&#xEA;ncia (em porcentagem) for menor que o valor definido nesse campo, o pedido ser&#xE1; integrado. Caso contr&#xE1;rio, o pedido ser&#xE1; negado e lojista, notificado.</li>
+<li><strong>Esperar a Url de Tracking</strong>: A integra&#xE7;&#xE3;o atualiza o status do Pedido no Marketplace para &quot;Despachado&quot; quando os campos da nota fiscal &quot;Numero de Rastreio&quot; e &quot;URL de Rastreio&quot; forem preenchidos.</li>
+<li><strong>CNPJ da loja</strong>: CNPJ da Loja</li>
+<li><strong>C&#xF3;digo da loja na Rakuten</strong>: C&#xF3;digo da Loja na Rakuten;</li>
+<li><strong>C&#xF3;digo de integra&#xE7;&#xE3;o da loja na Rakuten</strong>: C&#xF3;digo da integra&#xE7;&#xE3;o na Rakuten;</li>
+<li><strong>E-mail de acesso ao webservice Rakuten</strong>: E-mail utilizado pela integra&#xE7;&#xF5;a para a atualiza&#xE7;&#xE3;o de Tracking dos Pedidos;</li>
+<li><strong>Senha do e-mail</strong>: Senha utilizada pela integra&#xE7;&#xE3;o, junto ao email acima, para a atualiza&#xE7;&#xE3;o de Tracking dos Pedidos;</li>
+<li><strong>Id do Afiliado</strong>: ID do Afiliado da Rakuten que ser&#xE1; cadastrado no modulo do OMS;</li>
+<li><strong>Mapeamento de Transportadoras</strong>: Mapeamente de frete entre a Vtex e a Rakuten.</li>
+<li><strong>E-mails Para Notifica&#xE7;&#xE3;o de Pedidos N&#xE3;o Integrados</strong>: Caso um Pedido sofra algum erro no ato de integrar na VTEX, ser&#xE1; enviado um email com sua poss&#xED;vel causa para o(s) email(s) aqui cadastrado(s)</li>
 </ul>
+<h3 id="parceiro-rakuten"><a name="parceiro-rakuten" class="plugin-anchor" href="#parceiro-rakuten"><span class="fa fa-link"></span></a>Parceiro Rakuten</h3>
+<p>Realizadas essas configura&#xE7;&#xF5;es, deve-se enviar os seguintes dados para o suporte da Rakuten, Thasmine Colen <a href="mailto:thasmine.colen@rakuten.com.br" target="_blank">thasmine.colen@rakuten.com.br</a>, realizar consultas de Frete aqui na VTEX:</p>
 <ul>
-<li><strong>Integra&#xE7;&#xE3;o de Pedidos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pedidos</li>
+<li>Nome da Loja</li>
+<li>Rakuten StoreCode</li>
+<li>URL de Frete: <a href="http://rakutenintegration.vtexcommerce.com.br/wcfservice/ShippingService.svc" target="_blank">http://rakutenintegration.vtexcommerce.com.br/wcfservice/ShippingService.svc</a></li>
 </ul>
-<ul>
-<li><p><strong>Integra&#xE7;&#xE3;o de Estoque e Pre&#xE7;o</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pre&#xE7;os</p>
-</li>
-<li><p><strong>Id do License Manager</strong>: Id da sua Loja presente no campo &quot;ID*&quot; dentro do LicenseManager</p>
-</li>
-<li><p><strong>Estoque m&#xED;nimo</strong>: Define a quantidade m&#xED;nima em Estoque para o SKU ficar indispon&#xED;vel na Rakuten</p>
-</li>
-<li><p><strong>S&#xE9;rie da Nota Fiscal</strong>: N&#xFA;mero de s&#xE9;rie da Nota Fiscal utilizada na atualiza&#xE7;&#xE3;o de Tracking</p>
-</li>
-<li><p><strong>Taxa da Diverg&#xEA;ncia de Pre&#xE7;o</strong>: Taxa de aceita&#xE7;&#xE3;o da diverg&#xEA;ncia de valor no Pedido integrado</p>
-</li>
-<li><p><strong>Esperar a Url de Tracking</strong>: Atualiza o status do Pedido no Marketplace para &quot;Despachado&quot; quando com o Tracking preenchido</p>
-</li>
-<li><p><strong>CNPJ da loja</strong>: CNPJ da Loja</p>
-</li>
-<li><p><strong>C&#xF3;digo da loja na Rakuten</strong>: C&#xF3;digo da Loja que identifica sua Loja no sistema da Rakuten</p>
-</li>
-<li><p><strong>C&#xF3;digo de integra&#xE7;&#xE3;o da loja na Rakuten</strong>: C&#xF3;digo da integra&#xE7;&#xE3;o cadastrada em sua Loja na Rakuten</p>
-</li>
-<li><p><strong>E-mail de acesso ao webservice Rakuten</strong>: E-mail utilizado pela integra&#xE7;&#xF5;a para a atualiza&#xE7;&#xE3;o de Tracking dos Pedidos</p>
-</li>
-<li><p><strong>Senha do e-mail</strong>: Senha utilizada pela integra&#xE7;&#xE3;o, junto ao email acima, para a atualiza&#xE7;&#xE3;o de Tracking dos Pedidos</p>
-</li>
-<li><p><strong>Id do Afiliado</strong>: ID do Afiliado da Rakuten cadastrado em OMS &gt; Configura&#xE7;&#xF5;es &gt; Afiliados &gt; ID</p>
-</li>
-<li><p><strong>Mapeamento de Transportadoras</strong>: Caso for usar o sistema de Frete da VTEX, nos fornecer um De-Para com o ID do servi&#xE7;o de frete da Rakuten (o ID precisa que ser NUM&#xC9;RICO, N&#xC3;O INICIADO POR ZERO) e o ID da transportadora. Se <strong>n&#xE3;o</strong>, tamb&#xE9;m deve nos fornecer esse De-Para, mas al&#xE9;m disto, dar frete gr&#xE1;tis para o Marketplace da Rakuten para n&#xE3;o conflitar com os valores usados pelo Parceiro. Maiores d&#xFA;vida, acesse o 6&#xBA; passo da seguinte documenta&#xE7;&#xE3;: <a href="http://help.vtex.com/hc/pt-br/articles/206863767-Rakuten-Configura%C3%A7%C3%B5es-iniciais" target="_blank">Rakuten - Configura&#xE7;&#xF5;es iniciais</a></p>
-</li>
-<li><p><strong>E-mails Para Notifica&#xE7;&#xE3;o de Pedidos N&#xE3;o Integrados</strong>: Caso um Pedido sofra algum erro no ato de integrar na VTEX, ser&#xE1; enviado um email com sua poss&#xED;vel causa para o(s) email(s) aqui cadastrado(s)</p>
-</li>
-</ul>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>Feitas as devidas configura&#xE7;&#xF5;es no VTEX Bridge, basta finalizar o restante das configura&#xE7;&#xF5;es nos demais m&#xF3;dulos da VTEX:</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<ul>
-<li><a href="http://help.vtex.com/hc/pt-br/articles/206863767-Rakuten-Configura%C3%A7%C3%B5es-de-Marketplace" target="_blank">Demais configura&#xE7;&#xF5;es com Marketplace da Rakuten</a></li>
-</ul>
+<p><strong>Pronto! Em quest&#xE3;o de tempo os produtos ir&#xE3;o ser exportados para o Marketplace da Rakuten.</strong></p>
 
                     
                     </section>

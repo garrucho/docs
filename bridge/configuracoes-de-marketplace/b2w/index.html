@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="4.1.1" data-basepath="../../.." data-revision="Thu Mar 10 2016 16:36:02 GMT-0300 (Hora oficial do Brasil)">
+    <div class="book" data-level="4.1.1" data-basepath="../../.." data-revision="Fri Mar 11 2016 15:29:50 GMT-0300 (Hora oficial do Brasil)">
     
 
 <div class="book-summary">
@@ -658,22 +658,23 @@
                     
                         <h2 id="configura%C3%A7%C3%B5es-iniciais-com-a-b2w"><a name="configura%C3%A7%C3%B5es-iniciais-com-a-b2w" class="plugin-anchor" href="#configura%C3%A7%C3%B5es-iniciais-com-a-b2w"><span class="fa fa-link"></span></a>Configura&#xE7;&#xF5;es iniciais com a  B2W</h2>
 <h2 id="primeiros-passos"><a name="primeiros-passos" class="plugin-anchor" href="#primeiros-passos"><span class="fa fa-link"></span></a>Primeiros Passos</h2>
+<blockquote>
+<p>A B2W <strong>n&#xE3;o</strong> precisa de contrata&#xE7;&#xE3;o de Channel.</p>
+</blockquote>
 <ol>
-<li><p>A B2W n&#xE3;o precisa de contrata&#xE7;&#xE3;o de Channel.</p>
-</li>
 <li><p><a href="http://help.vtex.com/hc/pt-br/articles/214166227" target="_blank">Sele&#xE7;&#xE3;o de pol&#xED;tica comercial.</a></p>
 </li>
 <li><p><a href="http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque" target="_blank">Configure a log&#xED;stica para essa pol&#xED;tica comercial.</a></p>
 </li>
-<li><p>Entrar em contato com o respectivo Parceiro B2W:</p>
+<li><p>Entrar em contato com a B2W e obtenha o Token de acesso a API:</p>
 <p><a href="http://www.submarino.com.br/marketplace" target="_blank">http://www.submarino.com.br/marketplace</a></p>
 </li>
 </ol>
 <h2 id="bridge-vis%C3%A3o-geral"><a name="bridge-vis%C3%A3o-geral" class="plugin-anchor" href="#bridge-vis%C3%A3o-geral"><span class="fa fa-link"></span></a>Bridge - Vis&#xE3;o geral</h2>
 <blockquote>
-<p>Importante: As configura&#xE7;&#xF5;es realizadas no Bridge para este Marketplace criam automaticamente o Afiliado no OMS e libera o Perfil de Acesso ao usu&#xE1;rio deste Parceiro.</p>
+<p><strong>Importante: As configura&#xE7;&#xF5;es realizadas no Bridge para B2W realiza a cria&#xE7;&#xE3;o automatica do Afiliado no OMS e libera o Perfil de Acesso no E-Commerce.</strong></p>
 </blockquote>
-<h3 id="exemplo-de-como-se-acessa-as-configura%C3%A7%C3%B5es-de-marketplace"><a name="exemplo-de-como-se-acessa-as-configura%C3%A7%C3%B5es-de-marketplace" class="plugin-anchor" href="#exemplo-de-como-se-acessa-as-configura%C3%A7%C3%B5es-de-marketplace"><span class="fa fa-link"></span></a>Exemplo de como se acessa as Configura&#xE7;&#xF5;es de Marketplace</h3>
+<h3 id="exemplo-de-acesso-as-configura%C3%A7%C3%B5es-de-marketplace"><a name="exemplo-de-acesso-as-configura%C3%A7%C3%B5es-de-marketplace" class="plugin-anchor" href="#exemplo-de-acesso-as-configura%C3%A7%C3%B5es-de-marketplace"><span class="fa fa-link"></span></a>Exemplo de acesso as Configura&#xE7;&#xF5;es de Marketplace</h3>
 <p><img src="V_newconfig_b2w.gif" alt="Config B2W"></p>
 <h2 id="campos"><a name="campos" class="plugin-anchor" href="#campos"><span class="fa fa-link"></span></a>Campos</h2>
 <p><img src="b2wcampos.png" alt="Campos B2W"></p>
@@ -683,38 +684,20 @@
 </blockquote>
 </blockquote>
 <ul>
-<li><p><strong>Integra&#xE7;&#xE3;o de Produtos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Produtos</p>
-</li>
-<li><p><strong>Integra&#xE7;&#xE3;o de Pedidos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pedidos</p>
-</li>
-<li><p><strong>Integra&#xE7;&#xE3;o de Pre&#xE7;o</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pre&#xE7;os</p>
-</li>
-<li><p><strong>Integra&#xE7;&#xE3;o de Estoques</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Estoque</p>
-</li>
-<li><p><strong>ApiKey</strong>: Chave de identifica&#xE7;&#xE3;o da sua Loja no Marketplace fornecida diretamente pela B2W</p>
-</li>
-<li><p><strong>Id do Afiliado</strong>: ID do Afiliado da Rakuten cadastrado em OMS &gt; Configura&#xE7;&#xF5;es &gt; Afiliados &gt; ID</p>
-</li>
-<li><p><strong>Taxa da Diverg&#xEA;ncia de Pre&#xE7;o</strong>: Taxa de aceita&#xE7;&#xE3;o da diverg&#xEA;ncia de valor no Pedido integrado</p>
-</li>
-<li><p><strong>Estrutura Mercadol&#xF3;gica Gen&#xE9;rica</strong>: Quando ativada essa fun&#xE7;&#xE3;o, caso o dado de EAN cadastrado no SKU seja inv&#xE1;lido ou esteja nulo, n&#xE3;o enviaremos a tag deste campo no objeto do SKU.</p>
-</li>
-<li><p><strong>Concatenar nome de Produto com nome do SKU</strong>: Quando ativada essa fun&#xE7;&#xE3;o, a exporta&#xE7;&#xE3;o dos SKUs para a B2W ter&#xE1; um tratamento onde o nome do Produto ir&#xE1; concatenar com o nome do SKU</p>
-</li>
-<li><p><strong>Mapeamento de Especifica&#xE7;&#xF5;es de SKU</strong>:  Essa fun&#xE7;&#xE3;o, se ativa, surge efeito apenas se acordado sua necessidade com a B2W. Por exemplo para uma Loja que vende an&#xE9;is e usa uma especifica&#xE7;&#xE3;o de nome &quot;Aro&quot;. Este precisa ser mapeado de &quot;Aro&quot; para &quot;TAMANHO&quot; para atender o consuma do Parceiro</p>
-</li>
-<li><p><strong>E-mails Para Notifica&#xE7;&#xE3;o de Pedidos N&#xE3;o Integrados</strong>: Caso um Pedido sofra algum erro no ato de integrar na VTEX, ser&#xE1; enviado um email com sua poss&#xED;vel causa para o(s) email(s) aqui cadastrado(s)</p>
-</li>
-</ul>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>Feitas as devidas configura&#xE7;&#xF5;es no VTEX Bridge, basta finalizar o restante das configura&#xE7;&#xF5;es nos demais m&#xF3;dulos da VTEX:</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<ul>
-<li><a href="http://help.vtex.com/hc/pt-br/articles/206105948-B2W-Configura%C3%A7%C3%B5es-de-Marketplace" target="_blank">Demais configura&#xE7;&#xF5;es para o Marketplace da B2W</a></li>
+<li><strong>Integra&#xE7;&#xE3;o de Produtos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Produtos;</li>
+<li><strong>Integra&#xE7;&#xE3;o de Pedidos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pedidos;</li>
+<li><strong>Integra&#xE7;&#xE3;o de Pre&#xE7;o</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pre&#xE7;os;</li>
+<li><strong>Integra&#xE7;&#xE3;o de Estoques</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Estoque;</li>
+<li><strong>Id do Afiliado</strong>: ID do Afiliado da B2W que ir&#xE1; ser cadastrado no OMS </li>
+<li><strong>Pol&#xED;tica Comercial</strong>: ID da Pol&#xED;tica Comercial da B2W cadastrada</li>
+<li><strong>ApiKey</strong>: Chave de identifica&#xE7;&#xE3;o da sua Loja no Marketplace fornecida diretamente pela B2W;</li>
+<li><strong>Estrutura Mercadol&#xF3;gica Gen&#xE9;rica</strong>:
+Quando essa fun&#xE7;&#xE3;o estiver ativa, o produto ser&#xE1; enviado na categoria 9999 da B2W, caso o EAN (codigo de barra) cadastrado no SKU seja inv&#xE1;lido ou  nulo, n&#xE3;o o enviaremos;</li>
+<li><strong>Concatenar nome de Produto com nome do SKU</strong>: Quando ativada essa fun&#xE7;&#xE3;o, a exporta&#xE7;&#xE3;o dos SKUs para a B2W ter&#xE1; um tratamento onde o titulo do SKU ser&#xE1; formado pelo nome do produto acrescido do nome do SKU (Exemplo : Sapato Social Nike - 38, onde o Sapato Social Nike &#xE9; o nome do produto e  o 38 numero do SKU).</li>
+<li><strong>Exportar cat&#xE1;logo como produtos &#xFA;nicos</strong>: Quando ativada essa op&#xE7;&#xE3;o todos os SKUS ser&#xE3;o enviados como produtos, ou seja, n&#xE3;o haver&#xE1; agrupamento de produto;</li>
+<li><strong>Taxa da Diverg&#xEA;ncia de Pre&#xE7;o</strong>: Taxa de tolerancia de diferen&#xE7;a de pre&#xE7;o entre a Vtex e o Parceiro nos Pedidos integrados [padr&#xE3;o: at&#xE9; 10% de diferen&#xE7;a];</li>
+<li><strong>Mapeamento de Atributos (Nome B2W -&gt; Nome VTEX)</strong>: serve para lojistas que possuem suas especifica&#xE7;&#xF5;es diferentes da B2W (Marca, tamanho, etc.).No primeiro campo deve-se colocar o nome da especifica&#xE7;&#xE3;o, na B2W, que deseja mapear. No segundo campo deve colocar o nome da especifica&#xE7;&#xE3;o aqui na VTEX. Exemplo: Tamanho -&gt; TAM. Lembrando que atualmente a B2W s&#xF3; aceita duas especifica&#xE7;&#xF5;es, COR e TAMANHO. Qualquer outro mapeamento ser&#xE1; ignorado;</li>
+<li><strong>E-mails Para Notifica&#xE7;&#xE3;o de Pedidos N&#xE3;o Integrados</strong>: Caso um Pedido sofra algum erro no ato de integrar na VTEX, ser&#xE1; enviado um email com sua poss&#xED;vel causa para o(s) email(s) aqui cadastrado(s).</li>
 </ul>
 
                     

@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="4.1.2" data-basepath="../../.." data-revision="Thu Mar 10 2016 16:36:02 GMT-0300 (Hora oficial do Brasil)">
+    <div class="book" data-level="4.1.2" data-basepath="../../.." data-revision="Fri Mar 11 2016 15:29:50 GMT-0300 (Hora oficial do Brasil)">
     
 
 <div class="book-summary">
@@ -656,11 +656,28 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="cnova"><a name="cnova" class="plugin-anchor" href="#cnova"><span class="fa fa-link"></span></a>CNova</h2>
+                        <h2 id="configura%C3%A7%C3%B5es-iniciais-com-a-cnova"><a name="configura%C3%A7%C3%B5es-iniciais-com-a-cnova" class="plugin-anchor" href="#configura%C3%A7%C3%B5es-iniciais-com-a-cnova"><span class="fa fa-link"></span></a>Configura&#xE7;&#xF5;es iniciais com a Cnova</h2>
+<h2 id="primeiros-passos"><a name="primeiros-passos" class="plugin-anchor" href="#primeiros-passos"><span class="fa fa-link"></span></a>Primeiros Passos</h2>
 <blockquote>
-<p>Vis&#xE3;o do painel de configura&#xE7;&#xE3;o:</p>
+<p>A Cnova <strong>n&#xE3;o</strong> precisa de contrata&#xE7;&#xE3;o de Channel.</p>
 </blockquote>
+<ol>
+<li><p><a href="http://help.vtex.com/hc/pt-br/articles/214166227" target="_blank">Sele&#xE7;&#xE3;o de pol&#xED;tica comercial.</a></p>
+</li>
+<li><p><a href="http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque" target="_blank">Configure a log&#xED;stica para essa pol&#xED;tica comercial.</a></p>
+</li>
+<li><p>Entrar em contato com a Cnova e obtenha o Token de acesso a API:</p>
+<p><a href="http://www.extra.com.br/marketplace/venda-no-extra.aspx" target="_blank">http://www.extra.com.br/marketplace/venda-no-extra.aspx</a></p>
+</li>
+</ol>
+<h2 id="bridge-vis%C3%A3o-geral"><a name="bridge-vis%C3%A3o-geral" class="plugin-anchor" href="#bridge-vis%C3%A3o-geral"><span class="fa fa-link"></span></a>Bridge - Vis&#xE3;o geral</h2>
+<blockquote>
+<p><strong>Importante: As configura&#xE7;&#xF5;es realizadas no Bridge para Cnova realiza a cria&#xE7;&#xE3;o automatica do Afiliado no OMS e libera o Perfil de Acesso no E-Commerce.</strong></p>
+</blockquote>
+<h3 id="exemplo-de-acesso-as-configura%C3%A7%C3%B5es-de-marketplace"><a name="exemplo-de-acesso-as-configura%C3%A7%C3%B5es-de-marketplace" class="plugin-anchor" href="#exemplo-de-acesso-as-configura%C3%A7%C3%B5es-de-marketplace"><span class="fa fa-link"></span></a>Exemplo de acesso as Configura&#xE7;&#xF5;es de Marketplace</h3>
 <p><img src="V_newconfig_cnova2.gif" alt="Config CNova"></p>
+<h2 id="campos"><a name="campos" class="plugin-anchor" href="#campos"><span class="fa fa-link"></span></a>Campos</h2>
+<p><img src="cnova.png" alt="Campos Cnova"></p>
 <blockquote>
 <blockquote>
 <p>Para cada campo temos:</p>
@@ -686,16 +703,14 @@
 <li><p><strong>E-mails Para Notifica&#xE7;&#xE3;o de Pedidos N&#xE3;o Integrados</strong>: Caso um Pedido sofra algum erro no ato de integrar na VTEX, ser&#xE1; enviado um email com sua poss&#xED;vel causa para o(s) email(s) aqui cadastrado(s)</p>
 </li>
 </ul>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>Feitas as devidas configura&#xE7;&#xF5;es no VTEX Bridge, basta finalizar o restante das configura&#xE7;&#xF5;es nos demais m&#xF3;dulos da VTEX:</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<ul>
-<li><a href="http://help.vtex.com/hc/pt-br/articles/206859697-CNova-Configura%C3%A7%C3%B5es-de-Marketplace" target="_blank">Demais configura&#xE7;&#xF5;es para o Marketplace do CNova</a></li>
-</ul>
+<h2 id="sobre-a-integra%C3%A7%C3%A3o"><a name="sobre-a-integra%C3%A7%C3%A3o" class="plugin-anchor" href="#sobre-a-integra%C3%A7%C3%A3o"><span class="fa fa-link"></span></a>Sobre a integra&#xE7;&#xE3;o</h2>
+<p>Ap&#xF3;s as configura&#xE7;&#xE3;o acima forem conclu&#xED;das, ser&#xE1; necess&#xE1;rio reindexar a base para que todos os itens sejam integrados corretamente.</p>
+<p>Para isso, siga os passos abaixo:</p>
+<p>Entre no link [nomedasualoja].vtexcommercestable.com.br/admin/Site/FullCleanUp.aspx com o usu&#xE1;rio master
+Clique em &quot;Reidexar Base&quot;
+Obs.: &#xC9; poss&#xED;vel acompanhar quantos produtos est&#xE3;o na fila acessando o m&#xF3;dulo de E-Commerce &gt; Relat&#xF3;rios &gt; Relat&#xF3;rio de indexa&#xE7;&#xE3;o. L&#xE1; tem v&#xE1;rios dashboards que mostram: total indexado, itens ainda n&#xE3;o enfileirado, total na fila, na fila recentemente, entre outros. Para saber mais acesse o artigo no help Como funciona a indexa&#xE7;&#xE3;o.</p>
+<p><img src="reindexacao.png" alt="Campos Cnova"></p>
+<p>Os itens passar&#xE3;o por um processo de cataloga&#xE7;&#xE3;o at&#xE9; serem de fato disponibilizados nos sites da CNova. Esse prazo &#xE9; vari&#xE1;vel de acordo com a demanda que o MarketPlace tiver. &#xC0; medida que forem exportados, ser&#xE3;o informados os pre&#xE7;os e itens dispon&#xED;veis em estoque de cada produto. Toda vez que houver uma altera&#xE7;&#xE3;o no pre&#xE7;o de um produto, as informa&#xE7;&#xF5;es ser&#xE3;o atualizadas junto &#xE0; CNova. As atualiza&#xE7;&#xF5;es relacionadas aos itens em estoque funcionam online toda vez que tiverem 5 unidades ou menos em estoque. Movimenta&#xE7;&#xF5;es de estoques diferente dessa regra, n&#xE3;o &#xE9; indexada.</p>
 
                     
                     </section>
