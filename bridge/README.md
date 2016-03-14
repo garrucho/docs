@@ -82,3 +82,8 @@ Criado para oferecer a flexibilidade máxima em relação as Configurações de 
 * [Interface de Estoque](interface-de-estoque/index.html)
 
 * [Configurações de Marketplaces](configuracoes-de-marketplace/index.html)
+
+---
+
+Autor: _Ana Izabel Jacobsen_</br>
+Propriedade: _VTEX_ &copy;</br>
