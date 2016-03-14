@@ -577,7 +577,7 @@ _response:_
 
 ###Serviço
 
-Existem serviços(embalagem para presente, garantia extendida, etc.) que podem ser relacionados as SKUs. Para isso, primeiramente, o serviço tem que ser criado. Após ser criado, deve-se inserir um preço neste serviço e então relacionar o serviço com as SKUs. Por exemplo:
+Existem serviços (embalagem para presente, garantia extendida, etc.) que podem ser relacionados as SKUs. Para isso, primeiramente, o serviço tem que ser criado. Após ser criado, deve-se inserir um preço neste serviço e então relacionar o serviço com as SKUs. Por exemplo:
 
 _Criando o serviço._
 
@@ -613,6 +613,8 @@ _request:_
 </soapenv:Envelope>
 ```
 *É altamente recomendado que o integrador informe um id para o serviço. Caso seja passado nulo, iremos fazer o auto-incremento autimaticamente.
+
+**Este método também pode ser usado para alterar informações do serviço.
 
 _response:_
 
@@ -662,6 +664,7 @@ _request:_
    </soapenv:Body>
 </soapenv:Envelope>
 ```
+*Este método também pode ser usado para alterar as informações de preço do serviço.
 
 _response:_
 
@@ -722,6 +725,8 @@ _request:_
    </soapenv:Body>
 </soapenv:Envelope>
 ```
+
+*Este método também pode ser usado para alterar informações do relacionamento entre o serviço e o SKU.
 
 _response:_
 
