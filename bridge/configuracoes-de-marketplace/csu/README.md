@@ -20,7 +20,7 @@
 
  ![OMS CSU](rakuten_novo afiliado.gif)
 
- Nesta tela será preciso preencher os seguintes campos:
+### Campos
 
  ![OMSCAMPOS CSU](configuracoes_iniciais_CSU.jpg)
 
