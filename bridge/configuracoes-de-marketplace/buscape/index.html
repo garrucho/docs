@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="4.1.4" data-basepath="../../.." data-revision="Fri Mar 11 2016 16:24:11 GMT-0300 (Hora oficial do Brasil)">
+    <div class="book" data-level="4.1.4" data-basepath="../../.." data-revision="Mon Mar 14 2016 12:14:12 GMT-0300 (Hora oficial do Brasil)">
     
 
 <div class="book-summary">
@@ -729,17 +729,38 @@
 </blockquote>
 </blockquote>
 <ul>
-<li><p><strong>Integra&#xE7;&#xE3;o de Produtos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Produtos</p>
+<li><p><strong>Integra&#xE7;&#xE3;o de Produtos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Produtos.</p>
 </li>
-<li><p><strong>Integra&#xE7;&#xE3;o de Pedidos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pedidos</p>
+<li><p><strong>Integra&#xE7;&#xE3;o de Pedidos</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pedidos.</p>
 </li>
-<li><p><strong>Integra&#xE7;&#xE3;o de Invent&#xE1;rio</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pre&#xE7;os e Estoques</p>
+<li><p><strong>Integra&#xE7;&#xE3;o de Invent&#xE1;rio</strong>: Liga ou Desliga a exporta&#xE7;&#xE3;o de Pre&#xE7;os e Estoques.</p>
 </li>
-<li><p><strong>Chave de Acesso &#xE0; API</strong>: Chave fornecida pelo pr&#xF3;prio Buscap&#xE9; para identificar a Loja no sistema do Parceiro</p>
+<li><p><strong>Chave de Acesso &#xE0; API</strong>: Chave fornecida pelo pr&#xF3;prio Buscap&#xE9; para identificar a Loja no sistema do Parceiro.</p>
 </li>
-<li><p><strong>Id do Afiliado</strong>: No caso do Buscap&#xE9;, utilizar o padr&#xE3;o &quot;BSC&quot; (ser&#xE1; o mesmo indicado no OMS &gt; Afiliados)</p>
+<li><p><strong>Id do Afiliado</strong>: ID do Afiliado que sera criado no OMS.</p>
+</li>
+<li><p><strong>Pol&#xED;tica Comercial</strong>: ID da Pol&#xED;tica Comercial que ser&#xE1; utilizada para o parceiro Buscap&#xE9;.</p>
+</li>
+<li><p><strong>Dom&#xED;nio enviado no link do produto</strong>: Campo utilizado para montar o link do produto que ser&#xE1; exibido no site do Buscap&#xE9;.
+(exemplo: www.minhaloja.com.br)</p>
+</li>
+<li><p><strong>Taxa de Diverg&#xEA;ncia de Pre&#xE7;o</strong>:Taxa de tolerancia de diferen&#xE7;a de pre&#xE7;o entre a Vtex e o Parceiro nos Pedidos integrados [padr&#xE3;o: at&#xE9; 10% de diferen&#xE7;a].</p>
+</li>
+<li><p><strong>E-mails para notifica&#xE7;&#xF5;es</strong>:Caso um Pedido sofra algum erro no ato de integrar na VTEX, ser&#xE1; enviado um email com sua poss&#xED;vel causa para o(s) email(s) aqui cadastrado(s).</p>
 </li>
 </ul>
+<h2 id="sobre-a-integra%C3%A7%C3%A3o"><a name="sobre-a-integra%C3%A7%C3%A3o" class="plugin-anchor" href="#sobre-a-integra%C3%A7%C3%A3o"><span class="fa fa-link"></span></a>Sobre a integra&#xE7;&#xE3;o</h2>
+<p>Ap&#xF3;s as configura&#xE7;&#xE3;o acima forem conclu&#xED;das, ser&#xE1; necess&#xE1;rio reindexar a base para que todos os itens sejam integrados corretamente.</p>
+<p>Para isso, siga os passos abaixo:</p>
+<ul>
+<li>Com o usu&#xE1;rio master, entre no link [nomedasualoja].vtexcommercestable.com.br/admin/Site/FullCleanUp.aspx</li>
+<li>Clique no bot&#xE3;o &quot;Reidexar Base&quot;
+<img src="reindexacao.png" alt="Campos Cnova"></li>
+</ul>
+<blockquote>
+<p>Obs.: &#xC9; poss&#xED;vel acompanhar quantos produtos est&#xE3;o na fila acessando o m&#xF3;dulo de E-Commerce &gt; Relat&#xF3;rios &gt; Relat&#xF3;rio de indexa&#xE7;&#xE3;o. L&#xE1; tem v&#xE1;rios dashboards que mostram: o total indexado, itens ainda n&#xE3;o enfileirado, total na fila, na fila recentemente, entre outros.</p>
+</blockquote>
+<p>Os itens passar&#xE3;o por um processo de cataloga&#xE7;&#xE3;o at&#xE9; serem de fato disponibilizados no Marketplace. Esse prazo &#xE9; vari&#xE1;vel de acordo com a demanda que o MarketPlace tiver. &#xC0; medida que forem exportados, ser&#xE3;o informados os pre&#xE7;os e itens dispon&#xED;veis em estoque de cada produto. Toda vez que houver uma altera&#xE7;&#xE3;o no pre&#xE7;o de um produto, as informa&#xE7;&#xF5;es ser&#xE3;o atualizadas junto ao Marketplace. As atualiza&#xE7;&#xF5;es relacionadas aos itens em estoque funcionam online toda vez que tiverem 5 unidades ou menos em estoque. Movimenta&#xE7;&#xF5;es de estoques diferente dessa regra, n&#xE3;o &#xE9; indexada.</p>
 
                     
                     </section>
