@@ -13,6 +13,8 @@ Caso contrario leia este link [Seleção de política comercial.](http://help.vt
 
  comercial@mercadolivre.com
 
+ > Observações: O Mercado Livre é o responsável por toda a integração (Catalogo, Pedido, Tracking ...).
+
 ## Bridge - Visão geral
 
 >**Importante: As configurações realizadas no Bridge para Mercado Livre realiza a criação automatica do Afiliado no OMS e libera o Perfil de Acesso no E-Commerce.**
@@ -43,7 +45,7 @@ Para isso, siga os passos abaixo:
 
 ![Campos Cnova](reindexacao.png)
 
-> Obs.: É possível acompanhar quantos produtos estão na fila acessando o módulo de E-Commerce. Lá existe vários dashboards que mostram: o total indexado, itens ainda não enfileirado, total na fila, na fila recentemente, entre outros.
+> Observações: É possível acompanhar quantos produtos estão na fila acessando o módulo de E-Commerce. Lá existe vários dashboards que mostram: o total indexado, itens ainda não enfileirado, total na fila, na fila recentemente, entre outros.
 
 
 Os itens passarão por um processo de catalogação até serem de fato disponibilizados no Marketplace. Esse prazo é variável de acordo com a demanda que o MarketPlace tiver. À medida que forem exportados, serão informados os preços e itens disponíveis em estoque de cada produto. Toda vez que houver uma alteração no preço de um produto, as informações serão atualizadas junto ao Marketplace. As atualizações relacionadas aos itens em estoque funcionam online toda vez que tiverem 5 unidades ou menos em estoque. Movimentações de estoques diferente dessa regra, não é indexada.

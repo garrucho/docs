@@ -39,7 +39,7 @@ Caso contrario leia este link [Seleção de política comercial.](http://help.vt
 
 * **ApiKey**: Chave de identificação da sua Loja no Marketplace fornecida diretamente pela Cnova.
 
-* **Id do Afiliado**:ID da Política Comercial que será utilizada para o parceiro Cnova.
+* **Id do Afiliado**:ID do Afiliado da Cnova que irá ser cadastrado no OMS.
 
 * **Taxa da Divergência de Preço**: Taxa de tolerancia de diferença de preço entre a Vtex e o Parceiro nos Pedidos integrados [padrão: até 10% de diferença].
 

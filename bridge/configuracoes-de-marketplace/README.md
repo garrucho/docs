@@ -1,6 +1,8 @@
 # Configurações de Marketplace
 
-No Vtex Bridge existe a opção de Configurações de Marketplaces. Nela, é possível acessar todas as configurações dos Marketplaces, ligar, editar ou desativar novas integrações. Hoje temos os seguintes Marketplaces com integração ativa: **B2W**, **CNova**, **Rakuten**, **Buscapé**, **CSU**, **Mercado Livre** e **Walmart**.
+No Vtex Bridge existe a opção de Configurações de Marketplaces. Nela, é possível acessar todas as configurações dos Marketplaces, ligar, editar ou desativar novas integrações. Hoje temos os seguintes Marketplaces com integração ativa: **B2W**, **CNova**, **Rakuten**, **Buscapé**, **CSU**, **Mercado Livre** e **Walmart** .
+
+>Obervações: No caso do Mercado Livre a Vtex é encarregada apenas de criar o afiliado e liberar o acesso do usuario Mercado Liver na loja.
 
 As movimentações que serão registrados no VETX Bridge, serão apenas para aqueles Marketplaces que hoje integramos de forma **ativa**, ou seja, aquelas onde é a VTEX quem realiza as exportações de Produtos, Preços e Estoque, ou onde é capturado os Pedidos realizados no Marketplace.
 
