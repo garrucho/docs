@@ -46,6 +46,8 @@ Para isso, siga os passos abaixo:
 
 * Com o usuário master, entre no link [nomedasualoja].vtexcommercestable.com.br/admin/Site/FullCleanUp.aspx
 * Clique no botão "Reidexar Base"
+
+
 ![Campos Cnova](reindexacao.png)
 
 > Obs.: É possível acompanhar quantos produtos estão na fila acessando o módulo de E-Commerce > Relatórios > Relatório de indexação. Lá tem vários dashboards que mostram: o total indexado, itens ainda não enfileirado, total na fila, na fila recentemente, entre outros.

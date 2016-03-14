@@ -32,11 +32,11 @@
 
 Acessar: Configurações > Afiliados > Novo Afiliado
 
-![Config CSU](rakuten_novo_afiliado.gif)
+![OMS CSU](rakuten_novo_afiliado.gif)
 
 Aqui você terá os seguintes campos para serem preenchidos:
 
-![Config CSU](Configuracoes_iniciais_CSU.jpg)
+![OMSCAMPOS CSU](Configuracoes_iniciais_CSU.jpg)
 
 * **Nome**: Nome do Afiliado/Marketplace. Para os Marketplaces da CSU usar:
 * CSU: CSU
@@ -64,7 +64,7 @@ Usar meu meio de pagamento: marcar somente quando for utilizar o seu meio de pag
 
 Acessar License Manager > Usuários e buscar pelo Nome do respectivo Marketplace:
 
-![Config CSU](image06.gif)
+![LICENSEMANAGER CSU](image06.gif)
 
 Para cada Marketplace temos usuários específicos associados à aplicação do Parceiro e também perfis diferentes que devem ser associados. Para os diversos Marketplaces da CSU teremos o mesmo seguinte usuário e perfil:
 
@@ -72,4 +72,4 @@ Para cada Marketplace temos usuários específicos associados à aplicação do 
 * **Perfil**: IntegrationProfile-Fulfillment_Gateway_GetOrder
 Fazendo-o da seguinte forma:
 
-![Config CSU](image02.gif)
+![LICENSEMANAGER2 CSU](image02.gif)
