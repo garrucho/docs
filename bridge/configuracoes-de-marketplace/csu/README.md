@@ -22,7 +22,7 @@
 
  Nesta tela será preciso preencher os seguintes campos:
 
- ![OMSCAMPOS CSU](Configuracoes_iniciais_CSU.jpg)
+ ![OMSCAMPOS CSU](configuracoes_iniciais_CSU.jpg)
 
  * **Nome**: Nome do Afiliado/Marketplace. Para os Marketplaces da CSU usar:
  * CSU: CSU
@@ -31,14 +31,7 @@
  * CSU-Souza Cruz: CSU-Souza Cruz
  * Loyalty CSU: Loyalty CSU
  * Loyalty Porto Seguro: Loyalty Porto Seguro
- * ID: Código de Identificação do Afiliado com 3 dígitos. Para os Marketplaces da CSU usar:
- * CSU: CSW
- * CSU-Santos: STS
- * CSU-Vivo: CVV
- * CSU-Vivo: VVV
- * CSU-Souza Cruz: SSC
- * Loyalty CSU: CSL
- * Loyalty Porto Seguro: CPS
+
  * **Política Comercial**: ID da Política Comercial onde está definido o sortimento de Produtos a serem trabalhados no Marketplace
  * **E-mail de FollowUp**: Endereço de e-mail que receberá qualquer notificação de conflito nas integrações de Pedidos (LicenseManager > Conta > Contato).
  * **Endpoint de Search**: Será o mesmos para os diversos Marketplaces da CSU: http://www.optemais.com.br/WebServices/wsIntegracaoWeb/Proxy.svc/NotificacaoSku
