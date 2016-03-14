@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="4.1.7" data-basepath="../../.." data-revision="Mon Mar 14 2016 13:10:58 GMT-0300 (Hora oficial do Brasil)">
+    <div class="book" data-level="4.1.7" data-basepath="../../.." data-revision="Mon Mar 14 2016 13:58:06 GMT-0300 (Hora oficial do Brasil)">
     
 
 <div class="book-summary">
@@ -701,38 +701,36 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="configura%C3%A7%C3%B5es-iniciais-com-o-csu"><a name="configura%C3%A7%C3%B5es-iniciais-com-o-csu" class="plugin-anchor" href="#configura%C3%A7%C3%B5es-iniciais-com-o-csu"><span class="fa fa-link"></span></a>Configura&#xE7;&#xF5;es iniciais com o CSU</h2>
-<h2 id="primeiros-passos"><a name="primeiros-passos" class="plugin-anchor" href="#primeiros-passos"><span class="fa fa-link"></span></a>Primeiros Passos</h2>
+                        <h1 id="configura%C3%A7%C3%B5es-iniciais-com-o-csu"><a name="configura%C3%A7%C3%B5es-iniciais-com-o-csu" class="plugin-anchor" href="#configura%C3%A7%C3%B5es-iniciais-com-o-csu"><span class="fa fa-link"></span></a>Configura&#xE7;&#xF5;es iniciais com o CSU</h1>
+<p>Existem dois modelos de marketplace da CSU :</p>
+<ul>
+<li><p><strong>Shopping</strong> onde pagamento &#xE9; processado no gateway do seller.</p>
+</li>
+<li><p><strong>Loyalty</strong> onde todo processo de pagamento &#xE9; feito na CSU e o Seller s&#xF3; recebe o pedido e autoriza&#xE7;&#xE3;o para despachar o pedido.</p>
+</li>
+</ul>
+<pre><code>O Bridge por enquanto s&#xF3; configura o modelo Shopping.
+</code></pre><h2 id="primeiros-passos"><a name="primeiros-passos" class="plugin-anchor" href="#primeiros-passos"><span class="fa fa-link"></span></a>Primeiros Passos</h2>
 <blockquote>
 <p>A CSU <strong>n&#xE3;o</strong> precisa de contrata&#xE7;&#xE3;o de Channel.</p>
 </blockquote>
 <ol>
-<li><p><a href="http://help.vtex.com/hc/pt-br/articles/214166227" target="_blank">Sele&#xE7;&#xE3;o de pol&#xED;tica comercial.</a></p>
+<li><p>Caso deseje usar a mesma politica (Ou seja, as mesmas regras para sortimento, promo&#xE7;&#xF5;es e condi&#xE7;&#xF5;es de entrega da loja) use a politica comercial &quot;1&quot;.
+Caso contrario leia este link <a href="http://help.vtex.com/hc/pt-br/articles/214166227" target="_blank">Sele&#xE7;&#xE3;o de pol&#xED;tica comercial.</a></p>
 </li>
-<li><p><a href="http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque" target="_blank">Configure a log&#xED;stica para essa pol&#xED;tica comercial.</a></p>
-</li>
-<li><p>Entrar em contato com a Buscap&#xE9; e obtenha o Token de acesso a API:</p>
-<p>contato@optemais.com.br</p>
+<li><p>Caso sua politica comercial seja diferente de 1, <a href="http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque" target="_blank">Configure a log&#xED;stica para essa pol&#xED;tica comercial.</a></p>
+<h2 id="oms"><a name="oms" class="plugin-anchor" href="#oms"><span class="fa fa-link"></span></a>OMS</h2>
+<p>Antes de realizar as configura&#xE7;&#xF5;es do Bridge, &#xE9; preciso cadastrar o afiliado no modulo OMS
+Exemplo :</p>
+<p><img src="rakuten_novo afiliado.gif" alt="OMS CSU"></p>
 </li>
 </ol>
-<h2 id="oms"><a name="oms" class="plugin-anchor" href="#oms"><span class="fa fa-link"></span></a>OMS</h2>
-<p> Antes de realizar as configura&#xE7;&#xF5;es do Bridge, &#xE9; preciso cadastrar o afiliado no modulo OMS
- Exemplo :</p>
-<p> <img src="rakuten_novo afiliado.gif" alt="OMS CSU"></p>
 <h3 id="campos"><a name="campos" class="plugin-anchor" href="#campos"><span class="fa fa-link"></span></a>Campos</h3>
 <p> <img src="configuracoes_iniciais_CSU.jpg" alt="OMSCAMPOS CSU"></p>
 <ul>
-<li><strong>Nome</strong>: Nome do Afiliado/Marketplace. Para os Marketplaces da CSU usar:</li>
-<li>CSU: CSU</li>
-<li>CSU-Santos: CSU-Santos</li>
-<li>CSU-Vivo: CSU-Vivo</li>
-<li>CSU-Souza Cruz: CSU-Souza Cruz</li>
-<li>Loyalty CSU: Loyalty CSU</li>
-<li><p>Loyalty Porto Seguro: Loyalty Porto Seguro</p>
-</li>
-<li><p><strong>Pol&#xED;tica Comercial</strong>: ID da Pol&#xED;tica Comercial onde est&#xE1; definido o sortimento de Produtos a serem trabalhados no Marketplace</p>
-</li>
-<li><strong>E-mail de FollowUp</strong>: Endere&#xE7;o de e-mail que receber&#xE1; qualquer notifica&#xE7;&#xE3;o de conflito nas integra&#xE7;&#xF5;es de Pedidos (LicenseManager &gt; Conta &gt; Contato).</li>
+<li><strong>Nome</strong>: Nome do Afiliado.</li>
+<li><strong>Pol&#xED;tica Comercial</strong>: ID da Pol&#xED;tica Comercial onde est&#xE1; definido o sortimento de Produtos a serem trabalhados no Marketplace</li>
+<li><strong>E-mail de FollowUp</strong>: Endere&#xE7;o de e-mail que receber&#xE1; qualquer notifica&#xE7;&#xE3;o de conflito nas integra&#xE7;&#xF5;es de Pedidos.</li>
 <li><strong>Endpoint de Search</strong>: Ser&#xE1; o mesmos para os diversos Marketplaces da CSU: <a href="http://www.optemais.com.br/WebServices/wsIntegracaoWeb/Proxy.svc/NotificacaoSku" target="_blank">http://www.optemais.com.br/WebServices/wsIntegracaoWeb/Proxy.svc/NotificacaoSku</a></li>
 <li><strong>Vers&#xE3;o do Endpoint de Search</strong>: 1
 Usar meu meio de pagamento: marcar somente quando for utilizar o seu meio de pagamento. <strong>Obs</strong>.: Para todos os loyaltys a flag n&#xE3;o dever&#xE1; ser marcada.</li>
