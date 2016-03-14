@@ -726,7 +726,7 @@ _request:_
 </soapenv:Envelope>
 ```
 
-*Este método também pode ser usado para alterar informações do relacionamento entre o serviço e o SKU.
+*Este método também pode ser usado para alterar informações de inserção do serviço.
 
 _response:_
 
