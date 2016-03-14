@@ -27,12 +27,36 @@
 
 >>Para cada campo temos:
 
-* **Integração de Produtos**: Liga ou Desliga a exportação de Produtos
+* **Integração de Produtos**: Liga ou Desliga a exportação de Produtos.
 
-* **Integração de Pedidos**: Liga ou Desliga a exportação de Pedidos
+* **Integração de Pedidos**: Liga ou Desliga a exportação de Pedidos.
 
-* **Integração de Inventário**: Liga ou Desliga a exportação de Preços e Estoques
+* **Integração de Inventário**: Liga ou Desliga a exportação de Preços e Estoques.
 
-* **Chave de Acesso à API**: Chave fornecida pelo próprio Buscapé para identificar a Loja no sistema do Parceiro
+* **Chave de Acesso à API**: Chave fornecida pelo próprio Buscapé para identificar a Loja no sistema do Parceiro.
 
-* **Id do Afiliado**: No caso do Buscapé, utilizar o padrão "BSC" (será o mesmo indicado no OMS > Afiliados)
+* **Id do Afiliado**: ID do Afiliado que sera criado no OMS.
+
+* **Política Comercial**: ID da Política Comercial que será utilizada para o parceiro Buscapé.
+
+* **Domínio enviado no link do produto**: Campo utilizado para montar o link do produto que será exibido no site do Buscapé.
+(exemplo: www.minhaloja.com.br)
+
+* **Taxa de Divergência de Preço**:Taxa de tolerancia de diferença de preço entre a Vtex e o Parceiro nos Pedidos integrados [padrão: até 10% de diferença].
+
+* **E-mails para notificações**:Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s).
+
+##Sobre a integração
+
+Após as configuração acima forem concluídas, será necessário reindexar a base para que todos os itens sejam integrados corretamente.
+
+Para isso, siga os passos abaixo:
+
+* Com o usuário master, entre no link [nomedasualoja].vtexcommercestable.com.br/admin/Site/FullCleanUp.aspx
+* Clique no botão "Reidexar Base"
+![Campos Cnova](reindexacao.png)
+
+> Obs.: É possível acompanhar quantos produtos estão na fila acessando o módulo de E-Commerce > Relatórios > Relatório de indexação. Lá tem vários dashboards que mostram: o total indexado, itens ainda não enfileirado, total na fila, na fila recentemente, entre outros.
+
+
+Os itens passarão por um processo de catalogação até serem de fato disponibilizados no Marketplace. Esse prazo é variável de acordo com a demanda que o MarketPlace tiver. À medida que forem exportados, serão informados os preços e itens disponíveis em estoque de cada produto. Toda vez que houver uma alteração no preço de um produto, as informações serão atualizadas junto ao Marketplace. As atualizações relacionadas aos itens em estoque funcionam online toda vez que tiverem 5 unidades ou menos em estoque. Movimentações de estoques diferente dessa regra, não é indexada.

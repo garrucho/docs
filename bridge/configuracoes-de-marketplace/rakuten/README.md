@@ -27,22 +27,22 @@ http://ecservice.rakuten.com.br/rakuten-shopping/
 
 >>Para cada campo temos:
 
-* **Integração de Produtos**: Liga ou Desliga a exportação de Produtos;
-* **Integração de Pedidos**: Liga ou Desliga a exportação de Pedidos;
-* **Integração de Estoque e Preço**: Liga ou Desliga a exportação de estoque e preço;
-* **Estoque mínimo**: Define a quantidade mínima em Estoque para o SKU ficar indisponível na Rakuten;
-* **Série da Nota Fiscal**: Número de série da Nota Fiscal utilizada na atualização de Tracking;
-* **Taxa da Divergência de Preço**: Taxa de aceitação da divergência de valor no Pedido integrado;
+* **Integração de Produtos**: Liga ou Desliga a exportação de Produtos.
+* **Integração de Pedidos**: Liga ou Desliga a exportação de Pedidos.
+* **Integração de Estoque e Preço**: Liga ou Desliga a exportação de estoque e preço.
+* **Estoque mínimo**: Define a quantidade mínima em Estoque para o SKU ficar indisponível na Rakuten.
+* **Série da Nota Fiscal**: Número de série da Nota Fiscal utilizada na atualização de Tracking.
+* **Taxa da Divergência de Preço**: Taxa de aceitação da divergência de valor no Pedido integrado.
  Qualquer pedido que possua uma divergência entre o preço que veio do marketplace e o preço praticado na plantaforma, será comparado com esse valor. Se a divergência (em porcentagem) for menor que o valor definido nesse campo, o pedido será integrado. Caso contrário, o pedido será negado e lojista, notificado.
 * **Esperar a Url de Tracking**: A integração atualiza o status do Pedido no Marketplace para "Despachado" quando os campos da nota fiscal "Numero de Rastreio" e "URL de Rastreio" forem preenchidos.
 * **CNPJ da loja**: CNPJ da Loja
-* **Código da loja na Rakuten**: Código da Loja na Rakuten;
-* **Código de integração da loja na Rakuten**: Código da integração na Rakuten;
-* **E-mail de acesso ao webservice Rakuten**: E-mail utilizado pela integraçõa para a atualização de Tracking dos Pedidos;
-* **Senha do e-mail**: Senha utilizada pela integração, junto ao email acima, para a atualização de Tracking dos Pedidos;
-* **Id do Afiliado**: ID do Afiliado da Rakuten que será cadastrado no modulo do OMS;
+* **Código da loja na Rakuten**: Código da Loja na Rakuten.
+* **Código de integração da loja na Rakuten**: Código da integração na Rakuten.
+* **E-mail de acesso ao webservice Rakuten**: E-mail utilizado pela integraçõa para a atualização de Tracking dos Pedidos.
+* **Senha do e-mail**: Senha utilizada pela integração, junto ao email acima, para a atualização de Tracking dos Pedidos.
+* **Id do Afiliado**: ID do Afiliado da Rakuten que será cadastrado no modulo do OMS.
 * **Mapeamento de Transportadoras**: Mapeamente de frete entre a Vtex e a Rakuten.
-* **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s)
+* **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s).
 
 
 ###Parceiro Rakuten

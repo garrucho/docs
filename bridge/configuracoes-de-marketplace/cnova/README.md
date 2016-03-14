@@ -28,23 +28,23 @@
 
 >>Para cada campo temos:
 
-* **Integração de Produtos**: Liga ou Desliga a exportação de Produtos
+* **Integração de Produtos**: Liga ou Desliga a exportação de Produtos.
 
-* **Integração de Pedidos**: Liga ou Desliga a exportação de Pedidos
+* **Integração de Pedidos**: Liga ou Desliga a exportação de Pedidos.
 
-* **Integração de Preços**: Liga ou Desliga a exportação de Preços
+* **Integração de Preços**: Liga ou Desliga a exportação de Preços.
 
-* **Integração de Estoques**: Liga ou Desliga a exportação de Estoque
+* **Integração de Estoques**: Liga ou Desliga a exportação de Estoque.
 
-* **ApiKey**: Chave de identificação da sua Loja no Marketplace fornecida diretamente pela B2W
+* **ApiKey**: Chave de identificação da sua Loja no Marketplace fornecida diretamente pela Cnova.
 
-* **Id do Afiliado**: ID do Afiliado da Rakuten cadastrado em OMS > Configurações > Afiliados > ID
+* **Id do Afiliado**:ID da Política Comercial que será utilizada para o parceiro Cnova.
 
-* **Taxa da Divergência de Preço**: Taxa de aceitação da divergência de valor no Pedido integrado
+* **Taxa da Divergência de Preço**: Taxa de tolerancia de diferença de preço entre a Vtex e o Parceiro nos Pedidos integrados [padrão: até 10% de diferença].
 
-* **Nome do campo de Especificação de Produto que contém sua Descrição**: Será aqui mapeado, nas Especificações do Produto, o campo que contém o conteúdo utilizado como Descrição do mesmo.
+* **Nome do campo de Especificação de Produto que contém sua Descrição**:Caso não utilize o campo "descrição" para guardar a descrição do SKU, informe o nome do campo que contenha essa informação.
 
-* **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s)
+* **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s).
 
 
 ##Sobre a integração
@@ -53,11 +53,11 @@ Após as configuração acima forem concluídas, será necessário reindexar a b
 
 Para isso, siga os passos abaixo:
 
-Entre no link [nomedasualoja].vtexcommercestable.com.br/admin/Site/FullCleanUp.aspx com o usuário master
-Clique em "Reidexar Base"
-Obs.: É possível acompanhar quantos produtos estão na fila acessando o módulo de E-Commerce > Relatórios > Relatório de indexação. Lá tem vários dashboards que mostram: total indexado, itens ainda não enfileirado, total na fila, na fila recentemente, entre outros. Para saber mais acesse o artigo no help Como funciona a indexação.
-
-
+* Com o usuário master, entre no link [nomedasualoja].vtexcommercestable.com.br/admin/Site/FullCleanUp.aspx
+* Clique no botão "Reidexar Base"
 ![Campos Cnova](reindexacao.png)
 
-Os itens passarão por um processo de catalogação até serem de fato disponibilizados nos sites da CNova. Esse prazo é variável de acordo com a demanda que o MarketPlace tiver. À medida que forem exportados, serão informados os preços e itens disponíveis em estoque de cada produto. Toda vez que houver uma alteração no preço de um produto, as informações serão atualizadas junto à CNova. As atualizações relacionadas aos itens em estoque funcionam online toda vez que tiverem 5 unidades ou menos em estoque. Movimentações de estoques diferente dessa regra, não é indexada.
+> Obs.: É possível acompanhar quantos produtos estão na fila acessando o módulo de E-Commerce > Relatórios > Relatório de indexação. Lá tem vários dashboards que mostram: o total indexado, itens ainda não enfileirado, total na fila, na fila recentemente, entre outros.
+
+
+Os itens passarão por um processo de catalogação até serem de fato disponibilizados no Marketplace. Esse prazo é variável de acordo com a demanda que o MarketPlace tiver. À medida que forem exportados, serão informados os preços e itens disponíveis em estoque de cada produto. Toda vez que houver uma alteração no preço de um produto, as informações serão atualizadas junto ao Marketplace. As atualizações relacionadas aos itens em estoque funcionam online toda vez que tiverem 5 unidades ou menos em estoque. Movimentações de estoques diferente dessa regra, não é indexada.
