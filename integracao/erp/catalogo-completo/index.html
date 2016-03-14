@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.1.1" data-basepath="../../.." data-revision="Mon Mar 14 2016 12:14:12 GMT-0300 (Hora oficial do Brasil)">
+    <div class="book" data-level="1.1.1" data-basepath="../../.." data-revision="Mon Mar 14 2016 12:24:39 GMT-0300 (Hora oficial do Brasil)">
     
 
 <div class="book-summary">
@@ -1153,7 +1153,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-title">s:Envelope</span>&gt;</span>
 </code></pre>
 <h3 id="servi%C3%A7o"><a name="servi%C3%A7o" class="plugin-anchor" href="#servi%C3%A7o"><span class="fa fa-link"></span></a>Servi&#xE7;o</h3>
-<p>Existem servi&#xE7;os(embalagem para presente, garantia extendida, etc.) que podem ser relacionados as SKUs. Para isso, primeiramente, o servi&#xE7;o tem que ser criado. Ap&#xF3;s ser criado, deve-se inserir um pre&#xE7;o neste servi&#xE7;o e ent&#xE3;o relacionar o servi&#xE7;o com as SKUs. Por exemplo:</p>
+<p>Existem servi&#xE7;os (embalagem para presente, garantia extendida, etc.) que podem ser relacionados as SKUs. Para isso, primeiramente, o servi&#xE7;o tem que ser criado. Ap&#xF3;s ser criado, deve-se inserir um pre&#xE7;o neste servi&#xE7;o e ent&#xE3;o relacionar o servi&#xE7;o com as SKUs. Por exemplo:</p>
 <p><em>Criando o servi&#xE7;o.</em></p>
 <p><em>request:</em></p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Envelope</span> <span class="hljs-attribute">xmlns:soapenv</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> <span class="hljs-attribute">xmlns:tem</span>=<span class="hljs-value">&quot;http://tempuri.org/&quot;</span> <span class="hljs-attribute">xmlns:vtex</span>=<span class="hljs-value">&quot;http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts&quot;</span>&gt;</span>
@@ -1185,6 +1185,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-title">soapenv:Envelope</span>&gt;</span>
 </code></pre>
 <p>*&#xC9; altamente recomendado que o integrador informe um id para o servi&#xE7;o. Caso seja passado nulo, iremos fazer o auto-incremento autimaticamente.</p>
+<p>**Este m&#xE9;todo tamb&#xE9;m pode ser usado para alterar informa&#xE7;&#xF5;es do servi&#xE7;o.</p>
 <p><em>response:</em></p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">s:Envelope</span> <span class="hljs-attribute">xmlns:s</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-title">s:Body</span>&gt;</span>
@@ -1227,6 +1228,7 @@
    <span class="hljs-tag">&lt;/<span class="hljs-title">soapenv:Body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">soapenv:Envelope</span>&gt;</span>
 </code></pre>
+<p>*Este m&#xE9;todo tamb&#xE9;m pode ser usado para alterar as informa&#xE7;&#xF5;es de pre&#xE7;o do servi&#xE7;o.</p>
 <p><em>response:</em></p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">s:Envelope</span> <span class="hljs-attribute">xmlns:s</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-title">s:Body</span>&gt;</span>
@@ -1280,6 +1282,7 @@
    <span class="hljs-tag">&lt;/<span class="hljs-title">soapenv:Body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">soapenv:Envelope</span>&gt;</span>
 </code></pre>
+<p>*Este m&#xE9;todo tamb&#xE9;m pode ser usado para alterar informa&#xE7;&#xF5;es do relacionamento entre o servi&#xE7;o e o SKU.</p>
 <p><em>response:</em></p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">s:Envelope</span> <span class="hljs-attribute">xmlns:s</span>=<span class="hljs-value">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-title">s:Body</span>&gt;</span>
