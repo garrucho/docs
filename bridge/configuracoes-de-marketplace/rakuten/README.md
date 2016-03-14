@@ -1,11 +1,12 @@
-## Configurações iniciais com a Rakuten
+# Configurações iniciais com a Rakuten
 
 ## Primeiros Passos
 
 
-1. [Contrate o channel.](http://help.vtex.com/hc/pt-br/articles/213517308-Channel)
+1. Caso deseje usar a mesma politica (Ou seja, as mesmas regras para sortimento, promoções e condições de entrega da loja) use a politica comercial "1".
+Caso contrario leia este link [Seleção de política comercial.](http://help.vtex.com/hc/pt-br/articles/214166227)
 
-2. [Seleção de política comercial.](http://help.vtex.com/hc/pt-br/articles/214166227)
+2. Caso sua politica comercial seja diferente de 1, [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
 
 4. [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
 
@@ -44,6 +45,15 @@ http://ecservice.rakuten.com.br/rakuten-shopping/
 * **Mapeamento de Transportadoras**: Mapeamente de frete entre a Vtex e a Rakuten.
 * **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s).
 
+##Parceiro Rakuten
+
+Realizadas essas configurações, deve-se enviar os seguintes dados para o suporte da Rakuten, Thasmine Colen <thasmine.colen@rakuten.com.br>, realizar consultas de Frete aqui na VTEX:
+
+* Nome da Loja
+* Rakuten StoreCode
+* URL de Frete: http://rakutenintegration.vtexcommerce.com.br/wcfservice/ShippingService.svc
+
+**Pronto! Em questão de tempo os produtos irão ser exportados para o Marketplace da Rakuten.**
 
 ##Sobre a integração
 
@@ -61,13 +71,3 @@ Para isso, siga os passos abaixo:
 
 
 Os itens passarão por um processo de catalogação até serem de fato disponibilizados no Marketplace. Esse prazo é variável de acordo com a demanda que o MarketPlace tiver. À medida que forem exportados, serão informados os preços e itens disponíveis em estoque de cada produto. Toda vez que houver uma alteração no preço de um produto, as informações serão atualizadas junto ao Marketplace. As atualizações relacionadas aos itens em estoque funcionam online toda vez que tiverem 5 unidades ou menos em estoque. Movimentações de estoques diferente dessa regra, não é indexada.
-
-###Parceiro Rakuten
-
-Realizadas essas configurações, deve-se enviar os seguintes dados para o suporte da Rakuten, Thasmine Colen <thasmine.colen@rakuten.com.br>, realizar consultas de Frete aqui na VTEX:
-
-* Nome da Loja
-* Rakuten StoreCode
-* URL de Frete: http://rakutenintegration.vtexcommerce.com.br/wcfservice/ShippingService.svc
-
-**Pronto! Em questão de tempo os produtos irão ser exportados para o Marketplace da Rakuten.**

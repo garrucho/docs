@@ -45,3 +45,8 @@ Para remover o log, clique no registro, abra a combo de ações e selecione a op
 Exemplo:
 
 ![Visão geral Bridge](RemoverLog_Estoque.gif)
+
+---
+
+Autor: _Ana Izabel Jacobsen_</br>
+Propriedade: _VTEX_ &copy;</br>

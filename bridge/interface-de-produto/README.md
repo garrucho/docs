@@ -38,3 +38,8 @@ Para remover o log, clique no registro, abra a combo de ações e selecione a op
 Exemplo:
 
 ![Produtos processando](V_produto_removendo_erro.gif)
+
+---
+
+Autor: _Ana Izabel Jacobsen_</br>
+Propriedade: _VTEX_ &copy;</br>

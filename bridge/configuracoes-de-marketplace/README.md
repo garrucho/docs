@@ -58,3 +58,8 @@ Cada marketplace tem a sua regra para disponibilizar um pedido. Assim, um pedido
 * [Mercado Livre](mercadolivre/index.html)
 
 * [CSU](csu/index.html)
+
+---
+
+Autor: _Ana Izabel Jacobsen_</br>
+Propriedade: _VTEX_ &copy;</br>

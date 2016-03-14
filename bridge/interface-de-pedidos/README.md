@@ -32,7 +32,8 @@ Exemplo:
 Para solicitar o reprocessamento, clique no registro sinalizado com erro, abra a combo de ações e selecione a opção "Reprocessar".
 
 Exemplo:
-[Pedido erro Pedido](V_peidodo_erro.gif)
+
+![Pedido erro Pedidos](V_peidodo_erro.gif)
 
 ## Remover Log
 
@@ -42,3 +43,8 @@ Para remover o log, clique no registro, abra a combo de ações e selecione a op
 Exemplo:
 
 ![Removendo log Pedido](RemoverLog_Pedidos.gif)
+
+---
+
+Autor: _Ana Izabel Jacobsen_</br>
+Propriedade: _VTEX_ &copy;</br>
