@@ -10,17 +10,13 @@ Caso contrario leia este link [Seleção de política comercial.](http://help.vt
 
 2. Caso sua politica comercial seja diferente de 1: [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
 
-3. Entrar em contato com a B2W e obtenha o Token de acesso a API:
+3. Entrar em contato com a B2W e obtenha o Token de acesso a API: http://www.submarino.com.br/marketplace
 
- http://www.submarino.com.br/marketplace
-
- 4. Caso a B2W faça consultas de fretes online para sua loja, associe o perfil de acesso IntegrationProfile-OrderSimulation ao usuario B2W, com o token vtexappkey-parceirob2w-HBFVSP, no modulo License Manager.
-
-
-## Bridge - Visão geral
-
+4. Caso a B2W faça consultas de fretes online para sua loja, associe o perfil de acesso IntegrationProfile-OrderSimulation ao usuario B2W, com o token vtexappkey-parceirob2w-HBFVSP, no modulo License Manager.
 
 >**Importante: As configurações realizadas no Bridge para B2W realiza a criação automatica do Afiliado no OMS, libera o Perfil de Acesso no E-Commerce e reindexa a base automaticamente**
+
+## Bridge - Visão geral
 
 ###Exemplo de acesso as Configurações de Marketplace
 
