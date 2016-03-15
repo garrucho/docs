@@ -17,7 +17,7 @@ Caso contrario leia este link [Seleção de política comercial.](http://help.vt
 ## Bridge - Visão geral
 
 
->**Importante: As configurações realizadas no Bridge para B2W realiza a criação automatica do Afiliado no OMS e libera o Perfil de Acesso no E-Commerce.**
+>**Importante: As configurações realizadas no Bridge para B2W realiza a criação automatica do Afiliado no OMS, libera o Perfil de Acesso no E-Commerce e reindexa a base automaticamente**
 
 ###Exemplo de acesso as Configurações de Marketplace
 
@@ -43,20 +43,3 @@ Quando essa função estiver ativa, o produto será enviado na categoria 9999 da
 * **Taxa da Divergência de Preço**: Taxa de tolerancia de diferença de preço entre a Vtex e o Parceiro nos Pedidos integrados [padrão: até 10% de diferença].
 * **Mapeamento de Atributos (Nome B2W -> Nome VTEX)**: serve para lojistas que possuem suas especificações diferentes da B2W (Marca, tamanho, etc.).No primeiro campo deve-se colocar o nome da especificação, na B2W, que deseja mapear. No segundo campo deve colocar o nome da especificação aqui na VTEX. Exemplo: Tamanho -> TAM. Lembrando que atualmente a B2W só aceita duas especificações, COR e TAMANHO. Qualquer outro mapeamento será ignorado.
 * **E-mails Para Notificação de Pedidos Não Integrados**: Caso um Pedido sofra algum erro no ato de integrar na VTEX, será enviado um email com sua possível causa para o(s) email(s) aqui cadastrado(s).
-
-##Sobre a integração
-
-Após as configuração acima forem concluídas, será necessário reindexar a base para que todos os itens sejam integrados corretamente.
-
-Para isso, siga os passos abaixo:
-
-* Com o usuário master, entre no link [nomedasualoja].vtexcommercestable.com.br/admin/Site/FullCleanUp.aspx
-* Clique no botão "Reidexar Base"
-
-
-![Campos Cnova](reindexacao.png)
-
-> Obs.: É possível acompanhar quantos produtos estão na fila acessando o módulo de E-Commerce. Lá existe vários dashboards que mostram: o total indexado, itens ainda não enfileirado, total na fila, na fila recentemente, entre outros.
-
-
-Os itens passarão por um processo de catalogação até serem de fato disponibilizados no Marketplace. Esse prazo é variável de acordo com a demanda que o MarketPlace tiver. À medida que forem exportados, serão informados os preços e itens disponíveis em estoque de cada produto. Toda vez que houver uma alteração no preço de um produto, as informações serão atualizadas junto ao Marketplace. As atualizações relacionadas aos itens em estoque funcionam online toda vez que tiverem 5 unidades ou menos em estoque. Movimentações de estoques diferente dessa regra, não é indexada.
