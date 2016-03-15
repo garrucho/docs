@@ -14,6 +14,9 @@ Caso contrario leia este link [Seleção de política comercial.](http://help.vt
 
  http://www.submarino.com.br/marketplace
 
+ 4. Caso a B2W faça consultas de fretes online para sua loja, associe o perfil de acesso IntegrationProfile-OrderSimulation ao usuario B2W, com o token vtexappkey-parceirob2w-HBFVSP, no modulo License Manager.
+
+
 ## Bridge - Visão geral
 
 
