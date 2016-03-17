@@ -10,9 +10,10 @@ Caso contrario leia este link [Seleção de política comercial.](http://help.vt
 
 2. Caso sua politica comercial seja diferente de 1: [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
 
-3. Entrar em contato com a Cnova e obtenha o Token de acesso a API:
-
+3. Entrar em contato com a Cnova pedindo a contratação do serviço marketplace
  http://www.extra.com.br/marketplace/venda-no-extra.aspx
+
+4. Para ter o Token de acesso entre em contato com o seu suporte (Community, Suporte Vtex ou Agência).
 
 ## Bridge - Visão geral
 
@@ -40,6 +41,8 @@ Caso contrario leia este link [Seleção de política comercial.](http://help.vt
 * **ApiKey**: Chave de identificação da sua Loja no Marketplace fornecida diretamente pela Cnova.
 
 * **Id do Afiliado**:ID do Afiliado da Cnova que irá ser cadastrado no OMS.
+
+* **Politica Comercial**: ID da Política Comercial que será utilizada para o parceiro Cnova.
 
 * **Taxa da Divergência de Preço**: Taxa de tolerancia de diferença de preço entre a Vtex e o Parceiro nos Pedidos integrados [padrão: até 10% de diferença].
 

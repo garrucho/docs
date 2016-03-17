@@ -14,7 +14,7 @@ Caso contrario leia este link [Seleção de política comercial.](http://help.vt
 
 4. Caso a B2W faça consultas de fretes online para sua loja, associe o perfil de acesso IntegrationProfile-OrderSimulation ao usuario B2W, com o token vtexappkey-parceirob2w-HBFVSP, no modulo License Manager.
 
->**Importante: As configurações realizadas no Bridge para B2W realiza a criação automatica do Afiliado no OMS, libera o Perfil de Acesso no E-Commerce e reindexa a base automaticamente**
+>**Importante: As configurações realizadas no Bridge para B2W realiza a criação automatica do Afiliado no OMS, libera o Perfil de Acesso no E-Commerce e reindexa a base automaticamente.**
 
 ## Bridge - Visão geral
 

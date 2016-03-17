@@ -30,7 +30,21 @@ Caso contrario leia este link [Seleção de política comercial.](http://help.vt
 
  ![OMSCAMPOS CSU](configuracoes_iniciais_CSU.jpg)
 
- * **Nome**: Nome do Afiliado.
+ * **Nome**: Nome do Afiliado/Marketplace. Para os Marketplaces da CSU usar:
+ CSU: CSU
+ CSU-Santos: CSU-Santos
+ CSU-Vivo: CSU-Vivo
+ CSU-Souza Cruz: CSU-Souza Cruz
+ Loyalty CSU: Loyalty CSU
+ Loyalty Porto Seguro: Loyalty Porto Seguro
+* **ID**: Código de Identificação do Afiliado com 3 dígitos. Para os Marketplaces da CSU usar:
+ CSU: CSW
+ CSU-Santos: STS
+ CSU-Vivo: CVV
+ CSU-Vivo: VVV
+ CSU-Souza Cruz: SSC
+ Loyalty CSU: CSL
+ Loyalty Porto Seguro: CPS
  * **Política Comercial**: ID da Política Comercial onde está definido o sortimento de Produtos a serem trabalhados no Marketplace
  * **E-mail de FollowUp**: Endereço de e-mail que receberá qualquer notificação de conflito nas integrações de Pedidos.
  * **Endpoint de Search**: Será o mesmos para os diversos Marketplaces da CSU: http://www.optemais.com.br/WebServices/wsIntegracaoWeb/Proxy.svc/NotificacaoSku
@@ -68,3 +82,6 @@ Exemplo:
 * **Id do LicenseManager**: Id da sua Loja presente no campo "ID*" no modulo do LicenseManager.
 * **Política Comercial**: ID da Política Comercial que será utilizada para o parceiro CSU.
 * **Id do Afiliado**: ID do Afiliado da B2W que está cadastrado no OMS.
+
+
+> Importante: Para inativar as configurações da integração da Opte+ com a VTEX, se faz necessário desfazer toda a configuração que o passo a passo acima detalhou.

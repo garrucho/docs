@@ -2,11 +2,12 @@
 
 ## Primeiros Passos
 
+1. [Contrate o channel.](http://help.vtex.com/hc/pt-br/articles/213517308-Channel)
 
-1. Caso deseje usar a mesma politica (Ou seja, as mesmas regras para sortimento, promoções e condições de entrega da loja) use a politica comercial "1".
+2. Caso deseje usar a mesma politica (Ou seja, as mesmas regras para sortimento, promoções e condições de entrega da loja) use a politica comercial "1".
 Caso contrario leia este link [Seleção de política comercial.](http://help.vtex.com/hc/pt-br/articles/214166227)
 
-2. Caso sua politica comercial seja diferente de 1: [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
+3. Caso sua politica comercial seja diferente de 1: [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
 
 4. [Configure a logística para essa política comercial.](http://help.vtex.com/hc/pt-br/articles/214166667-Atualiza%C3%A7%C3%A3o-de-estoque)
 
@@ -37,6 +38,7 @@ http://ecservice.rakuten.com.br/rakuten-shopping/
  Qualquer pedido que possua uma divergência entre o preço que veio do marketplace e o preço praticado na plantaforma, será comparado com esse valor. Se a divergência (em porcentagem) for menor que o valor definido nesse campo, o pedido será integrado. Caso contrário, o pedido será negado e lojista, notificado.
 * **Esperar a Url de Tracking**: A integração atualiza o status do Pedido no Marketplace para "Despachado" quando os campos da nota fiscal "Numero de Rastreio" e "URL de Rastreio" forem preenchidos.
 * **CNPJ da loja**: CNPJ da Loja
+* **Política Comercial**: ID da Política Comercial que será utilizada para o parceiro Rakuten.
 * **Código da loja na Rakuten**: Código da Loja na Rakuten.
 * **Código de integração da loja na Rakuten**: Código da integração na Rakuten.
 * **E-mail de acesso ao webservice Rakuten**: E-mail utilizado pela integraçõa para a atualização de Tracking dos Pedidos.

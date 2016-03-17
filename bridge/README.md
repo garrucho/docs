@@ -25,7 +25,7 @@ Todas as interfaces do VTEX Bridge contém as colunas de **Código**, **Afiliado
 
 **Código**: Indica o código do Pedido no Marketplace ou o ID do SKU na VTEX. Também está relacionado ao registro de sucesso ou erro no VTEX Bridge.
 
-**Afiliado**: Indica qual o Marketplace que originou o respectivo registro.
+**Afiliado**: Indica qual o Marketplace que originou o respectivo Código.
 
 **Status**: Indica o atual status do registro, podendo variar entre sucesso, erro e em processamento.
 
@@ -63,7 +63,7 @@ Caso uma transação de uma integração não tenha ocorrido por conta de um err
 
 ## Removendo registro
 
-A ação de Remover Log, consiste em retirar o registro da interface, a fim de "limpar" a tela. Para remover o log, clique sobre a linha e em seguida no botão "Ações", e então em "Remover Log". Esta ação pode ser feita nas integrações com ambos os status (sucesso e erro).
+A ação de Remover Log, consiste em retirar o registro da interface, a fim de "limpar" a tela. Para remover o log, clique sobre a linha e em seguida no botão "Ações", e então em "Remover Log". Esta ação pode ser feita nos registros com ambos os status (sucesso e erro).
 
 ![Removendo Pedido](V_removendo_pedido.gif)
 
