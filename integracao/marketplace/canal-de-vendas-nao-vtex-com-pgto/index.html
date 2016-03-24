@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.2" data-basepath="../../.." data-revision="Tue Mar 15 2016 11:23:06 GMT-0300 (Hora oficial do Brasil)">
+    <div class="book" data-level="1.2.2" data-basepath="../../.." data-revision="Thu Mar 24 2016 11:53:33 GMT-0300 (Hora oficial do Brasil)">
     
 
 <div class="book-summary">
@@ -1387,7 +1387,8 @@ Accept: <strong>application/json</strong><br>
 Parametro: <strong>sc</strong> // sc &#xE9; o canal de vendas cadastrado na VTEX.<br>
 Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado cadastrado n loja VTEX<br></p>
 <p><em>request:</em></p>
-<pre><code class="lang-json">{
+<pre><code class="lang-json">[
+  {
     <span class="hljs-string">&quot;marketplaceOrderId&quot;</span>: <span class="hljs-string">&quot;959311095&quot;</span>, <span class="hljs-comment">//identificador do pedido no marketplace</span>
     <span class="hljs-string">&quot;marketplaceServicesEndpoint&quot;</span>: <span class="hljs-string">&quot;https://urlmarketplace/&quot;</span>, <span class="hljs-comment">//leia o t&#xF3;pico implementando MarketplaceServicesEndpoint Actions</span>
     <span class="hljs-string">&quot;marketplacePaymentValue&quot;</span>: <span class="hljs-number">11080</span>, <span class="hljs-comment">//valor que o marketplace se compromete a pagar para o Seller</span>
@@ -1459,12 +1460,13 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
         <span class="hljs-string">&quot;merchantName&quot;</span>:<span class="hljs-string">&quot;sandboxintegracao&quot;</span> <span class="hljs-comment">//campo recebido na simula&#xE7;&#xE3;o de carrinho</span>
     },
     <span class="hljs-string">&quot;openTextField&quot;</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-string">&quot;marketingData&quot;</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-string">&quot;paymentData&quot;</span>:<span class="hljs-literal">null</span>
-}
+    <span class="hljs-string">&quot;marketingData&quot;</span>: <span class="hljs-literal">null</span>
+ }
+]
 </code></pre>
 <p><em>response:</em></p>
-<pre><code class="lang-json">{
+<pre><code class="lang-json">[
+  {
     <span class="hljs-string">&quot;marketplaceOrderId&quot;</span>: <span class="hljs-string">&quot;959311095&quot;</span>,
     <span class="hljs-string">&quot;orderId&quot;</span>: <span class="hljs-string">&quot;123543123&quot;</span>, <span class="hljs-comment">//id do pedido que foi gerado na loja VTEX</span>
     <span class="hljs-string">&quot;followUpEmail&quot;</span>: <span class="hljs-string">&quot;75c70c09dbb3498c9b3bbdee59bf0687@ct.vtex.com.br&quot;</span>,
@@ -1531,7 +1533,8 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
         <span class="hljs-string">&quot;merchantName&quot;</span>:<span class="hljs-string">&quot;sandboxintegracao&quot;</span>,
         <span class="hljs-string">&quot;merchantPaymentReferenceId&quot;</span>:<span class="hljs-string">&quot;500225&quot;</span> <span class="hljs-comment">//inteiro, id do pagamento, n&#xFA;mero que ser&#xE1; enviado junto com o pagamento para concilia&#xE7;&#xE3;o.</span>
     }
-}
+ }
+]
 </code></pre>
 <p><em>retorno de erro:</em></p>
 <pre><code class="lang-json">{
@@ -1540,7 +1543,8 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
     <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;O verbo &apos;GET&apos; n&#xE3;o &#xE9; compat&#xED;vel com a rota &apos;/api/fulfillment/pvt/orders&apos;&quot;</span>,
     <span class="hljs-string">&quot;exception&quot;</span>: <span class="hljs-literal">null</span>
     }
-}
+ }
+]
 </code></pre>
 <h3 id="enviar-pagamento-iniciar-transa%C3%A7%C3%A3o-enviar-dados-de-pagamento-enviar-dados-de-anti-fraude-e-autoriza%C3%A7%C3%A3o-de-pagamento"><a name="enviar-pagamento-iniciar-transa%C3%A7%C3%A3o-enviar-dados-de-pagamento-enviar-dados-de-anti-fraude-e-autoriza%C3%A7%C3%A3o-de-pagamento" class="plugin-anchor" href="#enviar-pagamento-iniciar-transa%C3%A7%C3%A3o-enviar-dados-de-pagamento-enviar-dados-de-anti-fraude-e-autoriza%C3%A7%C3%A3o-de-pagamento"><span class="fa fa-link"></span></a>Enviar Pagamento - Iniciar Transa&#xE7;&#xE3;o, Enviar Dados de Pagamento, Enviar Dados de Anti-Fraude e Autoriza&#xE7;&#xE3;o de Pagamento</h3>
 <p>Ap&#xF3;s enviar o pedido e receber o response com o paymentData.merchantPaymentReferenceId, o processo de transa&#xE7;&#xE3;o de pagamento do pedido dever&#xE1; ser enviado.</p>

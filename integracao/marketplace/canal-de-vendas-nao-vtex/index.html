@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.1" data-basepath="../../.." data-revision="Tue Mar 15 2016 11:23:06 GMT-0300 (Hora oficial do Brasil)">
+    <div class="book" data-level="1.2.1" data-basepath="../../.." data-revision="Thu Mar 24 2016 11:53:33 GMT-0300 (Hora oficial do Brasil)">
     
 
 <div class="book-summary">
@@ -1174,7 +1174,8 @@ Accept: <strong>application/json</strong><br>
 Parametro: <strong>sc</strong> // sc &#xE9; o canal de vendas cadastrado na VTEX.<br>
 Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado cadastrado n loja VTEX<br></p>
 <p><em>request:</em></p>
-<pre><code class="lang-json">{
+<pre><code class="lang-json">[
+  {
     <span class="hljs-string">&quot;marketplaceOrderId&quot;</span>: <span class="hljs-string">&quot;959311095&quot;</span>, <span class="hljs-comment">//identificador do pedido no marketplace</span>
     <span class="hljs-string">&quot;marketplaceServicesEndpoint&quot;</span>: <span class="hljs-string">&quot;https://urlmarketplace/&quot;</span>, <span class="hljs-comment">//leia o t&#xF3;pico implementando MarketplaceServicesEndpoint Actions</span>
     <span class="hljs-string">&quot;marketplacePaymentValue&quot;</span>: <span class="hljs-number">11080</span>, <span class="hljs-comment">//valor que o marketplace se compromete a pagar para o Seller</span>
@@ -1243,13 +1244,13 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
       ]
     },
     <span class="hljs-string">&quot;paymentData&quot;</span>:<span class="hljs-literal">null</span>,
-    <span class="hljs-string">&quot;openTextField&quot;</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-string">&quot;marketingData&quot;</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-string">&quot;paymentData&quot;</span>:<span class="hljs-literal">null</span>
-}
+    <span class="hljs-string">&quot;openTextField&quot;</span>: <span class="hljs-literal">null</span>
+  }
+]
 </code></pre>
 <p><em>response:</em></p>
-<pre><code class="lang-json">{
+<pre><code class="lang-json">[
+  {
     <span class="hljs-string">&quot;marketplaceOrderId&quot;</span>: <span class="hljs-string">&quot;959311095&quot;</span>,
     <span class="hljs-string">&quot;orderId&quot;</span>: <span class="hljs-string">&quot;123543123&quot;</span>, <span class="hljs-comment">//id do pedido que foi gerado na loja VTEX</span>
     <span class="hljs-string">&quot;followUpEmail&quot;</span>: <span class="hljs-string">&quot;75c70c09dbb3498c9b3bbdee59bf0687@ct.vtex.com.br&quot;</span>,
@@ -1314,7 +1315,8 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
     },
     <span class="hljs-string">&quot;paymentData&quot;</span>:<span class="hljs-literal">null</span>
     }
-}
+ }
+]
 </code></pre>
 <p><em>retorno de erro:</em></p>
 <pre><code class="lang-json">{
