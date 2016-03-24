@@ -531,7 +531,8 @@ Parametro: **affiliateId** // affiliateId é o id do afiliado cadastrado n loja 
 _request:_
 
 ```json
-{
+[
+  {
 	"marketplaceOrderId": "959311095", //identificador do pedido no marketplace
 	"marketplaceServicesEndpoint": "https://urlmarketplace/", //leia o tópico implementando MarketplaceServicesEndpoint Actions
 	"marketplacePaymentValue": 11080, //valor que o marketplace se compromete a pagar para o Seller
@@ -600,16 +601,16 @@ _request:_
 	  ]
 	},
 	"paymentData":null,
-	"openTextField": null,
-	"marketingData": null,
-	"paymentData":null
-}
+	"openTextField": null
+  }
+]
 ```
 
 _response:_
 
 ```json
-{
+[
+  {
 	"marketplaceOrderId": "959311095",
 	"orderId": "123543123", //id do pedido que foi gerado na loja VTEX
 	"followUpEmail": "75c70c09dbb3498c9b3bbdee59bf0687@ct.vtex.com.br",
@@ -674,7 +675,8 @@ _response:_
 	},
 	"paymentData":null
 	}
-}
+ }
+]
 ```
 
 _retorno de erro:_
