@@ -1932,7 +1932,7 @@ Uma outra opção para acompanhar e buscar os dados de pedido, como nota fiscal 
 
 Busca grupo de pedidos:
 
-endpoint: ``` https://[loja].vtexpayments.com.br/api/oms/pvt/orders?orderGroup=[idgrupo] ```</br>
+endpoint: ``` https://[loja].vtexcommercestable.com.br/api/oms/pvt/orders?orderGroup=[idgrupo] ```</br>
 verb: **GET**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
@@ -2223,7 +2223,7 @@ _response:_
 
 Busca detalhe de um pedido:
 
-endpoint: ``` https://[loja].vtexpayments.com.br/api/oms/pvt/orders/[orderId] ```</br>
+endpoint: ``` https://[loja].vtexcommercestable.com.br/api/oms/pvt/orders/[orderId] ```</br>
 verb: **GET**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
