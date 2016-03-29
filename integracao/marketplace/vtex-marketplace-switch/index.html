@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.5" data-basepath="../../.." data-revision="Thu Mar 24 2016 11:53:33 GMT-0300 (Hora oficial do Brasil)">
+    <div class="book" data-level="1.2.5" data-basepath="../../.." data-revision="Tue Mar 29 2016 12:08:34 GMT-0300 (Hora oficial do Brasil)">
     
 
 <div class="book-summary">
@@ -740,12 +740,20 @@
 <p><a href="#a4">Exemplo Completo: Colocar um Pedido no VTEX Marketplace Switch</a></p>
 </li>
 <li><p>Implementar rotina que informa pagamento no VTEX Marketplace Switch - Aplicativo vai chamar endpoint do VTEX Marketplace Switch. O aplicativo ir&#xE1; usar esse enpoint para informar um pagamento no PCI gateway do VTEX Marketplace Switch.</p>
-<p><em>exemplo da chamada:</em><br>
-<code>https://sandboxintegracao.vtexpayments.com.br/split/564031077937/payments</code> <br>
-<br>
-<em>564031077937=identificador do grupo do pedido</em>  <br></p>
-<p><a href="#a5">Exemplo Completo: Informa Pagamento no VTEX Marketplace Switch</a></p>
 </li>
+</ol>
+<blockquote>
+<p>IMPORTANTE :</p>
+<blockquote>
+<p>O pagamento deve ser enviado em ate cinco minuto apos ter colocado o pedido.</p>
+</blockquote>
+</blockquote>
+<p> <em>exemplo da chamada:</em><br>
+ <code>https://sandboxintegracao.vtexpayments.com.br/split/564031077937/payments</code> <br>
+ <br>
+ <em>564031077937=identificador do grupo do pedido</em>  <br></p>
+<p> <a href="#a5">Exemplo Completo: Informa Pagamento no VTEX Marketplace Switch</a></p>
+<ol>
 <li><p>Implementar rotina que informa sucesso no processo de cria&#xE7;&#xE3;o do pedido no VTEX Marketplace Switch - Aplicativo vai chamar endpoint do VTEX Marketplace Switch. O aplicativo ir&#xE1; usar esse enpoint para fechar o processo de cria&#xE7;&#xE3;o de pedido do VTEX Marketplace Switch.</p>
 <p><em>exemplo da chamada:</em><br>
 <code>https://sandboxintegracao.vtexcommercestable.com.br/checkout/gatewayCallback/564032167396/Success</code></p>
@@ -2344,12 +2352,18 @@ Parametro: <strong>affiliateId</strong> // affiliateId &#xE9; o id do afiliado c
 <h3 id="informa-pagamento"><a name="informa-pagamento" class="plugin-anchor" href="#informa-pagamento"><span class="fa fa-link"></span></a>Informa Pagamento</h3>
 <p>Informa o pagamento do pedido - Endpoint do VTEX Marketplace Switch. Nesse modelo um pagamento customizado dever
 ser enviado, para que se complete o fluxo do pedido.</p>
+<blockquote>
+<p>IMPORTANTE :</p>
+<blockquote>
+<p>O pagamento deve ser enviado em ate cinco minuto apos ter colocado o pedido.</p>
+</blockquote>
+</blockquote>
 <p>endpoint: <code>https://[loja].vtexpayments.com.br/split/[iddogrupodopedido]/payments</code><br>
 verb: <strong>POST</strong><br>
 Content-Type: <strong>application/json</strong><br>
 Accept: <strong>application/json</strong><br>
-Parametro: <strong>iddogrupodopedido</strong> //identificador retornado no insert do pedido<br></p>
-<p><em>request:</em></p>
+Parametro: <strong>iddogrupodopedido</strong> //identificador retornado no insert do pedido<br>
+<em>request:</em></p>
 <pre><code class="lang-json">{
   &quot;callbackUrl&quot;: &quot;&quot;, //opciona, enviar vazio
   &quot;paymentsArray&quot;: &quot;[{\&quot;paymentSystem\&quot;: 201, //identificador do meio de pagamento
