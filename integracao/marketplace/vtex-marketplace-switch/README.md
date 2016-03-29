@@ -45,6 +45,9 @@ Este documento tem por finalidade auxiliar na integração de aplicativos com o 
 
 5. Implementar rotina que informa pagamento no VTEX Marketplace Switch - Aplicativo vai chamar endpoint do VTEX Marketplace Switch. O aplicativo irá usar esse enpoint para informar um pagamento no PCI gateway do VTEX Marketplace Switch.
 
+> IMPORTANTE :
+>> O pagamento deve ser enviado em ate cinco minuto apos ter colocado o pedido.
+
  _exemplo da chamada:_</br>
  ``` https://sandboxintegracao.vtexpayments.com.br/split/564031077937/payments ``` </br>
  </br>
@@ -1708,12 +1711,14 @@ _retorno de erro:_
 Informa o pagamento do pedido - Endpoint do VTEX Marketplace Switch. Nesse modelo um pagamento customizado dever
 ser enviado, para que se complete o fluxo do pedido.
 
+> IMPORTANTE :
+>> O pagamento deve ser enviado em ate cinco minuto apos ter colocado o pedido.
+
 endpoint: ``` https://[loja].vtexpayments.com.br/split/[iddogrupodopedido]/payments ```</br>
 verb: **POST**</br>
 Content-Type: **application/json**</br>
 Accept: **application/json**</br>
 Parametro: **iddogrupodopedido** //identificador retornado no insert do pedido</br>
-
 _request:_
 
 ```json
