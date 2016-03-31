@@ -43,7 +43,7 @@ Este modelo contempla troca de catalogo, atualização de condição comercial (
 5. Implementar busca de parcelamento - Marketplace vai chamar endpoint do Seller. O Marketplace irá usar esse endpoint para consultar os parcelamentos oferecidos pelo Seller.
 
  _exemplo da chamada:_</br>
- ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/installments/options ```
+ ``` https://sandboxintegracao.vtexpayments.com.br/api/pvt/installments ```
 
  [Exemplo Completo: Consultar Formas de Parcelamento no Seller](#a6)
 
@@ -660,88 +660,9 @@ _response:_
 
 Consulta a loja VTEX para buscar os parcelamentos por forma de pagamento e promoções de SKU - Endpoint loja VTEX
 
-endpoint: ``` https://[loja].vtexpayments.com.br/api/pvt/installments/options ```
-verb: **POST**</br>
-Content-Type: **application/json**</br>
-Accept: **application/json**</br>
+Aceese o anexo para ver o exemplo:
 
-_request:_
-
-```json
-{
-  "PaymentSystemsIds":[2,4], //ids das formas de pagamento
-  "SubtotalAsInt":81200, // valor que se deseja parcelar
-  "Items":[ // array de itens que desja parcelar
-    {
-      	"PriceAsInt":81200, //preço da SKU
-     	"Quantity":1, // quantida da SKU que deseja parcelar
-     	"Id":2000037, // identificador da SKU
-     	"SellerId":"1",
-    	"SalesChannel":4
-    }
-  ]
-}
-```
-
-_response:_
-
-```json
-[
-    {
-        "paymentSystem": 2, //identificador da forma de pagamento
-        "name": "Visa 3 vezes sem juros", //nome do parcelamento
-        "groupName": "creditCard",
-        "value": 81200, //valor total do parcelamento
-        "installments": [
-            {
-                "count": 3, //numero de parcelas
-                "value": 27066, //valor da parcela
-                "interestRate": 0, //taxa de juros
-                "hasInterestRate": false //tem juros?
-            },
-            {
-                "count": 2,
-                "value": 40600,
-                "interestRate": 0,
-                "hasInterestRate": false
-            },
-            {
-                "count": 1,
-                "value": 81200,
-                "interestRate": 0,
-                "hasInterestRate": false
-            }
-        ]
-    },
-    {
-        "paymentSystem": 4,
-        "name": "Mastercard 3 vezes sem juros",
-        "groupName": "creditCard",
-        "value": 81200,
-        "installments": [
-            {
-                "count": 3,
-                "value": 27066,
-                "interestRate": 0,
-                "hasInterestRate": false
-            },
-            {
-                "count": 2,
-                "value": 40600,
-                "interestRate": 0,
-                "hasInterestRate": false
-            },
-            {
-                "count": 1,
-                "value": 81200,
-                "interestRate": 0,
-                "hasInterestRate": false
-            }
-        ]
-    }
-]
-```
-
+<a href="http://resources.vtex.com/pt-br/pci-gateway/configuration/v1/installments.html#">Anexo Consultar Parcelamento</a>
 
 ###Enviar Pedido, Enviar Pagamento e Autorizar Despacho
 

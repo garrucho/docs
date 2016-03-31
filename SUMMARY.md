@@ -8,9 +8,9 @@
        * [Pedido e Tracking](integracao/erp/pedido-e-tracking/README.md)
    * [Marketplace](integracao/marketplace/README.md)
        * [Marketplace não VTEX](integracao/marketplace/canal-de-vendas-nao-vtex/README.md)
-       * [Marketplace não VTEX c/ pagto](integracao/marketplace/canal-de-vendas-nao-vtex-com-pgto/README.md)
+       * [Marketplace não VTEX enviando pagto](integracao/marketplace/canal-de-vendas-nao-vtex-com-pgto/README.md)
        * [Seller não VTEX](integracao/marketplace/seller-não-vtex/README.md)
-       * [Seller não VTEX c/ pagto](integracao/marketplace/seller-não-vtex-com-pgto/README.md)
+       * [Seller não VTEX recebendo pagto](integracao/marketplace/seller-não-vtex-com-pgto/README.md)
        * [VTEX Marketplace Switch - Beta](integracao/marketplace/vtex-marketplace-switch/README.md)
 * [Plugins](plugins/lib/latest/expiration/README.md)
 * [Search](search/api/beta/search/README.md)
@@ -23,7 +23,7 @@
        * [Walmart](bridge/configuracoes-de-marketplace/walmart/README.md)
        * [Mercado Livre](bridge/configuracoes-de-marketplace/mercadolivre/README.md)
        * [CSU](bridge/configuracoes-de-marketplace/csu/README.md)
-       
+
    * [Interface de Pedidos](bridge/interface-de-pedidos/README.md)
    * [Interface de Produtos](bridge/interface-de-produto/README.md)
    * [Interface de Tracking](bridge/interface-de-tracking/README.md)
