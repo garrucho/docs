@@ -5,7 +5,7 @@
         <!-- head:start -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Marketplace não VTEX c/ pagto | VTEX Lab Docs</title>
+        <title>Marketplace não VTEX enviando pagto | VTEX Lab Docs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.1">
@@ -46,7 +46,7 @@
     
 
         
-    <div class="book" data-level="1.2.2" data-basepath="../../.." data-revision="Tue Mar 29 2016 12:28:50 GMT-0300 (Hora oficial do Brasil)">
+    <div class="book" data-level="1.2.2" data-basepath="../../.." data-revision="Thu Mar 31 2016 17:51:52 GMT-0300 (Hora oficial do Brasil)">
     
 
 <div class="book-summary">
@@ -212,7 +212,7 @@
                         
                             <b>1.2.2.</b>
                         
-                        Marketplace não VTEX c/ pagto
+                        Marketplace não VTEX enviando pagto
                     </a>
                 
             
@@ -242,7 +242,7 @@
                         
                             <b>1.2.4.</b>
                         
-                        Seller não VTEX c/ pagto
+                        Seller não VTEX recebendo pagto
                     </a>
                 
             
@@ -737,7 +737,7 @@ Este modelo contempla troca de catalogo, atualiza&#xE7;&#xE3;o de condi&#xE7;&#x
 </li>
 <li><p>Implementar busca de parcelamento - Marketplace vai chamar endpoint do Seller. O Marketplace ir&#xE1; usar esse endpoint para consultar os parcelamentos oferecidos pelo Seller.</p>
 <p><em>exemplo da chamada:</em><br>
-<code>https://sandboxintegracao.vtexpayments.com.br/api/pvt/installments/options</code></p>
+<code>https://sandboxintegracao.vtexpayments.com.br/api/pvt/installments</code></p>
 <p><a href="#a6">Exemplo Completo: Consultar Formas de Parcelamento no Seller</a></p>
 </li>
 <li><p>Implementar rotina que coloca um pedido no Seller - Marketplace vai chamar endpoint do Seller. O Marketplace ir&#xE1; usar esse endpoint para colocar um pedido no Seller.</p>
@@ -1297,81 +1297,8 @@ Accept: <strong>application/json</strong><br></p>
 <p><a name="a6"></a></p>
 <h3 id="consulta-os-parcelamentos-no-seller"><a name="consulta-os-parcelamentos-no-seller" class="plugin-anchor" href="#consulta-os-parcelamentos-no-seller"><span class="fa fa-link"></span></a>Consulta os Parcelamentos no Seller</h3>
 <p>Consulta a loja VTEX para buscar os parcelamentos por forma de pagamento e promo&#xE7;&#xF5;es de SKU - Endpoint loja VTEX</p>
-<p>endpoint: <code>https://[loja].vtexpayments.com.br/api/pvt/installments/options</code>
-verb: <strong>POST</strong><br>
-Content-Type: <strong>application/json</strong><br>
-Accept: <strong>application/json</strong><br></p>
-<p><em>request:</em></p>
-<pre><code class="lang-json">{
-  <span class="hljs-string">&quot;PaymentSystemsIds&quot;</span>:[<span class="hljs-number">2</span>,<span class="hljs-number">4</span>], <span class="hljs-comment">//ids das formas de pagamento</span>
-  <span class="hljs-string">&quot;SubtotalAsInt&quot;</span>:<span class="hljs-number">81200</span>, <span class="hljs-comment">// valor que se deseja parcelar</span>
-  <span class="hljs-string">&quot;Items&quot;</span>:[ <span class="hljs-comment">// array de itens que desja parcelar</span>
-    {
-          <span class="hljs-string">&quot;PriceAsInt&quot;</span>:<span class="hljs-number">81200</span>, <span class="hljs-comment">//pre&#xE7;o da SKU</span>
-         <span class="hljs-string">&quot;Quantity&quot;</span>:<span class="hljs-number">1</span>, <span class="hljs-comment">// quantida da SKU que deseja parcelar</span>
-         <span class="hljs-string">&quot;Id&quot;</span>:<span class="hljs-number">2000037</span>, <span class="hljs-comment">// identificador da SKU</span>
-         <span class="hljs-string">&quot;SellerId&quot;</span>:<span class="hljs-string">&quot;1&quot;</span>,
-        <span class="hljs-string">&quot;SalesChannel&quot;</span>:<span class="hljs-number">4</span>
-    }
-  ]
-}
-</code></pre>
-<p><em>response:</em></p>
-<pre><code class="lang-json">[
-    {
-        <span class="hljs-string">&quot;paymentSystem&quot;</span>: <span class="hljs-number">2</span>, <span class="hljs-comment">//identificador da forma de pagamento</span>
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Visa 3 vezes sem juros&quot;</span>, <span class="hljs-comment">//nome do parcelamento</span>
-        <span class="hljs-string">&quot;groupName&quot;</span>: <span class="hljs-string">&quot;creditCard&quot;</span>,
-        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">81200</span>, <span class="hljs-comment">//valor total do parcelamento</span>
-        <span class="hljs-string">&quot;installments&quot;</span>: [
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">3</span>, <span class="hljs-comment">//numero de parcelas</span>
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">27066</span>, <span class="hljs-comment">//valor da parcela</span>
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">//taxa de juros</span>
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span> <span class="hljs-comment">//tem juros?</span>
-            },
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">2</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">40600</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            },
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">1</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">81200</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            }
-        ]
-    },
-    {
-        <span class="hljs-string">&quot;paymentSystem&quot;</span>: <span class="hljs-number">4</span>,
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Mastercard 3 vezes sem juros&quot;</span>,
-        <span class="hljs-string">&quot;groupName&quot;</span>: <span class="hljs-string">&quot;creditCard&quot;</span>,
-        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">81200</span>,
-        <span class="hljs-string">&quot;installments&quot;</span>: [
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">3</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">27066</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            },
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">2</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">40600</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            },
-            {
-                <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">1</span>,
-                <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">81200</span>,
-                <span class="hljs-string">&quot;interestRate&quot;</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-string">&quot;hasInterestRate&quot;</span>: <span class="hljs-literal">false</span>
-            }
-        ]
-    }
-]
-</code></pre>
+<p>Aceese o anexo para ver o exemplo:</p>
+<p><a href="http://resources.vtex.com/pt-br/pci-gateway/configuration/v1/installments.html#" target="_blank">Anexo Consultar Parcelamento</a></p>
 <h3 id="enviar-pedido-enviar-pagamento-e-autorizar-despacho"><a name="enviar-pedido-enviar-pagamento-e-autorizar-despacho" class="plugin-anchor" href="#enviar-pedido-enviar-pagamento-e-autorizar-despacho"><span class="fa fa-link"></span></a>Enviar Pedido, Enviar Pagamento e Autorizar Despacho</h3>
 <p>Este t&#xF3;pico tem por objetivo auxiliar um Marketplace n&#xE3;o VTEX enviar um pedido, enviar uma transa&#xE7;&#xE3;o de pagamento, e enviar autoriza&#xE7;&#xE3;o para despacho (proceder com o fulfillment do pedido).</p>
 <p>Caso se queira uma condi&#xE7;&#xE3;o comercial diferenciada para o Marketplace n&#xE3;o VTEX, na loja VTEX dever&#xE1; ser criado uma nova politica comercial, podendo assim criar promo&#xE7;&#xF5;es diferenciadas (desconto, frete, etc) somente para o afiliado desejado. Caso <strong>n&#xE3;o</strong> tenha politica comercial diferenciada, deve se usar a pol&#xED;tica comercial da loja principal (sc=1).</p>
