@@ -1,0 +1,4 @@
+# Promoções    
+
+
+ As Promoções funcionam a partir de um sistema de ​ causas ​ e ​ efeitos​ , onde a ​ causas   define se uma  promoção será aplicada ou não, e os ​ efeitos ​ serão o resultado das  promoções, como: desconto no valor do carrinho, no  frete e brindes.       Para gerenciar suas promoções o Pricing oferece mecanismos: ​ como concorrência,  acumulo, arredondamento, limite de uso e trava de  preços customizáveis.   (o que cada um faz mais ou menos ? exemplo :     Concorrência​ : O sistema compara duas promoções com o mesmo tipo de efeito e escolhe  a que oferece mais benefício para os cliente    Acumulo​ : O sistema soma as promoções     Arredondamento​ : No modo padrão o valor dos descontos é dividido proporcionalmente  entre os itens, mas podemos mudar essa configuração para um arredondamento para cima  ou para baixo.    Limite de uso​ : Toda promoção pode ser configurada com um limite de uso, esse limite  pode ser geral ou por cliente. 
