@@ -3,7 +3,7 @@
   "structure": {
     "readme": "intro.md"
   },
-  "plugins": ["anchors", "ga", "toggle-chapters"],
+  "plugins": ["anchors", "ga", "toggle-chapters", "redirect"],
   "pluginsConfig": {
     "ga": {
       "token": "UA-43760863-11"
