@@ -9,3 +9,10 @@
   bottom: 0;
   font-size: 10px;
 }
+
+.book .book-summary li[data-path^="index"],
+.book .book-summary li[data-path^="bridge/"],
+.book .book-summary li[data-path^="plugins/"],
+.book .book-summary li[data-path^="vtex.js/"] {
+	display: none !important;
+}
